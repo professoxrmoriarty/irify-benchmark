@@ -1,0 +1,1577 @@
+project: micro_service_seclab
+source: java_truth_builder_v3
+notes:
+- 以 micro_service_seclab 靶场/项目源码里的 vul/safe 或可识别场景为真值主口径。
+- IRify 内置规则来源于 sfbuildin Java 规则目录。
+- 镜像/副本源码路径不单独计数，统一折叠到 canonical file path。
+metadata:
+  summary:
+    controllers_with_cases: 3
+    total_cases: 17
+    total_vul_cases: 17
+    total_safe_cases: 0
+  rule_count: 154
+  rules_root: /home/zpy/goproject/IRify_SAST/yaklang/common/syntaxflow/sfbuildin/buildin
+  source_root: /home/zpy/goproject/IRify_SAST/.ai/task-runs/benchmark-framework/projects/04-micro_service_seclab/tmp/source/micro_service_seclab-main
+  readme_path: /home/zpy/goproject/IRify_SAST/.ai/task-runs/benchmark-framework/projects/04-micro_service_seclab/tmp/source/micro_service_seclab-main/README.md
+  review_config_path: /home/zpy/goproject/IRify_SAST/irify-benchmark/annotations/projects/04-micro_service_seclab.review.yaml
+cases:
+- case_id: JSL-INDEX-ONE-ONE
+  scenario_id: javaseclab.index.one
+  family: unsupported
+  module: microserviceseclab
+  controller_name: IndexController.java
+  class_tags: ''
+  controller_path: com/l4yn3/microserviceseclab/controller/IndexController.java
+  canonical_file_path: src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java
+  class_route: /sqlinjection
+  route: /sqlinjection/one
+  method_name: one
+  title: IndexController one
+  description: ''
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 30
+  line_end: 32
+  source:
+    kind: request_input
+    line_start: 30
+    line_end: 30
+    params:
+    - name: username
+      type: String
+      annotation: RequestParam
+      line_start: 30
+      line_end: 30
+    notes: 请求输入参数：username(RequestParam)
+  sink: null
+  trace:
+  - stage: source
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java
+    line_start: 30
+    line_end: 30
+    symbol: username
+    note: 请求输入参数：username(RequestParam)
+  safe_guards: []
+  rule_type: Unsupported / Out of Scope
+  aliases: []
+  irify_support: unsupported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify: []
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: uncovered_by_rule
+    code_guard: uncovered_by_rule
+    fortify: uncovered_by_rule
+  alias_locations: []
+  source_refs:
+  - src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java:30
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: JSL-INDEX-IN-IN
+  scenario_id: javaseclab.index.in
+  family: unsupported
+  module: microserviceseclab
+  controller_name: IndexController.java
+  class_tags: ''
+  controller_path: com/l4yn3/microserviceseclab/controller/IndexController.java
+  canonical_file_path: src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java
+  class_route: /sqlinjection
+  route: /sqlinjection/in
+  method_name: in
+  title: IndexController in
+  description: ''
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 36
+  line_end: 38
+  source:
+    kind: request_input
+    line_start: 36
+    line_end: 36
+    params:
+    - name: user_list
+      type: List<String>
+      annotation: RequestBody
+      line_start: 36
+      line_end: 36
+    notes: 请求输入参数：user_list(RequestBody)
+  sink: null
+  trace:
+  - stage: source
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java
+    line_start: 36
+    line_end: 36
+    symbol: user_list
+    note: 请求输入参数：user_list(RequestBody)
+  safe_guards: []
+  rule_type: Unsupported / Out of Scope
+  aliases: []
+  irify_support: unsupported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify: []
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: uncovered_by_rule
+    code_guard: uncovered_by_rule
+    fortify: uncovered_by_rule
+  alias_locations: []
+  source_refs:
+  - src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java:36
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: JSL-INDEX-LONGIN-LONGIN
+  scenario_id: javaseclab.index.longin
+  family: unsupported
+  module: microserviceseclab
+  controller_name: IndexController.java
+  class_tags: ''
+  controller_path: com/l4yn3/microserviceseclab/controller/IndexController.java
+  canonical_file_path: src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java
+  class_route: /sqlinjection
+  route: /sqlinjection/longin
+  method_name: longin
+  title: IndexController longin
+  description: ''
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 42
+  line_end: 44
+  source:
+    kind: request_input
+    line_start: 42
+    line_end: 42
+    params:
+    - name: user_list
+      type: List<Long>
+      annotation: RequestBody
+      line_start: 42
+      line_end: 42
+    notes: 请求输入参数：user_list(RequestBody)
+  sink: null
+  trace:
+  - stage: source
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java
+    line_start: 42
+    line_end: 42
+    symbol: user_list
+    note: 请求输入参数：user_list(RequestBody)
+  safe_guards: []
+  rule_type: Unsupported / Out of Scope
+  aliases: []
+  irify_support: unsupported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify: []
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: uncovered_by_rule
+    code_guard: uncovered_by_rule
+    fortify: uncovered_by_rule
+  alias_locations: []
+  source_refs:
+  - src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java:42
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: JSL-INDEX-OBJECTPARAM-OBJECT
+  scenario_id: javaseclab.index.objectparam
+  family: unsupported
+  module: microserviceseclab
+  controller_name: IndexController.java
+  class_tags: ''
+  controller_path: com/l4yn3/microserviceseclab/controller/IndexController.java
+  canonical_file_path: src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java
+  class_route: /sqlinjection
+  route: /sqlinjection/object
+  method_name: objectParam
+  title: IndexController objectParam
+  description: ''
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 47
+  line_end: 49
+  source:
+    kind: request_input
+    line_start: 47
+    line_end: 47
+    params:
+    - name: user
+      type: Student
+      annotation: RequestBody
+      line_start: 47
+      line_end: 47
+    notes: 请求输入参数：user(RequestBody)
+  sink: null
+  trace:
+  - stage: source
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java
+    line_start: 47
+    line_end: 47
+    symbol: user
+    note: 请求输入参数：user(RequestBody)
+  safe_guards: []
+  rule_type: Unsupported / Out of Scope
+  aliases: []
+  irify_support: unsupported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify: []
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: uncovered_by_rule
+    code_guard: uncovered_by_rule
+    fortify: uncovered_by_rule
+  alias_locations: []
+  source_refs:
+  - src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java:47
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: JSL-INDEX-OBJECTINTPARAM-OBJECTINT
+  scenario_id: javaseclab.index.objectintparam
+  family: unsupported
+  module: microserviceseclab
+  controller_name: IndexController.java
+  class_tags: ''
+  controller_path: com/l4yn3/microserviceseclab/controller/IndexController.java
+  canonical_file_path: src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java
+  class_route: /sqlinjection
+  route: /sqlinjection/objectint
+  method_name: objectIntParam
+  title: IndexController objectIntParam
+  description: ''
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 53
+  line_end: 55
+  source:
+    kind: request_input
+    line_start: 53
+    line_end: 53
+    params:
+    - name: user
+      type: Student
+      annotation: RequestBody
+      line_start: 53
+      line_end: 53
+    notes: 请求输入参数：user(RequestBody)
+  sink: null
+  trace:
+  - stage: source
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java
+    line_start: 53
+    line_end: 53
+    symbol: user
+    note: 请求输入参数：user(RequestBody)
+  safe_guards: []
+  rule_type: Unsupported / Out of Scope
+  aliases: []
+  irify_support: unsupported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify: []
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: uncovered_by_rule
+    code_guard: uncovered_by_rule
+    fortify: uncovered_by_rule
+  alias_locations: []
+  source_refs:
+  - src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java:53
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: JSL-INDEX-OBJECTLOMBOK-OBJECT_LOMBOK
+  scenario_id: javaseclab.index.objectlombok
+  family: unsupported
+  module: microserviceseclab
+  controller_name: IndexController.java
+  class_tags: ''
+  controller_path: com/l4yn3/microserviceseclab/controller/IndexController.java
+  canonical_file_path: src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java
+  class_route: /sqlinjection
+  route: /sqlinjection/object_lombok
+  method_name: objectLomBok
+  title: IndexController objectLomBok
+  description: ''
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 59
+  line_end: 61
+  source:
+    kind: request_input
+    line_start: 59
+    line_end: 59
+    params:
+    - name: user
+      type: Teacher
+      annotation: RequestBody
+      line_start: 59
+      line_end: 59
+    notes: 请求输入参数：user(RequestBody)
+  sink: null
+  trace:
+  - stage: source
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java
+    line_start: 59
+    line_end: 59
+    symbol: user
+    note: 请求输入参数：user(RequestBody)
+  safe_guards: []
+  rule_type: Unsupported / Out of Scope
+  aliases: []
+  irify_support: unsupported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify: []
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: uncovered_by_rule
+    code_guard: uncovered_by_rule
+    fortify: uncovered_by_rule
+  alias_locations: []
+  source_refs:
+  - src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java:59
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: JSL-INDEX-OPTIONALLIKE-OPTINAL_LIKE
+  scenario_id: javaseclab.index.optionallike
+  family: unsupported
+  module: microserviceseclab
+  controller_name: IndexController.java
+  class_tags: ''
+  controller_path: com/l4yn3/microserviceseclab/controller/IndexController.java
+  canonical_file_path: src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java
+  class_route: /sqlinjection
+  route: /sqlinjection/optinal_like
+  method_name: optionalLike
+  title: IndexController optionalLike
+  description: ''
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 64
+  line_end: 66
+  source:
+    kind: request_input
+    line_start: 64
+    line_end: 64
+    params:
+    - name: optinal_username
+      type: Optional<String>
+      annotation: RequestParam
+      line_start: 64
+      line_end: 64
+    notes: 请求输入参数：optinal_username(RequestParam)
+  sink: null
+  trace:
+  - stage: source
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java
+    line_start: 64
+    line_end: 64
+    symbol: optinal_username
+    note: 请求输入参数：optinal_username(RequestParam)
+  safe_guards: []
+  rule_type: Unsupported / Out of Scope
+  aliases: []
+  irify_support: unsupported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify: []
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: uncovered_by_rule
+    code_guard: uncovered_by_rule
+    fortify: uncovered_by_rule
+  alias_locations: []
+  source_refs:
+  - src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java:64
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: JSL-INDEX-MYBATIS-MYBATIS
+  scenario_id: javaseclab.index.mybatis
+  family: unsupported
+  module: microserviceseclab
+  controller_name: IndexController.java
+  class_tags: ''
+  controller_path: com/l4yn3/microserviceseclab/controller/IndexController.java
+  canonical_file_path: src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java
+  class_route: /sqlinjection
+  route: /sqlinjection/myBatis
+  method_name: myBatis
+  title: IndexController myBatis
+  description: ''
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 69
+  line_end: 71
+  source:
+    kind: request_input
+    line_start: 69
+    line_end: 69
+    params:
+    - name: name
+      type: String
+      annotation: RequestParam
+      line_start: 69
+      line_end: 69
+    notes: 请求输入参数：name(RequestParam)
+  sink: null
+  trace:
+  - stage: source
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java
+    line_start: 69
+    line_end: 69
+    symbol: name
+    note: 请求输入参数：name(RequestParam)
+  safe_guards: []
+  rule_type: Unsupported / Out of Scope
+  aliases: []
+  irify_support: unsupported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify: []
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: uncovered_by_rule
+    code_guard: uncovered_by_rule
+    fortify: uncovered_by_rule
+  alias_locations: []
+  source_refs:
+  - src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java:69
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: JSL-INDEX-MYBATISWITHANNOTATIONS-MYBATISWITHANNOTATIONS
+  scenario_id: javaseclab.index.mybatiswithannotations
+  family: unsupported
+  module: microserviceseclab
+  controller_name: IndexController.java
+  class_tags: ''
+  controller_path: com/l4yn3/microserviceseclab/controller/IndexController.java
+  canonical_file_path: src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java
+  class_route: /sqlinjection
+  route: /sqlinjection/myBatisWithAnnotations
+  method_name: myBatisWithAnnotations
+  title: IndexController myBatisWithAnnotations
+  description: ''
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 74
+  line_end: 76
+  source:
+    kind: request_input
+    line_start: 74
+    line_end: 74
+    params:
+    - name: name
+      type: String
+      annotation: RequestParam
+      line_start: 74
+      line_end: 74
+    notes: 请求输入参数：name(RequestParam)
+  sink: null
+  trace:
+  - stage: source
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java
+    line_start: 74
+    line_end: 74
+    symbol: name
+    note: 请求输入参数：name(RequestParam)
+  safe_guards: []
+  rule_type: Unsupported / Out of Scope
+  aliases: []
+  irify_support: unsupported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify: []
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: uncovered_by_rule
+    code_guard: uncovered_by_rule
+    fortify: uncovered_by_rule
+  alias_locations: []
+  source_refs:
+  - src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java:74
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: JSL-INDEX-JPAONE-JPAONE
+  scenario_id: javaseclab.index.jpaone
+  family: unsupported
+  module: microserviceseclab
+  controller_name: IndexController.java
+  class_tags: ''
+  controller_path: com/l4yn3/microserviceseclab/controller/IndexController.java
+  canonical_file_path: src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java
+  class_route: /sqlinjection
+  route: /sqlinjection/jpaone
+  method_name: jpaOne
+  title: IndexController jpaOne
+  description: ''
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 80
+  line_end: 82
+  source:
+    kind: request_input
+    line_start: 80
+    line_end: 80
+    params:
+    - name: name
+      type: String
+      annotation: RequestParam
+      line_start: 80
+      line_end: 80
+    notes: 请求输入参数：name(RequestParam)
+  sink: null
+  trace:
+  - stage: source
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java
+    line_start: 80
+    line_end: 80
+    symbol: name
+    note: 请求输入参数：name(RequestParam)
+  safe_guards: []
+  rule_type: Unsupported / Out of Scope
+  aliases: []
+  irify_support: unsupported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify: []
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: uncovered_by_rule
+    code_guard: uncovered_by_rule
+    fortify: uncovered_by_rule
+  alias_locations: []
+  source_refs:
+  - src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java:80
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: JSL-INDEX-JPAWITHANNOTATIONS-JPAWITHANNOTATIONS
+  scenario_id: javaseclab.index.jpawithannotations
+  family: unsupported
+  module: microserviceseclab
+  controller_name: IndexController.java
+  class_tags: ''
+  controller_path: com/l4yn3/microserviceseclab/controller/IndexController.java
+  canonical_file_path: src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java
+  class_route: /sqlinjection
+  route: /sqlinjection/jpaWithAnnotations
+  method_name: jpawithAnnotations
+  title: IndexController jpawithAnnotations
+  description: ''
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 85
+  line_end: 87
+  source:
+    kind: request_input
+    line_start: 85
+    line_end: 85
+    params:
+    - name: name
+      type: String
+      annotation: RequestParam
+      line_start: 85
+      line_end: 85
+    notes: 请求输入参数：name(RequestParam)
+  sink: null
+  trace:
+  - stage: source
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java
+    line_start: 85
+    line_end: 85
+    symbol: name
+    note: 请求输入参数：name(RequestParam)
+  safe_guards: []
+  rule_type: Unsupported / Out of Scope
+  aliases: []
+  irify_support: unsupported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify: []
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: uncovered_by_rule
+    code_guard: uncovered_by_rule
+    fortify: uncovered_by_rule
+  alias_locations: []
+  source_refs:
+  - src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java:85
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: JSL-SSRF-ONE-ONE
+  scenario_id: javaseclab.ssrf.one
+  family: ssrf
+  module: microserviceseclab
+  controller_name: SSRFController.java
+  class_tags: ''
+  controller_path: com/l4yn3/microserviceseclab/controller/SSRFController.java
+  canonical_file_path: src/main/java/com/l4yn3/microserviceseclab/controller/SSRFController.java
+  class_route: /ssrf
+  route: /ssrf/one
+  method_name: One
+  title: SSRFController One
+  description: ''
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 24
+  line_end: 34
+  source:
+    kind: request_input
+    line_start: 24
+    line_end: 24
+    params:
+    - name: imageUrl
+      type: String
+      annotation: RequestParam
+      line_start: 24
+      line_end: 24
+    notes: 请求输入参数：imageUrl(RequestParam)
+  sink:
+    kind: observed_finding
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/SSRFController.java
+    line_start: 24
+    line_end: 24
+    api: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+    source_tool: irify
+    evidence: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 | 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+      | 发现Java SpringBoot SSRF漏洞,并且没有任何数据流过滤。
+  trace:
+  - stage: source
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/SSRFController.java
+    line_start: 24
+    line_end: 24
+    symbol: imageUrl
+    note: 请求输入参数：imageUrl(RequestParam)
+  - stage: sink
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/SSRFController.java
+    line_start: 24
+    line_end: 24
+    symbol: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+    note: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 | 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 |
+      发现Java SpringBoot SSRF漏洞,并且没有任何数据流过滤。
+  safe_guards: []
+  rule_type: SSRF
+  aliases:
+  - SSRF
+  - 服务端请求伪造
+  - 检测Java SSRF漏洞
+  - 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+  - 审计Java主机名前缀过滤器
+  - 审计Java Apache HttpClient请求执行点
+  - 审计Java OkHttpClient使用及请求执行
+  - Detect Java SpringBoot SSRF Vulnerability
+  - Audit Java Hostname Prefix Filter
+  - Audit Java Apache HttpClient Execute
+  - Audit Java OkHttpClient Uses and Executing Request
+  irify_support: supported
+  irify_rule_candidates:
+  - rule_file: java/cwe-918-ssrf/java-springboot-ssrf.sf
+    rule_id: 0539f4d4-14b9-4b9d-8a7b-8c72decdf400
+    title_zh: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+    title: Detect Java SpringBoot SSRF Vulnerability
+    risk: 服务端请求伪造（SSRF）
+  - rule_file: java/lib/filter/ssrf/java-filter-hostname-prefix.sf
+    rule_id: a1303bce-27c7-490b-a7c6-23a53f367f15
+    title_zh: 审计Java主机名前缀过滤器
+    title: Audit Java Hostname Prefix Filter
+    risk: 信息
+  - rule_file: java/lib/http/java-apache-http-request-execute.sf
+    rule_id: 586fced3-7b78-42b4-a5e2-4b79298b7875
+    title_zh: 审计Java Apache HttpClient请求执行点
+    title: Audit Java Apache HttpClient Execute
+    risk: 服务端请求伪造（SSRF）
+  - rule_file: java/lib/http/java-okhttpclient-request-execute.sf
+    rule_id: d884f15e-5dc5-4fe2-8d62-49e0b7874a13
+    title_zh: 审计Java OkHttpClient使用及请求执行
+    title: Audit Java OkHttpClient Uses and Executing Request
+    risk: 服务端请求伪造（SSRF）
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+      severity: medium
+      line_start: 24
+      evidence: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 | 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+        | 发现Java SpringBoot SSRF漏洞,并且没有任何数据流过滤。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: hit_downgraded
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - src/main/java/com/l4yn3/microserviceseclab/controller/SSRFController.java:24
+  notes: []
+- case_id: JSL-SSRF-TWO-TWO
+  scenario_id: javaseclab.ssrf.two
+  family: ssrf
+  module: microserviceseclab
+  controller_name: SSRFController.java
+  class_tags: ''
+  controller_path: com/l4yn3/microserviceseclab/controller/SSRFController.java
+  canonical_file_path: src/main/java/com/l4yn3/microserviceseclab/controller/SSRFController.java
+  class_route: /ssrf
+  route: /ssrf/two
+  method_name: Two
+  title: SSRFController Two
+  description: ''
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 37
+  line_end: 46
+  source:
+    kind: request_input
+    line_start: 37
+    line_end: 37
+    params:
+    - name: imageUrl
+      type: String
+      annotation: RequestParam
+      line_start: 37
+      line_end: 37
+    notes: 请求输入参数：imageUrl(RequestParam)
+  sink:
+    kind: observed_finding
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/SSRFController.java
+    line_start: 37
+    line_end: 37
+    api: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+    source_tool: irify
+    evidence: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 | 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+      | 发现Java SpringBoot SSRF漏洞,并且没有任何数据流过滤。
+  trace:
+  - stage: source
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/SSRFController.java
+    line_start: 37
+    line_end: 37
+    symbol: imageUrl
+    note: 请求输入参数：imageUrl(RequestParam)
+  - stage: sink
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/SSRFController.java
+    line_start: 37
+    line_end: 37
+    symbol: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+    note: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 | 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 |
+      发现Java SpringBoot SSRF漏洞,并且没有任何数据流过滤。
+  safe_guards: []
+  rule_type: SSRF
+  aliases:
+  - SSRF
+  - 服务端请求伪造
+  - 检测Java SSRF漏洞
+  - 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+  - 审计Java主机名前缀过滤器
+  - 审计Java Apache HttpClient请求执行点
+  - 审计Java OkHttpClient使用及请求执行
+  - Detect Java SpringBoot SSRF Vulnerability
+  - Audit Java Hostname Prefix Filter
+  - Audit Java Apache HttpClient Execute
+  - Audit Java OkHttpClient Uses and Executing Request
+  irify_support: supported
+  irify_rule_candidates:
+  - rule_file: java/cwe-918-ssrf/java-springboot-ssrf.sf
+    rule_id: 0539f4d4-14b9-4b9d-8a7b-8c72decdf400
+    title_zh: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+    title: Detect Java SpringBoot SSRF Vulnerability
+    risk: 服务端请求伪造（SSRF）
+  - rule_file: java/lib/filter/ssrf/java-filter-hostname-prefix.sf
+    rule_id: a1303bce-27c7-490b-a7c6-23a53f367f15
+    title_zh: 审计Java主机名前缀过滤器
+    title: Audit Java Hostname Prefix Filter
+    risk: 信息
+  - rule_file: java/lib/http/java-apache-http-request-execute.sf
+    rule_id: 586fced3-7b78-42b4-a5e2-4b79298b7875
+    title_zh: 审计Java Apache HttpClient请求执行点
+    title: Audit Java Apache HttpClient Execute
+    risk: 服务端请求伪造（SSRF）
+  - rule_file: java/lib/http/java-okhttpclient-request-execute.sf
+    rule_id: d884f15e-5dc5-4fe2-8d62-49e0b7874a13
+    title_zh: 审计Java OkHttpClient使用及请求执行
+    title: Audit Java OkHttpClient Uses and Executing Request
+    risk: 服务端请求伪造（SSRF）
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+      severity: medium
+      line_start: 37
+      evidence: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 | 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+        | 发现Java SpringBoot SSRF漏洞,并且没有任何数据流过滤。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: hit_downgraded
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - src/main/java/com/l4yn3/microserviceseclab/controller/SSRFController.java:37
+  notes: []
+- case_id: JSL-SSRF-THREE-THREE
+  scenario_id: javaseclab.ssrf.three
+  family: ssrf
+  module: microserviceseclab
+  controller_name: SSRFController.java
+  class_tags: ''
+  controller_path: com/l4yn3/microserviceseclab/controller/SSRFController.java
+  canonical_file_path: src/main/java/com/l4yn3/microserviceseclab/controller/SSRFController.java
+  class_route: /ssrf
+  route: /ssrf/three
+  method_name: Three
+  title: SSRFController Three
+  description: ''
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 49
+  line_end: 61
+  source:
+    kind: request_input
+    line_start: 49
+    line_end: 49
+    params:
+    - name: imageUrl
+      type: String
+      annotation: RequestParam
+      line_start: 49
+      line_end: 49
+    notes: 请求输入参数：imageUrl(RequestParam)
+  sink:
+    kind: observed_finding
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/SSRFController.java
+    line_start: 49
+    line_end: 49
+    api: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+    source_tool: irify
+    evidence: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 | 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+      | 发现Java SpringBoot SSRF漏洞,并且没有任何数据流过滤。
+  trace:
+  - stage: source
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/SSRFController.java
+    line_start: 49
+    line_end: 49
+    symbol: imageUrl
+    note: 请求输入参数：imageUrl(RequestParam)
+  - stage: sink
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/SSRFController.java
+    line_start: 49
+    line_end: 49
+    symbol: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+    note: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 | 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 |
+      发现Java SpringBoot SSRF漏洞,并且没有任何数据流过滤。
+  safe_guards: []
+  rule_type: SSRF
+  aliases:
+  - SSRF
+  - 服务端请求伪造
+  - 检测Java SSRF漏洞
+  - 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+  - 审计Java主机名前缀过滤器
+  - 审计Java Apache HttpClient请求执行点
+  - 审计Java OkHttpClient使用及请求执行
+  - Detect Java SpringBoot SSRF Vulnerability
+  - Audit Java Hostname Prefix Filter
+  - Audit Java Apache HttpClient Execute
+  - Audit Java OkHttpClient Uses and Executing Request
+  irify_support: supported
+  irify_rule_candidates:
+  - rule_file: java/cwe-918-ssrf/java-springboot-ssrf.sf
+    rule_id: 0539f4d4-14b9-4b9d-8a7b-8c72decdf400
+    title_zh: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+    title: Detect Java SpringBoot SSRF Vulnerability
+    risk: 服务端请求伪造（SSRF）
+  - rule_file: java/lib/filter/ssrf/java-filter-hostname-prefix.sf
+    rule_id: a1303bce-27c7-490b-a7c6-23a53f367f15
+    title_zh: 审计Java主机名前缀过滤器
+    title: Audit Java Hostname Prefix Filter
+    risk: 信息
+  - rule_file: java/lib/http/java-apache-http-request-execute.sf
+    rule_id: 586fced3-7b78-42b4-a5e2-4b79298b7875
+    title_zh: 审计Java Apache HttpClient请求执行点
+    title: Audit Java Apache HttpClient Execute
+    risk: 服务端请求伪造（SSRF）
+  - rule_file: java/lib/http/java-okhttpclient-request-execute.sf
+    rule_id: d884f15e-5dc5-4fe2-8d62-49e0b7874a13
+    title_zh: 审计Java OkHttpClient使用及请求执行
+    title: Audit Java OkHttpClient Uses and Executing Request
+    risk: 服务端请求伪造（SSRF）
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+      severity: medium
+      line_start: 49
+      evidence: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 | 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+        | 发现Java SpringBoot SSRF漏洞,并且没有任何数据流过滤。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: hit_downgraded
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - src/main/java/com/l4yn3/microserviceseclab/controller/SSRFController.java:49
+  notes: []
+- case_id: JSL-SSRF-FOUR-FOUR
+  scenario_id: javaseclab.ssrf.four
+  family: ssrf
+  module: microserviceseclab
+  controller_name: SSRFController.java
+  class_tags: ''
+  controller_path: com/l4yn3/microserviceseclab/controller/SSRFController.java
+  canonical_file_path: src/main/java/com/l4yn3/microserviceseclab/controller/SSRFController.java
+  class_route: /ssrf
+  route: /ssrf/four
+  method_name: Four
+  title: SSRFController Four
+  description: ''
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 64
+  line_end: 74
+  source:
+    kind: request_input
+    line_start: 64
+    line_end: 64
+    params:
+    - name: imageUrl
+      type: String
+      annotation: RequestParam
+      line_start: 64
+      line_end: 64
+    notes: 请求输入参数：imageUrl(RequestParam)
+  sink:
+    kind: observed_finding
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/SSRFController.java
+    line_start: 64
+    line_end: 64
+    api: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+    source_tool: irify
+    evidence: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 | 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+      | 发现Java SpringBoot SSRF漏洞,并且没有任何数据流过滤。
+  trace:
+  - stage: source
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/SSRFController.java
+    line_start: 64
+    line_end: 64
+    symbol: imageUrl
+    note: 请求输入参数：imageUrl(RequestParam)
+  - stage: sink
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/SSRFController.java
+    line_start: 64
+    line_end: 64
+    symbol: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+    note: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 | 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 |
+      发现Java SpringBoot SSRF漏洞,并且没有任何数据流过滤。
+  safe_guards: []
+  rule_type: SSRF
+  aliases:
+  - SSRF
+  - 服务端请求伪造
+  - 检测Java SSRF漏洞
+  - 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+  - 审计Java主机名前缀过滤器
+  - 审计Java Apache HttpClient请求执行点
+  - 审计Java OkHttpClient使用及请求执行
+  - Detect Java SpringBoot SSRF Vulnerability
+  - Audit Java Hostname Prefix Filter
+  - Audit Java Apache HttpClient Execute
+  - Audit Java OkHttpClient Uses and Executing Request
+  irify_support: supported
+  irify_rule_candidates:
+  - rule_file: java/cwe-918-ssrf/java-springboot-ssrf.sf
+    rule_id: 0539f4d4-14b9-4b9d-8a7b-8c72decdf400
+    title_zh: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+    title: Detect Java SpringBoot SSRF Vulnerability
+    risk: 服务端请求伪造（SSRF）
+  - rule_file: java/lib/filter/ssrf/java-filter-hostname-prefix.sf
+    rule_id: a1303bce-27c7-490b-a7c6-23a53f367f15
+    title_zh: 审计Java主机名前缀过滤器
+    title: Audit Java Hostname Prefix Filter
+    risk: 信息
+  - rule_file: java/lib/http/java-apache-http-request-execute.sf
+    rule_id: 586fced3-7b78-42b4-a5e2-4b79298b7875
+    title_zh: 审计Java Apache HttpClient请求执行点
+    title: Audit Java Apache HttpClient Execute
+    risk: 服务端请求伪造（SSRF）
+  - rule_file: java/lib/http/java-okhttpclient-request-execute.sf
+    rule_id: d884f15e-5dc5-4fe2-8d62-49e0b7874a13
+    title_zh: 审计Java OkHttpClient使用及请求执行
+    title: Audit Java OkHttpClient Uses and Executing Request
+    risk: 服务端请求伪造（SSRF）
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+      severity: medium
+      line_start: 64
+      evidence: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 | 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+        | 发现Java SpringBoot SSRF漏洞,并且没有任何数据流过滤。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: hit_downgraded
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - src/main/java/com/l4yn3/microserviceseclab/controller/SSRFController.java:64
+  notes: []
+- case_id: JSL-SSRF-FIVE-FIVE
+  scenario_id: javaseclab.ssrf.five
+  family: ssrf
+  module: microserviceseclab
+  controller_name: SSRFController.java
+  class_tags: ''
+  controller_path: com/l4yn3/microserviceseclab/controller/SSRFController.java
+  canonical_file_path: src/main/java/com/l4yn3/microserviceseclab/controller/SSRFController.java
+  class_route: /ssrf
+  route: /ssrf/five
+  method_name: Five
+  title: SSRFController Five
+  description: ''
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 77
+  line_end: 86
+  source:
+    kind: request_input
+    line_start: 77
+    line_end: 77
+    params:
+    - name: imageUrl
+      type: String
+      annotation: RequestParam
+      line_start: 77
+      line_end: 77
+    notes: 请求输入参数：imageUrl(RequestParam)
+  sink:
+    kind: observed_finding
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/SSRFController.java
+    line_start: 77
+    line_end: 77
+    api: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+    source_tool: irify
+    evidence: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 | 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+      | 发现Java SpringBoot SSRF漏洞,并且没有任何数据流过滤。
+  trace:
+  - stage: source
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/SSRFController.java
+    line_start: 77
+    line_end: 77
+    symbol: imageUrl
+    note: 请求输入参数：imageUrl(RequestParam)
+  - stage: sink
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/SSRFController.java
+    line_start: 77
+    line_end: 77
+    symbol: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+    note: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 | 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 |
+      发现Java SpringBoot SSRF漏洞,并且没有任何数据流过滤。
+  safe_guards: []
+  rule_type: SSRF
+  aliases:
+  - SSRF
+  - 服务端请求伪造
+  - 检测Java SSRF漏洞
+  - 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+  - 审计Java主机名前缀过滤器
+  - 审计Java Apache HttpClient请求执行点
+  - 审计Java OkHttpClient使用及请求执行
+  - Detect Java SpringBoot SSRF Vulnerability
+  - Audit Java Hostname Prefix Filter
+  - Audit Java Apache HttpClient Execute
+  - Audit Java OkHttpClient Uses and Executing Request
+  irify_support: supported
+  irify_rule_candidates:
+  - rule_file: java/cwe-918-ssrf/java-springboot-ssrf.sf
+    rule_id: 0539f4d4-14b9-4b9d-8a7b-8c72decdf400
+    title_zh: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+    title: Detect Java SpringBoot SSRF Vulnerability
+    risk: 服务端请求伪造（SSRF）
+  - rule_file: java/lib/filter/ssrf/java-filter-hostname-prefix.sf
+    rule_id: a1303bce-27c7-490b-a7c6-23a53f367f15
+    title_zh: 审计Java主机名前缀过滤器
+    title: Audit Java Hostname Prefix Filter
+    risk: 信息
+  - rule_file: java/lib/http/java-apache-http-request-execute.sf
+    rule_id: 586fced3-7b78-42b4-a5e2-4b79298b7875
+    title_zh: 审计Java Apache HttpClient请求执行点
+    title: Audit Java Apache HttpClient Execute
+    risk: 服务端请求伪造（SSRF）
+  - rule_file: java/lib/http/java-okhttpclient-request-execute.sf
+    rule_id: d884f15e-5dc5-4fe2-8d62-49e0b7874a13
+    title_zh: 审计Java OkHttpClient使用及请求执行
+    title: Audit Java OkHttpClient Uses and Executing Request
+    risk: 服务端请求伪造（SSRF）
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+      severity: medium
+      line_start: 77
+      evidence: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 | 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+        | 发现Java SpringBoot SSRF漏洞,并且没有任何数据流过滤。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: hit_downgraded
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - src/main/java/com/l4yn3/microserviceseclab/controller/SSRFController.java:77
+  notes: []
+- case_id: JSL-XXE-ONE-ONE
+  scenario_id: javaseclab.xxe.one
+  family: xxe
+  module: microserviceseclab
+  controller_name: XXEController.java
+  class_tags: ''
+  controller_path: com/l4yn3/microserviceseclab/controller/XXEController.java
+  canonical_file_path: src/main/java/com/l4yn3/microserviceseclab/controller/XXEController.java
+  class_route: ''
+  route: /one
+  method_name: one
+  title: XXEController one
+  description: ''
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 16
+  line_end: 22
+  source:
+    kind: request_input
+    line_start: 16
+    line_end: 16
+    params:
+    - name: xmlStr
+      type: String
+      annotation: RequestParam
+      line_start: 16
+      line_end: 16
+    notes: 请求输入参数：xmlStr(RequestParam)
+  sink:
+    kind: observed_finding
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/XXEController.java
+    line_start: 19
+    line_end: 19
+    api: 代码注入：XML外部实体注入
+    source_tool: code_guard
+    evidence: 1 micro_service_seclab-main/src/main/java/com/l4yn3/microserviceseclab/controller/XXEController.java;16行来自于http请求的数据从one()方法第1个参数进入2
+      micro_service_seclab-main/src/main/java/com/l4yn3/microserviceseclab/controller/XXEController.java;18行不可信的数据从getBytes()方法this参数进入,然后从返回值返回3
+      micro_service_seclab-main/s
+  trace:
+  - stage: source
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/XXEController.java
+    line_start: 16
+    line_end: 16
+    symbol: xmlStr
+    note: 请求输入参数：xmlStr(RequestParam)
+  - stage: sink
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/XXEController.java
+    line_start: 19
+    line_end: 19
+    symbol: 代码注入：XML外部实体注入
+    note: 1 micro_service_seclab-main/src/main/java/com/l4yn3/microserviceseclab/controller/XXEController.java;16行来自于http请求的数据从one()方法第1个参数进入2
+      micro_service_seclab-main/src/main/java/com/l4yn3/microserviceseclab/controller/XXEController.java;18行不可信的数据从getBytes()方法this参数进入,然后从返回值返回3
+      micro_service_seclab-main/s
+  safe_guards: []
+  rule_type: XXE
+  aliases:
+  - XXE
+  - XML External Entity Injection
+  - XML Entity Expansion Injection
+  - XML外部实体注入
+  - 'SCA: 检测Java xlsx-streamer依赖漏洞'
+  - 检测 Java SAXTransformerFactory 不安全使用 (XXE)
+  - 检测 Java SAXBuilder 非安全使用
+  - 检测 Java SAXParserFactory 不安全使用
+  - 检测 Java SAXReader 未安全使用
+  - 检测 Java TransformerFactory 不安全使用
+  - 检测 Java STAX XMLInputFactory 不安全使用
+  - 检测 Java XMLReaderFactory 不安全使用
+  - 检测 Java XStream 不安全反序列化
+  - 'SCA: 检测Java rome XXE漏洞'
+  - 'SCA: Check Java xlsx-streamer Vulnerability'
+  - Check Java SAXTransformerFactory Unsafe Use (XXE)
+  - Check Java SAXBuilder Unsafe Use
+  - Detect Java SAXParserFactory Unsafe Use
+  - Check Java SAXReader Unsafe Use
+  - Detect Java TransformerFactory Unsafe Use
+  - Check Java STAX XMLInputFactory Unsafe Use
+  - Check Java XMLReaderFactory Unsafe Use
+  - Check Java XStream Unsafe Deserialization
+  - 'SCA: Check Java rome XXE Vulnerability'
+  irify_support: supported
+  irify_rule_candidates:
+  - rule_file: java/components/xlsm/java-sca-xlsx-streamer-xxe.sf
+    rule_id: cd3632dd-a25c-49c4-bf53-7f53fc7610ae
+    title_zh: 'SCA: 检测Java xlsx-streamer依赖漏洞'
+    title: 'SCA: Check Java xlsx-streamer Vulnerability'
+    risk: XML外部实体（XXE）
+  - rule_file: java/cwe-611-xxe/java-sax-transformer-factory-unsafe.sf
+    rule_id: e6095554-52ef-4935-abc4-f9b9774d0671
+    title_zh: 检测 Java SAXTransformerFactory 不安全使用 (XXE)
+    title: Check Java SAXTransformerFactory Unsafe Use (XXE)
+    risk: XML外部实体（XXE）
+  - rule_file: java/cwe-611-xxe/java-saxbuilder-unsafe.sf
+    rule_id: b97c29a5-9d04-4234-8cec-f58115c2b44b
+    title_zh: 检测 Java SAXBuilder 非安全使用
+    title: Check Java SAXBuilder Unsafe Use
+    risk: XML外部实体（XXE）
+  - rule_file: java/cwe-611-xxe/java-saxparser-factory-unsafe.sf
+    rule_id: 91546005-80bf-4320-9273-1df7155f61a7
+    title_zh: 检测 Java SAXParserFactory 不安全使用
+    title: Detect Java SAXParserFactory Unsafe Use
+    risk: XML外部实体（XXE）
+  - rule_file: java/cwe-611-xxe/java-saxreader-unsafe.sf
+    rule_id: bac3b5b7-9ff9-4534-ae1d-4ff2128c6e57
+    title_zh: 检测 Java SAXReader 未安全使用
+    title: Check Java SAXReader Unsafe Use
+    risk: XML外部实体（XXE）
+  - rule_file: java/cwe-611-xxe/java-transformer-factory-unsafe.sf
+    rule_id: b139c1f5-00ba-415d-ad4f-0f6c4df9b344
+    title_zh: 检测 Java TransformerFactory 不安全使用
+    title: Detect Java TransformerFactory Unsafe Use
+    risk: XML外部实体（XXE）
+  - rule_file: java/cwe-611-xxe/java-xml-input-factory-unsafe.sf
+    rule_id: 4b416d51-56a5-4424-a7e3-79514d453483
+    title_zh: 检测 Java STAX XMLInputFactory 不安全使用
+    title: Check Java STAX XMLInputFactory Unsafe Use
+    risk: XML外部实体（XXE）
+  - rule_file: java/cwe-611-xxe/java-xmlreader-factory-unsafe.sf
+    rule_id: 310b2358-73f4-4be5-863c-0acbcf06c66b
+    title_zh: 检测 Java XMLReaderFactory 不安全使用
+    title: Check Java XMLReaderFactory Unsafe Use
+    risk: XML外部实体（XXE）
+  - rule_file: java/cwe-611-xxe/java-xstream-unsafe.sf
+    rule_id: c4ad6405-a9bc-468a-87be-06742472b623
+    title_zh: 检测 Java XStream 不安全反序列化
+    title: Check Java XStream Unsafe Deserialization
+    risk: XML外部实体（XXE）
+  - rule_file: java/sca/java-sca-rome.sf
+    rule_id: b1dde704-ebb1-4f6e-b95c-b50670da230f
+    title_zh: 'SCA: 检测Java rome XXE漏洞'
+    title: 'SCA: Check Java rome XXE Vulnerability'
+    risk: XML外部实体（XXE）
+  scan_observed_rules:
+    irify: []
+    code_guard:
+    - rule_name: 代码注入：XML外部实体注入
+      severity: high
+      line_start: 19
+      evidence: 1 micro_service_seclab-main/src/main/java/com/l4yn3/microserviceseclab/controller/XXEController.java;16行来自于http请求的数据从one()方法第1个参数进入2
+        micro_service_seclab-main/src/main/java/com/l4yn3/microserviceseclab/controller/XXEController.java;18行不可信的数据从getBytes()方法this参数进入,然后从返回值返回3
+        micro_service_seclab-main/s
+    fortify:
+    - rule_name: XML Entity Expansion Injection
+      severity: low
+      line_start: 19
+      evidence: 'Sink: documentBuilder.parse(...) : XML document parsed allowing external
+        entity resolution | File: src/main/java/com/l4yn3/microserviceseclab/controller/XXEController.java:19'
+    - rule_name: XML External Entity Injection
+      severity: high
+      line_start: 19
+      evidence: 'Sink: documentBuilder.parse(...) : XML document parsed allowing external
+        entity resolution | File: src/main/java/com/l4yn3/microserviceseclab/controller/XXEController.java:19'
+  verification_status:
+    irify: covered_missed
+    code_guard: hit_exact
+    fortify: hit_exact
+  alias_locations: []
+  source_refs:
+  - src/main/java/com/l4yn3/microserviceseclab/controller/XXEController.java:16
+  notes:
+  - 存在规则映射但未命中，属于漏报候选。
+pending_review_additions:
+  irify:
+  - tool: irify
+    rule_name: 'SCA: 检测Java Fastjson依赖漏洞'
+    severity: critical
+    file_path: pom.xml
+    line_start: 61
+    evidence: 'SCA: 检测Java Fastjson依赖漏洞 | SCA: 检测Java Fastjson依赖漏洞 | SCA: com.alibaba.fastjson
+      < 1.2.83 RCE Hard to exploit'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A06 Vulnerable and Outdated Components
+    review_priority: high
+  - tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: src/main/resources/application.properties
+    line_start: 3
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: irify
+    rule_name: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数
+    severity: high
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java
+    line_start: 69
+    evidence: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数 | 检测 Java MyBatis/iBatis
+      XML Mapper 不安全(${...})参数 | 发现Mybatis SQL注入，并且数据流中没有过滤函数。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids:
+    - JSL-INDEX-MYBATIS-MYBATIS
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java FastJson依赖漏洞
+    severity: high
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/FastJsonController.java
+    line_start: 15
+    evidence: 检测Java FastJson依赖漏洞 | 检测Java FastJson依赖漏洞 | FastJson uses the unsafe
+      parseObject/parse method (parameter reachable)
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A06 Vulnerable and Outdated Components
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/RceController.java
+    line_start: 47
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: irify
+    rule_name: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数
+    severity: low
+    file_path: src/main/java/com/l4yn3/microserviceseclab/mapper/IStudentMapper.java
+    line_start: 16
+    evidence: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数 | 检测 Java MyBatis/iBatis
+      XML Mapper 不安全(${...})参数
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: irify
+    rule_name: 'SCA: 检测Java Spring Boot Devtools使用'
+    severity: info
+    file_path: pom.xml
+    line_start: 1
+    evidence: 'SCA: 检测Java Spring Boot Devtools使用 | 检测到Java Spring Boot Devtools的使用
+      | 检测到Java Spring Boot Devtools的使用'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A06 Vulnerable and Outdated Components
+    review_priority: high
+  code_guard:
+  - tool: code_guard
+    rule_name: 代码注入：SQL注入：MyBatis
+    severity: high
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java
+    line_start: 70
+    evidence: 1 micro_service_seclab-main/src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java;69行来自于http请求的数据从myBatis()方法第1个参数进入2
+      micro_service_seclab-main/src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java;70行不可信的数据从queryAll()方法第1个参数进入3
+      micro_service_seclab-main/src
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids:
+    - JSL-INDEX-MYBATIS-MYBATIS
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: code_guard
+    rule_name: 代码注入：命令注入
+    severity: high
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/RceController.java
+    line_start: 29
+    evidence: 1 micro_service_seclab-main/src/main/java/com/l4yn3/microserviceseclab/controller/RceController.java;24行来自于http请求的数据从One()方法第1个参数进入2
+      micro_service_seclab-main/src/main/java/com/l4yn3/microserviceseclab/controller/RceController.java;27行不可信的数据从add()方法第1个参数进入,然后从this参数返回3
+      micro_service_seclab-main/src/
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: code_guard
+    rule_name: 跨站脚本：存储型XSS
+    severity: high
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java
+    line_start: 70
+    evidence: 1 micro_service_seclab-main/src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java;70行来自于数据库的数据从queryAll()方法返回值返回2
+      micro_service_seclab-main/src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java;70行返回不可信的数据
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids:
+    - JSL-INDEX-MYBATIS-MYBATIS
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: code_guard
+    rule_name: 跨站脚本：存储型XSS
+    severity: high
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/SSRFController.java
+    line_start: 29
+    evidence: 1 micro_service_seclab-main/src/main/java/com/l4yn3/microserviceseclab/controller/SSRFController.java;29行来自于web服务的数据从getResponseMessage()方法返回值返回2
+      micro_service_seclab-main/src/main/java/com/l4yn3/microserviceseclab/controller/SSRFController.java;29行返回不可信的数据
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids:
+    - JSL-SSRF-ONE-ONE
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: code_guard
+    rule_name: 输入验证：缺少XML验证
+    severity: high
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/XXEController.java
+    line_start: 19
+    evidence: '1 micro_service_seclab-main/src/main/java/com/l4yn3/microserviceseclab/controller/XXEController.java;17行newInstance()
+      : XML factory实例化2 micro_service_seclab-main/src/main/java/com/l4yn3/microserviceseclab/controller/XXEController.java;17行documentBuilder
+      = newInstance().newDocumentBuilder()3 micro_se'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids:
+    - JSL-XXE-ONE-ONE
+    owasp_category: A05 Security Misconfiguration
+    review_priority: high
+  - tool: code_guard
+    rule_name: 密码管理：配置文件中的明文密码
+    severity: high
+    file_path: src/main/resources/application.properties
+    line_start: 3
+    evidence: 1 micro_service_seclab-main/src/main/resources/application.properties;3行spring.datasource.password
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: code_guard
+    rule_name: 密码管理：配置文件中的明文密码
+    severity: high
+    file_path: src/main/resources/mybatis-config.xml
+    line_start: 11
+    evidence: 1 micro_service_seclab-main/src/main/resources/mybatis-config.xml;11行property
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  fortify:
+  - tool: fortify
+    rule_name: 'SQL Injection: MyBatis Mapper'
+    severity: critical
+    file_path: src/main/resources/mappers/IStudentMapper.xml
+    line_start: 6
+    evidence: 'Sink: | File: src/main/resources/mappers/IStudentMapper.xml:6'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Password Management: Password in Configuration File'
+    severity: high
+    file_path: src/main/resources/application.properties
+    line_start: 3
+    evidence: 'Sink: spring.datasource.password | File: src/main/resources/application.properties:3'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Password Management: Password in Configuration File'
+    severity: high
+    file_path: src/main/resources/mybatis-config.xml
+    line_start: 11
+    evidence: 'Sink: | File: src/main/resources/mybatis-config.xml:11'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: fortify
+    rule_name: Command Injection
+    severity: low
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/RceController.java
+    line_start: 29
+    evidence: 'Sink: ProcessBuilder(0) | File: src/main/java/com/l4yn3/microserviceseclab/controller/RceController.java:29'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+pending_review_policy:
+  version: owasp_top10_high_signal_v1
+  description: 只保留 OWASP Top10 且具备新增案例价值的高信号 finding，过滤注释/调试/资源释放/泛型异常等低价值噪声、第三方静态资产，并折叠同规则同
+    scope 的重复告警。
+  tools:
+    irify:
+      raw_total: 45
+      kept_total: 7
+      excluded_total: 38
+      excluded_reasons:
+        non_owasp_top10: 13
+        low_signal_rule: 21
+        deduplicated_same_rule_scope: 4
+    code_guard:
+      raw_total: 47
+      kept_total: 7
+      excluded_total: 40
+      excluded_reasons:
+        deduplicated_same_rule_scope: 2
+        non_owasp_top10: 25
+        low_signal_rule: 11
+        comment_rule: 2
+    fortify:
+      raw_total: 37
+      kept_total: 4
+      excluded_total: 33
+      excluded_reasons:
+        non_owasp_top10: 1
+        deduplicated_same_rule_scope: 2
+        low_signal_rule: 29
+        low_urgency_misconfiguration: 1

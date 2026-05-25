@@ -1,0 +1,625 @@
+project: nginxwebui
+source: java_truth_builder_v3
+notes:
+- 以 nginxwebui 靶场/项目源码里的 vul/safe 或可识别场景为真值主口径。
+- IRify 内置规则来源于 sfbuildin Java 规则目录。
+- 镜像/副本源码路径不单独计数，统一折叠到 canonical file path。
+metadata:
+  summary:
+    controllers_with_cases: 0
+    total_cases: 0
+    total_vul_cases: 0
+    total_safe_cases: 0
+  rule_count: 154
+  rules_root: /home/zpy/goproject/IRify_SAST/yaklang/common/syntaxflow/sfbuildin/buildin
+  source_root: /home/zpy/goproject/IRify_SAST/.ai/task-runs/benchmark-framework/projects/10-nginxwebui/tmp/source/nginxWebUI-4.2.9
+  readme_path: /home/zpy/goproject/IRify_SAST/.ai/task-runs/benchmark-framework/projects/10-nginxwebui/tmp/source/nginxWebUI-4.2.9/README.md
+  review_config_path: /home/zpy/goproject/IRify_SAST/irify-benchmark/annotations/projects/10-nginxwebui.review.yaml
+cases: []
+pending_review_additions:
+  irify:
+  - tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: src/main/resources/app.yml
+    line_start: 46
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: src/main/resources/messages.properties
+    line_start: 24
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: src/main/resources/messages_en_US.properties
+    line_start: 24
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: src/main/resources/messages_zh_TW.properties
+    line_start: 24
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: high
+    file_path: src/main/java/com/cym/controller/adminPage/ConfController.java
+    line_start: 475
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中发现路径穿越漏洞，并且数据流中间没有进行任何过滤。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: high
+    file_path: src/main/java/com/cym/controller/adminPage/AdminController.java
+    line_start: 91
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码中存在命令注入漏洞，并且数据流中间没有进行任何过滤。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java反射setAccessible函数滥用漏洞
+    severity: high
+    file_path: src/main/java/com/cym/sqlhelper/reflection/ReflectionUtil.java
+    line_start: 31
+    evidence: 检测Java反射setAccessible函数滥用漏洞 | 检测Java反射setAccessible函数滥用漏洞
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A08 Software and Data Integrity Failures
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/adminPage/BakController.java
+    line_start: 34
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/adminPage/BasicController.java
+    line_start: 44
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/adminPage/CertController.java
+    line_start: 143
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/adminPage/ConfController.java
+    line_start: 358
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/adminPage/HttpController.java
+    line_start: 120
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/adminPage/LogController.java
+    line_start: 51
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/adminPage/MainController.java
+    line_start: 91
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/adminPage/RemoteController.java
+    line_start: 195
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/adminPage/ServerController.java
+    line_start: 68
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/adminPage/StreamController.java
+    line_start: 43
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/adminPage/TemplateController.java
+    line_start: 48
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/adminPage/UpstreamController.java
+    line_start: 38
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/adminPage/WwwController.java
+    line_start: 47
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/api/BasicApiController.java
+    line_start: 51
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/api/CertApiController.java
+    line_start: 69
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/api/DenyAllowApiController.java
+    line_start: 46
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/api/PasswordApiController.java
+    line_start: 46
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/api/ServerApiController.java
+    line_start: 59
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/api/UpstreamApiController.java
+    line_start: 56
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/api/WwwApiController.java
+    line_start: 53
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/adminPage/RemoteController.java
+    line_start: 567
+    evidence: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 | 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+      | 发现Java SpringBoot SSRF漏洞,并且没有任何数据流过滤。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A10 Server-Side Request Forgery
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/adminPage/AdminController.java
+    line_start: 65
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/adminPage/CertController.java
+    line_start: 81
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/adminPage/MainController.java
+    line_start: 91
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/adminPage/RemoteController.java
+    line_start: 195
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/adminPage/ServerController.java
+    line_start: 311
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/adminPage/StreamController.java
+    line_start: 43
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/adminPage/TemplateController.java
+    line_start: 48
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/adminPage/UpstreamController.java
+    line_start: 38
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/adminPage/WwwController.java
+    line_start: 47
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/api/BasicApiController.java
+    line_start: 51
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/api/CertApiController.java
+    line_start: 69
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/api/DenyAllowApiController.java
+    line_start: 46
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/api/PasswordApiController.java
+    line_start: 46
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/api/ServerApiController.java
+    line_start: 59
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/api/UpstreamApiController.java
+    line_start: 56
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/api/WwwApiController.java
+    line_start: 53
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: low
+    file_path: src/main/java/com/cym/utils/NetWorkUtil.java
+    line_start: 33
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测Java Servlet和SpringMVC中的命令注入漏洞
+      | 发现Java代码中可能存在命令注入，但并没有发现参数可控。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: low
+    file_path: src/main/java/com/cym/utils/TimeExeUtils.java
+    line_start: 38
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测Java Servlet和SpringMVC中的命令注入漏洞
+      | 发现Java代码中可能存在命令注入，但并没有发现参数可控。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Spring控制器中未调用的SSTI漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/adminPage/AdminController.java
+    line_start: 65
+    evidence: 检测Spring控制器中未调用的SSTI漏洞 | 审计Spring控制器中已过滤的SSTI防护措施 | The String or Content
+      Filter is used. It is recommended to use the filter to prevent SSTI.
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Spring控制器中未调用的SSTI漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/adminPage/MainController.java
+    line_start: 91
+    evidence: 检测Spring控制器中未调用的SSTI漏洞 | 审计Spring控制器中已过滤的SSTI防护措施 | The String or Content
+      Filter is used. It is recommended to use the filter to prevent SSTI.
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  code_guard: []
+  fortify:
+  - tool: fortify
+    rule_name: 'Password Management: Insecure Submission'
+    severity: critical
+    file_path: src/main/resources/WEB-INF/view/adminPage/admin/index.html
+    line_start: 169
+    evidence: 'Sink: | File: src/main/resources/WEB-INF/view/adminPage/admin/index.html:169'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Password Management: Insecure Submission'
+    severity: critical
+    file_path: src/main/resources/WEB-INF/view/adminPage/login/index.html
+    line_start: 27
+    evidence: 'Sink: | File: src/main/resources/WEB-INF/view/adminPage/login/index.html:27'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Password Management: Insecure Submission'
+    severity: critical
+    file_path: src/main/resources/WEB-INF/view/adminPage/password/index.html
+    line_start: 89
+    evidence: 'Sink: | File: src/main/resources/WEB-INF/view/adminPage/password/index.html:89'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Password Management: Insecure Submission'
+    severity: critical
+    file_path: src/main/resources/WEB-INF/view/adminPage/remote/index.html
+    line_start: 131
+    evidence: 'Sink: | File: src/main/resources/WEB-INF/view/adminPage/remote/index.html:131'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: fortify
+    rule_name: Path Manipulation
+    severity: high
+    file_path: src/main/java/com/cym/controller/adminPage/WwwController.java
+    line_start: 97
+    evidence: 'Source: java.util.zip.ZipInputStream.getNextEntry() | File: src/main/java/com/cym/controller/adminPage/WwwController.java:97'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Password Management: Password in Configuration File'
+    severity: high
+    file_path: src/main/resources/messages.properties
+    line_start: 324
+    evidence: 'Sink: menuStr.password | File: src/main/resources/messages.properties:324'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: fortify
+    rule_name: Access Specifier Manipulation
+    severity: high
+    file_path: src/main/java/com/cym/sqlhelper/reflection/ReflectionUtil.java
+    line_start: 31
+    evidence: 'Sink: setAccessible() | File: src/main/java/com/cym/sqlhelper/reflection/ReflectionUtil.java:31'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A08 Software and Data Integrity Failures
+    review_priority: high
+  - tool: fortify
+    rule_name: Command Injection
+    severity: low
+    file_path: src/main/java/com/cym/utils/NetWorkUtil.java
+    line_start: 34
+    evidence: 'Sink: exec(0) | File: src/main/java/com/cym/utils/NetWorkUtil.java:34'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: fortify
+    rule_name: Command Injection
+    severity: low
+    file_path: src/main/java/com/cym/utils/TimeExeUtils.java
+    line_start: 38
+    evidence: 'Sink: ProcessBuilder() | File: src/main/java/com/cym/utils/TimeExeUtils.java:38'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+pending_review_policy:
+  version: owasp_top10_high_signal_v1
+  description: 只保留 OWASP Top10 且具备新增案例价值的高信号 finding，过滤注释/调试/资源释放/泛型异常等低价值噪声、第三方静态资产，并折叠同规则同
+    scope 的重复告警。
+  tools:
+    irify:
+      raw_total: 311
+      kept_total: 48
+      excluded_total: 263
+      excluded_reasons:
+        low_signal_rule: 125
+        non_owasp_top10: 74
+        deduplicated_same_rule_scope: 64
+    code_guard:
+      raw_total: 0
+      kept_total: 0
+      excluded_total: 0
+      excluded_reasons: {}
+    fortify:
+      raw_total: 471
+      kept_total: 9
+      excluded_total: 462
+      excluded_reasons:
+        non_owasp_top10: 138
+        low_signal_rule: 266
+        deduplicated_same_rule_scope: 10
+        third_party_asset: 34
+        comment_rule: 14

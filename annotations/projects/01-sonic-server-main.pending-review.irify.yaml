@@ -1,0 +1,388 @@
+project: sonic-server-main
+tool: irify
+generated_from: /home/zpy/goproject/IRify_SAST/.ai/task-runs/benchmark-framework/projects/01-sonic-server-main/artifacts/truth-evaluation.json
+summary:
+  total: 11
+  by_priority:
+    high: 11
+notes:
+- 这是待复核 finding 转出的 review case 草案，不自动参与正式真值评估。
+- 人工确认后，可按需要提升到 JavaSecLab.review.yaml 的 manual_cases 或 suppressed_findings。
+- candidate_case_ids 非空时，优先判断是否应并入已有 case，而不是直接新增。
+review_cases:
+- review_case_id: PENDING-IRIFY-001
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: .env
+    line_start: 12
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-SONIC-SERVER-MAIN-001
+    scenario_id: pending.sonic-server-main..env-12-检测通用硬编码凭据
+    family: credential_management
+    title: 检测通用硬编码凭据 @ .env
+    description: 待复核新增项：检测通用硬编码凭据 @ .env:12
+    expectation: must_alert
+    canonical_file_path: .env
+    line_start: 12
+    line_end: 12
+    rule_type: 检测通用硬编码凭据
+    aliases:
+    - 检测通用硬编码凭据
+    source_notes: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测通用硬编码凭据
+    source_refs:
+    - .env:12
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-002
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: sonic-server-common/src/main/resources/i18n/sonic.properties
+    line_start: 46
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-SONIC-SERVER-MAIN-002
+    scenario_id: pending.sonic-server-main.sonic-46-检测通用硬编码凭据
+    family: credential_management
+    title: 检测通用硬编码凭据 @ sonic.properties
+    description: 待复核新增项：检测通用硬编码凭据 @ sonic-server-common/src/main/resources/i18n/sonic.properties:46
+    expectation: must_alert
+    canonical_file_path: sonic-server-common/src/main/resources/i18n/sonic.properties
+    line_start: 46
+    line_end: 46
+    rule_type: 检测通用硬编码凭据
+    aliases:
+    - 检测通用硬编码凭据
+    source_notes: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测通用硬编码凭据
+    source_refs:
+    - sonic-server-common/src/main/resources/i18n/sonic.properties:46
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-003
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: sonic-server-common/src/main/resources/i18n/sonic_en_US.properties
+    line_start: 46
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-SONIC-SERVER-MAIN-003
+    scenario_id: pending.sonic-server-main.sonic_en_us-46-检测通用硬编码凭据
+    family: credential_management
+    title: 检测通用硬编码凭据 @ sonic_en_US.properties
+    description: 待复核新增项：检测通用硬编码凭据 @ sonic-server-common/src/main/resources/i18n/sonic_en_US.properties:46
+    expectation: must_alert
+    canonical_file_path: sonic-server-common/src/main/resources/i18n/sonic_en_US.properties
+    line_start: 46
+    line_end: 46
+    rule_type: 检测通用硬编码凭据
+    aliases:
+    - 检测通用硬编码凭据
+    source_notes: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测通用硬编码凭据
+    source_refs:
+    - sonic-server-common/src/main/resources/i18n/sonic_en_US.properties:46
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-004
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: sonic-server-common/src/main/resources/i18n/sonic_ja_JP.properties
+    line_start: 46
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-SONIC-SERVER-MAIN-004
+    scenario_id: pending.sonic-server-main.sonic_ja_jp-46-检测通用硬编码凭据
+    family: credential_management
+    title: 检测通用硬编码凭据 @ sonic_ja_JP.properties
+    description: 待复核新增项：检测通用硬编码凭据 @ sonic-server-common/src/main/resources/i18n/sonic_ja_JP.properties:46
+    expectation: must_alert
+    canonical_file_path: sonic-server-common/src/main/resources/i18n/sonic_ja_JP.properties
+    line_start: 46
+    line_end: 46
+    rule_type: 检测通用硬编码凭据
+    aliases:
+    - 检测通用硬编码凭据
+    source_notes: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测通用硬编码凭据
+    source_refs:
+    - sonic-server-common/src/main/resources/i18n/sonic_ja_JP.properties:46
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-005
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: sonic-server-common/src/main/resources/i18n/sonic_zh_CN.properties
+    line_start: 46
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-SONIC-SERVER-MAIN-005
+    scenario_id: pending.sonic-server-main.sonic_zh_cn-46-检测通用硬编码凭据
+    family: credential_management
+    title: 检测通用硬编码凭据 @ sonic_zh_CN.properties
+    description: 待复核新增项：检测通用硬编码凭据 @ sonic-server-common/src/main/resources/i18n/sonic_zh_CN.properties:46
+    expectation: must_alert
+    canonical_file_path: sonic-server-common/src/main/resources/i18n/sonic_zh_CN.properties
+    line_start: 46
+    line_end: 46
+    rule_type: 检测通用硬编码凭据
+    aliases:
+    - 检测通用硬编码凭据
+    source_notes: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测通用硬编码凭据
+    source_refs:
+    - sonic-server-common/src/main/resources/i18n/sonic_zh_CN.properties:46
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-006
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: sonic-server-common/src/main/resources/i18n/sonic_zh_TW.properties
+    line_start: 46
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-SONIC-SERVER-MAIN-006
+    scenario_id: pending.sonic-server-main.sonic_zh_tw-46-检测通用硬编码凭据
+    family: credential_management
+    title: 检测通用硬编码凭据 @ sonic_zh_TW.properties
+    description: 待复核新增项：检测通用硬编码凭据 @ sonic-server-common/src/main/resources/i18n/sonic_zh_TW.properties:46
+    expectation: must_alert
+    canonical_file_path: sonic-server-common/src/main/resources/i18n/sonic_zh_TW.properties
+    line_start: 46
+    line_end: 46
+    rule_type: 检测通用硬编码凭据
+    aliases:
+    - 检测通用硬编码凭据
+    source_notes: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测通用硬编码凭据
+    source_refs:
+    - sonic-server-common/src/main/resources/i18n/sonic_zh_TW.properties:46
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-007
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A08 Software and Data Integrity Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java反射setAccessible函数滥用漏洞
+    severity: high
+    file_path: sonic-server-controller/src/main/java/org/cloud/sonic/controller/services/impl/base/SonicServiceImpl.java
+    line_start: 72
+    evidence: 检测Java反射setAccessible函数滥用漏洞 | 检测Java反射setAccessible函数滥用漏洞
+  proposed_case:
+    case_id: REVIEW-SONIC-SERVER-MAIN-007
+    scenario_id: pending.sonic-server-main.sonicserviceimpl-72-检测java反射setaccessible函数滥用漏洞
+    family: software_data_integrity_failure
+    title: 检测Java反射setAccessible函数滥用漏洞 @ SonicServiceImpl.java
+    description: 待复核新增项：检测Java反射setAccessible函数滥用漏洞 @ sonic-server-controller/src/main/java/org/cloud/sonic/controller/services/impl/base/SonicServiceImpl.java:72
+    expectation: must_alert
+    canonical_file_path: sonic-server-controller/src/main/java/org/cloud/sonic/controller/services/impl/base/SonicServiceImpl.java
+    line_start: 72
+    line_end: 72
+    rule_type: 检测Java反射setAccessible函数滥用漏洞
+    aliases:
+    - 检测Java反射setAccessible函数滥用漏洞
+    source_notes: 检测Java反射setAccessible函数滥用漏洞 | 检测Java反射setAccessible函数滥用漏洞
+    sink_api: 检测Java反射setAccessible函数滥用漏洞
+    source_refs:
+    - sonic-server-controller/src/main/java/org/cloud/sonic/controller/services/impl/base/SonicServiceImpl.java:72
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-008
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: sonic-server-controller/src/main/java/org/cloud/sonic/controller/controller/GlobalParamsController.java
+    line_start: 55
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-SONIC-SERVER-MAIN-008
+    scenario_id: pending.sonic-server-main.globalparamscontroller-55-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ GlobalParamsController.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ sonic-server-controller/src/main/java/org/cloud/sonic/controller/controller/GlobalParamsController.java:55
+    expectation: must_alert
+    canonical_file_path: sonic-server-controller/src/main/java/org/cloud/sonic/controller/controller/GlobalParamsController.java
+    line_start: 55
+    line_end: 55
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - sonic-server-controller/src/main/java/org/cloud/sonic/controller/controller/GlobalParamsController.java:55
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-009
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: sonic-server-controller/src/main/java/org/cloud/sonic/controller/controller/StepsController.java
+    line_start: 115
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-SONIC-SERVER-MAIN-009
+    scenario_id: pending.sonic-server-main.stepscontroller-115-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ StepsController.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ sonic-server-controller/src/main/java/org/cloud/sonic/controller/controller/StepsController.java:115
+    expectation: must_alert
+    canonical_file_path: sonic-server-controller/src/main/java/org/cloud/sonic/controller/controller/StepsController.java
+    line_start: 115
+    line_end: 115
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - sonic-server-controller/src/main/java/org/cloud/sonic/controller/controller/StepsController.java:115
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-010
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: sonic-server-folder/src/main/java/org/cloud/sonic/folder/controller/UploadController.java
+    line_start: 91
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-SONIC-SERVER-MAIN-010
+    scenario_id: pending.sonic-server-main.uploadcontroller-91-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ UploadController.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ sonic-server-folder/src/main/java/org/cloud/sonic/folder/controller/UploadController.java:91
+    expectation: must_alert
+    canonical_file_path: sonic-server-folder/src/main/java/org/cloud/sonic/folder/controller/UploadController.java
+    line_start: 91
+    line_end: 91
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - sonic-server-folder/src/main/java/org/cloud/sonic/folder/controller/UploadController.java:91
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-011
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A06 Vulnerable and Outdated Components
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 'SCA: 检测Java Spring Boot Devtools使用'
+    severity: info
+    file_path: sonic-server-controller/pom.xml
+    line_start: 1
+    evidence: 'SCA: 检测Java Spring Boot Devtools使用 | 检测到Java Spring Boot Devtools的使用
+      | 检测到Java Spring Boot Devtools的使用'
+  proposed_case:
+    case_id: REVIEW-SONIC-SERVER-MAIN-011
+    scenario_id: pending.sonic-server-main.pom-1-sca-检测java-spring-boot-devtools使用
+    family: vulnerable_component
+    title: 'SCA: 检测Java Spring Boot Devtools使用 @ pom.xml'
+    description: '待复核新增项：SCA: 检测Java Spring Boot Devtools使用 @ sonic-server-controller/pom.xml:1'
+    expectation: must_alert
+    canonical_file_path: sonic-server-controller/pom.xml
+    line_start: 1
+    line_end: 1
+    rule_type: 'SCA: 检测Java Spring Boot Devtools使用'
+    aliases:
+    - 'SCA: 检测Java Spring Boot Devtools使用'
+    source_notes: 'SCA: 检测Java Spring Boot Devtools使用 | 检测到Java Spring Boot Devtools的使用
+      | 检测到Java Spring Boot Devtools的使用'
+    sink_api: 'SCA: 检测Java Spring Boot Devtools使用'
+    source_refs:
+    - sonic-server-controller/pom.xml:1
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。

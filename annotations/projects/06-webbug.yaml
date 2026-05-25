@@ -1,0 +1,356 @@
+project: WebBug
+source: java_truth_builder_v3
+notes:
+- 以 WebBug 靶场/项目源码里的 vul/safe 或可识别场景为真值主口径。
+- IRify 内置规则来源于 sfbuildin Java 规则目录。
+- 镜像/副本源码路径不单独计数，统一折叠到 canonical file path。
+metadata:
+  summary:
+    controllers_with_cases: 0
+    total_cases: 0
+    total_vul_cases: 0
+    total_safe_cases: 0
+  rule_count: 154
+  rules_root: /home/zpy/goproject/IRify_SAST/yaklang/common/syntaxflow/sfbuildin/buildin
+  source_root: /home/zpy/goproject/IRify_SAST/.ai/task-runs/benchmark-framework/projects/06-webbug/tmp/source/WebBug-master
+  readme_path: /home/zpy/goproject/IRify_SAST/.ai/task-runs/benchmark-framework/projects/06-webbug/tmp/source/WebBug-master/README.md
+  review_config_path: /home/zpy/goproject/IRify_SAST/irify-benchmark/annotations/projects/06-webbug.review.yaml
+cases: []
+pending_review_additions:
+  irify:
+  - tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: Resources/ESAPI.properties
+    line_start: 88
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: docker-compose.yml
+    line_start: 11
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java硬编码弱密码漏洞
+    severity: high
+    file_path: src/util/DBHelper.java
+    line_start: 12
+    evidence: 检测Java硬编码弱密码漏洞 | 检测到Java硬编码弱密码漏洞 | 检测到Java代码中存在硬编码的弱密码，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java CRLF注入漏洞
+    severity: medium
+    file_path: src/servlet/login/IndexServlet.java
+    line_start: 22
+    evidence: 检测Java CRLF注入漏洞 | 检测到Java CRLF注入漏洞 | 检测到Java代码中存在未经验证的HTTP响应头拼接，可能导致CRLF注入漏洞。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  code_guard:
+  - tool: code_guard
+    rule_name: 安全特性：Cookie：未经过SSL加密
+    severity: high
+    file_path: src/servlet/login/IndexServlet.java
+    line_start: 48
+    evidence: 1 WebBug-master/src/servlet/login/IndexServlet.java;45行cookie = new
+      Cookie(...)2 WebBug-master/src/servlet/login/IndexServlet.java;48行addCookie(cookie)
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A02 Cryptographic Failures
+    review_priority: high
+  - tool: code_guard
+    rule_name: 代码注入：SQL注入
+    severity: high
+    file_path: src/dao/LoginDao.java
+    line_start: 78
+    evidence: 1 WebBug-master/src/servlet/login/SQLinjectLoginServlet.java;20行来自于http请求的数据从getParameter()方法返回值返回2
+      WebBug-master/src/servlet/login/SQLinjectLoginServlet.java;20行赋值不可信的数据给变量username3
+      WebBug-master/src/servlet/login/SQLinjectLoginServlet.java;25行不可信的数据从sqlInjectLog()方法第1个参数进入4
+      WebBug-master/src/dao/L
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: code_guard
+    rule_name: 跨站脚本：反射型XSS
+    severity: high
+    file_path: src/servlet/login/IndexServlet.java
+    line_start: 39
+    evidence: 1 WebBug-master/src/servlet/login/LoginServlet.java;26行来自于http请求的数据从getParameter()方法返回值返回2
+      WebBug-master/src/servlet/login/LoginServlet.java;26行赋值不可信的数据给变量username3 WebBug-master/src/servlet/login/LoginServlet.java;34行不可信的数据从setUsername()方法第1个参数进入,然后从this参数返回4
+      WebBug-master/src/entity/User.java;80行赋
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: code_guard
+    rule_name: 跨站脚本：反射型XSS
+    severity: high
+    file_path: web/WEB-INF/jsp/user/showqueryuser.jsp
+    line_start: 22
+    evidence: 1 WebBug-master/src/servlet/query/ToQueryServlet.java;21行来自于http请求的数据从getParameter()方法返回值返回2
+      WebBug-master/src/servlet/query/ToQueryServlet.java;21行赋值不可信的数据给变量querystr3
+      WebBug-master/src/servlet/query/ToQueryServlet.java;29行不可信的数据从setAttribute()方法第2个参数进入,然后从this参数返回4
+      WebBug-master/web/WEB-INF/jsp/us
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: code_guard
+    rule_name: 跨站脚本：存储型XSS
+    severity: high
+    file_path: web/WEB-INF/jsp/user/editor_user.jsp
+    line_start: 50
+    evidence: 1 WebBug-master/src/dao/UersDao.java;23行来自于数据库的数据从executeQuery()方法返回值返回2
+      WebBug-master/src/dao/UersDao.java;23行赋值不可信的数据给变量rst3 WebBug-master/src/dao/UersDao.java;27行不可信的数据从getString()方法this参数进入,然后从返回值返回4
+      WebBug-master/src/dao/UersDao.java;27行返回不可信的数据5 WebBug-master/src/servlet/user/EditorUserServlet
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: code_guard
+    rule_name: 跨站脚本：存储型XSS
+    severity: high
+    file_path: web/WEB-INF/jsp/user/personal_center.jsp
+    line_start: 26
+    evidence: 1 WebBug-master/src/dao/UersDao.java;23行来自于数据库的数据从executeQuery()方法返回值返回2
+      WebBug-master/src/dao/UersDao.java;23行赋值不可信的数据给变量rst3 WebBug-master/src/dao/UersDao.java;27行不可信的数据从getString()方法this参数进入,然后从返回值返回4
+      WebBug-master/src/dao/UersDao.java;27行返回不可信的数据5 WebBug-master/src/servlet/user/PersonalcenterSer
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: code_guard
+    rule_name: 跨站脚本：存储型XSS
+    severity: high
+    file_path: web/WEB-INF/jsp/user/showqueryuser.jsp
+    line_start: 44
+    evidence: 1 WebBug-master/src/dao/UersDao.java;198行来自于数据库的数据从executeQuery()方法返回值返回2
+      WebBug-master/src/dao/UersDao.java;198行赋值不可信的数据给变量rst3 WebBug-master/src/dao/UersDao.java;203行不可信的数据从getString()方法this参数进入,然后从返回值返回4
+      WebBug-master/src/dao/UersDao.java;203行不可信的数据从setUsername()方法第1个参数进入,然后从this参数返回5
+      WebBug-mast
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: code_guard
+    rule_name: 跨站脚本：存储型XSS
+    severity: high
+    file_path: web/WEB-INF/jsp/user/showqueryuser2.jsp
+    line_start: 54
+    evidence: 1 WebBug-master/src/dao/UersDao.java;198行来自于数据库的数据从executeQuery()方法返回值返回2
+      WebBug-master/src/dao/UersDao.java;198行赋值不可信的数据给变量rst3 WebBug-master/src/dao/UersDao.java;203行不可信的数据从getString()方法this参数进入,然后从返回值返回4
+      WebBug-master/src/dao/UersDao.java;203行不可信的数据从setUsername()方法第1个参数进入,然后从this参数返回5
+      WebBug-mast
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: code_guard
+    rule_name: 跨站脚本：存储型XSS
+    severity: high
+    file_path: web/WEB-INF/jsp/user/user_manage.jsp
+    line_start: 45
+    evidence: 1 WebBug-master/src/dao/UersDao.java;164行来自于数据库的数据从executeQuery()方法返回值返回2
+      WebBug-master/src/dao/UersDao.java;164行赋值不可信的数据给变量rst3 WebBug-master/src/dao/UersDao.java;169行不可信的数据从getString()方法this参数进入,然后从返回值返回4
+      WebBug-master/src/dao/UersDao.java;169行不可信的数据从setUsername()方法第1个参数进入,然后从this参数返回5
+      WebBug-mast
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: code_guard
+    rule_name: 跨站脚本：存储型XSS
+    severity: high
+    file_path: web/WEB-INF/jsp/user/user_manage2.jsp
+    line_start: 49
+    evidence: 1 WebBug-master/src/dao/UersDao.java;198行来自于数据库的数据从executeQuery()方法返回值返回2
+      WebBug-master/src/dao/UersDao.java;198行赋值不可信的数据给变量rst3 WebBug-master/src/dao/UersDao.java;203行不可信的数据从getString()方法this参数进入,然后从返回值返回4
+      WebBug-master/src/dao/UersDao.java;203行不可信的数据从setUsername()方法第1个参数进入,然后从this参数返回5
+      WebBug-mast
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: code_guard
+    rule_name: 跨站脚本：存储型XSS
+    severity: high
+    file_path: web/jsp/messages/seemessages.jsp
+    line_start: 35
+    evidence: 1 WebBug-master/src/dao/MessagesDao.java;23行来自于数据库的数据从executeQuery()方法返回值返回2
+      WebBug-master/src/dao/MessagesDao.java;23行赋值不可信的数据给变量rst3 WebBug-master/src/dao/MessagesDao.java;28行不可信的数据从getString()方法this参数进入,然后从返回值返回4
+      WebBug-master/src/dao/MessagesDao.java;28行不可信的数据从setUsername()方法第1个参数进入,然后从this参数返回5
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: code_guard
+    rule_name: 跨站脚本：弱验证
+    severity: high
+    file_path: web/WEB-INF/jsp/user/showqueryuser2.jsp
+    line_start: 31
+    evidence: 1 WebBug-master/src/servlet/query/ToQueryServlet2.java;21行来自于http请求的数据从getParameter()方法返回值返回2
+      WebBug-master/src/servlet/query/ToQueryServlet2.java;21行赋值不可信的数据给变量querystr3
+      WebBug-master/src/servlet/query/ToQueryServlet2.java;29行不可信的数据从setAttribute()方法第2个参数进入,然后从this参数返回4
+      WebBug-master/web/WEB-INF/jsp
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: code_guard
+    rule_name: 跨站脚本：弱验证
+    severity: high
+    file_path: web/jsp/messages/seemessages2.jsp
+    line_start: 36
+    evidence: 1 WebBug-master/src/dao/MessagesDao.java;23行来自于数据库的数据从executeQuery()方法返回值返回2
+      WebBug-master/src/dao/MessagesDao.java;23行赋值不可信的数据给变量rst3 WebBug-master/src/dao/MessagesDao.java;28行不可信的数据从getString()方法this参数进入,然后从返回值返回4
+      WebBug-master/src/dao/MessagesDao.java;28行不可信的数据从setUsername()方法第1个参数进入,然后从this参数返回5
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: code_guard
+    rule_name: 跨站脚本：跨站点历史操作
+    severity: high
+    file_path: src/servlet/login/ErrorSessionLoginServlet.java
+    line_start: 85
+    evidence: 1 WebBug-master/src/servlet/login/ErrorSessionLoginServlet.java;85行sendRedirect()
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: code_guard
+    rule_name: 跨站脚本：跨站点历史操作
+    severity: high
+    file_path: src/servlet/login/LogoutServlet.java
+    line_start: 19
+    evidence: 1 WebBug-master/src/servlet/login/LogoutServlet.java;19行sendRedirect()
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: code_guard
+    rule_name: 跨站脚本：跨站点历史操作
+    severity: high
+    file_path: src/servlet/messages/SubmitMessagesServlet.java
+    line_start: 44
+    evidence: 1 WebBug-master/src/servlet/messages/SubmitMessagesServlet.java;44行sendRedirect()
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: code_guard
+    rule_name: 跨站脚本：跨站点历史操作
+    severity: high
+    file_path: src/servlet/messages/Submit_Messages_tokenServlet.java
+    line_start: 68
+    evidence: 1 WebBug-master/src/servlet/messages/Submit_Messages_tokenServlet.java;68行sendRedirect()
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: code_guard
+    rule_name: 密码管理：硬编码密码
+    severity: high
+    file_path: src/util/DBHelper.java
+    line_start: 12
+    evidence: 1 WebBug-master/src/util/DBHelper.java;12行password
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: code_guard
+    rule_name: 密码管理：配置文件中的明文密码
+    severity: high
+    file_path: Resources/ESAPI.properties
+    line_start: 88
+    evidence: 1 WebBug-master/Resources/ESAPI.properties;88行Authenticator.MaxOldPasswordHashes
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: code_guard
+    rule_name: 密码管理：配置文件中的明文密码
+    severity: high
+    file_path: docker-compose.yml
+    line_start: 11
+    evidence: 1 WebBug-master/docker-compose.yml;11行services.mysql.environment.MYSQL_ROOT_PASSWORD
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  fortify:
+  - tool: fortify
+    rule_name: 'Password Management: Hardcoded Password'
+    severity: high
+    file_path: docker-compose.yml
+    line_start: 10
+    evidence: 'Sink: ConfigPair | File: docker-compose.yml:10'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Password Management: Hardcoded Password'
+    severity: high
+    file_path: src/util/DBHelper.java
+    line_start: 12
+    evidence: 'Sink: FieldAccess: password | File: src/util/DBHelper.java:12'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: fortify
+    rule_name: SQL Injection
+    severity: low
+    file_path: src/dao/LoginDao.java
+    line_start: 59
+    evidence: 'Sink: prepareStatement() | File: src/dao/LoginDao.java:59'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+pending_review_policy:
+  version: owasp_top10_high_signal_v1
+  description: 只保留 OWASP Top10 且具备新增案例价值的高信号 finding，过滤注释/调试/资源释放/泛型异常等低价值噪声、第三方静态资产，并折叠同规则同
+    scope 的重复告警。
+  tools:
+    irify:
+      raw_total: 97
+      kept_total: 4
+      excluded_total: 93
+      excluded_reasons:
+        low_signal_rule: 75
+        non_owasp_top10: 16
+        deduplicated_same_rule_scope: 2
+    code_guard:
+      raw_total: 465
+      kept_total: 20
+      excluded_total: 445
+      excluded_reasons:
+        deduplicated_same_rule_scope: 28
+        non_owasp_top10: 225
+        low_signal_rule: 178
+        comment_rule: 14
+    fortify:
+      raw_total: 121
+      kept_total: 3
+      excluded_total: 118
+      excluded_reasons:
+        low_signal_rule: 100
+        non_owasp_top10: 13
+        deduplicated_same_rule_scope: 2
+        comment_rule: 1
+        low_urgency_crypto: 2

@@ -1,0 +1,4 @@
+project: WebGoat
+case_overrides: {}
+manual_cases: []
+suppressed_findings: []

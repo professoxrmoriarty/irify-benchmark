@@ -1,0 +1,4 @@
+project: java-sec-code
+case_overrides: {}
+manual_cases: []
+suppressed_findings: []

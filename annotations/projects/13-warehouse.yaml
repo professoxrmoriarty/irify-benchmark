@@ -1,0 +1,325 @@
+project: warehouse
+source: java_truth_builder_v3
+notes:
+- 以 warehouse 靶场/项目源码里的 vul/safe 或可识别场景为真值主口径。
+- IRify 内置规则来源于 sfbuildin Java 规则目录。
+- 镜像/副本源码路径不单独计数，统一折叠到 canonical file path。
+metadata:
+  summary:
+    controllers_with_cases: 1
+    total_cases: 1
+    total_vul_cases: 1
+    total_safe_cases: 0
+  rule_count: 154
+  rules_root: /home/zpy/goproject/IRify_SAST/yaklang/common/syntaxflow/sfbuildin/buildin
+  source_root: /home/zpy/goproject/IRify_SAST/.ai/task-runs/benchmark-framework/projects/13-warehouse/tmp/source/warehouse-master
+  readme_path: /home/zpy/goproject/IRify_SAST/.ai/task-runs/benchmark-framework/projects/13-warehouse/tmp/source/warehouse-master/README.md
+  review_config_path: /home/zpy/goproject/IRify_SAST/irify-benchmark/annotations/projects/13-warehouse.review.yaml
+cases:
+- case_id: JSL-FILE-UPLOADFILE-UPLOADFILE
+  scenario_id: javaseclab.file.uploadfile
+  family: file_upload
+  module: sys
+  controller_name: FileController.java
+  class_tags: ''
+  controller_path: com/yeqifu/sys/controller/FileController.java
+  canonical_file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+  class_route: file
+  route: /file/uploadFile
+  method_name: uploadFile
+  title: FileController uploadFile
+  description: ''
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 30
+  line_end: 55
+  source:
+    kind: request_input
+    line_start: 30
+    line_end: 30
+    params:
+    - name: mf
+      type: MultipartFile
+      annotation: ''
+      line_start: 30
+      line_end: 30
+    notes: 请求输入参数：mf(MultipartFile)
+  sink:
+    kind: observed_finding
+    file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+    line_start: 30
+    line_end: 30
+    api: 检测Spring MVC任意文件上传漏洞
+    source_tool: irify
+    evidence: 检测Spring MVC任意文件上传漏洞 | 检测Spring MVC任意文件上传漏洞 | 发现Java SpringBoot可能存在文件上传漏洞
+  trace:
+  - stage: source
+    file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+    line_start: 30
+    line_end: 30
+    symbol: mf
+    note: 请求输入参数：mf(MultipartFile)
+  - stage: sink
+    file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+    line_start: 30
+    line_end: 30
+    symbol: 检测Spring MVC任意文件上传漏洞
+    note: 检测Spring MVC任意文件上传漏洞 | 检测Spring MVC任意文件上传漏洞 | 发现Java SpringBoot可能存在文件上传漏洞
+  safe_guards: []
+  rule_type: Unrestricted File Upload
+  aliases:
+  - 任意文件上传
+  - Unrestricted File Upload
+  - 检测Spring MVC任意文件上传漏洞
+  - 文件上传
+  - 审计Java Spring Framework文件上传保存
+  - 审计 Java Spring MultipartFile TransferTo 目标
+  - Audit Java Spring Framework Multipart File Saving
+  - Check Java Spring MVC Arbitrary File Upload Vulnerability
+  - Audit Java Spring MultipartFile TransferTo Target
+  irify_support: supported
+  irify_rule_candidates:
+  - rule_file: java/cwe-434-unrestricted-upload-file/java-spring-multipart-file-saving.sf
+    rule_id: 5a5c7d06-ece9-4a26-879c-e6e91d73b01e
+    title_zh: 审计Java Spring Framework文件上传保存
+    title: Audit Java Spring Framework Multipart File Saving
+    risk: 远程代码执行（RCE）
+  - rule_file: java/cwe-434-unrestricted-upload-file/java-spring-mvc-arbitrary-file-upload.sf
+    rule_id: 2e6a2485-77c7-4b0e-a421-476b5804a941
+    title_zh: 检测Spring MVC任意文件上传漏洞
+    title: Check Java Spring MVC Arbitrary File Upload Vulnerability
+    risk: 任意文件上传
+  - rule_file: java/lib/spring/java-spring-boot-multipartfile-params.sf
+    rule_id: 8577b8ff-aeab-4830-a21c-b5a342f0cbe3
+    title_zh: 审计 Java Spring MultipartFile TransferTo 目标
+    title: Audit Java Spring MultipartFile TransferTo Target
+    risk: 任意文件上传
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Spring MVC任意文件上传漏洞
+      severity: low
+      line_start: 30
+      evidence: 检测Spring MVC任意文件上传漏洞 | 检测Spring MVC任意文件上传漏洞 | 发现Java SpringBoot可能存在文件上传漏洞
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: hit_downgraded
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - src/main/java/com/yeqifu/sys/controller/FileController.java:30
+  notes: []
+pending_review_additions:
+  irify:
+  - tool: irify
+    rule_name: 'SCA: 检测Java Fastjson依赖漏洞'
+    severity: critical
+    file_path: pom.xml
+    line_start: 159
+    evidence: 'SCA: 检测Java Fastjson依赖漏洞 | SCA: 检测Java Fastjson依赖漏洞 | SCA: com.alibaba.fastjson
+      < 1.2.83 RCE Hard to exploit'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A06 Vulnerable and Outdated Components
+    review_priority: high
+  - tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: src/main/resources/application.yml
+    line_start: 8
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: high
+    file_path: src/main/java/com/yeqifu/bus/controller/GoodsController.java
+    line_start: 124
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中发现路径穿越漏洞，并且数据流中间没有进行任何过滤。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: irify
+    rule_name: 'SCA: 检测Java shiro-core 依赖漏洞'
+    severity: high
+    file_path: pom.xml
+    line_start: 118
+    evidence: 'SCA: 检测Java shiro-core 依赖漏洞 | SCA: 检测Java shiro-core 依赖漏洞 | SCA: shiro-core
+      versions between 1.10.0 and 1.10.1 have an authentication bypass vulnerability'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A06 Vulnerable and Outdated Components
+    review_priority: high
+  - tool: irify
+    rule_name: 'SCA: 检测Java jdbc mysql-connector 依赖漏洞'
+    severity: medium
+    file_path: pom.xml
+    line_start: 55
+    evidence: 'SCA: 检测Java jdbc mysql-connector 依赖漏洞 | SCA: 检测Java jdbc mysql-connector
+      依赖漏洞 | SCA: mysql-connector-java versions between 8.0.17 and 8.0.27 have an
+      information disclosure vulnerability'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A06 Vulnerable and Outdated Components
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+    line_start: 30
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids:
+    - JSL-FILE-UPLOADFILE-UPLOADFILE
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+    line_start: 61
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: irify
+    rule_name: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数
+    severity: low
+    file_path: src/main/java/com/yeqifu/sys/mapper/PermissionMapper.java
+    line_start: 23
+    evidence: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数 | 检测 Java MyBatis/iBatis
+      XML Mapper 不安全(${...})参数
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: irify
+    rule_name: 'SCA: 检测Java Spring Boot Devtools使用'
+    severity: info
+    file_path: pom.xml
+    line_start: 1
+    evidence: 'SCA: 检测Java Spring Boot Devtools使用 | 检测到Java Spring Boot Devtools的使用
+      | 检测到Java Spring Boot Devtools的使用'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A06 Vulnerable and Outdated Components
+    review_priority: high
+  code_guard: []
+  fortify:
+  - tool: fortify
+    rule_name: 'SQL Injection: MyBatis Mapper'
+    severity: critical
+    file_path: src/main/resources/mapper/sys/PermissionMapper.xml
+    line_start: 6
+    evidence: 'Sink: | File: src/main/resources/mapper/sys/PermissionMapper.xml:6'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Password Management: Insecure Submission'
+    severity: critical
+    file_path: src/main/resources/static/resources/login.html
+    line_start: 25
+    evidence: 'Sink: | File: src/main/resources/static/resources/login.html:25'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Password Management: Insecure Submission'
+    severity: critical
+    file_path: src/main/resources/static/resources/page/login/login.html
+    line_start: 25
+    evidence: 'Sink: | File: src/main/resources/static/resources/page/login/login.html:25'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Password Management: Insecure Submission'
+    severity: critical
+    file_path: src/main/resources/static/resources/page/user/changePwd.html
+    line_start: 28
+    evidence: 'Sink: | File: src/main/resources/static/resources/page/user/changePwd.html:28'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: fortify
+    rule_name: Path Manipulation
+    severity: high
+    file_path: mvn/wrapper/MavenWrapperDownloader.java
+    line_start: 48
+    evidence: 'Source: main(0) | File: .mvn/wrapper/MavenWrapperDownloader.java:48'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: Path Manipulation
+    severity: high
+    file_path: src/main/java/com/yeqifu/sys/common/AppFileUtils.java
+    line_start: 31
+    evidence: 'Source: java.util.Properties.load() | File: src/main/java/com/yeqifu/sys/common/AppFileUtils.java:31'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: Path Manipulation
+    severity: high
+    file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+    line_start: 38
+    evidence: 'Sink: java.io.File.File() | File: src/main/java/com/yeqifu/sys/controller/FileController.java:38'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids:
+    - JSL-FILE-UPLOADFILE-UPLOADFILE
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Spring Boot Misconfiguration: DevTools Enabled'
+    severity: high
+    file_path: pom.xml
+    line_start: 49
+    evidence: 'Sink: | File: pom.xml:49'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A06 Vulnerable and Outdated Components
+    review_priority: high
+pending_review_policy:
+  version: owasp_top10_high_signal_v1
+  description: 只保留 OWASP Top10 且具备新增案例价值的高信号 finding，过滤注释/调试/资源释放/泛型异常等低价值噪声、第三方静态资产，并折叠同规则同
+    scope 的重复告警。
+  tools:
+    irify:
+      raw_total: 131
+      kept_total: 9
+      excluded_total: 122
+      excluded_reasons:
+        low_signal_rule: 111
+        deduplicated_same_rule_scope: 5
+        non_owasp_top10: 6
+    code_guard:
+      raw_total: 0
+      kept_total: 0
+      excluded_total: 0
+      excluded_reasons: {}
+    fortify:
+      raw_total: 207
+      kept_total: 8
+      excluded_total: 199
+      excluded_reasons:
+        non_owasp_top10: 17
+        low_signal_rule: 163
+        third_party_asset: 6
+        deduplicated_same_rule_scope: 7
+        comment_rule: 6

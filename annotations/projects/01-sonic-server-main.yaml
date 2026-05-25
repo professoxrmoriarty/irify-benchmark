@@ -1,0 +1,301 @@
+project: sonic-server-main
+source: java_truth_builder_v3
+notes:
+- 以 sonic-server-main 靶场/项目源码里的 vul/safe 或可识别场景为真值主口径。
+- IRify 内置规则来源于 sfbuildin Java 规则目录。
+- 镜像/副本源码路径不单独计数，统一折叠到 canonical file path。
+metadata:
+  summary:
+    controllers_with_cases: 0
+    total_cases: 0
+    total_vul_cases: 0
+    total_safe_cases: 0
+  rule_count: 154
+  rules_root: /home/zpy/goproject/IRify_SAST/yaklang/common/syntaxflow/sfbuildin/buildin
+  source_root: /home/zpy/goproject/IRify_SAST/.ai/task-runs/benchmark-framework/projects/01-sonic-server-main/tmp/source/sonic-server-main
+  readme_path: /home/zpy/goproject/IRify_SAST/.ai/task-runs/benchmark-framework/projects/01-sonic-server-main/tmp/source/sonic-server-main/README.md
+  review_config_path: /home/zpy/goproject/IRify_SAST/irify-benchmark/annotations/projects/01-sonic-server-main.review.yaml
+cases: []
+pending_review_additions:
+  irify:
+  - tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: .env
+    line_start: 12
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: sonic-server-common/src/main/resources/i18n/sonic.properties
+    line_start: 46
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: sonic-server-common/src/main/resources/i18n/sonic_en_US.properties
+    line_start: 46
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: sonic-server-common/src/main/resources/i18n/sonic_ja_JP.properties
+    line_start: 46
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: sonic-server-common/src/main/resources/i18n/sonic_zh_CN.properties
+    line_start: 46
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: sonic-server-common/src/main/resources/i18n/sonic_zh_TW.properties
+    line_start: 46
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java反射setAccessible函数滥用漏洞
+    severity: high
+    file_path: sonic-server-controller/src/main/java/org/cloud/sonic/controller/services/impl/base/SonicServiceImpl.java
+    line_start: 72
+    evidence: 检测Java反射setAccessible函数滥用漏洞 | 检测Java反射setAccessible函数滥用漏洞
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A08 Software and Data Integrity Failures
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: sonic-server-controller/src/main/java/org/cloud/sonic/controller/controller/GlobalParamsController.java
+    line_start: 55
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: sonic-server-controller/src/main/java/org/cloud/sonic/controller/controller/StepsController.java
+    line_start: 115
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: sonic-server-folder/src/main/java/org/cloud/sonic/folder/controller/UploadController.java
+    line_start: 91
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: irify
+    rule_name: 'SCA: 检测Java Spring Boot Devtools使用'
+    severity: info
+    file_path: sonic-server-controller/pom.xml
+    line_start: 1
+    evidence: 'SCA: 检测Java Spring Boot Devtools使用 | 检测到Java Spring Boot Devtools的使用
+      | 检测到Java Spring Boot Devtools的使用'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A06 Vulnerable and Outdated Components
+    review_priority: high
+  code_guard:
+  - tool: code_guard
+    rule_name: 输入验证：访问权限修饰符修改
+    severity: high
+    file_path: src/main/java/org/cloud/sonic/controller/services/impl/base/SonicServiceImpl.java
+    line_start: 72
+    evidence: 1 sonic-server-main/sonic-server-controller/src/main/java/org/cloud/sonic/controller/services/impl/base/SonicServiceImpl.java;72行setAccessible()
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: code_guard
+    rule_name: 输入验证：路径遍历
+    severity: high
+    file_path: src/main/java/org/cloud/sonic/folder/controller/UploadController.java
+    line_start: 96
+    evidence: 1 sonic-server-main/sonic-server-folder/src/main/java/org/cloud/sonic/folder/controller/UploadController.java;92行来自于http请求的数据从uploadRecord()方法第2个参数进入2
+      sonic-server-main/sonic-server-folder/src/main/java/org/cloud/sonic/folder/controller/UploadController.java;96行不可信的数据从File()方法第1个参数进入
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: code_guard
+    rule_name: 输入验证：路径遍历
+    severity: high
+    file_path: src/main/java/org/cloud/sonic/folder/tools/FileTool.java
+    line_start: 58
+    evidence: 1 sonic-server-main/sonic-server-folder/src/main/java/org/cloud/sonic/folder/controller/UploadController.java;56行来自于http请求的数据从uploadFiles()方法第2个参数进入2
+      sonic-server-main/sonic-server-folder/src/main/java/org/cloud/sonic/folder/controller/UploadController.java;57行不可信的数据从upload()方法第1个参数进入3
+      sonic-server-
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: code_guard
+    rule_name: 密码管理：有风险的空的加密密匙
+    severity: high
+    file_path: src/main/java/org/cloud/sonic/controller/tools/robot/vendor/DingTalkImpl.java
+    line_start: 123
+    evidence: 1 sonic-server-main/sonic-server-controller/src/main/java/org/cloud/sonic/controller/tools/robot/vendor/DingTalkImpl.java;123行SecretKeySpec
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A02 Cryptographic Failures
+    review_priority: high
+  - tool: code_guard
+    rule_name: 跨站脚本：反射型XSS
+    severity: high
+    file_path: src/main/java/org/cloud/sonic/controller/controller/PublicStepsController.java
+    line_start: 88
+    evidence: 1 sonic-server-main/sonic-server-controller/src/main/java/org/cloud/sonic/controller/controller/PublicStepsController.java;84行来自于http请求的数据从save()方法第1个参数进入2
+      sonic-server-main/sonic-server-controller/src/main/java/org/cloud/sonic/controller/controller/PublicStepsController.java;88行不可信的数据从savePublicSte
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: code_guard
+    rule_name: 跨站脚本：反射型XSS
+    severity: high
+    file_path: src/main/java/org/cloud/sonic/folder/controller/UploadController.java
+    line_start: 59
+    evidence: 1 sonic-server-main/sonic-server-folder/src/main/java/org/cloud/sonic/folder/controller/UploadController.java;56行来自于http请求的数据从uploadFiles()方法第2个参数进入2
+      sonic-server-main/sonic-server-folder/src/main/java/org/cloud/sonic/folder/controller/UploadController.java;57行不可信的数据从upload()方法第1个参数进入,然后从返回值返回3
+      soni
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A03 Injection
+    review_priority: high
+  - tool: code_guard
+    rule_name: 密码管理：配置文件中的明文密码
+    severity: high
+    file_path: github/workflows/maven.yml
+    line_start: 26
+    evidence: 1 sonic-server-main/.github/workflows/maven.yml;26行jobs.build.steps[2].with.mysql
+      root password
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: code_guard
+    rule_name: 密码管理：配置文件中的明文密码
+    severity: high
+    file_path: src/main/resources/i18n/sonic_ja_JP.properties
+    line_start: 46
+    evidence: 1 sonic-server-main/sonic-server-common/src/main/resources/i18n/sonic_ja_JP.properties;46行password.change.ok
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: code_guard
+    rule_name: 密码管理：配置文件中的明文密码
+    severity: high
+    file_path: src/main/resources/i18n/sonic_zh_CN.properties
+    line_start: 46
+    evidence: 1 sonic-server-main/sonic-server-common/src/main/resources/i18n/sonic_zh_CN.properties;46行password.change.ok
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: code_guard
+    rule_name: 密码管理：配置文件中的明文密码
+    severity: high
+    file_path: src/main/resources/i18n/sonic_zh_TW.properties
+    line_start: 46
+    evidence: 1 sonic-server-main/sonic-server-common/src/main/resources/i18n/sonic_zh_TW.properties;46行password.change.ok
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  fortify:
+  - tool: fortify
+    rule_name: 'Password Management: Hardcoded Password'
+    severity: critical
+    file_path: env
+    line_start: 12
+    evidence: 'Sink: | File: .env:12'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Password Management: Hardcoded Password'
+    severity: high
+    file_path: github/workflows/maven.yml
+    line_start: 25
+    evidence: 'Sink: ConfigPair | File: .github/workflows/maven.yml:25'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: fortify
+    rule_name: Access Specifier Manipulation
+    severity: high
+    file_path: src/main/java/org/cloud/sonic/controller/services/impl/base/SonicServiceImpl.java
+    line_start: 72
+    evidence: 'Sink: setAccessible() | File: sonic-server-controller/src/main/java/org/cloud/sonic/controller/services/impl/base/SonicServiceImpl.java:72'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A08 Software and Data Integrity Failures
+    review_priority: high
+pending_review_policy:
+  version: owasp_top10_high_signal_v1
+  description: 只保留 OWASP Top10 且具备新增案例价值的高信号 finding，过滤注释/调试/资源释放/泛型异常等低价值噪声、第三方静态资产，并折叠同规则同
+    scope 的重复告警。
+  tools:
+    irify:
+      raw_total: 73
+      kept_total: 11
+      excluded_total: 62
+      excluded_reasons:
+        low_signal_rule: 43
+        non_owasp_top10: 11
+        deduplicated_same_rule_scope: 8
+    code_guard:
+      raw_total: 299
+      kept_total: 10
+      excluded_total: 289
+      excluded_reasons:
+        deduplicated_same_rule_scope: 15
+        non_owasp_top10: 110
+        low_signal_rule: 37
+        comment_rule: 127
+    fortify:
+      raw_total: 129
+      kept_total: 3
+      excluded_total: 126
+      excluded_reasons:
+        non_owasp_top10: 53
+        low_signal_rule: 68
+        deduplicated_same_rule_scope: 3
+        comment_rule: 2

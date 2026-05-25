@@ -1,0 +1,1654 @@
+project: nginxwebui
+tool: irify
+generated_from: /home/zpy/goproject/IRify_SAST/.ai/task-runs/benchmark-framework/projects/10-nginxwebui/artifacts/truth-evaluation.json
+summary:
+  total: 48
+  by_priority:
+    high: 48
+notes:
+- 这是待复核 finding 转出的 review case 草案，不自动参与正式真值评估。
+- 人工确认后，可按需要提升到 JavaSecLab.review.yaml 的 manual_cases 或 suppressed_findings。
+- candidate_case_ids 非空时，优先判断是否应并入已有 case，而不是直接新增。
+review_cases:
+- review_case_id: PENDING-IRIFY-001
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: src/main/resources/app.yml
+    line_start: 46
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-001
+    scenario_id: pending.nginxwebui.app-46-检测通用硬编码凭据
+    family: credential_management
+    title: 检测通用硬编码凭据 @ app.yml
+    description: 待复核新增项：检测通用硬编码凭据 @ src/main/resources/app.yml:46
+    expectation: must_alert
+    canonical_file_path: src/main/resources/app.yml
+    line_start: 46
+    line_end: 46
+    rule_type: 检测通用硬编码凭据
+    aliases:
+    - 检测通用硬编码凭据
+    source_notes: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测通用硬编码凭据
+    source_refs:
+    - src/main/resources/app.yml:46
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-002
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: src/main/resources/messages.properties
+    line_start: 24
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-002
+    scenario_id: pending.nginxwebui.messages-24-检测通用硬编码凭据
+    family: credential_management
+    title: 检测通用硬编码凭据 @ messages.properties
+    description: 待复核新增项：检测通用硬编码凭据 @ src/main/resources/messages.properties:24
+    expectation: must_alert
+    canonical_file_path: src/main/resources/messages.properties
+    line_start: 24
+    line_end: 24
+    rule_type: 检测通用硬编码凭据
+    aliases:
+    - 检测通用硬编码凭据
+    source_notes: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测通用硬编码凭据
+    source_refs:
+    - src/main/resources/messages.properties:24
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-003
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: src/main/resources/messages_en_US.properties
+    line_start: 24
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-003
+    scenario_id: pending.nginxwebui.messages_en_us-24-检测通用硬编码凭据
+    family: credential_management
+    title: 检测通用硬编码凭据 @ messages_en_US.properties
+    description: 待复核新增项：检测通用硬编码凭据 @ src/main/resources/messages_en_US.properties:24
+    expectation: must_alert
+    canonical_file_path: src/main/resources/messages_en_US.properties
+    line_start: 24
+    line_end: 24
+    rule_type: 检测通用硬编码凭据
+    aliases:
+    - 检测通用硬编码凭据
+    source_notes: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测通用硬编码凭据
+    source_refs:
+    - src/main/resources/messages_en_US.properties:24
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-004
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: src/main/resources/messages_zh_TW.properties
+    line_start: 24
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-004
+    scenario_id: pending.nginxwebui.messages_zh_tw-24-检测通用硬编码凭据
+    family: credential_management
+    title: 检测通用硬编码凭据 @ messages_zh_TW.properties
+    description: 待复核新增项：检测通用硬编码凭据 @ src/main/resources/messages_zh_TW.properties:24
+    expectation: must_alert
+    canonical_file_path: src/main/resources/messages_zh_TW.properties
+    line_start: 24
+    line_end: 24
+    rule_type: 检测通用硬编码凭据
+    aliases:
+    - 检测通用硬编码凭据
+    source_notes: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测通用硬编码凭据
+    source_refs:
+    - src/main/resources/messages_zh_TW.properties:24
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-005
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: high
+    file_path: src/main/java/com/cym/controller/adminPage/ConfController.java
+    line_start: 475
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中发现路径穿越漏洞，并且数据流中间没有进行任何过滤。
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-005
+    scenario_id: pending.nginxwebui.confcontroller-475-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ ConfController.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/com/cym/controller/adminPage/ConfController.java:475
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/adminPage/ConfController.java
+    line_start: 475
+    line_end: 475
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中发现路径穿越漏洞，并且数据流中间没有进行任何过滤。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/adminPage/ConfController.java:475
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-006
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: high
+    file_path: src/main/java/com/cym/controller/adminPage/AdminController.java
+    line_start: 91
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码中存在命令注入漏洞，并且数据流中间没有进行任何过滤。
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-006
+    scenario_id: pending.nginxwebui.admincontroller-91-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ AdminController.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/com/cym/controller/adminPage/AdminController.java:91
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/adminPage/AdminController.java
+    line_start: 91
+    line_end: 91
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码中存在命令注入漏洞，并且数据流中间没有进行任何过滤。
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/adminPage/AdminController.java:91
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-007
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A08 Software and Data Integrity Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java反射setAccessible函数滥用漏洞
+    severity: high
+    file_path: src/main/java/com/cym/sqlhelper/reflection/ReflectionUtil.java
+    line_start: 31
+    evidence: 检测Java反射setAccessible函数滥用漏洞 | 检测Java反射setAccessible函数滥用漏洞
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-007
+    scenario_id: pending.nginxwebui.reflectionutil-31-检测java反射setaccessible函数滥用漏洞
+    family: software_data_integrity_failure
+    title: 检测Java反射setAccessible函数滥用漏洞 @ ReflectionUtil.java
+    description: 待复核新增项：检测Java反射setAccessible函数滥用漏洞 @ src/main/java/com/cym/sqlhelper/reflection/ReflectionUtil.java:31
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/sqlhelper/reflection/ReflectionUtil.java
+    line_start: 31
+    line_end: 31
+    rule_type: 检测Java反射setAccessible函数滥用漏洞
+    aliases:
+    - 检测Java反射setAccessible函数滥用漏洞
+    source_notes: 检测Java反射setAccessible函数滥用漏洞 | 检测Java反射setAccessible函数滥用漏洞
+    sink_api: 检测Java反射setAccessible函数滥用漏洞
+    source_refs:
+    - src/main/java/com/cym/sqlhelper/reflection/ReflectionUtil.java:31
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-008
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/adminPage/BakController.java
+    line_start: 34
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-008
+    scenario_id: pending.nginxwebui.bakcontroller-34-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ BakController.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/com/cym/controller/adminPage/BakController.java:34
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/adminPage/BakController.java
+    line_start: 34
+    line_end: 34
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/adminPage/BakController.java:34
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-009
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/adminPage/BasicController.java
+    line_start: 44
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-009
+    scenario_id: pending.nginxwebui.basiccontroller-44-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ BasicController.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/com/cym/controller/adminPage/BasicController.java:44
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/adminPage/BasicController.java
+    line_start: 44
+    line_end: 44
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/adminPage/BasicController.java:44
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-010
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/adminPage/CertController.java
+    line_start: 143
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-010
+    scenario_id: pending.nginxwebui.certcontroller-143-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ CertController.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/com/cym/controller/adminPage/CertController.java:143
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/adminPage/CertController.java
+    line_start: 143
+    line_end: 143
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/adminPage/CertController.java:143
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-011
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/adminPage/ConfController.java
+    line_start: 358
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-011
+    scenario_id: pending.nginxwebui.confcontroller-358-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ ConfController.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/com/cym/controller/adminPage/ConfController.java:358
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/adminPage/ConfController.java
+    line_start: 358
+    line_end: 358
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/adminPage/ConfController.java:358
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-012
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/adminPage/HttpController.java
+    line_start: 120
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-012
+    scenario_id: pending.nginxwebui.httpcontroller-120-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ HttpController.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/com/cym/controller/adminPage/HttpController.java:120
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/adminPage/HttpController.java
+    line_start: 120
+    line_end: 120
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/adminPage/HttpController.java:120
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-013
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/adminPage/LogController.java
+    line_start: 51
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-013
+    scenario_id: pending.nginxwebui.logcontroller-51-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ LogController.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/com/cym/controller/adminPage/LogController.java:51
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/adminPage/LogController.java
+    line_start: 51
+    line_end: 51
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/adminPage/LogController.java:51
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-014
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/adminPage/MainController.java
+    line_start: 91
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-014
+    scenario_id: pending.nginxwebui.maincontroller-91-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ MainController.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/com/cym/controller/adminPage/MainController.java:91
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/adminPage/MainController.java
+    line_start: 91
+    line_end: 91
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/adminPage/MainController.java:91
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-015
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/adminPage/RemoteController.java
+    line_start: 195
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-015
+    scenario_id: pending.nginxwebui.remotecontroller-195-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ RemoteController.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/com/cym/controller/adminPage/RemoteController.java:195
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/adminPage/RemoteController.java
+    line_start: 195
+    line_end: 195
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/adminPage/RemoteController.java:195
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-016
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/adminPage/ServerController.java
+    line_start: 68
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-016
+    scenario_id: pending.nginxwebui.servercontroller-68-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ ServerController.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/com/cym/controller/adminPage/ServerController.java:68
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/adminPage/ServerController.java
+    line_start: 68
+    line_end: 68
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/adminPage/ServerController.java:68
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-017
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/adminPage/StreamController.java
+    line_start: 43
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-017
+    scenario_id: pending.nginxwebui.streamcontroller-43-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ StreamController.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/com/cym/controller/adminPage/StreamController.java:43
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/adminPage/StreamController.java
+    line_start: 43
+    line_end: 43
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/adminPage/StreamController.java:43
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-018
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/adminPage/TemplateController.java
+    line_start: 48
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-018
+    scenario_id: pending.nginxwebui.templatecontroller-48-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ TemplateController.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/com/cym/controller/adminPage/TemplateController.java:48
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/adminPage/TemplateController.java
+    line_start: 48
+    line_end: 48
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/adminPage/TemplateController.java:48
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-019
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/adminPage/UpstreamController.java
+    line_start: 38
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-019
+    scenario_id: pending.nginxwebui.upstreamcontroller-38-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ UpstreamController.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/com/cym/controller/adminPage/UpstreamController.java:38
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/adminPage/UpstreamController.java
+    line_start: 38
+    line_end: 38
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/adminPage/UpstreamController.java:38
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-020
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/adminPage/WwwController.java
+    line_start: 47
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-020
+    scenario_id: pending.nginxwebui.wwwcontroller-47-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ WwwController.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/com/cym/controller/adminPage/WwwController.java:47
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/adminPage/WwwController.java
+    line_start: 47
+    line_end: 47
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/adminPage/WwwController.java:47
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-021
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/api/BasicApiController.java
+    line_start: 51
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-021
+    scenario_id: pending.nginxwebui.basicapicontroller-51-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ BasicApiController.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/com/cym/controller/api/BasicApiController.java:51
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/api/BasicApiController.java
+    line_start: 51
+    line_end: 51
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/api/BasicApiController.java:51
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-022
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/api/CertApiController.java
+    line_start: 69
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-022
+    scenario_id: pending.nginxwebui.certapicontroller-69-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ CertApiController.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/com/cym/controller/api/CertApiController.java:69
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/api/CertApiController.java
+    line_start: 69
+    line_end: 69
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/api/CertApiController.java:69
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-023
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/api/DenyAllowApiController.java
+    line_start: 46
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-023
+    scenario_id: pending.nginxwebui.denyallowapicontroller-46-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ DenyAllowApiController.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/com/cym/controller/api/DenyAllowApiController.java:46
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/api/DenyAllowApiController.java
+    line_start: 46
+    line_end: 46
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/api/DenyAllowApiController.java:46
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-024
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/api/PasswordApiController.java
+    line_start: 46
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-024
+    scenario_id: pending.nginxwebui.passwordapicontroller-46-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ PasswordApiController.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/com/cym/controller/api/PasswordApiController.java:46
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/api/PasswordApiController.java
+    line_start: 46
+    line_end: 46
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/api/PasswordApiController.java:46
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-025
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/api/ServerApiController.java
+    line_start: 59
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-025
+    scenario_id: pending.nginxwebui.serverapicontroller-59-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ ServerApiController.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/com/cym/controller/api/ServerApiController.java:59
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/api/ServerApiController.java
+    line_start: 59
+    line_end: 59
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/api/ServerApiController.java:59
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-026
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/api/UpstreamApiController.java
+    line_start: 56
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-026
+    scenario_id: pending.nginxwebui.upstreamapicontroller-56-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ UpstreamApiController.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/com/cym/controller/api/UpstreamApiController.java:56
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/api/UpstreamApiController.java
+    line_start: 56
+    line_end: 56
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/api/UpstreamApiController.java:56
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-027
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/api/WwwApiController.java
+    line_start: 53
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-027
+    scenario_id: pending.nginxwebui.wwwapicontroller-53-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ WwwApiController.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/com/cym/controller/api/WwwApiController.java:53
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/api/WwwApiController.java
+    line_start: 53
+    line_end: 53
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/api/WwwApiController.java:53
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-028
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A10 Server-Side Request Forgery
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+    severity: medium
+    file_path: src/main/java/com/cym/controller/adminPage/RemoteController.java
+    line_start: 567
+    evidence: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 | 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+      | 发现Java SpringBoot SSRF漏洞,并且没有任何数据流过滤。
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-028
+    scenario_id: pending.nginxwebui.remotecontroller-567-检测java-springboot-服务端请求伪造-ssrf-漏洞
+    family: ssrf
+    title: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 @ RemoteController.java
+    description: 待复核新增项：检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 @ src/main/java/com/cym/controller/adminPage/RemoteController.java:567
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/adminPage/RemoteController.java
+    line_start: 567
+    line_end: 567
+    rule_type: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+    aliases:
+    - 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+    source_notes: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 | 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+      | 发现Java SpringBoot SSRF漏洞,并且没有任何数据流过滤。
+    sink_api: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/adminPage/RemoteController.java:567
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-029
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/adminPage/AdminController.java
+    line_start: 65
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-029
+    scenario_id: pending.nginxwebui.admincontroller-65-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ AdminController.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/com/cym/controller/adminPage/AdminController.java:65
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/adminPage/AdminController.java
+    line_start: 65
+    line_end: 65
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/adminPage/AdminController.java:65
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-030
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/adminPage/CertController.java
+    line_start: 81
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-030
+    scenario_id: pending.nginxwebui.certcontroller-81-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ CertController.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/com/cym/controller/adminPage/CertController.java:81
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/adminPage/CertController.java
+    line_start: 81
+    line_end: 81
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/adminPage/CertController.java:81
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-031
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/adminPage/MainController.java
+    line_start: 91
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-031
+    scenario_id: pending.nginxwebui.maincontroller-91-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ MainController.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/com/cym/controller/adminPage/MainController.java:91
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/adminPage/MainController.java
+    line_start: 91
+    line_end: 91
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/adminPage/MainController.java:91
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-032
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/adminPage/RemoteController.java
+    line_start: 195
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-032
+    scenario_id: pending.nginxwebui.remotecontroller-195-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ RemoteController.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/com/cym/controller/adminPage/RemoteController.java:195
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/adminPage/RemoteController.java
+    line_start: 195
+    line_end: 195
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/adminPage/RemoteController.java:195
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-033
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/adminPage/ServerController.java
+    line_start: 311
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-033
+    scenario_id: pending.nginxwebui.servercontroller-311-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ ServerController.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/com/cym/controller/adminPage/ServerController.java:311
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/adminPage/ServerController.java
+    line_start: 311
+    line_end: 311
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/adminPage/ServerController.java:311
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-034
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/adminPage/StreamController.java
+    line_start: 43
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-034
+    scenario_id: pending.nginxwebui.streamcontroller-43-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ StreamController.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/com/cym/controller/adminPage/StreamController.java:43
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/adminPage/StreamController.java
+    line_start: 43
+    line_end: 43
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/adminPage/StreamController.java:43
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-035
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/adminPage/TemplateController.java
+    line_start: 48
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-035
+    scenario_id: pending.nginxwebui.templatecontroller-48-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ TemplateController.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/com/cym/controller/adminPage/TemplateController.java:48
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/adminPage/TemplateController.java
+    line_start: 48
+    line_end: 48
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/adminPage/TemplateController.java:48
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-036
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/adminPage/UpstreamController.java
+    line_start: 38
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-036
+    scenario_id: pending.nginxwebui.upstreamcontroller-38-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ UpstreamController.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/com/cym/controller/adminPage/UpstreamController.java:38
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/adminPage/UpstreamController.java
+    line_start: 38
+    line_end: 38
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/adminPage/UpstreamController.java:38
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-037
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/adminPage/WwwController.java
+    line_start: 47
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-037
+    scenario_id: pending.nginxwebui.wwwcontroller-47-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ WwwController.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/com/cym/controller/adminPage/WwwController.java:47
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/adminPage/WwwController.java
+    line_start: 47
+    line_end: 47
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/adminPage/WwwController.java:47
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-038
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/api/BasicApiController.java
+    line_start: 51
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-038
+    scenario_id: pending.nginxwebui.basicapicontroller-51-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ BasicApiController.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/com/cym/controller/api/BasicApiController.java:51
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/api/BasicApiController.java
+    line_start: 51
+    line_end: 51
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/api/BasicApiController.java:51
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-039
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/api/CertApiController.java
+    line_start: 69
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-039
+    scenario_id: pending.nginxwebui.certapicontroller-69-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ CertApiController.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/com/cym/controller/api/CertApiController.java:69
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/api/CertApiController.java
+    line_start: 69
+    line_end: 69
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/api/CertApiController.java:69
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-040
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/api/DenyAllowApiController.java
+    line_start: 46
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-040
+    scenario_id: pending.nginxwebui.denyallowapicontroller-46-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ DenyAllowApiController.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/com/cym/controller/api/DenyAllowApiController.java:46
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/api/DenyAllowApiController.java
+    line_start: 46
+    line_end: 46
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/api/DenyAllowApiController.java:46
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-041
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/api/PasswordApiController.java
+    line_start: 46
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-041
+    scenario_id: pending.nginxwebui.passwordapicontroller-46-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ PasswordApiController.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/com/cym/controller/api/PasswordApiController.java:46
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/api/PasswordApiController.java
+    line_start: 46
+    line_end: 46
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/api/PasswordApiController.java:46
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-042
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/api/ServerApiController.java
+    line_start: 59
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-042
+    scenario_id: pending.nginxwebui.serverapicontroller-59-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ ServerApiController.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/com/cym/controller/api/ServerApiController.java:59
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/api/ServerApiController.java
+    line_start: 59
+    line_end: 59
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/api/ServerApiController.java:59
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-043
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/api/UpstreamApiController.java
+    line_start: 56
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-043
+    scenario_id: pending.nginxwebui.upstreamapicontroller-56-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ UpstreamApiController.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/com/cym/controller/api/UpstreamApiController.java:56
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/api/UpstreamApiController.java
+    line_start: 56
+    line_end: 56
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/api/UpstreamApiController.java:56
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-044
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/api/WwwApiController.java
+    line_start: 53
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-044
+    scenario_id: pending.nginxwebui.wwwapicontroller-53-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ WwwApiController.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/com/cym/controller/api/WwwApiController.java:53
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/api/WwwApiController.java
+    line_start: 53
+    line_end: 53
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/api/WwwApiController.java:53
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-045
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: low
+    file_path: src/main/java/com/cym/utils/NetWorkUtil.java
+    line_start: 33
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测Java Servlet和SpringMVC中的命令注入漏洞
+      | 发现Java代码中可能存在命令注入，但并没有发现参数可控。
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-045
+    scenario_id: pending.nginxwebui.networkutil-33-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ NetWorkUtil.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/com/cym/utils/NetWorkUtil.java:33
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/utils/NetWorkUtil.java
+    line_start: 33
+    line_end: 33
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测Java Servlet和SpringMVC中的命令注入漏洞
+      | 发现Java代码中可能存在命令注入，但并没有发现参数可控。
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/com/cym/utils/NetWorkUtil.java:33
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-046
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: low
+    file_path: src/main/java/com/cym/utils/TimeExeUtils.java
+    line_start: 38
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测Java Servlet和SpringMVC中的命令注入漏洞
+      | 发现Java代码中可能存在命令注入，但并没有发现参数可控。
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-046
+    scenario_id: pending.nginxwebui.timeexeutils-38-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ TimeExeUtils.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/com/cym/utils/TimeExeUtils.java:38
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/utils/TimeExeUtils.java
+    line_start: 38
+    line_end: 38
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测Java Servlet和SpringMVC中的命令注入漏洞
+      | 发现Java代码中可能存在命令注入，但并没有发现参数可控。
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/com/cym/utils/TimeExeUtils.java:38
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-047
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Spring控制器中未调用的SSTI漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/adminPage/AdminController.java
+    line_start: 65
+    evidence: 检测Spring控制器中未调用的SSTI漏洞 | 审计Spring控制器中已过滤的SSTI防护措施 | The String or Content
+      Filter is used. It is recommended to use the filter to prevent SSTI.
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-047
+    scenario_id: pending.nginxwebui.admincontroller-65-检测spring控制器中未调用的ssti漏洞
+    family: ssti
+    title: 检测Spring控制器中未调用的SSTI漏洞 @ AdminController.java
+    description: 待复核新增项：检测Spring控制器中未调用的SSTI漏洞 @ src/main/java/com/cym/controller/adminPage/AdminController.java:65
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/adminPage/AdminController.java
+    line_start: 65
+    line_end: 65
+    rule_type: 检测Spring控制器中未调用的SSTI漏洞
+    aliases:
+    - 检测Spring控制器中未调用的SSTI漏洞
+    source_notes: 检测Spring控制器中未调用的SSTI漏洞 | 审计Spring控制器中已过滤的SSTI防护措施 | The String or
+      Content Filter is used. It is recommended to use the filter to prevent SSTI.
+    sink_api: 检测Spring控制器中未调用的SSTI漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/adminPage/AdminController.java:65
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-048
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Spring控制器中未调用的SSTI漏洞
+    severity: low
+    file_path: src/main/java/com/cym/controller/adminPage/MainController.java
+    line_start: 91
+    evidence: 检测Spring控制器中未调用的SSTI漏洞 | 审计Spring控制器中已过滤的SSTI防护措施 | The String or Content
+      Filter is used. It is recommended to use the filter to prevent SSTI.
+  proposed_case:
+    case_id: REVIEW-NGINXWEBUI-048
+    scenario_id: pending.nginxwebui.maincontroller-91-检测spring控制器中未调用的ssti漏洞
+    family: ssti
+    title: 检测Spring控制器中未调用的SSTI漏洞 @ MainController.java
+    description: 待复核新增项：检测Spring控制器中未调用的SSTI漏洞 @ src/main/java/com/cym/controller/adminPage/MainController.java:91
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/adminPage/MainController.java
+    line_start: 91
+    line_end: 91
+    rule_type: 检测Spring控制器中未调用的SSTI漏洞
+    aliases:
+    - 检测Spring控制器中未调用的SSTI漏洞
+    source_notes: 检测Spring控制器中未调用的SSTI漏洞 | 审计Spring控制器中已过滤的SSTI防护措施 | The String or
+      Content Filter is used. It is recommended to use the filter to prevent SSTI.
+    sink_api: 检测Spring控制器中未调用的SSTI漏洞
+    source_refs:
+    - src/main/java/com/cym/controller/adminPage/MainController.java:91
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。

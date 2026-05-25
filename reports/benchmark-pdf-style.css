@@ -1,0 +1,284 @@
+@page {
+  size: A4;
+  margin: 2.5cm 2cm;
+  @bottom-center {
+    content: "仅限内部参考 — IRify SAST 竞品能力评测报告    |    " counter(page);
+    font-size: 8pt;
+    color: #888;
+  }
+}
+
+@page cover {
+  size: A4;
+  margin: 0;
+  @bottom-center { content: none; }
+}
+
+.cover-page {
+  page: cover;
+  page-break-after: always;
+  margin: -1mm;
+  padding: 0;
+  width: 212mm;
+  height: 299mm;
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #1d4ed8 100%);
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.cover-page * {
+  color: #ffffff;
+  background: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cover-badge {
+  position: absolute;
+  top: 16mm;
+  right: 20mm;
+  padding: 5px 18px;
+  border: 2px solid rgba(255, 200, 200, 0.8) !important;
+  background: rgba(220, 38, 38, 0.25) !important;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #fecaca !important;
+  border-radius: 4px;
+}
+
+.cover-header {
+  position: absolute;
+  top: 50mm;
+  left: 28mm;
+  right: 28mm;
+}
+
+.cover-logo {
+  margin-bottom: 24mm;
+}
+
+.cover-logo .logo-box {
+  display: inline-block;
+  width: 52px;
+  height: 52px;
+  line-height: 52px;
+  text-align: center;
+  background: #ffffff !important;
+  color: #1e3a8a !important;
+  border-radius: 13px;
+  font-weight: 900;
+  font-size: 30px;
+  vertical-align: middle;
+  margin-right: 16px;
+}
+
+.cover-logo .logo-text {
+  display: inline-block;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  vertical-align: middle;
+}
+
+.cover-title {
+  font-size: 46px;
+  font-weight: 800;
+  line-height: 1.3;
+  margin-bottom: 10mm;
+  border-bottom: none;
+}
+
+.cover-subtitle {
+  font-size: 18px;
+  opacity: 0.85;
+  line-height: 2;
+  max-width: 148mm;
+  font-weight: 400;
+}
+
+.cover-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15) !important;
+  padding: 20mm 28mm;
+}
+
+.cover-footer .meta-grid {
+  display: inline-block;
+  vertical-align: bottom;
+  width: 68%;
+}
+
+.cover-footer .meta-item {
+  display: inline-block;
+  width: 48%;
+  vertical-align: top;
+  margin-bottom: 7mm;
+}
+
+.cover-footer .meta-item .label {
+  display: block;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  opacity: 0.5;
+  margin-bottom: 2mm;
+}
+
+.cover-footer .meta-item .value {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.cover-footer .version-tag {
+  display: inline-block;
+  vertical-align: bottom;
+  float: right;
+  padding: 7px 20px;
+  border: 2px solid rgba(255, 200, 200, 0.7) !important;
+  background: rgba(220, 38, 38, 0.2) !important;
+  color: #fecaca !important;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin-top: 12mm;
+}
+
+body {
+  font-family: "Noto Sans CJK SC", "Noto Sans SC", sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.75;
+  color: #1a1a1a;
+}
+
+h1 {
+  font-size: 22pt;
+  font-weight: 700;
+  margin-top: 1cm;
+  padding-bottom: 0.3cm;
+  border-bottom: 2px solid #2563eb;
+  page-break-before: always;
+  color: #1a1a1a;
+}
+
+h2 {
+  font-size: 16pt;
+  font-weight: 700;
+  margin-top: 1.2cm;
+  padding-bottom: 0.15cm;
+  border-bottom: 1px solid #e5e7eb;
+  page-break-before: always;
+}
+
+h2:first-of-type {
+  page-break-before: avoid;
+}
+
+h3 {
+  font-size: 12pt;
+  font-weight: 600;
+  margin-top: 0.6cm;
+}
+
+p, li {
+  orphans: 3;
+  widows: 3;
+}
+
+code {
+  font-family: "JetBrains Mono", "Noto Sans Mono CJK SC", monospace;
+  font-size: 9pt;
+  background: #f3f4f6;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+pre {
+  background: #f8f9fa;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  padding: 10px 14px;
+  font-size: 9pt;
+  line-height: 1.5;
+  page-break-inside: avoid;
+  overflow-wrap: break-word;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.5cm 0;
+  font-size: 9pt;
+  page-break-inside: auto;
+}
+
+th, td {
+  border: 1px solid #d1d5db;
+  padding: 5px 8px;
+  text-align: left;
+}
+
+th {
+  background: #f0f4ff;
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+tr {
+  page-break-inside: avoid;
+}
+
+blockquote {
+  border-left: 3px solid #2563eb;
+  margin: 0.4cm 0;
+  padding: 0.2cm 0.6cm;
+  color: #374151;
+  background: #f0f4ff;
+  font-size: 10pt;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  margin: 0.3cm auto;
+}
+
+figure {
+  margin: 0.5cm 0;
+  text-align: center;
+  page-break-inside: avoid;
+}
+
+figcaption {
+  font-size: 9pt;
+  color: #6b7280;
+  text-align: center;
+  margin-top: 0.15cm;
+}
+
+a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 0.8cm 0;
+}
+
+strong {
+  font-weight: 600;
+}

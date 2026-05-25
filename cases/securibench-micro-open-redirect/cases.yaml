@@ -1,0 +1,47 @@
+project_id: securibench-micro-open-redirect
+version: 1.0.0
+cases:
+    - case_id: basic-basic24-001
+      name: 'Basic24 #1'
+      description: unsafe redirect
+      vuln_desc: OPEN-REDIRECT vulnerability in Basic24
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 38
+                file: securibench/micro/basic/Basic24.java
+            sink:
+                symbol: resp.sendRedirect
+                line: 41
+                file: securibench/micro/basic/Basic24.java
+      metadata:
+        cwe: CWE-601
+        tags:
+            - open-redirect
+            - java
+            - securibench
+    - case_id: sanitizers-sanitizers5-001
+      name: 'Sanitizers5 #1'
+      description: encode and then decode
+      vuln_desc: OPEN-REDIRECT vulnerability in Sanitizers5
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 41
+                file: securibench/micro/sanitizers/Sanitizers5.java
+            sink:
+                symbol: resp.sendRedirect
+                line: 46
+                file: securibench/micro/sanitizers/Sanitizers5.java
+      metadata:
+        cwe: CWE-601
+        tags:
+            - open-redirect
+            - java
+            - securibench

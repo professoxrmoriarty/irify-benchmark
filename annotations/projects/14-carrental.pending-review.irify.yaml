@@ -1,0 +1,154 @@
+project: carRental
+tool: irify
+generated_from: /home/zpy/goproject/IRify_SAST/.ai/task-runs/benchmark-framework/projects/14-carrental/artifacts/truth-evaluation.json
+summary:
+  total: 4
+  by_priority:
+    high: 4
+notes:
+- 这是待复核 finding 转出的 review case 草案，不自动参与正式真值评估。
+- 人工确认后，可按需要提升到 JavaSecLab.review.yaml 的 manual_cases 或 suppressed_findings。
+- candidate_case_ids 非空时，优先判断是否应并入已有 case，而不是直接新增。
+review_cases:
+- review_case_id: PENDING-IRIFY-001
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: src/main/resources/db.properties
+    line_start: 2
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-001
+    scenario_id: pending.carrental.db-2-检测通用硬编码凭据
+    family: credential_management
+    title: 检测通用硬编码凭据 @ db.properties
+    description: 待复核新增项：检测通用硬编码凭据 @ src/main/resources/db.properties:2
+    expectation: must_alert
+    canonical_file_path: src/main/resources/db.properties
+    line_start: 2
+    line_end: 2
+    rule_type: 检测通用硬编码凭据
+    aliases:
+    - 检测通用硬编码凭据
+    source_notes: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测通用硬编码凭据
+    source_refs:
+    - src/main/resources/db.properties:2
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-002
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A06 Vulnerable and Outdated Components
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 'SCA: 检测Java Aspectjweaver 依赖漏洞'
+    severity: medium
+    file_path: pom.xml
+    line_start: 46
+    evidence: 'SCA: 检测Java Aspectjweaver 依赖漏洞 | SCA: 检测Java Aspectjweaver 依赖漏洞 | SCA:
+      aspectjweaver version 1.9.5 has a reflective file download vulnerability'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-002
+    scenario_id: pending.carrental.pom-46-sca-检测java-aspectjweaver-依赖漏洞
+    family: vulnerable_component
+    title: 'SCA: 检测Java Aspectjweaver 依赖漏洞 @ pom.xml'
+    description: '待复核新增项：SCA: 检测Java Aspectjweaver 依赖漏洞 @ pom.xml:46'
+    expectation: must_alert
+    canonical_file_path: pom.xml
+    line_start: 46
+    line_end: 46
+    rule_type: 'SCA: 检测Java Aspectjweaver 依赖漏洞'
+    aliases:
+    - 'SCA: 检测Java Aspectjweaver 依赖漏洞'
+    source_notes: 'SCA: 检测Java Aspectjweaver 依赖漏洞 | SCA: 检测Java Aspectjweaver 依赖漏洞
+      | SCA: aspectjweaver version 1.9.5 has a reflective file download vulnerability'
+    sink_api: 'SCA: 检测Java Aspectjweaver 依赖漏洞'
+    source_refs:
+    - pom.xml:46
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-003
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A06 Vulnerable and Outdated Components
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 'SCA: 检测Java jdbc mysql-connector 依赖漏洞'
+    severity: medium
+    file_path: pom.xml
+    line_start: 102
+    evidence: 'SCA: 检测Java jdbc mysql-connector 依赖漏洞 | SCA: 检测Java jdbc mysql-connector
+      依赖漏洞 | SCA: mysql-connector-java versions between 8.0.17 and 8.0.27 have an
+      information disclosure vulnerability'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-003
+    scenario_id: pending.carrental.pom-102-sca-检测java-jdbc-mysql-connector-依赖漏洞
+    family: sql_injection
+    title: 'SCA: 检测Java jdbc mysql-connector 依赖漏洞 @ pom.xml'
+    description: '待复核新增项：SCA: 检测Java jdbc mysql-connector 依赖漏洞 @ pom.xml:102'
+    expectation: must_alert
+    canonical_file_path: pom.xml
+    line_start: 102
+    line_end: 102
+    rule_type: 'SCA: 检测Java jdbc mysql-connector 依赖漏洞'
+    aliases:
+    - 'SCA: 检测Java jdbc mysql-connector 依赖漏洞'
+    source_notes: 'SCA: 检测Java jdbc mysql-connector 依赖漏洞 | SCA: 检测Java jdbc mysql-connector
+      依赖漏洞 | SCA: mysql-connector-java versions between 8.0.17 and 8.0.27 have an
+      information disclosure vulnerability'
+    sink_api: 'SCA: 检测Java jdbc mysql-connector 依赖漏洞'
+    source_refs:
+    - pom.xml:102
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-004
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/yeqifu/bus/controller/CarController.java
+    line_start: 42
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-004
+    scenario_id: pending.carrental.carcontroller-42-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ CarController.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/com/yeqifu/bus/controller/CarController.java:42
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/bus/controller/CarController.java
+    line_start: 42
+    line_end: 42
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/com/yeqifu/bus/controller/CarController.java:42
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。

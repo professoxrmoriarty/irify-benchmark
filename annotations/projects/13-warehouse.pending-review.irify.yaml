@@ -1,0 +1,332 @@
+project: warehouse
+tool: irify
+generated_from: /home/zpy/goproject/IRify_SAST/.ai/task-runs/benchmark-framework/projects/13-warehouse/artifacts/truth-evaluation.json
+summary:
+  total: 9
+  by_priority:
+    high: 9
+notes:
+- 这是待复核 finding 转出的 review case 草案，不自动参与正式真值评估。
+- 人工确认后，可按需要提升到 JavaSecLab.review.yaml 的 manual_cases 或 suppressed_findings。
+- candidate_case_ids 非空时，优先判断是否应并入已有 case，而不是直接新增。
+review_cases:
+- review_case_id: PENDING-IRIFY-001
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A06 Vulnerable and Outdated Components
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 'SCA: 检测Java Fastjson依赖漏洞'
+    severity: critical
+    file_path: pom.xml
+    line_start: 159
+    evidence: 'SCA: 检测Java Fastjson依赖漏洞 | SCA: 检测Java Fastjson依赖漏洞 | SCA: com.alibaba.fastjson
+      < 1.2.83 RCE Hard to exploit'
+  proposed_case:
+    case_id: REVIEW-WAREHOUSE-001
+    scenario_id: pending.warehouse.pom-159-sca-检测java-fastjson依赖漏洞
+    family: deserialization
+    title: 'SCA: 检测Java Fastjson依赖漏洞 @ pom.xml'
+    description: '待复核新增项：SCA: 检测Java Fastjson依赖漏洞 @ pom.xml:159'
+    expectation: must_alert
+    canonical_file_path: pom.xml
+    line_start: 159
+    line_end: 159
+    rule_type: 'SCA: 检测Java Fastjson依赖漏洞'
+    aliases:
+    - 'SCA: 检测Java Fastjson依赖漏洞'
+    source_notes: 'SCA: 检测Java Fastjson依赖漏洞 | SCA: 检测Java Fastjson依赖漏洞 | SCA: com.alibaba.fastjson
+      < 1.2.83 RCE Hard to exploit'
+    sink_api: 'SCA: 检测Java Fastjson依赖漏洞'
+    source_refs:
+    - pom.xml:159
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-002
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: src/main/resources/application.yml
+    line_start: 8
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-WAREHOUSE-002
+    scenario_id: pending.warehouse.application-8-检测通用硬编码凭据
+    family: credential_management
+    title: 检测通用硬编码凭据 @ application.yml
+    description: 待复核新增项：检测通用硬编码凭据 @ src/main/resources/application.yml:8
+    expectation: must_alert
+    canonical_file_path: src/main/resources/application.yml
+    line_start: 8
+    line_end: 8
+    rule_type: 检测通用硬编码凭据
+    aliases:
+    - 检测通用硬编码凭据
+    source_notes: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测通用硬编码凭据
+    source_refs:
+    - src/main/resources/application.yml:8
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-003
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: high
+    file_path: src/main/java/com/yeqifu/bus/controller/GoodsController.java
+    line_start: 124
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中发现路径穿越漏洞，并且数据流中间没有进行任何过滤。
+  proposed_case:
+    case_id: REVIEW-WAREHOUSE-003
+    scenario_id: pending.warehouse.goodscontroller-124-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ GoodsController.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/com/yeqifu/bus/controller/GoodsController.java:124
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/bus/controller/GoodsController.java
+    line_start: 124
+    line_end: 124
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中发现路径穿越漏洞，并且数据流中间没有进行任何过滤。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/com/yeqifu/bus/controller/GoodsController.java:124
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-004
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A06 Vulnerable and Outdated Components
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 'SCA: 检测Java shiro-core 依赖漏洞'
+    severity: high
+    file_path: pom.xml
+    line_start: 118
+    evidence: 'SCA: 检测Java shiro-core 依赖漏洞 | SCA: 检测Java shiro-core 依赖漏洞 | SCA: shiro-core
+      versions between 1.10.0 and 1.10.1 have an authentication bypass vulnerability'
+  proposed_case:
+    case_id: REVIEW-WAREHOUSE-004
+    scenario_id: pending.warehouse.pom-118-sca-检测java-shiro-core-依赖漏洞
+    family: vulnerable_component
+    title: 'SCA: 检测Java shiro-core 依赖漏洞 @ pom.xml'
+    description: '待复核新增项：SCA: 检测Java shiro-core 依赖漏洞 @ pom.xml:118'
+    expectation: must_alert
+    canonical_file_path: pom.xml
+    line_start: 118
+    line_end: 118
+    rule_type: 'SCA: 检测Java shiro-core 依赖漏洞'
+    aliases:
+    - 'SCA: 检测Java shiro-core 依赖漏洞'
+    source_notes: 'SCA: 检测Java shiro-core 依赖漏洞 | SCA: 检测Java shiro-core 依赖漏洞 | SCA:
+      shiro-core versions between 1.10.0 and 1.10.1 have an authentication bypass
+      vulnerability'
+    sink_api: 'SCA: 检测Java shiro-core 依赖漏洞'
+    source_refs:
+    - pom.xml:118
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-005
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A06 Vulnerable and Outdated Components
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 'SCA: 检测Java jdbc mysql-connector 依赖漏洞'
+    severity: medium
+    file_path: pom.xml
+    line_start: 55
+    evidence: 'SCA: 检测Java jdbc mysql-connector 依赖漏洞 | SCA: 检测Java jdbc mysql-connector
+      依赖漏洞 | SCA: mysql-connector-java versions between 8.0.17 and 8.0.27 have an
+      information disclosure vulnerability'
+  proposed_case:
+    case_id: REVIEW-WAREHOUSE-005
+    scenario_id: pending.warehouse.pom-55-sca-检测java-jdbc-mysql-connector-依赖漏洞
+    family: sql_injection
+    title: 'SCA: 检测Java jdbc mysql-connector 依赖漏洞 @ pom.xml'
+    description: '待复核新增项：SCA: 检测Java jdbc mysql-connector 依赖漏洞 @ pom.xml:55'
+    expectation: must_alert
+    canonical_file_path: pom.xml
+    line_start: 55
+    line_end: 55
+    rule_type: 'SCA: 检测Java jdbc mysql-connector 依赖漏洞'
+    aliases:
+    - 'SCA: 检测Java jdbc mysql-connector 依赖漏洞'
+    source_notes: 'SCA: 检测Java jdbc mysql-connector 依赖漏洞 | SCA: 检测Java jdbc mysql-connector
+      依赖漏洞 | SCA: mysql-connector-java versions between 8.0.17 and 8.0.27 have an
+      information disclosure vulnerability'
+    sink_api: 'SCA: 检测Java jdbc mysql-connector 依赖漏洞'
+    source_refs:
+    - pom.xml:55
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-006
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-FILE-UPLOADFILE-UPLOADFILE
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+    line_start: 30
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WAREHOUSE-006
+    scenario_id: pending.warehouse.filecontroller-30-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ FileController.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/com/yeqifu/sys/controller/FileController.java:30
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+    line_start: 30
+    line_end: 30
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/com/yeqifu/sys/controller/FileController.java:30
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-007
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+    line_start: 61
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WAREHOUSE-007
+    scenario_id: pending.warehouse.filecontroller-61-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ FileController.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/com/yeqifu/sys/controller/FileController.java:61
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+    line_start: 61
+    line_end: 61
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/com/yeqifu/sys/controller/FileController.java:61
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-008
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数
+    severity: low
+    file_path: src/main/java/com/yeqifu/sys/mapper/PermissionMapper.java
+    line_start: 23
+    evidence: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数 | 检测 Java MyBatis/iBatis
+      XML Mapper 不安全(${...})参数
+  proposed_case:
+    case_id: REVIEW-WAREHOUSE-008
+    scenario_id: pending.warehouse.permissionmapper-23-检测-java-mybatis-ibatis-xml-mapper-不安全-...-参数
+    family: injection
+    title: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数 @ PermissionMapper.java
+    description: 待复核新增项：检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数 @ src/main/java/com/yeqifu/sys/mapper/PermissionMapper.java:23
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/sys/mapper/PermissionMapper.java
+    line_start: 23
+    line_end: 23
+    rule_type: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数
+    aliases:
+    - 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数
+    source_notes: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数 | 检测 Java MyBatis/iBatis
+      XML Mapper 不安全(${...})参数
+    sink_api: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数
+    source_refs:
+    - src/main/java/com/yeqifu/sys/mapper/PermissionMapper.java:23
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-009
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A06 Vulnerable and Outdated Components
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 'SCA: 检测Java Spring Boot Devtools使用'
+    severity: info
+    file_path: pom.xml
+    line_start: 1
+    evidence: 'SCA: 检测Java Spring Boot Devtools使用 | 检测到Java Spring Boot Devtools的使用
+      | 检测到Java Spring Boot Devtools的使用'
+  proposed_case:
+    case_id: REVIEW-WAREHOUSE-009
+    scenario_id: pending.warehouse.pom-1-sca-检测java-spring-boot-devtools使用
+    family: vulnerable_component
+    title: 'SCA: 检测Java Spring Boot Devtools使用 @ pom.xml'
+    description: '待复核新增项：SCA: 检测Java Spring Boot Devtools使用 @ pom.xml:1'
+    expectation: must_alert
+    canonical_file_path: pom.xml
+    line_start: 1
+    line_end: 1
+    rule_type: 'SCA: 检测Java Spring Boot Devtools使用'
+    aliases:
+    - 'SCA: 检测Java Spring Boot Devtools使用'
+    source_notes: 'SCA: 检测Java Spring Boot Devtools使用 | 检测到Java Spring Boot Devtools的使用
+      | 检测到Java Spring Boot Devtools的使用'
+    sink_api: 'SCA: 检测Java Spring Boot Devtools使用'
+    source_refs:
+    - pom.xml:1
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。

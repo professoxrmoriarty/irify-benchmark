@@ -1,0 +1,601 @@
+project: java-sec-code
+tool: fortify
+generated_from: /home/zpy/goproject/IRify_SAST/.ai/task-runs/benchmark-framework/projects/08-java-sec-code/artifacts/truth-evaluation.json
+summary:
+  total: 17
+  by_priority:
+    high: 16
+    medium: 1
+notes:
+- 这是待复核 finding 转出的 review case 草案，不自动参与正式真值评估。
+- 人工确认后，可按需要提升到 JavaSecLab.review.yaml 的 manual_cases 或 suppressed_findings。
+- candidate_case_ids 非空时，优先判断是否应并入已有 case，而不是直接新增。
+review_cases:
+- review_case_id: PENDING-FORTIFY-001
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'SQL Injection: MyBatis Mapper'
+    severity: critical
+    file_path: src/main/resources/mapper/UserMapper.xml
+    line_start: 16
+    evidence: 'Sink: | File: src/main/resources/mapper/UserMapper.xml:16'
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-001
+    scenario_id: pending.java-sec-code.usermapper-16-sql-injection-mybatis-mapper
+    family: sql_injection
+    title: 'SQL Injection: MyBatis Mapper @ UserMapper.xml'
+    description: '待复核新增项：SQL Injection: MyBatis Mapper @ src/main/resources/mapper/UserMapper.xml:16'
+    expectation: must_alert
+    canonical_file_path: src/main/resources/mapper/UserMapper.xml
+    line_start: 16
+    line_end: 16
+    rule_type: 'SQL Injection: MyBatis Mapper'
+    aliases:
+    - 'SQL Injection: MyBatis Mapper'
+    source_notes: 'Sink: | File: src/main/resources/mapper/UserMapper.xml:16'
+    sink_api: 'SQL Injection: MyBatis Mapper'
+    source_refs:
+    - src/main/resources/mapper/UserMapper.xml:16
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-002
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Credential Management: Hardcoded API Credentials'
+    severity: critical
+    file_path: src/main/resources/application.properties
+    line_start: 58
+    evidence: 'Sink: | File: src/main/resources/application.properties:58'
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-002
+    scenario_id: pending.java-sec-code.application-58-credential-management-hardcoded-api-credentials
+    family: credential_management
+    title: 'Credential Management: Hardcoded API Credentials @ application.properties'
+    description: '待复核新增项：Credential Management: Hardcoded API Credentials @ src/main/resources/application.properties:58'
+    expectation: must_alert
+    canonical_file_path: src/main/resources/application.properties
+    line_start: 58
+    line_end: 58
+    rule_type: 'Credential Management: Hardcoded API Credentials'
+    aliases:
+    - 'Credential Management: Hardcoded API Credentials'
+    source_notes: 'Sink: | File: src/main/resources/application.properties:58'
+    sink_api: 'Credential Management: Hardcoded API Credentials'
+    source_refs:
+    - src/main/resources/application.properties:58
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-003
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A05 Security Misconfiguration
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: XML External Entity Injection
+    severity: high
+    file_path: src/main/java/org/joychou/config/SafeDomainParser.java
+    line_start: 34
+    evidence: 'Sink: db.parse(...) : XML document parsed allowing external entity
+      resolution | File: src/main/java/org/joychou/config/SafeDomainParser.java:34'
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-003
+    scenario_id: pending.java-sec-code.safedomainparser-34-xml-external-entity-injection
+    family: xxe
+    title: XML External Entity Injection @ SafeDomainParser.java
+    description: 待复核新增项：XML External Entity Injection @ src/main/java/org/joychou/config/SafeDomainParser.java:34
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/config/SafeDomainParser.java
+    line_start: 34
+    line_end: 34
+    rule_type: XML External Entity Injection
+    aliases:
+    - XML External Entity Injection
+    source_notes: 'Sink: db.parse(...) : XML document parsed allowing external entity
+      resolution | File: src/main/java/org/joychou/config/SafeDomainParser.java:34'
+    sink_api: XML External Entity Injection
+    source_refs:
+    - src/main/java/org/joychou/config/SafeDomainParser.java:34
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-004
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-XXE-XMLREADERVULN-XMLREADER-VULN
+  owasp_category: A05 Security Misconfiguration
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: XML External Entity Injection
+    severity: high
+    file_path: src/main/java/org/joychou/controller/XXE.java
+    line_start: 54
+    evidence: 'Sink: xmlReader.parse(...) : XML document parsed allowing external
+      entity resolution | File: src/main/java/org/joychou/controller/XXE.java:54'
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-004
+    scenario_id: pending.java-sec-code.xxe-54-xml-external-entity-injection
+    family: xxe
+    title: XML External Entity Injection @ XXE.java
+    description: 待复核新增项：XML External Entity Injection @ src/main/java/org/joychou/controller/XXE.java:54
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/XXE.java
+    line_start: 54
+    line_end: 54
+    rule_type: XML External Entity Injection
+    aliases:
+    - XML External Entity Injection
+    source_notes: 'Sink: xmlReader.parse(...) : XML document parsed allowing external
+      entity resolution | File: src/main/java/org/joychou/controller/XXE.java:54'
+    sink_api: XML External Entity Injection
+    source_refs:
+    - src/main/java/org/joychou/controller/XXE.java:54
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-005
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Hardcoded Password'
+    severity: high
+    file_path: src/main/java/org/joychou/util/JwtUtils.java
+    line_start: 20
+    evidence: 'Sink: FieldAccess: SECRET | File: src/main/java/org/joychou/util/JwtUtils.java:20'
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-005
+    scenario_id: pending.java-sec-code.jwtutils-20-password-management-hardcoded-password
+    family: credential_management
+    title: 'Password Management: Hardcoded Password @ JwtUtils.java'
+    description: '待复核新增项：Password Management: Hardcoded Password @ src/main/java/org/joychou/util/JwtUtils.java:20'
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/util/JwtUtils.java
+    line_start: 20
+    line_end: 20
+    rule_type: 'Password Management: Hardcoded Password'
+    aliases:
+    - 'Password Management: Hardcoded Password'
+    source_notes: 'Sink: FieldAccess: SECRET | File: src/main/java/org/joychou/util/JwtUtils.java:20'
+    sink_api: 'Password Management: Hardcoded Password'
+    source_refs:
+    - src/main/java/org/joychou/util/JwtUtils.java:20
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-006
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Password in Configuration File'
+    severity: high
+    file_path: src/main/resources/application.properties
+    line_start: 4
+    evidence: 'Sink: spring.datasource.password | File: src/main/resources/application.properties:4'
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-006
+    scenario_id: pending.java-sec-code.application-4-password-management-password-in-configuration-file
+    family: credential_management
+    title: 'Password Management: Password in Configuration File @ application.properties'
+    description: '待复核新增项：Password Management: Password in Configuration File @ src/main/resources/application.properties:4'
+    expectation: must_alert
+    canonical_file_path: src/main/resources/application.properties
+    line_start: 4
+    line_end: 4
+    rule_type: 'Password Management: Password in Configuration File'
+    aliases:
+    - 'Password Management: Password in Configuration File'
+    source_notes: 'Sink: spring.datasource.password | File: src/main/resources/application.properties:4'
+    sink_api: 'Password Management: Password in Configuration File'
+    source_refs:
+    - src/main/resources/application.properties:4
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-007
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A08 Software and Data Integrity Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: Access Specifier Manipulation
+    severity: high
+    file_path: src/main/java/org/joychou/config/TomcatFilterMemShell.java
+    line_start: 38
+    evidence: 'Sink: setAccessible() | File: src/main/java/org/joychou/config/TomcatFilterMemShell.java:38'
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-007
+    scenario_id: pending.java-sec-code.tomcatfiltermemshell-38-access-specifier-manipulation
+    family: software_data_integrity_failure
+    title: Access Specifier Manipulation @ TomcatFilterMemShell.java
+    description: 待复核新增项：Access Specifier Manipulation @ src/main/java/org/joychou/config/TomcatFilterMemShell.java:38
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/config/TomcatFilterMemShell.java
+    line_start: 38
+    line_end: 38
+    rule_type: Access Specifier Manipulation
+    aliases:
+    - Access Specifier Manipulation
+    source_notes: 'Sink: setAccessible() | File: src/main/java/org/joychou/config/TomcatFilterMemShell.java:38'
+    sink_api: Access Specifier Manipulation
+    source_refs:
+    - src/main/java/org/joychou/config/TomcatFilterMemShell.java:38
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-008
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A08 Software and Data Integrity Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: Access Specifier Manipulation
+    severity: high
+    file_path: src/main/java/org/joychou/controller/ClassDataLoader.java
+    line_start: 24
+    evidence: 'Sink: setAccessible() | File: src/main/java/org/joychou/controller/ClassDataLoader.java:24'
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-008
+    scenario_id: pending.java-sec-code.classdataloader-24-access-specifier-manipulation
+    family: software_data_integrity_failure
+    title: Access Specifier Manipulation @ ClassDataLoader.java
+    description: 待复核新增项：Access Specifier Manipulation @ src/main/java/org/joychou/controller/ClassDataLoader.java:24
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/ClassDataLoader.java
+    line_start: 24
+    line_end: 24
+    rule_type: Access Specifier Manipulation
+    aliases:
+    - Access Specifier Manipulation
+    source_notes: 'Sink: setAccessible() | File: src/main/java/org/joychou/controller/ClassDataLoader.java:24'
+    sink_api: Access Specifier Manipulation
+    source_refs:
+    - src/main/java/org/joychou/controller/ClassDataLoader.java:24
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-009
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A08 Software and Data Integrity Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: Access Specifier Manipulation
+    severity: high
+    file_path: src/main/java/org/joychou/security/ssrf/SocketHookFactory.java
+    line_start: 46
+    evidence: 'Sink: setAccessible() | File: src/main/java/org/joychou/security/ssrf/SocketHookFactory.java:46'
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-009
+    scenario_id: pending.java-sec-code.sockethookfactory-46-access-specifier-manipulation
+    family: software_data_integrity_failure
+    title: Access Specifier Manipulation @ SocketHookFactory.java
+    description: 待复核新增项：Access Specifier Manipulation @ src/main/java/org/joychou/security/ssrf/SocketHookFactory.java:46
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/security/ssrf/SocketHookFactory.java
+    line_start: 46
+    line_end: 46
+    rule_type: Access Specifier Manipulation
+    aliases:
+    - Access Specifier Manipulation
+    source_notes: 'Sink: setAccessible() | File: src/main/java/org/joychou/security/ssrf/SocketHookFactory.java:46'
+    sink_api: Access Specifier Manipulation
+    source_refs:
+    - src/main/java/org/joychou/security/ssrf/SocketHookFactory.java:46
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-010
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A08 Software and Data Integrity Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: Access Specifier Manipulation
+    severity: high
+    file_path: src/main/java/org/joychou/security/ssrf/SocketHookUtils.java
+    line_start: 18
+    evidence: 'Sink: setAccessible() | File: src/main/java/org/joychou/security/ssrf/SocketHookUtils.java:18'
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-010
+    scenario_id: pending.java-sec-code.sockethookutils-18-access-specifier-manipulation
+    family: software_data_integrity_failure
+    title: Access Specifier Manipulation @ SocketHookUtils.java
+    description: 待复核新增项：Access Specifier Manipulation @ src/main/java/org/joychou/security/ssrf/SocketHookUtils.java:18
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/security/ssrf/SocketHookUtils.java
+    line_start: 18
+    line_end: 18
+    rule_type: Access Specifier Manipulation
+    aliases:
+    - Access Specifier Manipulation
+    source_notes: 'Sink: setAccessible() | File: src/main/java/org/joychou/security/ssrf/SocketHookUtils.java:18'
+    sink_api: Access Specifier Manipulation
+    source_refs:
+    - src/main/java/org/joychou/security/ssrf/SocketHookUtils.java:18
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-011
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: Command Injection
+    severity: low
+    file_path: src/main/java/org/joychou/config/TomcatFilterMemShell.java
+    line_start: 82
+    evidence: 'Sink: exec(0) | File: src/main/java/org/joychou/config/TomcatFilterMemShell.java:82'
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-011
+    scenario_id: pending.java-sec-code.tomcatfiltermemshell-82-command-injection
+    family: command_injection
+    title: Command Injection @ TomcatFilterMemShell.java
+    description: 待复核新增项：Command Injection @ src/main/java/org/joychou/config/TomcatFilterMemShell.java:82
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/config/TomcatFilterMemShell.java
+    line_start: 82
+    line_end: 82
+    rule_type: Command Injection
+    aliases:
+    - Command Injection
+    source_notes: 'Sink: exec(0) | File: src/main/java/org/joychou/config/TomcatFilterMemShell.java:82'
+    sink_api: Command Injection
+    source_refs:
+    - src/main/java/org/joychou/config/TomcatFilterMemShell.java:82
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-012
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: Command Injection
+    severity: low
+    file_path: src/main/java/org/joychou/config/WebSocketsCmdEndpoint.java
+    line_start: 31
+    evidence: 'Sink: exec() | File: src/main/java/org/joychou/config/WebSocketsCmdEndpoint.java:31'
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-012
+    scenario_id: pending.java-sec-code.websocketscmdendpoint-31-command-injection
+    family: command_injection
+    title: Command Injection @ WebSocketsCmdEndpoint.java
+    description: 待复核新增项：Command Injection @ src/main/java/org/joychou/config/WebSocketsCmdEndpoint.java:31
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/config/WebSocketsCmdEndpoint.java
+    line_start: 31
+    line_end: 31
+    rule_type: Command Injection
+    aliases:
+    - Command Injection
+    source_notes: 'Sink: exec() | File: src/main/java/org/joychou/config/WebSocketsCmdEndpoint.java:31'
+    sink_api: Command Injection
+    source_refs:
+    - src/main/java/org/joychou/config/WebSocketsCmdEndpoint.java:31
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-013
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: Command Injection
+    severity: low
+    file_path: src/main/java/org/joychou/controller/CommandInject.java
+    line_start: 28
+    evidence: 'Sink: ProcessBuilder(0) | File: src/main/java/org/joychou/controller/CommandInject.java:28'
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-013
+    scenario_id: pending.java-sec-code.commandinject-28-command-injection
+    family: command_injection
+    title: Command Injection @ CommandInject.java
+    description: 待复核新增项：Command Injection @ src/main/java/org/joychou/controller/CommandInject.java:28
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/CommandInject.java
+    line_start: 28
+    line_end: 28
+    rule_type: Command Injection
+    aliases:
+    - Command Injection
+    source_notes: 'Sink: ProcessBuilder(0) | File: src/main/java/org/joychou/controller/CommandInject.java:28'
+    sink_api: Command Injection
+    source_refs:
+    - src/main/java/org/joychou/controller/CommandInject.java:28
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-014
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: Command Injection
+    severity: low
+    file_path: src/main/java/org/joychou/controller/Rce.java
+    line_start: 36
+    evidence: 'Sink: exec(0) | File: src/main/java/org/joychou/controller/Rce.java:36'
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-014
+    scenario_id: pending.java-sec-code.rce-36-command-injection
+    family: command_injection
+    title: Command Injection @ Rce.java
+    description: 待复核新增项：Command Injection @ src/main/java/org/joychou/controller/Rce.java:36
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/Rce.java
+    line_start: 36
+    line_end: 36
+    rule_type: Command Injection
+    aliases:
+    - Command Injection
+    source_notes: 'Sink: exec(0) | File: src/main/java/org/joychou/controller/Rce.java:36'
+    sink_api: Command Injection
+    source_refs:
+    - src/main/java/org/joychou/controller/Rce.java:36
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-015
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-XXE-XMLREADERVULN-XMLREADER-VULN
+  owasp_category: A05 Security Misconfiguration
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: XML Entity Expansion Injection
+    severity: low
+    file_path: src/main/java/org/joychou/controller/XXE.java
+    line_start: 54
+    evidence: 'Sink: xmlReader.parse(...) : XML document parsed allowing external
+      entity resolution | File: src/main/java/org/joychou/controller/XXE.java:54'
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-015
+    scenario_id: pending.java-sec-code.xxe-54-xml-entity-expansion-injection
+    family: security_misconfiguration
+    title: XML Entity Expansion Injection @ XXE.java
+    description: 待复核新增项：XML Entity Expansion Injection @ src/main/java/org/joychou/controller/XXE.java:54
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/XXE.java
+    line_start: 54
+    line_end: 54
+    rule_type: XML Entity Expansion Injection
+    aliases:
+    - XML Entity Expansion Injection
+    source_notes: 'Sink: xmlReader.parse(...) : XML document parsed allowing external
+      entity resolution | File: src/main/java/org/joychou/controller/XXE.java:54'
+    sink_api: XML Entity Expansion Injection
+    source_refs:
+    - src/main/java/org/joychou/controller/XXE.java:54
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-016
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A08 Software and Data Integrity Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Dynamic Code Evaluation: Unsafe Deserialization'
+    severity: low
+    file_path: src/main/java/org/joychou/security/AntObjectInputStream.java
+    line_start: 66
+    evidence: 'Source: java.io.FileInputStream.FileInputStream() | File: src/main/java/org/joychou/security/AntObjectInputStream.java:66'
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-016
+    scenario_id: pending.java-sec-code.antobjectinputstream-66-dynamic-code-evaluation-unsafe-deserialization
+    family: deserialization
+    title: 'Dynamic Code Evaluation: Unsafe Deserialization @ AntObjectInputStream.java'
+    description: '待复核新增项：Dynamic Code Evaluation: Unsafe Deserialization @ src/main/java/org/joychou/security/AntObjectInputStream.java:66'
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/security/AntObjectInputStream.java
+    line_start: 66
+    line_end: 66
+    rule_type: 'Dynamic Code Evaluation: Unsafe Deserialization'
+    aliases:
+    - 'Dynamic Code Evaluation: Unsafe Deserialization'
+    source_notes: 'Source: java.io.FileInputStream.FileInputStream() | File: src/main/java/org/joychou/security/AntObjectInputStream.java:66'
+    sink_api: 'Dynamic Code Evaluation: Unsafe Deserialization'
+    source_refs:
+    - src/main/java/org/joychou/security/AntObjectInputStream.java:66
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-017
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A05 Security Misconfiguration
+  review_priority: medium
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: XML Entity Expansion Injection
+    severity: low
+    file_path: src/main/java/org/joychou/config/SafeDomainParser.java
+    line_start: 34
+    evidence: 'Sink: db.parse(...) : XML document parsed allowing external entity
+      resolution | File: src/main/java/org/joychou/config/SafeDomainParser.java:34'
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-017
+    scenario_id: pending.java-sec-code.safedomainparser-34-xml-entity-expansion-injection
+    family: security_misconfiguration
+    title: XML Entity Expansion Injection @ SafeDomainParser.java
+    description: 待复核新增项：XML Entity Expansion Injection @ src/main/java/org/joychou/config/SafeDomainParser.java:34
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/config/SafeDomainParser.java
+    line_start: 34
+    line_end: 34
+    rule_type: XML Entity Expansion Injection
+    aliases:
+    - XML Entity Expansion Injection
+    source_notes: 'Sink: db.parse(...) : XML document parsed allowing external entity
+      resolution | File: src/main/java/org/joychou/config/SafeDomainParser.java:34'
+    sink_api: XML Entity Expansion Injection
+    source_refs:
+    - src/main/java/org/joychou/config/SafeDomainParser.java:34
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。

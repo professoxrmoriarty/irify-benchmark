@@ -1,0 +1,161 @@
+.project-explorer {
+  display: flex;
+  height: calc(100vh - 56px);
+  overflow: hidden;
+}
+
+.project-explorer .sidebar {
+  width: 300px;
+  border-right: 1px solid #e0e0e0;
+  overflow-y: auto;
+  padding: 12px;
+  background: #fafbfc;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.project-explorer .sidebar h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+  color: #1a202c;
+}
+
+.project-explorer .sidebar h4 {
+  margin: 0 0 4px;
+  font-size: 0.9rem;
+  color: #555;
+  border-bottom: 1px solid #e1e4e8;
+  padding-bottom: 4px;
+}
+
+.project-explorer .file-tree-section {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.project-explorer .case-list {
+  border-top: 1px solid #e1e4e8;
+  padding-top: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.project-explorer .case-item {
+  padding: 0.3rem 0.4rem;
+  font-size: 0.85rem;
+  color: #333;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.project-explorer .case-item:hover {
+  background-color: #f0f4f8;
+}
+
+.project-explorer .case-item-active {
+  background-color: #e6f0fa;
+  border-left: 3px solid #0366d6;
+  padding-left: calc(0.4rem - 3px);
+  font-weight: 500;
+}
+
+.project-explorer .case-item-new {
+  animation: caseItemEnter 0.5s ease-out;
+}
+
+@keyframes caseItemEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.project-explorer .case-error {
+  font-size: 0.8rem;
+  color: #721c24;
+  background: #f8d7da;
+  padding: 0.4rem;
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+
+.project-explorer .review-list {
+  border-top: 1px solid #e1e4e8;
+  padding-top: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.project-explorer .review-item {
+  padding: 0.4rem;
+  font-size: 0.8rem;
+  color: #333;
+  cursor: pointer;
+  border-radius: 4px;
+  border-left: 3px solid transparent;
+  margin-bottom: 2px;
+}
+
+.project-explorer .review-item:hover {
+  background-color: #f0f4f8;
+}
+
+.project-explorer .review-item-active {
+  background-color: #fff3cd;
+  border-left-color: #fd7e14;
+}
+
+.project-explorer .review-item-id {
+  font-weight: 500;
+  color: #555;
+}
+
+.project-explorer .review-item-case {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.project-explorer .editor-area {
+  flex: 1;
+  overflow: hidden;
+  background: #fff;
+  min-width: 0;
+}
+
+.project-explorer .case-panel {
+  width: 320px;
+  border-left: 1px solid #e0e0e0;
+  background: #fff;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+.project-explorer .empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #999;
+  font-size: 1.1rem;
+}
+
+.project-explorer .toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a202c;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  z-index: 300;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}

@@ -1,0 +1,114 @@
+project: WebBug
+tool: fortify
+generated_from: /home/zpy/goproject/IRify_SAST/.ai/task-runs/benchmark-framework/projects/06-webbug/artifacts/truth-evaluation.json
+summary:
+  total: 3
+  by_priority:
+    high: 3
+notes:
+- 这是待复核 finding 转出的 review case 草案，不自动参与正式真值评估。
+- 人工确认后，可按需要提升到 JavaSecLab.review.yaml 的 manual_cases 或 suppressed_findings。
+- candidate_case_ids 非空时，优先判断是否应并入已有 case，而不是直接新增。
+review_cases:
+- review_case_id: PENDING-FORTIFY-001
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Hardcoded Password'
+    severity: high
+    file_path: docker-compose.yml
+    line_start: 10
+    evidence: 'Sink: ConfigPair | File: docker-compose.yml:10'
+  proposed_case:
+    case_id: REVIEW-WEBBUG-001
+    scenario_id: pending.webbug.docker-compose-10-password-management-hardcoded-password
+    family: credential_management
+    title: 'Password Management: Hardcoded Password @ docker-compose.yml'
+    description: '待复核新增项：Password Management: Hardcoded Password @ docker-compose.yml:10'
+    expectation: must_alert
+    canonical_file_path: docker-compose.yml
+    line_start: 10
+    line_end: 10
+    rule_type: 'Password Management: Hardcoded Password'
+    aliases:
+    - 'Password Management: Hardcoded Password'
+    source_notes: 'Sink: ConfigPair | File: docker-compose.yml:10'
+    sink_api: 'Password Management: Hardcoded Password'
+    source_refs:
+    - docker-compose.yml:10
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-002
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Hardcoded Password'
+    severity: high
+    file_path: src/util/DBHelper.java
+    line_start: 12
+    evidence: 'Sink: FieldAccess: password | File: src/util/DBHelper.java:12'
+  proposed_case:
+    case_id: REVIEW-WEBBUG-002
+    scenario_id: pending.webbug.dbhelper-12-password-management-hardcoded-password
+    family: credential_management
+    title: 'Password Management: Hardcoded Password @ DBHelper.java'
+    description: '待复核新增项：Password Management: Hardcoded Password @ src/util/DBHelper.java:12'
+    expectation: must_alert
+    canonical_file_path: src/util/DBHelper.java
+    line_start: 12
+    line_end: 12
+    rule_type: 'Password Management: Hardcoded Password'
+    aliases:
+    - 'Password Management: Hardcoded Password'
+    source_notes: 'Sink: FieldAccess: password | File: src/util/DBHelper.java:12'
+    sink_api: 'Password Management: Hardcoded Password'
+    source_refs:
+    - src/util/DBHelper.java:12
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-003
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: SQL Injection
+    severity: low
+    file_path: src/dao/LoginDao.java
+    line_start: 59
+    evidence: 'Sink: prepareStatement() | File: src/dao/LoginDao.java:59'
+  proposed_case:
+    case_id: REVIEW-WEBBUG-003
+    scenario_id: pending.webbug.logindao-59-sql-injection
+    family: sql_injection
+    title: SQL Injection @ LoginDao.java
+    description: 待复核新增项：SQL Injection @ src/dao/LoginDao.java:59
+    expectation: must_alert
+    canonical_file_path: src/dao/LoginDao.java
+    line_start: 59
+    line_end: 59
+    rule_type: SQL Injection
+    aliases:
+    - SQL Injection
+    source_notes: 'Sink: prepareStatement() | File: src/dao/LoginDao.java:59'
+    sink_api: SQL Injection
+    source_refs:
+    - src/dao/LoginDao.java:59
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。

@@ -1,0 +1,1908 @@
+project: java-sec-code
+tool: irify
+generated_from: /home/zpy/goproject/IRify_SAST/.ai/task-runs/benchmark-framework/projects/08-java-sec-code/artifacts/truth-evaluation.json
+summary:
+  total: 54
+  by_priority:
+    high: 54
+notes:
+- 这是待复核 finding 转出的 review case 草案，不自动参与正式真值评估。
+- 人工确认后，可按需要提升到 JavaSecLab.review.yaml 的 manual_cases 或 suppressed_findings。
+- candidate_case_ids 非空时，优先判断是否应并入已有 case，而不是直接新增。
+review_cases:
+- review_case_id: PENDING-IRIFY-001
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A06 Vulnerable and Outdated Components
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 'SCA: 检测Java Fastjson依赖漏洞'
+    severity: critical
+    file_path: pom.xml
+    line_start: 45
+    evidence: 'SCA: 检测Java Fastjson依赖漏洞 | SCA: 检测Java Fastjson依赖漏洞 | SCA: com.alibaba.fastjson
+      < 1.2.83 RCE Hard to exploit'
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-001
+    scenario_id: pending.java-sec-code.pom-45-sca-检测java-fastjson依赖漏洞
+    family: deserialization
+    title: 'SCA: 检测Java Fastjson依赖漏洞 @ pom.xml'
+    description: '待复核新增项：SCA: 检测Java Fastjson依赖漏洞 @ pom.xml:45'
+    expectation: must_alert
+    canonical_file_path: pom.xml
+    line_start: 45
+    line_end: 45
+    rule_type: 'SCA: 检测Java Fastjson依赖漏洞'
+    aliases:
+    - 'SCA: 检测Java Fastjson依赖漏洞'
+    source_notes: 'SCA: 检测Java Fastjson依赖漏洞 | SCA: 检测Java Fastjson依赖漏洞 | SCA: com.alibaba.fastjson
+      < 1.2.83 RCE Hard to exploit'
+    sink_api: 'SCA: 检测Java Fastjson依赖漏洞'
+    source_refs:
+    - pom.xml:45
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-002
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: src/main/resources/application.properties
+    line_start: 4
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-002
+    scenario_id: pending.java-sec-code.application-4-检测通用硬编码凭据
+    family: credential_management
+    title: 检测通用硬编码凭据 @ application.properties
+    description: 待复核新增项：检测通用硬编码凭据 @ src/main/resources/application.properties:4
+    expectation: must_alert
+    canonical_file_path: src/main/resources/application.properties
+    line_start: 4
+    line_end: 4
+    rule_type: 检测通用硬编码凭据
+    aliases:
+    - 检测通用硬编码凭据
+    source_notes: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测通用硬编码凭据
+    source_refs:
+    - src/main/resources/application.properties:4
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-003
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-SSRF-OPENSTREAM-OPENSTREAM
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: high
+    file_path: src/main/java/org/joychou/controller/SSRF.java
+    line_start: 119
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中发现路径穿越漏洞，并且数据流中间没有进行任何过滤。
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-003
+    scenario_id: pending.java-sec-code.ssrf-119-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ SSRF.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/joychou/controller/SSRF.java:119
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/SSRF.java
+    line_start: 119
+    line_end: 119
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中发现路径穿越漏洞，并且数据流中间没有进行任何过滤。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/SSRF.java:119
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-004
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: high
+    file_path: src/main/java/org/joychou/config/TomcatFilterMemShell.java
+    line_start: 81
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码中存在命令注入漏洞，并且数据流中间没有进行任何过滤。
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-004
+    scenario_id: pending.java-sec-code.tomcatfiltermemshell-81-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ TomcatFilterMemShell.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/joychou/config/TomcatFilterMemShell.java:81
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/config/TomcatFilterMemShell.java
+    line_start: 81
+    line_end: 81
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码中存在命令注入漏洞，并且数据流中间没有进行任何过滤。
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/joychou/config/TomcatFilterMemShell.java:81
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-005
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: high
+    file_path: src/main/java/org/joychou/controller/CommandInject.java
+    line_start: 25
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码中存在命令注入漏洞，并且数据流中间没有进行任何过滤。
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-005
+    scenario_id: pending.java-sec-code.commandinject-25-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ CommandInject.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/joychou/controller/CommandInject.java:25
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/CommandInject.java
+    line_start: 25
+    line_end: 25
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码中存在命令注入漏洞，并且数据流中间没有进行任何过滤。
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/CommandInject.java:25
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-006
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: high
+    file_path: src/main/java/org/joychou/controller/Rce.java
+    line_start: 31
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码中存在命令注入漏洞，并且数据流中间没有进行任何过滤。
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-006
+    scenario_id: pending.java-sec-code.rce-31-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ Rce.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/joychou/controller/Rce.java:31
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/Rce.java
+    line_start: 31
+    line_end: 31
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码中存在命令注入漏洞，并且数据流中间没有进行任何过滤。
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/Rce.java:31
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-007
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-URLREDIRECT-REDIRECT-REDIRECT
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Spring控制器中未调用的SSTI漏洞
+    severity: high
+    file_path: src/main/java/org/joychou/controller/URLRedirect.java
+    line_start: 32
+    evidence: 检测Spring控制器中未调用的SSTI漏洞 | 检测Spring控制器中未调用的SSTI漏洞 | Template Path Injection(Direct
+      Use of User Input)
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-007
+    scenario_id: pending.java-sec-code.urlredirect-32-检测spring控制器中未调用的ssti漏洞
+    family: ssti
+    title: 检测Spring控制器中未调用的SSTI漏洞 @ URLRedirect.java
+    description: 待复核新增项：检测Spring控制器中未调用的SSTI漏洞 @ src/main/java/org/joychou/controller/URLRedirect.java:32
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/URLRedirect.java
+    line_start: 32
+    line_end: 32
+    rule_type: 检测Spring控制器中未调用的SSTI漏洞
+    aliases:
+    - 检测Spring控制器中未调用的SSTI漏洞
+    source_notes: 检测Spring控制器中未调用的SSTI漏洞 | 检测Spring控制器中未调用的SSTI漏洞 | Template Path
+      Injection(Direct Use of User Input)
+    sink_api: 检测Spring控制器中未调用的SSTI漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/URLRedirect.java:32
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-008
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A06 Vulnerable and Outdated Components
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 'SCA: 检测Java Commons BeanUtils 依赖漏洞'
+    severity: high
+    file_path: pom.xml
+    line_start: 283
+    evidence: 'SCA: 检测Java Commons BeanUtils 依赖漏洞 | SCA: 检测Java Commons BeanUtils
+      依赖漏洞 | SCA: commons-beanutils versions between 1.9.2 and 1.9.4 have an unsafe
+      deserialization vulnerability'
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-008
+    scenario_id: pending.java-sec-code.pom-283-sca-检测java-commons-beanutils-依赖漏洞
+    family: vulnerable_component
+    title: 'SCA: 检测Java Commons BeanUtils 依赖漏洞 @ pom.xml'
+    description: '待复核新增项：SCA: 检测Java Commons BeanUtils 依赖漏洞 @ pom.xml:283'
+    expectation: must_alert
+    canonical_file_path: pom.xml
+    line_start: 283
+    line_end: 283
+    rule_type: 'SCA: 检测Java Commons BeanUtils 依赖漏洞'
+    aliases:
+    - 'SCA: 检测Java Commons BeanUtils 依赖漏洞'
+    source_notes: 'SCA: 检测Java Commons BeanUtils 依赖漏洞 | SCA: 检测Java Commons BeanUtils
+      依赖漏洞 | SCA: commons-beanutils versions between 1.9.2 and 1.9.4 have an unsafe
+      deserialization vulnerability'
+    sink_api: 'SCA: 检测Java Commons BeanUtils 依赖漏洞'
+    source_refs:
+    - pom.xml:283
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-009
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A06 Vulnerable and Outdated Components
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 'SCA: 检测Java commons-collections 依赖漏洞'
+    severity: high
+    file_path: pom.xml
+    line_start: 77
+    evidence: 'SCA: 检测Java commons-collections 依赖漏洞 | SCA: 检测Java commons-collections
+      依赖漏洞 | SCA: commons-collections version 3.2.1 has an unsafe deserialization
+      vulnerability'
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-009
+    scenario_id: pending.java-sec-code.pom-77-sca-检测java-commons-collections-依赖漏洞
+    family: vulnerable_component
+    title: 'SCA: 检测Java commons-collections 依赖漏洞 @ pom.xml'
+    description: '待复核新增项：SCA: 检测Java commons-collections 依赖漏洞 @ pom.xml:77'
+    expectation: must_alert
+    canonical_file_path: pom.xml
+    line_start: 77
+    line_end: 77
+    rule_type: 'SCA: 检测Java commons-collections 依赖漏洞'
+    aliases:
+    - 'SCA: 检测Java commons-collections 依赖漏洞'
+    source_notes: 'SCA: 检测Java commons-collections 依赖漏洞 | SCA: 检测Java commons-collections
+      依赖漏洞 | SCA: commons-collections version 3.2.1 has an unsafe deserialization
+      vulnerability'
+    sink_api: 'SCA: 检测Java commons-collections 依赖漏洞'
+    source_refs:
+    - pom.xml:77
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-010
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A06 Vulnerable and Outdated Components
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 'SCA: 检测Java shiro-core 依赖漏洞'
+    severity: high
+    file_path: pom.xml
+    line_start: 349
+    evidence: 'SCA: 检测Java shiro-core 依赖漏洞 | SCA: 检测Java shiro-core 依赖漏洞 | SCA: shiro-core
+      versions between 1.10.0 and 1.10.1 have an authentication bypass vulnerability'
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-010
+    scenario_id: pending.java-sec-code.pom-349-sca-检测java-shiro-core-依赖漏洞
+    family: vulnerable_component
+    title: 'SCA: 检测Java shiro-core 依赖漏洞 @ pom.xml'
+    description: '待复核新增项：SCA: 检测Java shiro-core 依赖漏洞 @ pom.xml:349'
+    expectation: must_alert
+    canonical_file_path: pom.xml
+    line_start: 349
+    line_end: 349
+    rule_type: 'SCA: 检测Java shiro-core 依赖漏洞'
+    aliases:
+    - 'SCA: 检测Java shiro-core 依赖漏洞'
+    source_notes: 'SCA: 检测Java shiro-core 依赖漏洞 | SCA: 检测Java shiro-core 依赖漏洞 | SCA:
+      shiro-core versions between 1.10.0 and 1.10.1 have an authentication bypass
+      vulnerability'
+    sink_api: 'SCA: 检测Java shiro-core 依赖漏洞'
+    source_refs:
+    - pom.xml:349
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-011
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A06 Vulnerable and Outdated Components
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java FastJson依赖漏洞
+    severity: high
+    file_path: src/main/java/org/joychou/controller/Fastjson.java
+    line_start: 19
+    evidence: 检测Java FastJson依赖漏洞 | 检测Java FastJson依赖漏洞 | FastJson uses the unsafe
+      parseObject/parse method (parameter reachable)
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-011
+    scenario_id: pending.java-sec-code.fastjson-19-检测java-fastjson依赖漏洞
+    family: deserialization
+    title: 检测Java FastJson依赖漏洞 @ Fastjson.java
+    description: 待复核新增项：检测Java FastJson依赖漏洞 @ src/main/java/org/joychou/controller/Fastjson.java:19
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/Fastjson.java
+    line_start: 19
+    line_end: 19
+    rule_type: 检测Java FastJson依赖漏洞
+    aliases:
+    - 检测Java FastJson依赖漏洞
+    source_notes: 检测Java FastJson依赖漏洞 | 检测Java FastJson依赖漏洞 | FastJson uses the unsafe
+      parseObject/parse method (parameter reachable)
+    sink_api: 检测Java FastJson依赖漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/Fastjson.java:19
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-012
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A06 Vulnerable and Outdated Components
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java FastJson依赖漏洞
+    severity: high
+    file_path: src/main/java/org/joychou/controller/Jsonp.java
+    line_start: 77
+    evidence: 检测Java FastJson依赖漏洞 | 检测Java FastJson依赖漏洞 | FastJson uses the unsafe
+      parseObject/parse method
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-012
+    scenario_id: pending.java-sec-code.jsonp-77-检测java-fastjson依赖漏洞
+    family: deserialization
+    title: 检测Java FastJson依赖漏洞 @ Jsonp.java
+    description: 待复核新增项：检测Java FastJson依赖漏洞 @ src/main/java/org/joychou/controller/Jsonp.java:77
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/Jsonp.java
+    line_start: 77
+    line_end: 77
+    rule_type: 检测Java FastJson依赖漏洞
+    aliases:
+    - 检测Java FastJson依赖漏洞
+    source_notes: 检测Java FastJson依赖漏洞 | 检测Java FastJson依赖漏洞 | FastJson uses the unsafe
+      parseObject/parse method
+    sink_api: 检测Java FastJson依赖漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/Jsonp.java:77
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-013
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java硬编码弱密码漏洞
+    severity: high
+    file_path: src/main/java/org/joychou/util/JwtUtils.java
+    line_start: 20
+    evidence: 检测Java硬编码弱密码漏洞 | 检测到Java硬编码弱密码漏洞 | 检测到Java代码中存在硬编码的弱密码，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-013
+    scenario_id: pending.java-sec-code.jwtutils-20-检测java硬编码弱密码漏洞
+    family: credential_management
+    title: 检测Java硬编码弱密码漏洞 @ JwtUtils.java
+    description: 待复核新增项：检测Java硬编码弱密码漏洞 @ src/main/java/org/joychou/util/JwtUtils.java:20
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/util/JwtUtils.java
+    line_start: 20
+    line_end: 20
+    rule_type: 检测Java硬编码弱密码漏洞
+    aliases:
+    - 检测Java硬编码弱密码漏洞
+    source_notes: 检测Java硬编码弱密码漏洞 | 检测到Java硬编码弱密码漏洞 | 检测到Java代码中存在硬编码的弱密码，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测Java硬编码弱密码漏洞
+    source_refs:
+    - src/main/java/org/joychou/util/JwtUtils.java:20
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-014
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-RCE-YARM-VULN-YARM
+  owasp_category: A08 Software and Data Integrity Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java SnakeYAML反序列化漏洞
+    severity: high
+    file_path: src/main/java/org/joychou/controller/Rce.java
+    line_start: 111
+    evidence: 检测Java SnakeYAML反序列化漏洞 | 检测Java SnakeYAML反序列化漏洞 | 发现Java SnakeYAML反序列化漏洞,并且没有任何数据流过滤。
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-014
+    scenario_id: pending.java-sec-code.rce-111-检测java-snakeyaml反序列化漏洞
+    family: deserialization
+    title: 检测Java SnakeYAML反序列化漏洞 @ Rce.java
+    description: 待复核新增项：检测Java SnakeYAML反序列化漏洞 @ src/main/java/org/joychou/controller/Rce.java:111
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/Rce.java
+    line_start: 111
+    line_end: 111
+    rule_type: 检测Java SnakeYAML反序列化漏洞
+    aliases:
+    - 检测Java SnakeYAML反序列化漏洞
+    source_notes: 检测Java SnakeYAML反序列化漏洞 | 检测Java SnakeYAML反序列化漏洞 | 发现Java SnakeYAML反序列化漏洞,并且没有任何数据流过滤。
+    sink_api: 检测Java SnakeYAML反序列化漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/Rce.java:111
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-015
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A08 Software and Data Integrity Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java反射setAccessible函数滥用漏洞
+    severity: high
+    file_path: src/main/java/org/joychou/config/TomcatFilterMemShell.java
+    line_start: 38
+    evidence: 检测Java反射setAccessible函数滥用漏洞 | 检测Java反射setAccessible函数滥用漏洞
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-015
+    scenario_id: pending.java-sec-code.tomcatfiltermemshell-38-检测java反射setaccessible函数滥用漏洞
+    family: software_data_integrity_failure
+    title: 检测Java反射setAccessible函数滥用漏洞 @ TomcatFilterMemShell.java
+    description: 待复核新增项：检测Java反射setAccessible函数滥用漏洞 @ src/main/java/org/joychou/config/TomcatFilterMemShell.java:38
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/config/TomcatFilterMemShell.java
+    line_start: 38
+    line_end: 38
+    rule_type: 检测Java反射setAccessible函数滥用漏洞
+    aliases:
+    - 检测Java反射setAccessible函数滥用漏洞
+    source_notes: 检测Java反射setAccessible函数滥用漏洞 | 检测Java反射setAccessible函数滥用漏洞
+    sink_api: 检测Java反射setAccessible函数滥用漏洞
+    source_refs:
+    - src/main/java/org/joychou/config/TomcatFilterMemShell.java:38
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-016
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A08 Software and Data Integrity Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java反射setAccessible函数滥用漏洞
+    severity: high
+    file_path: src/main/java/org/joychou/controller/ClassDataLoader.java
+    line_start: 24
+    evidence: 检测Java反射setAccessible函数滥用漏洞 | 检测Java反射setAccessible函数滥用漏洞
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-016
+    scenario_id: pending.java-sec-code.classdataloader-24-检测java反射setaccessible函数滥用漏洞
+    family: software_data_integrity_failure
+    title: 检测Java反射setAccessible函数滥用漏洞 @ ClassDataLoader.java
+    description: 待复核新增项：检测Java反射setAccessible函数滥用漏洞 @ src/main/java/org/joychou/controller/ClassDataLoader.java:24
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/ClassDataLoader.java
+    line_start: 24
+    line_end: 24
+    rule_type: 检测Java反射setAccessible函数滥用漏洞
+    aliases:
+    - 检测Java反射setAccessible函数滥用漏洞
+    source_notes: 检测Java反射setAccessible函数滥用漏洞 | 检测Java反射setAccessible函数滥用漏洞
+    sink_api: 检测Java反射setAccessible函数滥用漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/ClassDataLoader.java:24
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-017
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A08 Software and Data Integrity Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java反射setAccessible函数滥用漏洞
+    severity: high
+    file_path: src/main/java/org/joychou/security/ssrf/SocketHookFactory.java
+    line_start: 46
+    evidence: 检测Java反射setAccessible函数滥用漏洞 | 检测Java反射setAccessible函数滥用漏洞
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-017
+    scenario_id: pending.java-sec-code.sockethookfactory-46-检测java反射setaccessible函数滥用漏洞
+    family: software_data_integrity_failure
+    title: 检测Java反射setAccessible函数滥用漏洞 @ SocketHookFactory.java
+    description: 待复核新增项：检测Java反射setAccessible函数滥用漏洞 @ src/main/java/org/joychou/security/ssrf/SocketHookFactory.java:46
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/security/ssrf/SocketHookFactory.java
+    line_start: 46
+    line_end: 46
+    rule_type: 检测Java反射setAccessible函数滥用漏洞
+    aliases:
+    - 检测Java反射setAccessible函数滥用漏洞
+    source_notes: 检测Java反射setAccessible函数滥用漏洞 | 检测Java反射setAccessible函数滥用漏洞
+    sink_api: 检测Java反射setAccessible函数滥用漏洞
+    source_refs:
+    - src/main/java/org/joychou/security/ssrf/SocketHookFactory.java:46
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-018
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A08 Software and Data Integrity Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java反射setAccessible函数滥用漏洞
+    severity: high
+    file_path: src/main/java/org/joychou/security/ssrf/SocketHookUtils.java
+    line_start: 18
+    evidence: 检测Java反射setAccessible函数滥用漏洞 | 检测Java反射setAccessible函数滥用漏洞
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-018
+    scenario_id: pending.java-sec-code.sockethookutils-18-检测java反射setaccessible函数滥用漏洞
+    family: software_data_integrity_failure
+    title: 检测Java反射setAccessible函数滥用漏洞 @ SocketHookUtils.java
+    description: 待复核新增项：检测Java反射setAccessible函数滥用漏洞 @ src/main/java/org/joychou/security/ssrf/SocketHookUtils.java:18
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/security/ssrf/SocketHookUtils.java
+    line_start: 18
+    line_end: 18
+    rule_type: 检测Java反射setAccessible函数滥用漏洞
+    aliases:
+    - 检测Java反射setAccessible函数滥用漏洞
+    source_notes: 检测Java反射setAccessible函数滥用漏洞 | 检测Java反射setAccessible函数滥用漏洞
+    sink_api: 检测Java反射setAccessible函数滥用漏洞
+    source_refs:
+    - src/main/java/org/joychou/security/ssrf/SocketHookUtils.java:18
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-019
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-FILEUPLOAD-SINGLEFILEUPLOAD-UPLOAD
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java MultipartFile路径穿越漏洞
+    severity: medium
+    file_path: src/main/java/org/joychou/controller/FileUpload.java
+    line_start: 51
+    evidence: 检测Java MultipartFile路径穿越漏洞 | 检测Java MultipartFile路径穿越漏洞 | 检测到Java Spring
+      / Spring Boot应用中存在MultipartFile文件名未经过滤直接拼接路径保存文件的风险，可能导致路径遍历攻击。
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-019
+    scenario_id: pending.java-sec-code.fileupload-51-检测java-multipartfile路径穿越漏洞
+    family: path_traversal
+    title: 检测Java MultipartFile路径穿越漏洞 @ FileUpload.java
+    description: 待复核新增项：检测Java MultipartFile路径穿越漏洞 @ src/main/java/org/joychou/controller/FileUpload.java:51
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/FileUpload.java
+    line_start: 51
+    line_end: 51
+    rule_type: 检测Java MultipartFile路径穿越漏洞
+    aliases:
+    - 检测Java MultipartFile路径穿越漏洞
+    source_notes: 检测Java MultipartFile路径穿越漏洞 | 检测Java MultipartFile路径穿越漏洞 | 检测到Java
+      Spring / Spring Boot应用中存在MultipartFile文件名未经过滤直接拼接路径保存文件的风险，可能导致路径遍历攻击。
+    sink_api: 检测Java MultipartFile路径穿越漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/FileUpload.java:51
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-020
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-FILEUPLOAD-UPLOADPICTURE-UPLOAD-PICTURE
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java MultipartFile路径穿越漏洞
+    severity: medium
+    file_path: src/main/java/org/joychou/controller/FileUpload.java
+    line_start: 84
+    evidence: 检测Java MultipartFile路径穿越漏洞 | 检测Java MultipartFile路径穿越漏洞 | 检测到Java Spring
+      / Spring Boot应用中存在MultipartFile文件名未经过滤直接拼接路径保存文件的风险，可能导致路径遍历攻击。
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-020
+    scenario_id: pending.java-sec-code.fileupload-84-检测java-multipartfile路径穿越漏洞
+    family: path_traversal
+    title: 检测Java MultipartFile路径穿越漏洞 @ FileUpload.java
+    description: 待复核新增项：检测Java MultipartFile路径穿越漏洞 @ src/main/java/org/joychou/controller/FileUpload.java:84
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/FileUpload.java
+    line_start: 84
+    line_end: 84
+    rule_type: 检测Java MultipartFile路径穿越漏洞
+    aliases:
+    - 检测Java MultipartFile路径穿越漏洞
+    source_notes: 检测Java MultipartFile路径穿越漏洞 | 检测Java MultipartFile路径穿越漏洞 | 检测到Java
+      Spring / Spring Boot应用中存在MultipartFile文件名未经过滤直接拼接路径保存文件的风险，可能导致路径遍历攻击。
+    sink_api: 检测Java MultipartFile路径穿越漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/FileUpload.java:84
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-021
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-CRLFINJECTION-CRLF-SAFECODE
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java CRLF注入漏洞
+    severity: medium
+    file_path: src/main/java/org/joychou/controller/CRLFInjection.java
+    line_start: 23
+    evidence: 检测Java CRLF注入漏洞 | 检测到Java CRLF注入漏洞 | 检测到Java代码中存在未经验证的HTTP响应头拼接，可能导致CRLF注入漏洞。
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-021
+    scenario_id: pending.java-sec-code.crlfinjection-23-检测java-crlf注入漏洞
+    family: injection
+    title: 检测Java CRLF注入漏洞 @ CRLFInjection.java
+    description: 待复核新增项：检测Java CRLF注入漏洞 @ src/main/java/org/joychou/controller/CRLFInjection.java:23
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/CRLFInjection.java
+    line_start: 23
+    line_end: 23
+    rule_type: 检测Java CRLF注入漏洞
+    aliases:
+    - 检测Java CRLF注入漏洞
+    source_notes: 检测Java CRLF注入漏洞 | 检测到Java CRLF注入漏洞 | 检测到Java代码中存在未经验证的HTTP响应头拼接，可能导致CRLF注入漏洞。
+    sink_api: 检测Java CRLF注入漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/CRLFInjection.java:23
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-022
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-CORS-VULS1-VULN-ORIGIN
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java CRLF注入漏洞
+    severity: medium
+    file_path: src/main/java/org/joychou/controller/Cors.java
+    line_start: 27
+    evidence: 检测Java CRLF注入漏洞 | 检测到Java CRLF注入漏洞 | 检测到Java代码中存在未经验证的HTTP响应头拼接，可能导致CRLF注入漏洞。
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-022
+    scenario_id: pending.java-sec-code.cors-27-检测java-crlf注入漏洞
+    family: injection
+    title: 检测Java CRLF注入漏洞 @ Cors.java
+    description: 待复核新增项：检测Java CRLF注入漏洞 @ src/main/java/org/joychou/controller/Cors.java:27
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/Cors.java
+    line_start: 27
+    line_end: 27
+    rule_type: 检测Java CRLF注入漏洞
+    aliases:
+    - 检测Java CRLF注入漏洞
+    source_notes: 检测Java CRLF注入漏洞 | 检测到Java CRLF注入漏洞 | 检测到Java代码中存在未经验证的HTTP响应头拼接，可能导致CRLF注入漏洞。
+    sink_api: 检测Java CRLF注入漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/Cors.java:27
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-023
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-URLREDIRECT-SETHEADER-SETHEADER
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java CRLF注入漏洞
+    severity: medium
+    file_path: src/main/java/org/joychou/controller/URLRedirect.java
+    line_start: 43
+    evidence: 检测Java CRLF注入漏洞 | 检测到Java CRLF注入漏洞 | 检测到Java代码中存在未经验证的HTTP响应头拼接，可能导致CRLF注入漏洞。
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-023
+    scenario_id: pending.java-sec-code.urlredirect-43-检测java-crlf注入漏洞
+    family: injection
+    title: 检测Java CRLF注入漏洞 @ URLRedirect.java
+    description: 待复核新增项：检测Java CRLF注入漏洞 @ src/main/java/org/joychou/controller/URLRedirect.java:43
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/URLRedirect.java
+    line_start: 43
+    line_end: 43
+    rule_type: 检测Java CRLF注入漏洞
+    aliases:
+    - 检测Java CRLF注入漏洞
+    source_notes: 检测Java CRLF注入漏洞 | 检测到Java CRLF注入漏洞 | 检测到Java代码中存在未经验证的HTTP响应头拼接，可能导致CRLF注入漏洞。
+    sink_api: 检测Java CRLF注入漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/URLRedirect.java:43
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-024
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-XSS-STORE-STORED-STORE
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java CRLF注入漏洞
+    severity: medium
+    file_path: src/main/java/org/joychou/controller/XSS.java
+    line_start: 42
+    evidence: 检测Java CRLF注入漏洞 | 检测到Java CRLF注入漏洞 | 检测到Java代码中存在未经验证的HTTP响应头拼接，可能导致CRLF注入漏洞。
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-024
+    scenario_id: pending.java-sec-code.xss-42-检测java-crlf注入漏洞
+    family: injection
+    title: 检测Java CRLF注入漏洞 @ XSS.java
+    description: 待复核新增项：检测Java CRLF注入漏洞 @ src/main/java/org/joychou/controller/XSS.java:42
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/XSS.java
+    line_start: 42
+    line_end: 42
+    rule_type: 检测Java CRLF注入漏洞
+    aliases:
+    - 检测Java CRLF注入漏洞
+    source_notes: 检测Java CRLF注入漏洞 | 检测到Java CRLF注入漏洞 | 检测到Java代码中存在未经验证的HTTP响应头拼接，可能导致CRLF注入漏洞。
+    sink_api: 检测Java CRLF注入漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/XSS.java:42
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-025
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-CORS-SECCODE-SEC-CHECKORIGIN
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/joychou/controller/Cors.java
+    line_start: 106
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-025
+    scenario_id: pending.java-sec-code.cors-106-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ Cors.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/joychou/controller/Cors.java:106
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/Cors.java
+    line_start: 106
+    line_end: 106
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/Cors.java:106
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-026
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-JSONP-EMPTYREFERER-VULN-EMPTYREFERER
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/joychou/controller/Jsonp.java
+    line_start: 58
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-026
+    scenario_id: pending.java-sec-code.jsonp-58-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ Jsonp.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/joychou/controller/Jsonp.java:58
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/Jsonp.java
+    line_start: 58
+    line_end: 58
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/Jsonp.java:58
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-027
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/joychou/controller/Jsonp.java
+    line_start: 103
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-027
+    scenario_id: pending.java-sec-code.jsonp-103-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ Jsonp.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/joychou/controller/Jsonp.java:103
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/Jsonp.java
+    line_start: 103
+    line_end: 103
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/Jsonp.java:103
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-028
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/joychou/controller/PathTraversal.java
+    line_start: 30
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-028
+    scenario_id: pending.java-sec-code.pathtraversal-30-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ PathTraversal.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/joychou/controller/PathTraversal.java:30
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/PathTraversal.java
+    line_start: 30
+    line_end: 30
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/PathTraversal.java:30
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-029
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-SQLI-MYBATISORDERBYSEC04-MYBATIS-ORDERBY-SEC04
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/joychou/controller/SQLI.java
+    line_start: 241
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-029
+    scenario_id: pending.java-sec-code.sqli-241-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ SQLI.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/joychou/controller/SQLI.java:241
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/SQLI.java
+    line_start: 241
+    line_end: 241
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/SQLI.java:241
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-030
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-SSRF-URLCONNECTIONSEC-URLCONNECTION-SEC
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/joychou/controller/SSRF.java
+    line_start: 51
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-030
+    scenario_id: pending.java-sec-code.ssrf-51-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ SSRF.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/joychou/controller/SSRF.java:51
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/SSRF.java
+    line_start: 51
+    line_end: 51
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/SSRF.java:51
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-031
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-SSRF-DNSREBIND-DNSREBIND-VULN
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/joychou/controller/SSRF.java
+    line_start: 309
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-031
+    scenario_id: pending.java-sec-code.ssrf-309-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ SSRF.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/joychou/controller/SSRF.java:309
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/SSRF.java
+    line_start: 309
+    line_end: 309
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/SSRF.java:309
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-032
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-URLREDIRECT-SENDREDIRECT_SECCODE-SENDREDIRECT-SEC
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/joychou/controller/URLRedirect.java
+    line_start: 85
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-032
+    scenario_id: pending.java-sec-code.urlredirect-85-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ URLRedirect.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/joychou/controller/URLRedirect.java:85
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/URLRedirect.java
+    line_start: 85
+    line_end: 85
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/URLRedirect.java:85
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-033
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-URLWHITELIST-CONTAINS-VULN-CONTAINS
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/joychou/controller/URLWhiteList.java
+    line_start: 57
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-033
+    scenario_id: pending.java-sec-code.urlwhitelist-57-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ URLWhiteList.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/joychou/controller/URLWhiteList.java:57
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/URLWhiteList.java
+    line_start: 57
+    line_end: 57
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/URLWhiteList.java:57
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-034
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-URLWHITELIST-URL_BYPASS-VULN-URL_BYPASS
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/joychou/controller/URLWhiteList.java
+    line_start: 99
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-034
+    scenario_id: pending.java-sec-code.urlwhitelist-99-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ URLWhiteList.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/joychou/controller/URLWhiteList.java:99
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/URLWhiteList.java
+    line_start: 99
+    line_end: 99
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/URLWhiteList.java:99
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-035
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/joychou/controller/URLWhiteList.java
+    line_start: 126
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-035
+    scenario_id: pending.java-sec-code.urlwhitelist-126-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ URLWhiteList.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/joychou/controller/URLWhiteList.java:126
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/URLWhiteList.java
+    line_start: 126
+    line_end: 126
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/URLWhiteList.java:126
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-036
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-XLSXSTREAMERXXE-XLLX_STREAMER_XXE-READXLSX
+  owasp_category: A06 Vulnerable and Outdated Components
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 'SCA: 检测Java xlsx-streamer依赖漏洞'
+    severity: medium
+    file_path: src/main/java/org/joychou/controller/othervulns/xlsxStreamerXXE.java
+    line_start: 35
+    evidence: 'SCA: 检测Java xlsx-streamer依赖漏洞 | 检测到Java xlsx-streamer解析漏洞 | 检测到直接使用
+      xlsx-streamer 解析用户输入流，可能导致 XXE、OOM 或拒绝服务等风险。'
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-036
+    scenario_id: pending.java-sec-code.xlsxstreamerxxe-35-sca-检测java-xlsx-streamer依赖漏洞
+    family: vulnerable_component
+    title: 'SCA: 检测Java xlsx-streamer依赖漏洞 @ xlsxStreamerXXE.java'
+    description: '待复核新增项：SCA: 检测Java xlsx-streamer依赖漏洞 @ src/main/java/org/joychou/controller/othervulns/xlsxStreamerXXE.java:35'
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/othervulns/xlsxStreamerXXE.java
+    line_start: 35
+    line_end: 35
+    rule_type: 'SCA: 检测Java xlsx-streamer依赖漏洞'
+    aliases:
+    - 'SCA: 检测Java xlsx-streamer依赖漏洞'
+    source_notes: 'SCA: 检测Java xlsx-streamer依赖漏洞 | 检测到Java xlsx-streamer解析漏洞 | 检测到直接使用
+      xlsx-streamer 解析用户输入流，可能导致 XXE、OOM 或拒绝服务等风险。'
+    sink_api: 'SCA: 检测Java xlsx-streamer依赖漏洞'
+    source_refs:
+    - src/main/java/org/joychou/controller/othervulns/xlsxStreamerXXE.java:35
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-037
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-URLWHITELIST-URL_BYPASS-VULN-URL_BYPASS
+  owasp_category: A10 Server-Side Request Forgery
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+    severity: medium
+    file_path: src/main/java/org/joychou/controller/URLWhiteList.java
+    line_start: 99
+    evidence: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 | 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+      | 发现Java SpringBoot SSRF漏洞,并且没有任何数据流过滤。
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-037
+    scenario_id: pending.java-sec-code.urlwhitelist-99-检测java-springboot-服务端请求伪造-ssrf-漏洞
+    family: ssrf
+    title: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 @ URLWhiteList.java
+    description: 待复核新增项：检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 @ src/main/java/org/joychou/controller/URLWhiteList.java:99
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/URLWhiteList.java
+    line_start: 99
+    line_end: 99
+    rule_type: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+    aliases:
+    - 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+    source_notes: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 | 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+      | 发现Java SpringBoot SSRF漏洞,并且没有任何数据流过滤。
+    sink_api: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/URLWhiteList.java:99
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-038
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/joychou/controller/CommandInject.java
+    line_start: 52
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-038
+    scenario_id: pending.java-sec-code.commandinject-52-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ CommandInject.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/joychou/controller/CommandInject.java:52
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/CommandInject.java
+    line_start: 52
+    line_end: 52
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/CommandInject.java:52
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-039
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-CORS-SECCODE-SEC-CHECKORIGIN
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/joychou/controller/Cors.java
+    line_start: 106
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-039
+    scenario_id: pending.java-sec-code.cors-106-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ Cors.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/joychou/controller/Cors.java:106
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/Cors.java
+    line_start: 106
+    line_end: 106
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/Cors.java:106
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-040
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-FILEUPLOAD-SINGLEFILEUPLOAD-UPLOAD
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/joychou/controller/FileUpload.java
+    line_start: 51
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-040
+    scenario_id: pending.java-sec-code.fileupload-51-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ FileUpload.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/joychou/controller/FileUpload.java:51
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/FileUpload.java
+    line_start: 51
+    line_end: 51
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/FileUpload.java:51
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-041
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-FILEUPLOAD-UPLOADPICTURE-UPLOAD-PICTURE
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/joychou/controller/FileUpload.java
+    line_start: 84
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-041
+    scenario_id: pending.java-sec-code.fileupload-84-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ FileUpload.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/joychou/controller/FileUpload.java:84
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/FileUpload.java
+    line_start: 84
+    line_end: 84
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/FileUpload.java:84
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-042
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-JSONP-EMPTYREFERER-VULN-EMPTYREFERER
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/joychou/controller/Jsonp.java
+    line_start: 58
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-042
+    scenario_id: pending.java-sec-code.jsonp-58-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ Jsonp.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/joychou/controller/Jsonp.java:58
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/Jsonp.java
+    line_start: 58
+    line_end: 58
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/Jsonp.java:58
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-043
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/joychou/controller/Jsonp.java
+    line_start: 103
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-043
+    scenario_id: pending.java-sec-code.jsonp-103-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ Jsonp.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/joychou/controller/Jsonp.java:103
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/Jsonp.java
+    line_start: 103
+    line_end: 103
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/Jsonp.java:103
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-044
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/joychou/controller/PathTraversal.java
+    line_start: 30
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-044
+    scenario_id: pending.java-sec-code.pathtraversal-30-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ PathTraversal.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/joychou/controller/PathTraversal.java:30
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/PathTraversal.java
+    line_start: 30
+    line_end: 30
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/PathTraversal.java:30
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-045
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-SQLI-MYBATISORDERBYSEC04-MYBATIS-ORDERBY-SEC04
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/joychou/controller/SQLI.java
+    line_start: 241
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-045
+    scenario_id: pending.java-sec-code.sqli-241-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ SQLI.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/joychou/controller/SQLI.java:241
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/SQLI.java
+    line_start: 241
+    line_end: 241
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/SQLI.java:241
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-046
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-SSRF-URLCONNECTIONSEC-URLCONNECTION-SEC
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/joychou/controller/SSRF.java
+    line_start: 51
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-046
+    scenario_id: pending.java-sec-code.ssrf-51-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ SSRF.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/joychou/controller/SSRF.java:51
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/SSRF.java
+    line_start: 51
+    line_end: 51
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/SSRF.java:51
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-047
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-SSRF-DNSREBIND-DNSREBIND-VULN
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/joychou/controller/SSRF.java
+    line_start: 309
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-047
+    scenario_id: pending.java-sec-code.ssrf-309-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ SSRF.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/joychou/controller/SSRF.java:309
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/SSRF.java
+    line_start: 309
+    line_end: 309
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/SSRF.java:309
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-048
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-URLREDIRECT-SENDREDIRECT_SECCODE-SENDREDIRECT-SEC
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/joychou/controller/URLRedirect.java
+    line_start: 85
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-048
+    scenario_id: pending.java-sec-code.urlredirect-85-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ URLRedirect.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/joychou/controller/URLRedirect.java:85
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/URLRedirect.java
+    line_start: 85
+    line_end: 85
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/URLRedirect.java:85
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-049
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-URLWHITELIST-CONTAINS-VULN-CONTAINS
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/joychou/controller/URLWhiteList.java
+    line_start: 57
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-049
+    scenario_id: pending.java-sec-code.urlwhitelist-57-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ URLWhiteList.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/joychou/controller/URLWhiteList.java:57
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/URLWhiteList.java
+    line_start: 57
+    line_end: 57
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/URLWhiteList.java:57
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-050
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-URLWHITELIST-URL_BYPASS-VULN-URL_BYPASS
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/joychou/controller/URLWhiteList.java
+    line_start: 99
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-050
+    scenario_id: pending.java-sec-code.urlwhitelist-99-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ URLWhiteList.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/joychou/controller/URLWhiteList.java:99
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/URLWhiteList.java
+    line_start: 99
+    line_end: 99
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/URLWhiteList.java:99
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-051
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/joychou/controller/URLWhiteList.java
+    line_start: 126
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-051
+    scenario_id: pending.java-sec-code.urlwhitelist-126-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ URLWhiteList.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/joychou/controller/URLWhiteList.java:126
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/URLWhiteList.java
+    line_start: 126
+    line_end: 126
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/URLWhiteList.java:126
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-052
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数
+    severity: low
+    file_path: src/main/java/org/joychou/mapper/UserMapper.java
+    line_start: 23
+    evidence: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数 | 检测 Java MyBatis/iBatis
+      XML Mapper 不安全(${...})参数
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-052
+    scenario_id: pending.java-sec-code.usermapper-23-检测-java-mybatis-ibatis-xml-mapper-不安全-...-参数
+    family: injection
+    title: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数 @ UserMapper.java
+    description: 待复核新增项：检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数 @ src/main/java/org/joychou/mapper/UserMapper.java:23
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/mapper/UserMapper.java
+    line_start: 23
+    line_end: 23
+    rule_type: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数
+    aliases:
+    - 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数
+    source_notes: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数 | 检测 Java MyBatis/iBatis
+      XML Mapper 不安全(${...})参数
+    sink_api: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数
+    source_refs:
+    - src/main/java/org/joychou/mapper/UserMapper.java:23
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-053
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: low
+    file_path: src/main/java/org/joychou/config/WebSocketsCmdEndpoint.java
+    line_start: 31
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测Java Servlet和SpringMVC中的命令注入漏洞
+      | 发现Java代码中可能存在命令注入，但并没有发现参数可控。
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-053
+    scenario_id: pending.java-sec-code.websocketscmdendpoint-31-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ WebSocketsCmdEndpoint.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/joychou/config/WebSocketsCmdEndpoint.java:31
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/config/WebSocketsCmdEndpoint.java
+    line_start: 31
+    line_end: 31
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测Java Servlet和SpringMVC中的命令注入漏洞
+      | 发现Java代码中可能存在命令注入，但并没有发现参数可控。
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/joychou/config/WebSocketsCmdEndpoint.java:31
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-054
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A08 Software and Data Integrity Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java SnakeYAML反序列化漏洞
+    severity: low
+    file_path: src/main/java/org/joychou/controller/Rce.java
+    line_start: 117
+    evidence: 检测Java SnakeYAML反序列化漏洞 | 检测Java SnakeYAML反序列化漏洞 | 发现Java SnakeYAML反序列化漏洞,但是有数据流过滤。
+  proposed_case:
+    case_id: REVIEW-JAVA-SEC-CODE-054
+    scenario_id: pending.java-sec-code.rce-117-检测java-snakeyaml反序列化漏洞
+    family: deserialization
+    title: 检测Java SnakeYAML反序列化漏洞 @ Rce.java
+    description: 待复核新增项：检测Java SnakeYAML反序列化漏洞 @ src/main/java/org/joychou/controller/Rce.java:117
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/joychou/controller/Rce.java
+    line_start: 117
+    line_end: 117
+    rule_type: 检测Java SnakeYAML反序列化漏洞
+    aliases:
+    - 检测Java SnakeYAML反序列化漏洞
+    source_notes: 检测Java SnakeYAML反序列化漏洞 | 检测Java SnakeYAML反序列化漏洞 | 发现Java SnakeYAML反序列化漏洞,但是有数据流过滤。
+    sink_api: 检测Java SnakeYAML反序列化漏洞
+    source_refs:
+    - src/main/java/org/joychou/controller/Rce.java:117
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。

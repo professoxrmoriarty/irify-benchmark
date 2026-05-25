@@ -1,0 +1,4 @@
+project: nginxwebui
+case_overrides: {}
+manual_cases: []
+suppressed_findings: []

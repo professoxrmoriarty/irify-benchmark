@@ -1,0 +1,2574 @@
+project: Hello-Java-Sec
+tool: code_guard
+generated_from: /home/zpy/goproject/IRify_SAST/.ai/task-runs/benchmark-framework/projects/03-hello-java-sec/artifacts/truth-evaluation.json
+summary:
+  total: 68
+  by_priority:
+    high: 68
+notes:
+- 这是待复核 finding 转出的 review case 草案，不自动参与正式真值评估。
+- 人工确认后，可按需要提升到 JavaSecLab.review.yaml 的 manual_cases 或 suppressed_findings。
+- candidate_case_ids 非空时，优先判断是否应并入已有 case，而不是直接新增。
+review_cases:
+- review_case_id: PENDING-CODE_GUARD-001
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-PROCESSIMPLVUL-VUL-VUL
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 输入验证：访问权限修饰符修改
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/RCE/ProcessImplVul.java
+    line_start: 29
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/RCE/ProcessImplVul.java;29行setAccessible()
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-001
+    scenario_id: pending.hello-java-sec.processimplvul-29-输入验证-访问权限修饰符修改
+    family: broken_access_control
+    title: 输入验证：访问权限修饰符修改 @ ProcessImplVul.java
+    description: 待复核新增项：输入验证：访问权限修饰符修改 @ src/main/java/com/best/hello/controller/RCE/ProcessImplVul.java:29
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/RCE/ProcessImplVul.java
+    line_start: 29
+    line_end: 29
+    rule_type: 输入验证：访问权限修饰符修改
+    aliases:
+    - 输入验证：访问权限修饰符修改
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/RCE/ProcessImplVul.java;29行setAccessible()
+    sink_api: 输入验证：访问权限修饰符修改
+    source_refs:
+    - src/main/java/com/best/hello/controller/RCE/ProcessImplVul.java:29
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-002
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-UPLOAD-UPLOADVUL-UPLOADVUL
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 输入验证：路径遍历
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/Upload.java
+    line_start: 41
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Upload.java;31行来自于http请求的数据从uploadVul()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Upload.java;41行不可信的数据从getOriginalFilename()方法this参数进入,然后从返回值返回3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controlle
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-002
+    scenario_id: pending.hello-java-sec.upload-41-输入验证-路径遍历
+    family: path_traversal
+    title: 输入验证：路径遍历 @ Upload.java
+    description: 待复核新增项：输入验证：路径遍历 @ src/main/java/com/best/hello/controller/Upload.java:41
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/Upload.java
+    line_start: 41
+    line_end: 41
+    rule_type: 输入验证：路径遍历
+    aliases:
+    - 输入验证：路径遍历
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Upload.java;31行来自于http请求的数据从uploadVul()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Upload.java;41行不可信的数据从getOriginalFilename()方法this参数进入,然后从返回值返回3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controlle
+    sink_api: 输入验证：路径遍历
+    source_refs:
+    - src/main/java/com/best/hello/controller/Upload.java:41
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-003
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-UPLOAD-SINGLEFILEUPLOADSAFE-UPLOADSAFE
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 输入验证：路径遍历
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/Upload.java
+    line_start: 70
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Upload.java;59行来自于http请求的数据从singleFileUploadSafe()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Upload.java;70行不可信的数据从getOriginalFilename()方法this参数进入,然后从返回值返回3
+      Hello-Java-Sec-master/src/main/java/com/best/hell
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-003
+    scenario_id: pending.hello-java-sec.upload-70-输入验证-路径遍历
+    family: path_traversal
+    title: 输入验证：路径遍历 @ Upload.java
+    description: 待复核新增项：输入验证：路径遍历 @ src/main/java/com/best/hello/controller/Upload.java:70
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/Upload.java
+    line_start: 70
+    line_end: 70
+    rule_type: 输入验证：路径遍历
+    aliases:
+    - 输入验证：路径遍历
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Upload.java;59行来自于http请求的数据从singleFileUploadSafe()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Upload.java;70行不可信的数据从getOriginalFilename()方法this参数进入,然后从返回值返回3
+      Hello-Java-Sec-master/src/main/java/com/best/hell
+    sink_api: 输入验证：路径遍历
+    source_refs:
+    - src/main/java/com/best/hello/controller/Upload.java:70
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-004
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-UPLOAD-UPLOADVUL2-UPLOADVUL2
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 输入验证：路径遍历
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/Upload.java
+    line_start: 117
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Upload.java;101行来自于http请求的数据从uploadVul2()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Upload.java;117行不可信的数据从getOriginalFilename()方法this参数进入,然后从返回值返回3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/contro
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-004
+    scenario_id: pending.hello-java-sec.upload-117-输入验证-路径遍历
+    family: path_traversal
+    title: 输入验证：路径遍历 @ Upload.java
+    description: 待复核新增项：输入验证：路径遍历 @ src/main/java/com/best/hello/controller/Upload.java:117
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/Upload.java
+    line_start: 117
+    line_end: 117
+    rule_type: 输入验证：路径遍历
+    aliases:
+    - 输入验证：路径遍历
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Upload.java;101行来自于http请求的数据从uploadVul2()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Upload.java;117行不可信的数据从getOriginalFilename()方法this参数进入,然后从返回值返回3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/contro
+    sink_api: 输入验证：路径遍历
+    source_refs:
+    - src/main/java/com/best/hello/controller/Upload.java:117
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-005
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-SHIROVUL-VUL-VUL
+  owasp_category: A02 Cryptographic Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 安全特性：Cookie：未经过SSL加密
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/ComponentsVul/ShiroVul.java
+    line_start: 65
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/ComponentsVul/ShiroVul.java;65行createDeleteCookie(...)2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/ComponentsVul/ShiroVul.java;37行cookie
+      = new Cookie(...)3 Hello-Java-Sec-master/src/main/java/com/best/hello/controller
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-005
+    scenario_id: pending.hello-java-sec.shirovul-65-安全特性-cookie-未经过ssl加密
+    family: cryptographic_failure
+    title: 安全特性：Cookie：未经过SSL加密 @ ShiroVul.java
+    description: 待复核新增项：安全特性：Cookie：未经过SSL加密 @ src/main/java/com/best/hello/controller/ComponentsVul/ShiroVul.java:65
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/ComponentsVul/ShiroVul.java
+    line_start: 65
+    line_end: 65
+    rule_type: 安全特性：Cookie：未经过SSL加密
+    aliases:
+    - 安全特性：Cookie：未经过SSL加密
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/ComponentsVul/ShiroVul.java;65行createDeleteCookie(...)2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/ComponentsVul/ShiroVul.java;37行cookie
+      = new Cookie(...)3 Hello-Java-Sec-master/src/main/java/com/best/hello/controller
+    sink_api: 安全特性：Cookie：未经过SSL加密
+    source_refs:
+    - src/main/java/com/best/hello/controller/ComponentsVul/ShiroVul.java:65
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-006
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A02 Cryptographic Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 安全特性：Cookie：未经过SSL加密
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/Login.java
+    line_start: 49
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Login.java;45行cookie
+      = new Cookie(...)2 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Login.java;49行addCookie(cookie)
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-006
+    scenario_id: pending.hello-java-sec.login-49-安全特性-cookie-未经过ssl加密
+    family: cryptographic_failure
+    title: 安全特性：Cookie：未经过SSL加密 @ Login.java
+    description: 待复核新增项：安全特性：Cookie：未经过SSL加密 @ src/main/java/com/best/hello/controller/Login.java:49
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/Login.java
+    line_start: 49
+    line_end: 49
+    rule_type: 安全特性：Cookie：未经过SSL加密
+    aliases:
+    - 安全特性：Cookie：未经过SSL加密
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Login.java;45行cookie
+      = new Cookie(...)2 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Login.java;49行addCookie(cookie)
+    sink_api: 安全特性：Cookie：未经过SSL加密
+    source_refs:
+    - src/main/java/com/best/hello/controller/Login.java:49
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-007
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A02 Cryptographic Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 安全特性：Cookie：未经过SSL加密
+    severity: high
+    file_path: src/main/java/com/best/hello/util/CookieUtils.java
+    line_start: 36
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/util/CookieUtils.java;34行cookie
+      = new Cookie(...)2 Hello-Java-Sec-master/src/main/java/com/best/hello/util/CookieUtils.java;36行addCookie(cookie)
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-007
+    scenario_id: pending.hello-java-sec.cookieutils-36-安全特性-cookie-未经过ssl加密
+    family: cryptographic_failure
+    title: 安全特性：Cookie：未经过SSL加密 @ CookieUtils.java
+    description: 待复核新增项：安全特性：Cookie：未经过SSL加密 @ src/main/java/com/best/hello/util/CookieUtils.java:36
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/util/CookieUtils.java
+    line_start: 36
+    line_end: 36
+    rule_type: 安全特性：Cookie：未经过SSL加密
+    aliases:
+    - 安全特性：Cookie：未经过SSL加密
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/util/CookieUtils.java;34行cookie
+      = new Cookie(...)2 Hello-Java-Sec-master/src/main/java/com/best/hello/util/CookieUtils.java;36行addCookie(cookie)
+    sink_api: 安全特性：Cookie：未经过SSL加密
+    source_refs:
+    - src/main/java/com/best/hello/util/CookieUtils.java:36
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-008
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-SHIROVUL-GENKEY-GENKEY
+  owasp_category: A02 Cryptographic Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 密码管理：弱加密：缺少必要加密步骤
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/ComponentsVul/ShiroVul.java
+    line_start: 85
+    evidence: '1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/ComponentsVul/ShiroVul.java;81行keygen
+      = getInstance(...) : 密钥生成器实例化2 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/ComponentsVul/ShiroVul.java;85行keygen.generateKey()
+      : 密钥生成器没有初始化直接使用'
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-008
+    scenario_id: pending.hello-java-sec.shirovul-85-密码管理-弱加密-缺少必要加密步骤
+    family: cryptographic_failure
+    title: 密码管理：弱加密：缺少必要加密步骤 @ ShiroVul.java
+    description: 待复核新增项：密码管理：弱加密：缺少必要加密步骤 @ src/main/java/com/best/hello/controller/ComponentsVul/ShiroVul.java:85
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/ComponentsVul/ShiroVul.java
+    line_start: 85
+    line_end: 85
+    rule_type: 密码管理：弱加密：缺少必要加密步骤
+    aliases:
+    - 密码管理：弱加密：缺少必要加密步骤
+    source_notes: '1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/ComponentsVul/ShiroVul.java;81行keygen
+      = getInstance(...) : 密钥生成器实例化2 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/ComponentsVul/ShiroVul.java;85行keygen.generateKey()
+      : 密钥生成器没有初始化直接使用'
+    sink_api: 密码管理：弱加密：缺少必要加密步骤
+    source_refs:
+    - src/main/java/com/best/hello/controller/ComponentsVul/ShiroVul.java:85
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-009
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-CORS-CORSVUL-VUL
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 代码注入：HTTP响应截断
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/CORS.java
+    line_start: 27
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/CORS.java;26行来自于http请求的数据从getHeader()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/CORS.java;26行赋值不可信的数据给变量origin3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/CORS.java;27行不可信的数据从setHeader()方法第
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-009
+    scenario_id: pending.hello-java-sec.cors-27-代码注入-http响应截断
+    family: injection
+    title: 代码注入：HTTP响应截断 @ CORS.java
+    description: 待复核新增项：代码注入：HTTP响应截断 @ src/main/java/com/best/hello/controller/CORS.java:27
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/CORS.java
+    line_start: 27
+    line_end: 27
+    rule_type: 代码注入：HTTP响应截断
+    aliases:
+    - 代码注入：HTTP响应截断
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/CORS.java;26行来自于http请求的数据从getHeader()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/CORS.java;26行赋值不可信的数据给变量origin3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/CORS.java;27行不可信的数据从setHeader()方法第
+    sink_api: 代码注入：HTTP响应截断
+    source_refs:
+    - src/main/java/com/best/hello/controller/CORS.java:27
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-010
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-TRAVERSAL-DOWNLOAD-DOWNLOAD
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 代码注入：HTTP响应截断
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/Traversal.java
+    line_start: 41
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Traversal.java;33行来自于http请求的数据从download()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Traversal.java;41行不可信的数据从setHeader()方法第2个参数进入
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-010
+    scenario_id: pending.hello-java-sec.traversal-41-代码注入-http响应截断
+    family: injection
+    title: 代码注入：HTTP响应截断 @ Traversal.java
+    description: 待复核新增项：代码注入：HTTP响应截断 @ src/main/java/com/best/hello/controller/Traversal.java:41
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/Traversal.java
+    line_start: 41
+    line_end: 41
+    rule_type: 代码注入：HTTP响应截断
+    aliases:
+    - 代码注入：HTTP响应截断
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Traversal.java;33行来自于http请求的数据从download()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Traversal.java;41行不可信的数据从setHeader()方法第2个参数进入
+    sink_api: 代码注入：HTTP响应截断
+    source_refs:
+    - src/main/java/com/best/hello/controller/Traversal.java:41
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-011
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-JDBC-VUL1-VUL1
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 代码注入：SQL注入
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+    line_start: 66
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;55行来自于http请求的数据从vul1()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;57行赋值不可信的数据给变量sql3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;66行不可信的数据从execu
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-011
+    scenario_id: pending.hello-java-sec.jdbc-66-代码注入-sql注入
+    family: sql_injection
+    title: 代码注入：SQL注入 @ JDBC.java
+    description: 待复核新增项：代码注入：SQL注入 @ src/main/java/com/best/hello/controller/SQLI/JDBC.java:66
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+    line_start: 66
+    line_end: 66
+    rule_type: 代码注入：SQL注入
+    aliases:
+    - 代码注入：SQL注入
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;55行来自于http请求的数据从vul1()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;57行赋值不可信的数据给变量sql3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;66行不可信的数据从execu
+    sink_api: 代码注入：SQL注入
+    source_refs:
+    - src/main/java/com/best/hello/controller/SQLI/JDBC.java:66
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-012
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-JDBC-SAFE2-SAFE2
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 代码注入：SQL注入
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+    line_start: 181
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;170行来自于http请求的数据从safe2()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;174行赋值不可信的数据给变量sql3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;181行不可信的数据从e
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-012
+    scenario_id: pending.hello-java-sec.jdbc-181-代码注入-sql注入
+    family: sql_injection
+    title: 代码注入：SQL注入 @ JDBC.java
+    description: 待复核新增项：代码注入：SQL注入 @ src/main/java/com/best/hello/controller/SQLI/JDBC.java:181
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+    line_start: 181
+    line_end: 181
+    rule_type: 代码注入：SQL注入
+    aliases:
+    - 代码注入：SQL注入
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;170行来自于http请求的数据从safe2()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;174行赋值不可信的数据给变量sql3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;181行不可信的数据从e
+    sink_api: 代码注入：SQL注入
+    source_refs:
+    - src/main/java/com/best/hello/controller/SQLI/JDBC.java:181
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-013
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-JDBC-SAFE5-SAFE5
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 代码注入：SQL注入
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+    line_start: 268
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;255行来自于http请求的数据从safe5()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;266行赋值不可信的数据给变量sql3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;268行不可信的数据从e
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-013
+    scenario_id: pending.hello-java-sec.jdbc-268-代码注入-sql注入
+    family: sql_injection
+    title: 代码注入：SQL注入 @ JDBC.java
+    description: 待复核新增项：代码注入：SQL注入 @ src/main/java/com/best/hello/controller/SQLI/JDBC.java:268
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+    line_start: 268
+    line_end: 268
+    rule_type: 代码注入：SQL注入
+    aliases:
+    - 代码注入：SQL注入
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;255行来自于http请求的数据从safe5()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;266行赋值不可信的数据给变量sql3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;268行不可信的数据从e
+    sink_api: 代码注入：SQL注入
+    source_refs:
+    - src/main/java/com/best/hello/controller/SQLI/JDBC.java:268
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-014
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-MYBATIS-ORDERBY-VUL-ORDER
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 代码注入：SQL注入：MyBatis
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/SQLI/MyBatis.java
+    line_start: 46
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/MyBatis.java;44行来自于http请求的数据从orderBy()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/MyBatis.java;46行不可信的数据从orderBy()方法第1个参数进入3
+      Hello-Java-Sec-master/src/main/resources/mapper/UserMapper.xml;14行field
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-014
+    scenario_id: pending.hello-java-sec.mybatis-46-代码注入-sql注入-mybatis
+    family: sql_injection
+    title: 代码注入：SQL注入：MyBatis @ MyBatis.java
+    description: 待复核新增项：代码注入：SQL注入：MyBatis @ src/main/java/com/best/hello/controller/SQLI/MyBatis.java:46
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/SQLI/MyBatis.java
+    line_start: 46
+    line_end: 46
+    rule_type: 代码注入：SQL注入：MyBatis
+    aliases:
+    - 代码注入：SQL注入：MyBatis
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/MyBatis.java;44行来自于http请求的数据从orderBy()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/MyBatis.java;46行不可信的数据从orderBy()方法第1个参数进入3
+      Hello-Java-Sec-master/src/main/resources/mapper/UserMapper.xml;14行field
+    sink_api: 代码注入：SQL注入：MyBatis
+    source_refs:
+    - src/main/java/com/best/hello/controller/SQLI/MyBatis.java:46
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-015
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-CSRF-TRANSFERMONEY-TRANSFER-VUL
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：反射型XSS
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/CSRF.java
+    line_start: 32
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/CSRF.java;25行来自于http请求的数据从getParameter()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/CSRF.java;25行赋值不可信的数据给变量receiver3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/CSRF.java;29行不可信的数据从put()方法第2
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-015
+    scenario_id: pending.hello-java-sec.csrf-32-跨站脚本-反射型xss
+    family: xss
+    title: 跨站脚本：反射型XSS @ CSRF.java
+    description: 待复核新增项：跨站脚本：反射型XSS @ src/main/java/com/best/hello/controller/CSRF.java:32
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/CSRF.java
+    line_start: 32
+    line_end: 32
+    rule_type: 跨站脚本：反射型XSS
+    aliases:
+    - 跨站脚本：反射型XSS
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/CSRF.java;25行来自于http请求的数据从getParameter()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/CSRF.java;25行赋值不可信的数据给变量receiver3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/CSRF.java;29行不可信的数据从put()方法第2
+    sink_api: 跨站脚本：反射型XSS
+    source_refs:
+    - src/main/java/com/best/hello/controller/CSRF.java:32
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-016
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-CSRF-TRANSFERMONEYSAFE-TRANSFER-REFERER
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：反射型XSS
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/CSRF.java
+    line_start: 53
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/CSRF.java;39行来自于http请求的数据从getParameter()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/CSRF.java;39行赋值不可信的数据给变量amount3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/CSRF.java;51行不可信的数据从put()方法第2个参
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-016
+    scenario_id: pending.hello-java-sec.csrf-53-跨站脚本-反射型xss
+    family: xss
+    title: 跨站脚本：反射型XSS @ CSRF.java
+    description: 待复核新增项：跨站脚本：反射型XSS @ src/main/java/com/best/hello/controller/CSRF.java:53
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/CSRF.java
+    line_start: 53
+    line_end: 53
+    rule_type: 跨站脚本：反射型XSS
+    aliases:
+    - 跨站脚本：反射型XSS
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/CSRF.java;39行来自于http请求的数据从getParameter()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/CSRF.java;39行赋值不可信的数据给变量amount3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/CSRF.java;51行不可信的数据从put()方法第2个参
+    sink_api: 跨站脚本：反射型XSS
+    source_refs:
+    - src/main/java/com/best/hello/controller/CSRF.java:53
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-017
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-CSRF-DOTRANSFERTOKEN-TRANSFER-DOTRANSFERTOKEN
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：反射型XSS
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/CSRF.java
+    line_start: 86
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/CSRF.java;70行来自于http请求的数据从getParameter()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/CSRF.java;70行赋值不可信的数据给变量amount3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/CSRF.java;83行不可信的数据从put()方法第2个参
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-017
+    scenario_id: pending.hello-java-sec.csrf-86-跨站脚本-反射型xss
+    family: xss
+    title: 跨站脚本：反射型XSS @ CSRF.java
+    description: 待复核新增项：跨站脚本：反射型XSS @ src/main/java/com/best/hello/controller/CSRF.java:86
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/CSRF.java
+    line_start: 86
+    line_end: 86
+    rule_type: 跨站脚本：反射型XSS
+    aliases:
+    - 跨站脚本：反射型XSS
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/CSRF.java;70行来自于http请求的数据从getParameter()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/CSRF.java;70行赋值不可信的数据给变量amount3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/CSRF.java;83行不可信的数据从put()方法第2个参
+    sink_api: 跨站脚本：反射型XSS
+    source_refs:
+    - src/main/java/com/best/hello/controller/CSRF.java:86
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-018
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-IPFORGERY-PROXYIP-PROXY
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：反射型XSS
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/IPForgery.java
+    line_start: 64
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/IPForgery.java;61行来自于http请求的数据从getHeader()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/IPForgery.java;61行赋值不可信的数据给变量realIP3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/IPForgery.java;64行返回不可信的
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-018
+    scenario_id: pending.hello-java-sec.ipforgery-64-跨站脚本-反射型xss
+    family: xss
+    title: 跨站脚本：反射型XSS @ IPForgery.java
+    description: 待复核新增项：跨站脚本：反射型XSS @ src/main/java/com/best/hello/controller/IPForgery.java:64
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/IPForgery.java
+    line_start: 64
+    line_end: 64
+    rule_type: 跨站脚本：反射型XSS
+    aliases:
+    - 跨站脚本：反射型XSS
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/IPForgery.java;61行来自于http请求的数据从getHeader()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/IPForgery.java;61行赋值不可信的数据给变量realIP3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/IPForgery.java;64行返回不可信的
+    sink_api: 跨站脚本：反射型XSS
+    source_refs:
+    - src/main/java/com/best/hello/controller/IPForgery.java:64
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-019
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-PASSWORDRESET-RESETPASSWORD-SENDCODE
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：反射型XSS
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/LogicFlaw/PasswordReset.java
+    line_start: 47
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/LogicFlaw/PasswordReset.java;31行来自于http请求的数据从resetPassword()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/LogicFlaw/PasswordReset.java;45行不可信的数据从put()方法第2个参数进入,然后从this参数返回3
+      Hello-Java-Sec-master/src/main/java/
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-019
+    scenario_id: pending.hello-java-sec.passwordreset-47-跨站脚本-反射型xss
+    family: xss
+    title: 跨站脚本：反射型XSS @ PasswordReset.java
+    description: 待复核新增项：跨站脚本：反射型XSS @ src/main/java/com/best/hello/controller/LogicFlaw/PasswordReset.java:47
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/LogicFlaw/PasswordReset.java
+    line_start: 47
+    line_end: 47
+    rule_type: 跨站脚本：反射型XSS
+    aliases:
+    - 跨站脚本：反射型XSS
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/LogicFlaw/PasswordReset.java;31行来自于http请求的数据从resetPassword()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/LogicFlaw/PasswordReset.java;45行不可信的数据从put()方法第2个参数进入,然后从this参数返回3
+      Hello-Java-Sec-master/src/main/java/
+    sink_api: 跨站脚本：反射型XSS
+    source_refs:
+    - src/main/java/com/best/hello/controller/LogicFlaw/PasswordReset.java:47
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-020
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-PASSWORDRESET-RESETPASSWORD2-SENDCODE2
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：反射型XSS
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/LogicFlaw/PasswordReset.java
+    line_start: 102
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/LogicFlaw/PasswordReset.java;88行来自于http请求的数据从resetPassword2()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/LogicFlaw/PasswordReset.java;101行不可信的数据从put()方法第2个参数进入,然后从this参数返回3
+      Hello-Java-Sec-master/src/main/jav
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-020
+    scenario_id: pending.hello-java-sec.passwordreset-102-跨站脚本-反射型xss
+    family: xss
+    title: 跨站脚本：反射型XSS @ PasswordReset.java
+    description: 待复核新增项：跨站脚本：反射型XSS @ src/main/java/com/best/hello/controller/LogicFlaw/PasswordReset.java:102
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/LogicFlaw/PasswordReset.java
+    line_start: 102
+    line_end: 102
+    rule_type: 跨站脚本：反射型XSS
+    aliases:
+    - 跨站脚本：反射型XSS
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/LogicFlaw/PasswordReset.java;88行来自于http请求的数据从resetPassword2()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/LogicFlaw/PasswordReset.java;101行不可信的数据从put()方法第2个参数进入,然后从this参数返回3
+      Hello-Java-Sec-master/src/main/jav
+    sink_api: 跨站脚本：反射型XSS
+    source_refs:
+    - src/main/java/com/best/hello/controller/LogicFlaw/PasswordReset.java:102
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-021
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-REDIRECT-SAFE-SAFE
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：反射型XSS
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/Redirect.java
+    line_start: 57
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Redirect.java;54行来自于http请求的数据从safe()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Redirect.java;57行返回不可信的数据
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-021
+    scenario_id: pending.hello-java-sec.redirect-57-跨站脚本-反射型xss
+    family: xss
+    title: 跨站脚本：反射型XSS @ Redirect.java
+    description: 待复核新增项：跨站脚本：反射型XSS @ src/main/java/com/best/hello/controller/Redirect.java:57
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/Redirect.java
+    line_start: 57
+    line_end: 57
+    rule_type: 跨站脚本：反射型XSS
+    aliases:
+    - 跨站脚本：反射型XSS
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Redirect.java;54行来自于http请求的数据从safe()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Redirect.java;57行返回不可信的数据
+    sink_api: 跨站脚本：反射型XSS
+    source_refs:
+    - src/main/java/com/best/hello/controller/Redirect.java:57
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-022
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-SSTI-FRAGMENTSAFE-THYMELEAF-FRAGMENT-SAFE
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：反射型XSS
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/SSTI.java
+    line_start: 115
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SSTI.java;114行来自于http请求的数据从fragmentSafe()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SSTI.java;115行返回不可信的数据
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-022
+    scenario_id: pending.hello-java-sec.ssti-115-跨站脚本-反射型xss
+    family: xss
+    title: 跨站脚本：反射型XSS @ SSTI.java
+    description: 待复核新增项：跨站脚本：反射型XSS @ src/main/java/com/best/hello/controller/SSTI.java:115
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/SSTI.java
+    line_start: 115
+    line_end: 115
+    rule_type: 跨站脚本：反射型XSS
+    aliases:
+    - 跨站脚本：反射型XSS
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SSTI.java;114行来自于http请求的数据从fragmentSafe()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SSTI.java;115行返回不可信的数据
+    sink_api: 跨站脚本：反射型XSS
+    source_refs:
+    - src/main/java/com/best/hello/controller/SSTI.java:115
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-023
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-XXE-DOCUMENTBUILDER-DOCUMENTBUILDER
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：反射型XSS
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/XXE/XXE.java
+    line_start: 153
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/XXE/XXE.java;141行来自于http请求的数据从DocumentBuilder()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/XXE/XXE.java;147行不可信的数据从StringReader()方法第1个参数进入,然后从this参数返回3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/cont
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-023
+    scenario_id: pending.hello-java-sec.xxe-153-跨站脚本-反射型xss
+    family: xss
+    title: 跨站脚本：反射型XSS @ XXE.java
+    description: 待复核新增项：跨站脚本：反射型XSS @ src/main/java/com/best/hello/controller/XXE/XXE.java:153
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/XXE/XXE.java
+    line_start: 153
+    line_end: 153
+    rule_type: 跨站脚本：反射型XSS
+    aliases:
+    - 跨站脚本：反射型XSS
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/XXE/XXE.java;141行来自于http请求的数据从DocumentBuilder()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/XXE/XXE.java;147行不可信的数据从StringReader()方法第1个参数进入,然后从this参数返回3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/cont
+    sink_api: 跨站脚本：反射型XSS
+    source_refs:
+    - src/main/java/com/best/hello/controller/XXE/XXE.java:153
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-024
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-JDBC-VUL1-VUL1
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：存储型XSS
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+    line_start: 77
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;66行来自于数据库的数据从executeQuery()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;66行赋值不可信的数据给变量rs3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;69行不可信的数据从get
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-024
+    scenario_id: pending.hello-java-sec.jdbc-77-跨站脚本-存储型xss
+    family: xss
+    title: 跨站脚本：存储型XSS @ JDBC.java
+    description: 待复核新增项：跨站脚本：存储型XSS @ src/main/java/com/best/hello/controller/SQLI/JDBC.java:77
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+    line_start: 77
+    line_end: 77
+    rule_type: 跨站脚本：存储型XSS
+    aliases:
+    - 跨站脚本：存储型XSS
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;66行来自于数据库的数据从executeQuery()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;66行赋值不可信的数据给变量rs3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;69行不可信的数据从get
+    sink_api: 跨站脚本：存储型XSS
+    source_refs:
+    - src/main/java/com/best/hello/controller/SQLI/JDBC.java:77
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-025
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-JDBC-VUL2-VUL2
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：存储型XSS
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+    line_start: 112
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;100行来自于数据库的数据从executeQuery()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;100行赋值不可信的数据给变量rs3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;103行不可信的数据从
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-025
+    scenario_id: pending.hello-java-sec.jdbc-112-跨站脚本-存储型xss
+    family: xss
+    title: 跨站脚本：存储型XSS @ JDBC.java
+    description: 待复核新增项：跨站脚本：存储型XSS @ src/main/java/com/best/hello/controller/SQLI/JDBC.java:112
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+    line_start: 112
+    line_end: 112
+    rule_type: 跨站脚本：存储型XSS
+    aliases:
+    - 跨站脚本：存储型XSS
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;100行来自于数据库的数据从executeQuery()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;100行赋值不可信的数据给变量rs3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;103行不可信的数据从
+    sink_api: 跨站脚本：存储型XSS
+    source_refs:
+    - src/main/java/com/best/hello/controller/SQLI/JDBC.java:112
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-026
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-JDBC-SAFE1-SAFE1
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：存储型XSS
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+    line_start: 161
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;149行来自于数据库的数据从executeQuery()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;149行赋值不可信的数据给变量rs3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;152行不可信的数据从
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-026
+    scenario_id: pending.hello-java-sec.jdbc-161-跨站脚本-存储型xss
+    family: xss
+    title: 跨站脚本：存储型XSS @ JDBC.java
+    description: 待复核新增项：跨站脚本：存储型XSS @ src/main/java/com/best/hello/controller/SQLI/JDBC.java:161
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+    line_start: 161
+    line_end: 161
+    rule_type: 跨站脚本：存储型XSS
+    aliases:
+    - 跨站脚本：存储型XSS
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;149行来自于数据库的数据从executeQuery()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;149行赋值不可信的数据给变量rs3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;152行不可信的数据从
+    sink_api: 跨站脚本：存储型XSS
+    source_refs:
+    - src/main/java/com/best/hello/controller/SQLI/JDBC.java:161
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-027
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-JDBC-SAFE2-SAFE2
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：存储型XSS
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+    line_start: 193
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;181行来自于数据库的数据从executeQuery()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;181行赋值不可信的数据给变量rs3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;184行不可信的数据从
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-027
+    scenario_id: pending.hello-java-sec.jdbc-193-跨站脚本-存储型xss
+    family: xss
+    title: 跨站脚本：存储型XSS @ JDBC.java
+    description: 待复核新增项：跨站脚本：存储型XSS @ src/main/java/com/best/hello/controller/SQLI/JDBC.java:193
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+    line_start: 193
+    line_end: 193
+    rule_type: 跨站脚本：存储型XSS
+    aliases:
+    - 跨站脚本：存储型XSS
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;181行来自于数据库的数据从executeQuery()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;181行赋值不可信的数据给变量rs3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;184行不可信的数据从
+    sink_api: 跨站脚本：存储型XSS
+    source_refs:
+    - src/main/java/com/best/hello/controller/SQLI/JDBC.java:193
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-028
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-JDBC-SAFE5-SAFE5
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：存储型XSS
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+    line_start: 276
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;268行来自于数据库的数据从executeQuery()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;268行赋值不可信的数据给变量rs3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;270行不可信的数据从
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-028
+    scenario_id: pending.hello-java-sec.jdbc-276-跨站脚本-存储型xss
+    family: xss
+    title: 跨站脚本：存储型XSS @ JDBC.java
+    description: 待复核新增项：跨站脚本：存储型XSS @ src/main/java/com/best/hello/controller/SQLI/JDBC.java:276
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+    line_start: 276
+    line_end: 276
+    rule_type: 跨站脚本：存储型XSS
+    aliases:
+    - 跨站脚本：存储型XSS
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;268行来自于数据库的数据从executeQuery()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;268行赋值不可信的数据给变量rs3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;270行不可信的数据从
+    sink_api: 跨站脚本：存储型XSS
+    source_refs:
+    - src/main/java/com/best/hello/controller/SQLI/JDBC.java:276
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-029
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-MYBATIS-ORDERBY-VUL-ORDER
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：存储型XSS
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/SQLI/MyBatis.java
+    line_start: 46
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/MyBatis.java;46行来自于数据库的数据从orderBy()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/MyBatis.java;46行返回不可信的数据
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-029
+    scenario_id: pending.hello-java-sec.mybatis-46-跨站脚本-存储型xss
+    family: xss
+    title: 跨站脚本：存储型XSS @ MyBatis.java
+    description: 待复核新增项：跨站脚本：存储型XSS @ src/main/java/com/best/hello/controller/SQLI/MyBatis.java:46
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/SQLI/MyBatis.java
+    line_start: 46
+    line_end: 46
+    rule_type: 跨站脚本：存储型XSS
+    aliases:
+    - 跨站脚本：存储型XSS
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/MyBatis.java;46行来自于数据库的数据从orderBy()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/MyBatis.java;46行返回不可信的数据
+    sink_api: 跨站脚本：存储型XSS
+    source_refs:
+    - src/main/java/com/best/hello/controller/SQLI/MyBatis.java:46
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-030
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-MYBATIS-ORDERBYSAFE-SAFE-ORDER
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：存储型XSS
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/SQLI/MyBatis.java
+    line_start: 81
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/MyBatis.java;81行来自于数据库的数据从orderBySafe()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/MyBatis.java;81行返回不可信的数据
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-030
+    scenario_id: pending.hello-java-sec.mybatis-81-跨站脚本-存储型xss
+    family: xss
+    title: 跨站脚本：存储型XSS @ MyBatis.java
+    description: 待复核新增项：跨站脚本：存储型XSS @ src/main/java/com/best/hello/controller/SQLI/MyBatis.java:81
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/SQLI/MyBatis.java
+    line_start: 81
+    line_end: 81
+    rule_type: 跨站脚本：存储型XSS
+    aliases:
+    - 跨站脚本：存储型XSS
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/MyBatis.java;81行来自于数据库的数据从orderBySafe()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/MyBatis.java;81行返回不可信的数据
+    sink_api: 跨站脚本：存储型XSS
+    source_refs:
+    - src/main/java/com/best/hello/controller/SQLI/MyBatis.java:81
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-031
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-SSRF-URLCONNECTION-URLCONNECTION-VUL
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：存储型XSS
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/SSRF.java
+    line_start: 41
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/util/HttpClientUtils.java;43行来自于web服务的数据从getInputStream()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/util/HttpClientUtils.java;43行不可信的数据从InputStreamReader()方法第1个参数进入,然后从this参数返回3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/u
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-031
+    scenario_id: pending.hello-java-sec.ssrf-41-跨站脚本-存储型xss
+    family: xss
+    title: 跨站脚本：存储型XSS @ SSRF.java
+    description: 待复核新增项：跨站脚本：存储型XSS @ src/main/java/com/best/hello/controller/SSRF.java:41
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/SSRF.java
+    line_start: 41
+    line_end: 41
+    rule_type: 跨站脚本：存储型XSS
+    aliases:
+    - 跨站脚本：存储型XSS
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/util/HttpClientUtils.java;43行来自于web服务的数据从getInputStream()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/util/HttpClientUtils.java;43行不可信的数据从InputStreamReader()方法第1个参数进入,然后从this参数返回3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/u
+    sink_api: 跨站脚本：存储型XSS
+    source_refs:
+    - src/main/java/com/best/hello/controller/SSRF.java:41
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-032
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-SSRF-URLCONNECTION2-URLCONNECTION-VUL2
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：存储型XSS
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/SSRF.java
+    line_start: 57
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/util/HttpClientUtils.java;43行来自于web服务的数据从getInputStream()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/util/HttpClientUtils.java;43行不可信的数据从InputStreamReader()方法第1个参数进入,然后从this参数返回3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/u
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-032
+    scenario_id: pending.hello-java-sec.ssrf-57-跨站脚本-存储型xss
+    family: xss
+    title: 跨站脚本：存储型XSS @ SSRF.java
+    description: 待复核新增项：跨站脚本：存储型XSS @ src/main/java/com/best/hello/controller/SSRF.java:57
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/SSRF.java
+    line_start: 57
+    line_end: 57
+    rule_type: 跨站脚本：存储型XSS
+    aliases:
+    - 跨站脚本：存储型XSS
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/util/HttpClientUtils.java;43行来自于web服务的数据从getInputStream()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/util/HttpClientUtils.java;43行不可信的数据从InputStreamReader()方法第1个参数进入,然后从this参数返回3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/u
+    sink_api: 跨站脚本：存储型XSS
+    source_refs:
+    - src/main/java/com/best/hello/controller/SSRF.java:57
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-033
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-SSRF-URLCONNECTION3-URLCONNECTION-SAFE
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：存储型XSS
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/SSRF.java
+    line_start: 70
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/util/HttpClientUtils.java;43行来自于web服务的数据从getInputStream()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/util/HttpClientUtils.java;43行不可信的数据从InputStreamReader()方法第1个参数进入,然后从this参数返回3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/u
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-033
+    scenario_id: pending.hello-java-sec.ssrf-70-跨站脚本-存储型xss
+    family: xss
+    title: 跨站脚本：存储型XSS @ SSRF.java
+    description: 待复核新增项：跨站脚本：存储型XSS @ src/main/java/com/best/hello/controller/SSRF.java:70
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/SSRF.java
+    line_start: 70
+    line_end: 70
+    rule_type: 跨站脚本：存储型XSS
+    aliases:
+    - 跨站脚本：存储型XSS
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/util/HttpClientUtils.java;43行来自于web服务的数据从getInputStream()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/util/HttpClientUtils.java;43行不可信的数据从InputStreamReader()方法第1个参数进入,然后从this参数返回3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/u
+    sink_api: 跨站脚本：存储型XSS
+    source_refs:
+    - src/main/java/com/best/hello/controller/SSRF.java:70
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-034
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-SSRF-HTTPURLCONNECTION-HTTPURLCONNECTION-SAFE
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：存储型XSS
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/SSRF.java
+    line_start: 96
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/util/HttpClientUtils.java;21行来自于web服务的数据从getInputStream()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/util/HttpClientUtils.java;21行不可信的数据从InputStreamReader()方法第1个参数进入,然后从this参数返回3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/u
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-034
+    scenario_id: pending.hello-java-sec.ssrf-96-跨站脚本-存储型xss
+    family: xss
+    title: 跨站脚本：存储型XSS @ SSRF.java
+    description: 待复核新增项：跨站脚本：存储型XSS @ src/main/java/com/best/hello/controller/SSRF.java:96
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/SSRF.java
+    line_start: 96
+    line_end: 96
+    rule_type: 跨站脚本：存储型XSS
+    aliases:
+    - 跨站脚本：存储型XSS
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/util/HttpClientUtils.java;21行来自于web服务的数据从getInputStream()方法返回值返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/util/HttpClientUtils.java;21行不可信的数据从InputStreamReader()方法第1个参数进入,然后从this参数返回3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/u
+    sink_api: 跨站脚本：存储型XSS
+    source_refs:
+    - src/main/java/com/best/hello/controller/SSRF.java:96
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-035
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-JNDIINJECT-SAFE-WARN1
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：弱验证
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/JNDI/JNDIInject.java
+    line_start: 54
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/JNDI/JNDIInject.java;45行来自于http请求的数据从safe()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/JNDI/JNDIInject.java;54行不可信的数据从htmlEscape()方法第1个参数进入,然后从返回值返回3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/contro
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-035
+    scenario_id: pending.hello-java-sec.jndiinject-54-跨站脚本-弱验证
+    family: xss
+    title: 跨站脚本：弱验证 @ JNDIInject.java
+    description: 待复核新增项：跨站脚本：弱验证 @ src/main/java/com/best/hello/controller/JNDI/JNDIInject.java:54
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/JNDI/JNDIInject.java
+    line_start: 54
+    line_end: 54
+    rule_type: 跨站脚本：弱验证
+    aliases:
+    - 跨站脚本：弱验证
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/JNDI/JNDIInject.java;45行来自于http请求的数据从safe()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/JNDI/JNDIInject.java;54行不可信的数据从htmlEscape()方法第1个参数进入,然后从返回值返回3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/contro
+    sink_api: 跨站脚本：弱验证
+    source_refs:
+    - src/main/java/com/best/hello/controller/JNDI/JNDIInject.java:54
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-036
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-JNDIINJECT-SAFE2-SAFE2
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：弱验证
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/JNDI/JNDIInject.java
+    line_start: 72
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/JNDI/JNDIInject.java;63行来自于http请求的数据从safe2()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/JNDI/JNDIInject.java;72行不可信的数据从htmlEscape()方法第1个参数进入,然后从返回值返回3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/contr
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-036
+    scenario_id: pending.hello-java-sec.jndiinject-72-跨站脚本-弱验证
+    family: xss
+    title: 跨站脚本：弱验证 @ JNDIInject.java
+    description: 待复核新增项：跨站脚本：弱验证 @ src/main/java/com/best/hello/controller/JNDI/JNDIInject.java:72
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/JNDI/JNDIInject.java
+    line_start: 72
+    line_end: 72
+    rule_type: 跨站脚本：弱验证
+    aliases:
+    - 跨站脚本：弱验证
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/JNDI/JNDIInject.java;63行来自于http请求的数据从safe2()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/JNDI/JNDIInject.java;72行不可信的数据从htmlEscape()方法第1个参数进入,然后从返回值返回3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/contr
+    sink_api: 跨站脚本：弱验证
+    source_refs:
+    - src/main/java/com/best/hello/controller/JNDI/JNDIInject.java:72
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-037
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-LOADJSVUL-JSENGINE-VUL
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：弱验证
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/RCE/LoadJsVul.java
+    line_start: 41
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/RCE/LoadJsVul.java;27行来自于http请求的数据从jsEngine()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/RCE/LoadJsVul.java;41行不可信的数据从htmlEscape()方法第1个参数进入,然后从返回值返回3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/contro
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-037
+    scenario_id: pending.hello-java-sec.loadjsvul-41-跨站脚本-弱验证
+    family: xss
+    title: 跨站脚本：弱验证 @ LoadJsVul.java
+    description: 待复核新增项：跨站脚本：弱验证 @ src/main/java/com/best/hello/controller/RCE/LoadJsVul.java:41
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/RCE/LoadJsVul.java
+    line_start: 41
+    line_end: 41
+    rule_type: 跨站脚本：弱验证
+    aliases:
+    - 跨站脚本：弱验证
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/RCE/LoadJsVul.java;27行来自于http请求的数据从jsEngine()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/RCE/LoadJsVul.java;41行不可信的数据从htmlEscape()方法第1个参数进入,然后从返回值返回3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/contro
+    sink_api: 跨站脚本：弱验证
+    source_refs:
+    - src/main/java/com/best/hello/controller/RCE/LoadJsVul.java:41
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-038
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-XSS-SAFE1-ESCAPE
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：弱验证
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/XSS/XSS.java
+    line_start: 106
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/XSS/XSS.java;104行来自于http请求的数据从safe1()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/XSS/XSS.java;106行不可信的数据从htmlEscape()方法第1个参数进入,然后从返回值返回3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/XSS/XSS.
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-038
+    scenario_id: pending.hello-java-sec.xss-106-跨站脚本-弱验证
+    family: xss
+    title: 跨站脚本：弱验证 @ XSS.java
+    description: 待复核新增项：跨站脚本：弱验证 @ src/main/java/com/best/hello/controller/XSS/XSS.java:106
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/XSS/XSS.java
+    line_start: 106
+    line_end: 106
+    rule_type: 跨站脚本：弱验证
+    aliases:
+    - 跨站脚本：弱验证
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/XSS/XSS.java;104行来自于http请求的数据从safe1()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/XSS/XSS.java;106行不可信的数据从htmlEscape()方法第1个参数进入,然后从返回值返回3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/XSS/XSS.
+    sink_api: 跨站脚本：弱验证
+    source_refs:
+    - src/main/java/com/best/hello/controller/XSS/XSS.java:106
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-039
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：跨站点历史操作
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/Login.java
+    line_start: 53
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Login.java;53行"redirect:/index"
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-039
+    scenario_id: pending.hello-java-sec.login-53-跨站脚本-跨站点历史操作
+    family: xss
+    title: 跨站脚本：跨站点历史操作 @ Login.java
+    description: 待复核新增项：跨站脚本：跨站点历史操作 @ src/main/java/com/best/hello/controller/Login.java:53
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/Login.java
+    line_start: 53
+    line_end: 53
+    rule_type: 跨站脚本：跨站点历史操作
+    aliases:
+    - 跨站脚本：跨站点历史操作
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Login.java;53行"redirect:/index"
+    sink_api: 跨站脚本：跨站点历史操作
+    source_refs:
+    - src/main/java/com/best/hello/controller/Login.java:53
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-040
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-REDIRECT-VUL2-VUL2
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：跨站点历史操作
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/Redirect.java
+    line_start: 40
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Redirect.java;40行ModelAndView()
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-040
+    scenario_id: pending.hello-java-sec.redirect-40-跨站脚本-跨站点历史操作
+    family: xss
+    title: 跨站脚本：跨站点历史操作 @ Redirect.java
+    description: 待复核新增项：跨站脚本：跨站点历史操作 @ src/main/java/com/best/hello/controller/Redirect.java:40
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/Redirect.java
+    line_start: 40
+    line_end: 40
+    rule_type: 跨站脚本：跨站点历史操作
+    aliases:
+    - 跨站脚本：跨站点历史操作
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Redirect.java;40行ModelAndView()
+    sink_api: 跨站脚本：跨站点历史操作
+    source_refs:
+    - src/main/java/com/best/hello/controller/Redirect.java:40
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-041
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-UPLOAD-UPLOADVUL-UPLOADVUL
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：跨站点历史操作
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/Upload.java
+    line_start: 35
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Upload.java;35行"redirect:uploadStatus"
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-041
+    scenario_id: pending.hello-java-sec.upload-35-跨站脚本-跨站点历史操作
+    family: xss
+    title: 跨站脚本：跨站点历史操作 @ Upload.java
+    description: 待复核新增项：跨站脚本：跨站点历史操作 @ src/main/java/com/best/hello/controller/Upload.java:35
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/Upload.java
+    line_start: 35
+    line_end: 35
+    rule_type: 跨站脚本：跨站点历史操作
+    aliases:
+    - 跨站脚本：跨站点历史操作
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Upload.java;35行"redirect:uploadStatus"
+    sink_api: 跨站脚本：跨站点历史操作
+    source_refs:
+    - src/main/java/com/best/hello/controller/Upload.java:35
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-042
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-UPLOAD-SINGLEFILEUPLOADSAFE-UPLOADSAFE
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：跨站点历史操作
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/Upload.java
+    line_start: 64
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Upload.java;64行"redirect:uploadStatus"
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-042
+    scenario_id: pending.hello-java-sec.upload-64-跨站脚本-跨站点历史操作
+    family: xss
+    title: 跨站脚本：跨站点历史操作 @ Upload.java
+    description: 待复核新增项：跨站脚本：跨站点历史操作 @ src/main/java/com/best/hello/controller/Upload.java:64
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/Upload.java
+    line_start: 64
+    line_end: 64
+    rule_type: 跨站脚本：跨站点历史操作
+    aliases:
+    - 跨站脚本：跨站点历史操作
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Upload.java;64行"redirect:uploadStatus"
+    sink_api: 跨站脚本：跨站点历史操作
+    source_refs:
+    - src/main/java/com/best/hello/controller/Upload.java:64
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-043
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-UPLOAD-UPLOADVUL2-UPLOADVUL2
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：跨站点历史操作
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/Upload.java
+    line_start: 105
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Upload.java;105行"redirect:upload"
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-043
+    scenario_id: pending.hello-java-sec.upload-105-跨站脚本-跨站点历史操作
+    family: xss
+    title: 跨站脚本：跨站点历史操作 @ Upload.java
+    description: 待复核新增项：跨站脚本：跨站点历史操作 @ src/main/java/com/best/hello/controller/Upload.java:105
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/Upload.java
+    line_start: 105
+    line_end: 105
+    rule_type: 跨站脚本：跨站点历史操作
+    aliases:
+    - 跨站脚本：跨站点历史操作
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Upload.java;105行"redirect:upload"
+    sink_api: 跨站脚本：跨站点历史操作
+    source_refs:
+    - src/main/java/com/best/hello/controller/Upload.java:105
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-044
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-XPATHINJECTION-VUL-VUL
+  owasp_category: A05 Security Misconfiguration
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 输入验证：缺少XML验证
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/XPathInjection.java
+    line_start: 39
+    evidence: '1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/XPathInjection.java;39行newInstance()
+      : XML factory实例化2 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/XPathInjection.java;39行newInstance().newDocumentBuilder()3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controlle'
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-044
+    scenario_id: pending.hello-java-sec.xpathinjection-39-输入验证-缺少xml验证
+    family: security_misconfiguration
+    title: 输入验证：缺少XML验证 @ XPathInjection.java
+    description: 待复核新增项：输入验证：缺少XML验证 @ src/main/java/com/best/hello/controller/XPathInjection.java:39
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/XPathInjection.java
+    line_start: 39
+    line_end: 39
+    rule_type: 输入验证：缺少XML验证
+    aliases:
+    - 输入验证：缺少XML验证
+    source_notes: '1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/XPathInjection.java;39行newInstance()
+      : XML factory实例化2 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/XPathInjection.java;39行newInstance().newDocumentBuilder()3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controlle'
+    sink_api: 输入验证：缺少XML验证
+    source_refs:
+    - src/main/java/com/best/hello/controller/XPathInjection.java:39
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-045
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-XPATHINJECTION-SAFE-SAFE
+  owasp_category: A05 Security Misconfiguration
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 输入验证：缺少XML验证
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/XPathInjection.java
+    line_start: 78
+    evidence: '1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/XPathInjection.java;78行newInstance()
+      : XML factory实例化2 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/XPathInjection.java;78行newInstance().newDocumentBuilder()3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controlle'
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-045
+    scenario_id: pending.hello-java-sec.xpathinjection-78-输入验证-缺少xml验证
+    family: security_misconfiguration
+    title: 输入验证：缺少XML验证 @ XPathInjection.java
+    description: 待复核新增项：输入验证：缺少XML验证 @ src/main/java/com/best/hello/controller/XPathInjection.java:78
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/XPathInjection.java
+    line_start: 78
+    line_end: 78
+    rule_type: 输入验证：缺少XML验证
+    aliases:
+    - 输入验证：缺少XML验证
+    source_notes: '1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/XPathInjection.java;78行newInstance()
+      : XML factory实例化2 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/XPathInjection.java;78行newInstance().newDocumentBuilder()3
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controlle'
+    sink_api: 输入验证：缺少XML验证
+    source_refs:
+    - src/main/java/com/best/hello/controller/XPathInjection.java:78
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-046
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-XXE-SAXPARSER-SAXPARSER
+  owasp_category: A05 Security Misconfiguration
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 输入验证：缺少XML验证
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/XXE/XXE.java
+    line_start: 82
+    evidence: '1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/XXE/XXE.java;80行factory
+      = newInstance() : XML factory实例化2 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/XXE/XXE.java;81行parser
+      = factory.newSAXParser()3 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/XXE/X'
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-046
+    scenario_id: pending.hello-java-sec.xxe-82-输入验证-缺少xml验证
+    family: security_misconfiguration
+    title: 输入验证：缺少XML验证 @ XXE.java
+    description: 待复核新增项：输入验证：缺少XML验证 @ src/main/java/com/best/hello/controller/XXE/XXE.java:82
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/XXE/XXE.java
+    line_start: 82
+    line_end: 82
+    rule_type: 输入验证：缺少XML验证
+    aliases:
+    - 输入验证：缺少XML验证
+    source_notes: '1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/XXE/XXE.java;80行factory
+      = newInstance() : XML factory实例化2 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/XXE/XXE.java;81行parser
+      = factory.newSAXParser()3 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/XXE/X'
+    sink_api: 输入验证：缺少XML验证
+    source_refs:
+    - src/main/java/com/best/hello/controller/XXE/XXE.java:82
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-047
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-XXE-DOCUMENTBUILDER-DOCUMENTBUILDER
+  owasp_category: A05 Security Misconfiguration
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 输入验证：缺少XML验证
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/XXE/XXE.java
+    line_start: 149
+    evidence: '1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/XXE/XXE.java;144行factory
+      = newInstance() : XML factory实例化2 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/XXE/XXE.java;146行builder
+      = factory.newDocumentBuilder()3 Hello-Java-Sec-master/src/main/java/com/best/hello/control'
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-047
+    scenario_id: pending.hello-java-sec.xxe-149-输入验证-缺少xml验证
+    family: security_misconfiguration
+    title: 输入验证：缺少XML验证 @ XXE.java
+    description: 待复核新增项：输入验证：缺少XML验证 @ src/main/java/com/best/hello/controller/XXE/XXE.java:149
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/XXE/XXE.java
+    line_start: 149
+    line_end: 149
+    rule_type: 输入验证：缺少XML验证
+    aliases:
+    - 输入验证：缺少XML验证
+    source_notes: '1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/XXE/XXE.java;144行factory
+      = newInstance() : XML factory实例化2 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/XXE/XXE.java;146行builder
+      = factory.newDocumentBuilder()3 Hello-Java-Sec-master/src/main/java/com/best/hello/control'
+    sink_api: 输入验证：缺少XML验证
+    source_refs:
+    - src/main/java/com/best/hello/controller/XXE/XXE.java:149
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-048
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A06 Vulnerable and Outdated Components
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 代码注入：JavaScript劫持：易受攻击的框架
+    severity: high
+    file_path: src/main/resources/templates/csrf.html
+    line_start: 164
+    evidence: 1 Hello-Java-Sec-master/src/main/resources/templates/csrf.html;166行读取不可信的数据type2
+      Hello-Java-Sec-master/src/main/resources/templates/csrf.html;164行不可信的数据从ajax()方法第1个参数进入
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-048
+    scenario_id: pending.hello-java-sec.csrf-164-代码注入-javascript劫持-易受攻击的框架
+    family: vulnerable_component
+    title: 代码注入：JavaScript劫持：易受攻击的框架 @ csrf.html
+    description: 待复核新增项：代码注入：JavaScript劫持：易受攻击的框架 @ src/main/resources/templates/csrf.html:164
+    expectation: must_alert
+    canonical_file_path: src/main/resources/templates/csrf.html
+    line_start: 164
+    line_end: 164
+    rule_type: 代码注入：JavaScript劫持：易受攻击的框架
+    aliases:
+    - 代码注入：JavaScript劫持：易受攻击的框架
+    source_notes: 1 Hello-Java-Sec-master/src/main/resources/templates/csrf.html;166行读取不可信的数据type2
+      Hello-Java-Sec-master/src/main/resources/templates/csrf.html;164行不可信的数据从ajax()方法第1个参数进入
+    sink_api: 代码注入：JavaScript劫持：易受攻击的框架
+    source_refs:
+    - src/main/resources/templates/csrf.html:164
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-049
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A06 Vulnerable and Outdated Components
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 代码注入：JavaScript劫持：易受攻击的框架
+    severity: high
+    file_path: src/main/resources/templates/csv_injection.html
+    line_start: 148
+    evidence: 1 Hello-Java-Sec-master/src/main/resources/templates/csv_injection.html;148行ajax
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-049
+    scenario_id: pending.hello-java-sec.csv_injection-148-代码注入-javascript劫持-易受攻击的框架
+    family: vulnerable_component
+    title: 代码注入：JavaScript劫持：易受攻击的框架 @ csv_injection.html
+    description: 待复核新增项：代码注入：JavaScript劫持：易受攻击的框架 @ src/main/resources/templates/csv_injection.html:148
+    expectation: must_alert
+    canonical_file_path: src/main/resources/templates/csv_injection.html
+    line_start: 148
+    line_end: 148
+    rule_type: 代码注入：JavaScript劫持：易受攻击的框架
+    aliases:
+    - 代码注入：JavaScript劫持：易受攻击的框架
+    source_notes: 1 Hello-Java-Sec-master/src/main/resources/templates/csv_injection.html;148行ajax
+    sink_api: 代码注入：JavaScript劫持：易受攻击的框架
+    source_refs:
+    - src/main/resources/templates/csv_injection.html:148
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-050
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A06 Vulnerable and Outdated Components
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 代码注入：JavaScript劫持：易受攻击的框架
+    severity: high
+    file_path: src/main/resources/templates/xss_store.html
+    line_start: 175
+    evidence: 1 Hello-Java-Sec-master/src/main/resources/templates/xss_store.html;175行ajax
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-050
+    scenario_id: pending.hello-java-sec.xss_store-175-代码注入-javascript劫持-易受攻击的框架
+    family: vulnerable_component
+    title: 代码注入：JavaScript劫持：易受攻击的框架 @ xss_store.html
+    description: 待复核新增项：代码注入：JavaScript劫持：易受攻击的框架 @ src/main/resources/templates/xss_store.html:175
+    expectation: must_alert
+    canonical_file_path: src/main/resources/templates/xss_store.html
+    line_start: 175
+    line_end: 175
+    rule_type: 代码注入：JavaScript劫持：易受攻击的框架
+    aliases:
+    - 代码注入：JavaScript劫持：易受攻击的框架
+    source_notes: 1 Hello-Java-Sec-master/src/main/resources/templates/xss_store.html;175行ajax
+    sink_api: 代码注入：JavaScript劫持：易受攻击的框架
+    source_refs:
+    - src/main/resources/templates/xss_store.html:175
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-051
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A06 Vulnerable and Outdated Components
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 代码注入：JavaScript劫持：易受攻击的框架
+    severity: high
+    file_path: src/main/resources/templates/xxe.html
+    line_start: 219
+    evidence: 1 Hello-Java-Sec-master/src/main/resources/templates/xxe.html;219行ajax
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-051
+    scenario_id: pending.hello-java-sec.xxe-219-代码注入-javascript劫持-易受攻击的框架
+    family: vulnerable_component
+    title: 代码注入：JavaScript劫持：易受攻击的框架 @ xxe.html
+    description: 待复核新增项：代码注入：JavaScript劫持：易受攻击的框架 @ src/main/resources/templates/xxe.html:219
+    expectation: must_alert
+    canonical_file_path: src/main/resources/templates/xxe.html
+    line_start: 219
+    line_end: 219
+    rule_type: 代码注入：JavaScript劫持：易受攻击的框架
+    aliases:
+    - 代码注入：JavaScript劫持：易受攻击的框架
+    source_notes: 1 Hello-Java-Sec-master/src/main/resources/templates/xxe.html;219行ajax
+    sink_api: 代码注入：JavaScript劫持：易受攻击的框架
+    source_refs:
+    - src/main/resources/templates/xxe.html:219
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-052
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A06 Vulnerable and Outdated Components
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 安全特性：Spring Boot配置错误：启用DevTools
+    severity: high
+    file_path: pom.xml
+    line_start: 92
+    evidence: 1 Hello-Java-Sec-master/pom.xml;92行spring-boot-devtools:2.4.1
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-052
+    scenario_id: pending.hello-java-sec.pom-92-安全特性-spring-boot配置错误-启用devtools
+    family: vulnerable_component
+    title: 安全特性：Spring Boot配置错误：启用DevTools @ pom.xml
+    description: 待复核新增项：安全特性：Spring Boot配置错误：启用DevTools @ pom.xml:92
+    expectation: must_alert
+    canonical_file_path: pom.xml
+    line_start: 92
+    line_end: 92
+    rule_type: 安全特性：Spring Boot配置错误：启用DevTools
+    aliases:
+    - 安全特性：Spring Boot配置错误：启用DevTools
+    source_notes: 1 Hello-Java-Sec-master/pom.xml;92行spring-boot-devtools:2.4.1
+    sink_api: 安全特性：Spring Boot配置错误：启用DevTools
+    source_refs:
+    - pom.xml:92
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-053
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A06 Vulnerable and Outdated Components
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 配置管理：不安全的反序列化组件
+    severity: high
+    file_path: pom.xml
+    line_start: 99
+    evidence: 1 Hello-Java-Sec-master/pom.xml;99行spring-boot-starter-actuator:2.4.1
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-053
+    scenario_id: pending.hello-java-sec.pom-99-配置管理-不安全的反序列化组件
+    family: deserialization
+    title: 配置管理：不安全的反序列化组件 @ pom.xml
+    description: 待复核新增项：配置管理：不安全的反序列化组件 @ pom.xml:99
+    expectation: must_alert
+    canonical_file_path: pom.xml
+    line_start: 99
+    line_end: 99
+    rule_type: 配置管理：不安全的反序列化组件
+    aliases:
+    - 配置管理：不安全的反序列化组件
+    source_notes: 1 Hello-Java-Sec-master/pom.xml;99行spring-boot-starter-actuator:2.4.1
+    sink_api: 配置管理：不安全的反序列化组件
+    source_refs:
+    - pom.xml:99
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-054
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-JDBC-VUL1-VUL1
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 密码管理：明文密码
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+    line_start: 61
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;61行读取来自于环境变量的数据this.db_pass2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;48行Tainted
+      value enters from config file, then be used 3 Hello-Java-Sec-master/src/main/java/com/best/hello/control
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-054
+    scenario_id: pending.hello-java-sec.jdbc-61-密码管理-明文密码
+    family: credential_management
+    title: 密码管理：明文密码 @ JDBC.java
+    description: 待复核新增项：密码管理：明文密码 @ src/main/java/com/best/hello/controller/SQLI/JDBC.java:61
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+    line_start: 61
+    line_end: 61
+    rule_type: 密码管理：明文密码
+    aliases:
+    - 密码管理：明文密码
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;61行读取来自于环境变量的数据this.db_pass2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;48行Tainted
+      value enters from config file, then be used 3 Hello-Java-Sec-master/src/main/java/com/best/hello/control
+    sink_api: 密码管理：明文密码
+    source_refs:
+    - src/main/java/com/best/hello/controller/SQLI/JDBC.java:61
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-055
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-JDBC-VUL2-VUL2
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 密码管理：明文密码
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+    line_start: 96
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;96行读取来自于环境变量的数据this.db_pass2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;48行Tainted
+      value enters from config file, then be used 3 Hello-Java-Sec-master/src/main/java/com/best/hello/control
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-055
+    scenario_id: pending.hello-java-sec.jdbc-96-密码管理-明文密码
+    family: credential_management
+    title: 密码管理：明文密码 @ JDBC.java
+    description: 待复核新增项：密码管理：明文密码 @ src/main/java/com/best/hello/controller/SQLI/JDBC.java:96
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+    line_start: 96
+    line_end: 96
+    rule_type: 密码管理：明文密码
+    aliases:
+    - 密码管理：明文密码
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;96行读取来自于环境变量的数据this.db_pass2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;48行Tainted
+      value enters from config file, then be used 3 Hello-Java-Sec-master/src/main/java/com/best/hello/control
+    sink_api: 密码管理：明文密码
+    source_refs:
+    - src/main/java/com/best/hello/controller/SQLI/JDBC.java:96
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-056
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-JDBC-SAFE1-SAFE1
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 密码管理：明文密码
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+    line_start: 145
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;145行读取来自于环境变量的数据this.db_pass2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;48行Tainted
+      value enters from config file, then be used 3 Hello-Java-Sec-master/src/main/java/com/best/hello/contro
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-056
+    scenario_id: pending.hello-java-sec.jdbc-145-密码管理-明文密码
+    family: credential_management
+    title: 密码管理：明文密码 @ JDBC.java
+    description: 待复核新增项：密码管理：明文密码 @ src/main/java/com/best/hello/controller/SQLI/JDBC.java:145
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+    line_start: 145
+    line_end: 145
+    rule_type: 密码管理：明文密码
+    aliases:
+    - 密码管理：明文密码
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;145行读取来自于环境变量的数据this.db_pass2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;48行Tainted
+      value enters from config file, then be used 3 Hello-Java-Sec-master/src/main/java/com/best/hello/contro
+    sink_api: 密码管理：明文密码
+    source_refs:
+    - src/main/java/com/best/hello/controller/SQLI/JDBC.java:145
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-057
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-JDBC-SAFE2-SAFE2
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 密码管理：明文密码
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+    line_start: 178
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;178行读取来自于环境变量的数据this.db_pass2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;48行Tainted
+      value enters from config file, then be used 3 Hello-Java-Sec-master/src/main/java/com/best/hello/contro
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-057
+    scenario_id: pending.hello-java-sec.jdbc-178-密码管理-明文密码
+    family: credential_management
+    title: 密码管理：明文密码 @ JDBC.java
+    description: 待复核新增项：密码管理：明文密码 @ src/main/java/com/best/hello/controller/SQLI/JDBC.java:178
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+    line_start: 178
+    line_end: 178
+    rule_type: 密码管理：明文密码
+    aliases:
+    - 密码管理：明文密码
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;178行读取来自于环境变量的数据this.db_pass2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;48行Tainted
+      value enters from config file, then be used 3 Hello-Java-Sec-master/src/main/java/com/best/hello/contro
+    sink_api: 密码管理：明文密码
+    source_refs:
+    - src/main/java/com/best/hello/controller/SQLI/JDBC.java:178
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-058
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-JDBC-SAFE3-WARN
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 密码管理：明文密码
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+    line_start: 212
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;212行读取来自于环境变量的数据this.db_pass2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;48行Tainted
+      value enters from config file, then be used 3 Hello-Java-Sec-master/src/main/java/com/best/hello/contro
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-058
+    scenario_id: pending.hello-java-sec.jdbc-212-密码管理-明文密码
+    family: credential_management
+    title: 密码管理：明文密码 @ JDBC.java
+    description: 待复核新增项：密码管理：明文密码 @ src/main/java/com/best/hello/controller/SQLI/JDBC.java:212
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+    line_start: 212
+    line_end: 212
+    rule_type: 密码管理：明文密码
+    aliases:
+    - 密码管理：明文密码
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;212行读取来自于环境变量的数据this.db_pass2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;48行Tainted
+      value enters from config file, then be used 3 Hello-Java-Sec-master/src/main/java/com/best/hello/contro
+    sink_api: 密码管理：明文密码
+    source_refs:
+    - src/main/java/com/best/hello/controller/SQLI/JDBC.java:212
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-059
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-JDBC-SAFE5-SAFE5
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 密码管理：明文密码
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+    line_start: 264
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;264行读取来自于环境变量的数据this.db_pass2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;48行Tainted
+      value enters from config file, then be used 3 Hello-Java-Sec-master/src/main/java/com/best/hello/contro
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-059
+    scenario_id: pending.hello-java-sec.jdbc-264-密码管理-明文密码
+    family: credential_management
+    title: 密码管理：明文密码 @ JDBC.java
+    description: 待复核新增项：密码管理：明文密码 @ src/main/java/com/best/hello/controller/SQLI/JDBC.java:264
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+    line_start: 264
+    line_end: 264
+    rule_type: 密码管理：明文密码
+    aliases:
+    - 密码管理：明文密码
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;264行读取来自于环境变量的数据this.db_pass2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;48行Tainted
+      value enters from config file, then be used 3 Hello-Java-Sec-master/src/main/java/com/best/hello/contro
+    sink_api: 密码管理：明文密码
+    source_refs:
+    - src/main/java/com/best/hello/controller/SQLI/JDBC.java:264
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-060
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 密码管理：明文密码
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+    line_start: 287
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;287行读取来自于环境变量的数据this.db_pass2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;48行Tainted
+      value enters from config file, then be used 3 Hello-Java-Sec-master/src/main/java/com/best/hello/contro
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-060
+    scenario_id: pending.hello-java-sec.jdbc-287-密码管理-明文密码
+    family: credential_management
+    title: 密码管理：明文密码 @ JDBC.java
+    description: 待复核新增项：密码管理：明文密码 @ src/main/java/com/best/hello/controller/SQLI/JDBC.java:287
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+    line_start: 287
+    line_end: 287
+    rule_type: 密码管理：明文密码
+    aliases:
+    - 密码管理：明文密码
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;287行读取来自于环境变量的数据this.db_pass2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/SQLI/JDBC.java;48行Tainted
+      value enters from config file, then be used 3 Hello-Java-Sec-master/src/main/java/com/best/hello/contro
+    sink_api: 密码管理：明文密码
+    source_refs:
+    - src/main/java/com/best/hello/controller/SQLI/JDBC.java:287
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-061
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 密码管理：配置文件中的明文密码
+    severity: high
+    file_path: docker-compose.yml
+    line_start: 6
+    evidence: 1 Hello-Java-Sec-master/docker-compose.yml;6行services.db.environment.MYSQL_ROOT_PASSWORD
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-061
+    scenario_id: pending.hello-java-sec.docker-compose-6-密码管理-配置文件中的明文密码
+    family: credential_management
+    title: 密码管理：配置文件中的明文密码 @ docker-compose.yml
+    description: 待复核新增项：密码管理：配置文件中的明文密码 @ docker-compose.yml:6
+    expectation: must_alert
+    canonical_file_path: docker-compose.yml
+    line_start: 6
+    line_end: 6
+    rule_type: 密码管理：配置文件中的明文密码
+    aliases:
+    - 密码管理：配置文件中的明文密码
+    source_notes: 1 Hello-Java-Sec-master/docker-compose.yml;6行services.db.environment.MYSQL_ROOT_PASSWORD
+    sink_api: 密码管理：配置文件中的明文密码
+    source_refs:
+    - docker-compose.yml:6
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-062
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 密码管理：配置文件中的明文密码
+    severity: high
+    file_path: src/main/resources/application-dev.properties
+    line_start: 3
+    evidence: 1 Hello-Java-Sec-master/src/main/resources/application-dev.properties;3行spring.datasource.password
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-062
+    scenario_id: pending.hello-java-sec.application-dev-3-密码管理-配置文件中的明文密码
+    family: credential_management
+    title: 密码管理：配置文件中的明文密码 @ application-dev.properties
+    description: 待复核新增项：密码管理：配置文件中的明文密码 @ src/main/resources/application-dev.properties:3
+    expectation: must_alert
+    canonical_file_path: src/main/resources/application-dev.properties
+    line_start: 3
+    line_end: 3
+    rule_type: 密码管理：配置文件中的明文密码
+    aliases:
+    - 密码管理：配置文件中的明文密码
+    source_notes: 1 Hello-Java-Sec-master/src/main/resources/application-dev.properties;3行spring.datasource.password
+    sink_api: 密码管理：配置文件中的明文密码
+    source_refs:
+    - src/main/resources/application-dev.properties:3
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-063
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 密码管理：配置文件中的明文密码
+    severity: high
+    file_path: src/main/resources/application-docker.properties
+    line_start: 3
+    evidence: 1 Hello-Java-Sec-master/src/main/resources/application-docker.properties;3行spring.datasource.password
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-063
+    scenario_id: pending.hello-java-sec.application-docker-3-密码管理-配置文件中的明文密码
+    family: credential_management
+    title: 密码管理：配置文件中的明文密码 @ application-docker.properties
+    description: 待复核新增项：密码管理：配置文件中的明文密码 @ src/main/resources/application-docker.properties:3
+    expectation: must_alert
+    canonical_file_path: src/main/resources/application-docker.properties
+    line_start: 3
+    line_end: 3
+    rule_type: 密码管理：配置文件中的明文密码
+    aliases:
+    - 密码管理：配置文件中的明文密码
+    source_notes: 1 Hello-Java-Sec-master/src/main/resources/application-docker.properties;3行spring.datasource.password
+    sink_api: 密码管理：配置文件中的明文密码
+    source_refs:
+    - src/main/resources/application-docker.properties:3
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-064
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 密码管理：配置文件中的明文密码
+    severity: high
+    file_path: src/main/resources/application.properties
+    line_start: 20
+    evidence: 1 Hello-Java-Sec-master/src/main/resources/application.properties;20行local.admin.password
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-064
+    scenario_id: pending.hello-java-sec.application-20-密码管理-配置文件中的明文密码
+    family: credential_management
+    title: 密码管理：配置文件中的明文密码 @ application.properties
+    description: 待复核新增项：密码管理：配置文件中的明文密码 @ src/main/resources/application.properties:20
+    expectation: must_alert
+    canonical_file_path: src/main/resources/application.properties
+    line_start: 20
+    line_end: 20
+    rule_type: 密码管理：配置文件中的明文密码
+    aliases:
+    - 密码管理：配置文件中的明文密码
+    source_notes: 1 Hello-Java-Sec-master/src/main/resources/application.properties;20行local.admin.password
+    sink_api: 密码管理：配置文件中的明文密码
+    source_refs:
+    - src/main/resources/application.properties:20
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-065
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-XMLDECODERVUL-VUL-VUL
+  owasp_category: A08 Software and Data Integrity Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 代码注入：XMLDecoder注入
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/Deserialization/XMLDecoderVul.java
+    line_start: 46
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Deserialization/XMLDecoderVul.java;41行来自于文件系统的数据从FileInputStream()方法this参数返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Deserialization/XMLDecoderVul.java;41行赋值不可信的数据给变量fis3
+      Hello-Java-Sec-master/src/main/java/com/be
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-065
+    scenario_id: pending.hello-java-sec.xmldecodervul-46-代码注入-xmldecoder注入
+    family: xxe
+    title: 代码注入：XMLDecoder注入 @ XMLDecoderVul.java
+    description: 待复核新增项：代码注入：XMLDecoder注入 @ src/main/java/com/best/hello/controller/Deserialization/XMLDecoderVul.java:46
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/Deserialization/XMLDecoderVul.java
+    line_start: 46
+    line_end: 46
+    rule_type: 代码注入：XMLDecoder注入
+    aliases:
+    - 代码注入：XMLDecoder注入
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Deserialization/XMLDecoderVul.java;41行来自于文件系统的数据从FileInputStream()方法this参数返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Deserialization/XMLDecoderVul.java;41行赋值不可信的数据给变量fis3
+      Hello-Java-Sec-master/src/main/java/com/be
+    sink_api: 代码注入：XMLDecoder注入
+    source_refs:
+    - src/main/java/com/best/hello/controller/Deserialization/XMLDecoderVul.java:46
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-066
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-DESERIALIZATION-READOBJECT-READOBJECT-VUL
+  owasp_category: A08 Software and Data Integrity Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 代码注入：不安全的反序列化
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/Deserialization/Deserialization.java
+    line_start: 56
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Deserialization/Deserialization.java;44行来自于http请求的数据从readObject()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Deserialization/Deserialization.java;47行不可信的数据从replace()方法this参数进入,然后从返回值返回3
+      Hello-Java-Sec-master
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-066
+    scenario_id: pending.hello-java-sec.deserialization-56-代码注入-不安全的反序列化
+    family: deserialization
+    title: 代码注入：不安全的反序列化 @ Deserialization.java
+    description: 待复核新增项：代码注入：不安全的反序列化 @ src/main/java/com/best/hello/controller/Deserialization/Deserialization.java:56
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/Deserialization/Deserialization.java
+    line_start: 56
+    line_end: 56
+    rule_type: 代码注入：不安全的反序列化
+    aliases:
+    - 代码注入：不安全的反序列化
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Deserialization/Deserialization.java;44行来自于http请求的数据从readObject()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Deserialization/Deserialization.java;47行不可信的数据从replace()方法this参数进入,然后从返回值返回3
+      Hello-Java-Sec-master
+    sink_api: 代码注入：不安全的反序列化
+    source_refs:
+    - src/main/java/com/best/hello/controller/Deserialization/Deserialization.java:56
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-067
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-DESERIALIZATION-READUNSHARED-READUNSHARED-VUL
+  owasp_category: A08 Software and Data Integrity Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 代码注入：不安全的反序列化
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/Deserialization/Deserialization.java
+    line_start: 96
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Deserialization/Deserialization.java;88行来自于http请求的数据从readUnshared()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Deserialization/Deserialization.java;91行不可信的数据从replace()方法this参数进入,然后从返回值返回3
+      Hello-Java-Sec-mast
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-067
+    scenario_id: pending.hello-java-sec.deserialization-96-代码注入-不安全的反序列化
+    family: deserialization
+    title: 代码注入：不安全的反序列化 @ Deserialization.java
+    description: 待复核新增项：代码注入：不安全的反序列化 @ src/main/java/com/best/hello/controller/Deserialization/Deserialization.java:96
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/Deserialization/Deserialization.java
+    line_start: 96
+    line_end: 96
+    rule_type: 代码注入：不安全的反序列化
+    aliases:
+    - 代码注入：不安全的反序列化
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Deserialization/Deserialization.java;88行来自于http请求的数据从readUnshared()方法第1个参数进入2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Deserialization/Deserialization.java;91行不可信的数据从replace()方法this参数进入,然后从返回值返回3
+      Hello-Java-Sec-mast
+    sink_api: 代码注入：不安全的反序列化
+    source_refs:
+    - src/main/java/com/best/hello/controller/Deserialization/Deserialization.java:96
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-068
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-XMLDECODERVUL-SAFE-SAFE
+  owasp_category: A08 Software and Data Integrity Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 代码注入：不安全的反序列化
+    severity: high
+    file_path: src/main/java/com/best/hello/controller/Deserialization/XMLDecoderVul.java
+    line_start: 66
+    evidence: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Deserialization/XMLDecoderVul.java;59行来自于文件系统的数据从FileInputStream()方法this参数返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Deserialization/XMLDecoderVul.java;59行赋值不可信的数据给变量fis3
+      Hello-Java-Sec-master/src/main/java/com/be
+  proposed_case:
+    case_id: REVIEW-HELLO-JAVA-SEC-068
+    scenario_id: pending.hello-java-sec.xmldecodervul-66-代码注入-不安全的反序列化
+    family: deserialization
+    title: 代码注入：不安全的反序列化 @ XMLDecoderVul.java
+    description: 待复核新增项：代码注入：不安全的反序列化 @ src/main/java/com/best/hello/controller/Deserialization/XMLDecoderVul.java:66
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/best/hello/controller/Deserialization/XMLDecoderVul.java
+    line_start: 66
+    line_end: 66
+    rule_type: 代码注入：不安全的反序列化
+    aliases:
+    - 代码注入：不安全的反序列化
+    source_notes: 1 Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Deserialization/XMLDecoderVul.java;59行来自于文件系统的数据从FileInputStream()方法this参数返回2
+      Hello-Java-Sec-master/src/main/java/com/best/hello/controller/Deserialization/XMLDecoderVul.java;59行赋值不可信的数据给变量fis3
+      Hello-Java-Sec-master/src/main/java/com/be
+    sink_api: 代码注入：不安全的反序列化
+    source_refs:
+    - src/main/java/com/best/hello/controller/Deserialization/XMLDecoderVul.java:66
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。

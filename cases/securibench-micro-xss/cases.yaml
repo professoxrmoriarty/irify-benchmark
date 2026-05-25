@@ -1,0 +1,2731 @@
+project_id: securibench-micro-xss
+version: 1.0.0
+cases:
+    - case_id: basic-basic1-001
+      name: 'Basic1 #1'
+      description: very simple XSS
+      vuln_desc: XSS vulnerability in Basic1
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 36
+                file: securibench/micro/basic/Basic1.java
+            sink:
+                symbol: writer.println
+                line: 39
+                file: securibench/micro/basic/Basic1.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: aliasing-aliasing1-001
+      name: 'Aliasing1 #1'
+      description: simple aliasing because of assignment
+      vuln_desc: XSS vulnerability in Aliasing1
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 41
+                file: securibench/micro/aliasing/Aliasing1.java
+            sink:
+                symbol: writer.println
+                line: 45
+                file: securibench/micro/aliasing/Aliasing1.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: aliasing-aliasing3-001
+      name: 'Aliasing3 #1'
+      description: simple aliasing of an array element
+      vuln_desc: XSS vulnerability in Aliasing3
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 39
+                file: securibench/micro/aliasing/Aliasing3.java
+            sink:
+                symbol: writer.println
+                line: 46
+                file: securibench/micro/aliasing/Aliasing3.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: aliasing-aliasing4-001
+      name: 'Aliasing4 #1'
+      description: simple aliasing with casts
+      vuln_desc: XSS vulnerability in Aliasing4
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 39
+                file: securibench/micro/aliasing/Aliasing4.java
+            sink:
+                symbol: writer.println
+                line: 45
+                file: securibench/micro/aliasing/Aliasing4.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: aliasing-aliasing4-002
+      name: 'Aliasing4 #2'
+      description: simple aliasing with casts
+      vuln_desc: XSS vulnerability in Aliasing4
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 39
+                file: securibench/micro/aliasing/Aliasing4.java
+            sink:
+                symbol: writer.println
+                line: 46
+                file: securibench/micro/aliasing/Aliasing4.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: aliasing-aliasing5-001
+      name: 'Aliasing5 #1'
+      description: interprocedural argument aliasing
+      vuln_desc: XSS vulnerability in Aliasing5
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 46
+                file: securibench/micro/aliasing/Aliasing5.java
+            sink:
+                symbol: writer.println
+                line: 49
+                file: securibench/micro/aliasing/Aliasing5.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: aliasing-aliasing6-001
+      name: 'Aliasing6 #1'
+      description: aliasing with copy propagation
+      vuln_desc: XSS vulnerability in Aliasing6
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameterValues
+                line: 39
+                file: securibench/micro/aliasing/Aliasing6.java
+            sink:
+                symbol: writer.println
+                line: 48
+                file: securibench/micro/aliasing/Aliasing6.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: aliasing-aliasing6-002
+      name: 'Aliasing6 #2'
+      description: aliasing with copy propagation
+      vuln_desc: XSS vulnerability in Aliasing6
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameterValues
+                line: 39
+                file: securibench/micro/aliasing/Aliasing6.java
+            sink:
+                symbol: writer.println
+                line: 49
+                file: securibench/micro/aliasing/Aliasing6.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: aliasing-aliasing6-003
+      name: 'Aliasing6 #3'
+      description: aliasing with copy propagation
+      vuln_desc: XSS vulnerability in Aliasing6
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameterValues
+                line: 39
+                file: securibench/micro/aliasing/Aliasing6.java
+            sink:
+                symbol: writer.println
+                line: 50
+                file: securibench/micro/aliasing/Aliasing6.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: aliasing-aliasing6-004
+      name: 'Aliasing6 #4'
+      description: aliasing with copy propagation
+      vuln_desc: XSS vulnerability in Aliasing6
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameterValues
+                line: 39
+                file: securibench/micro/aliasing/Aliasing6.java
+            sink:
+                symbol: writer.println
+                line: 51
+                file: securibench/micro/aliasing/Aliasing6.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: aliasing-aliasing6-005
+      name: 'Aliasing6 #5'
+      description: aliasing with copy propagation
+      vuln_desc: XSS vulnerability in Aliasing6
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameterValues
+                line: 39
+                file: securibench/micro/aliasing/Aliasing6.java
+            sink:
+                symbol: writer.println
+                line: 52
+                file: securibench/micro/aliasing/Aliasing6.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: aliasing-aliasing6-006
+      name: 'Aliasing6 #6'
+      description: aliasing with copy propagation
+      vuln_desc: XSS vulnerability in Aliasing6
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameterValues
+                line: 39
+                file: securibench/micro/aliasing/Aliasing6.java
+            sink:
+                symbol: writer.println
+                line: 53
+                file: securibench/micro/aliasing/Aliasing6.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: aliasing-aliasing6-007
+      name: 'Aliasing6 #7'
+      description: aliasing with copy propagation
+      vuln_desc: XSS vulnerability in Aliasing6
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameterValues
+                line: 39
+                file: securibench/micro/aliasing/Aliasing6.java
+            sink:
+                symbol: writer.println
+                line: 54
+                file: securibench/micro/aliasing/Aliasing6.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: arrays-arrays1-001
+      name: 'Arrays1 #1'
+      description: a simple array test
+      vuln_desc: XSS vulnerability in Arrays1
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 37
+                file: securibench/micro/arrays/Arrays1.java
+            sink:
+                symbol: writer.println
+                line: 42
+                file: securibench/micro/arrays/Arrays1.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: arrays-arrays10-001
+      name: 'Arrays10 #1'
+      description: Arrays10 test case
+      vuln_desc: XSS vulnerability in Arrays10
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 37
+                file: securibench/micro/arrays/Arrays10.java
+            sink:
+                symbol: writer.println
+                line: 42
+                file: securibench/micro/arrays/Arrays10.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: arrays-arrays2-001
+      name: 'Arrays2 #1'
+      description: Arrays2 test case
+      vuln_desc: XSS vulnerability in Arrays2
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 37
+                file: securibench/micro/arrays/Arrays2.java
+            sink:
+                symbol: writer.println
+                line: 42
+                file: securibench/micro/arrays/Arrays2.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: arrays-arrays3-001
+      name: 'Arrays3 #1'
+      description: Arrays3 test case
+      vuln_desc: XSS vulnerability in Arrays3
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 37
+                file: securibench/micro/arrays/Arrays3.java
+            sink:
+                symbol: writer.println
+                line: 45
+                file: securibench/micro/arrays/Arrays3.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: arrays-arrays4-001
+      name: 'Arrays4 #1'
+      description: Arrays4 test case
+      vuln_desc: XSS vulnerability in Arrays4
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 37
+                file: securibench/micro/arrays/Arrays4.java
+            sink:
+                symbol: writer.println
+                line: 44
+                file: securibench/micro/arrays/Arrays4.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: arrays-arrays6-001
+      name: 'Arrays6 #1'
+      description: Arrays6 test case
+      vuln_desc: XSS vulnerability in Arrays6
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 37
+                file: securibench/micro/arrays/Arrays6.java
+            sink:
+                symbol: writer.println
+                line: 44
+                file: securibench/micro/arrays/Arrays6.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: arrays-arrays7-001
+      name: 'Arrays7 #1'
+      description: Arrays7 test case
+      vuln_desc: XSS vulnerability in Arrays7
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 37
+                file: securibench/micro/arrays/Arrays7.java
+            sink:
+                symbol: writer.println
+                line: 41
+                file: securibench/micro/arrays/Arrays7.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: arrays-arrays8-001
+      name: 'Arrays8 #1'
+      description: Arrays8 test case
+      vuln_desc: XSS vulnerability in Arrays8
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 37
+                file: securibench/micro/arrays/Arrays8.java
+            sink:
+                symbol: writer.println
+                line: 41
+                file: securibench/micro/arrays/Arrays8.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: arrays-arrays9-001
+      name: 'Arrays9 #1'
+      description: Arrays9 test case
+      vuln_desc: XSS vulnerability in Arrays9
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 37
+                file: securibench/micro/arrays/Arrays9.java
+            sink:
+                symbol: writer.println
+                line: 42
+                file: securibench/micro/arrays/Arrays9.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic10-001
+      name: 'Basic10 #1'
+      description: chains of value assignments
+      vuln_desc: XSS vulnerability in Basic10
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 36
+                file: securibench/micro/basic/Basic10.java
+            sink:
+                symbol: writer.println
+                line: 47
+                file: securibench/micro/basic/Basic10.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic11-001
+      name: 'Basic11 #1'
+      description: a simple false positive because of two calls to String.toLowerCase
+      vuln_desc: XSS vulnerability in Basic11
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 36
+                file: securibench/micro/basic/Basic11.java
+            sink:
+                symbol: writer.println
+                line: 42
+                file: securibench/micro/basic/Basic11.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic11-002
+      name: 'Basic11 #2'
+      description: a simple false positive because of two calls to String.toLowerCase
+      vuln_desc: XSS vulnerability in Basic11
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 36
+                file: securibench/micro/basic/Basic11.java
+            sink:
+                symbol: writer.println
+                line: 43
+                file: securibench/micro/basic/Basic11.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic12-001
+      name: 'Basic12 #1'
+      description: a simple conditional; both branches should be taken
+      vuln_desc: XSS vulnerability in Basic12
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 37
+                file: securibench/micro/basic/Basic12.java
+            sink:
+                symbol: writer.println
+                line: 42
+                file: securibench/micro/basic/Basic12.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic12-002
+      name: 'Basic12 #2'
+      description: a simple conditional; both branches should be taken
+      vuln_desc: XSS vulnerability in Basic12
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 37
+                file: securibench/micro/basic/Basic12.java
+            sink:
+                symbol: writer.println
+                line: 44
+                file: securibench/micro/basic/Basic12.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic15-001
+      name: 'Basic15 #1'
+      description: test casts more exhaustively
+      vuln_desc: XSS vulnerability in Basic15
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 39
+                file: securibench/micro/basic/Basic15.java
+            sink:
+                symbol: writer.println
+                line: 46
+                file: securibench/micro/basic/Basic15.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic16-001
+      name: 'Basic16 #1'
+      description: simple heap-allocated data strucure
+      vuln_desc: XSS vulnerability in Basic16
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 50
+                file: securibench/micro/basic/Basic16.java
+            sink:
+                symbol: writer.println
+                line: 55
+                file: securibench/micro/basic/Basic16.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic17-001
+      name: 'Basic17 #1'
+      description: simple heap-allocated data strucure
+      vuln_desc: XSS vulnerability in Basic17
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 50
+                file: securibench/micro/basic/Basic17.java
+            sink:
+                symbol: writer.println
+                line: 58
+                file: securibench/micro/basic/Basic17.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic18-001
+      name: 'Basic18 #1'
+      description: protect agains simple loop unrolling
+      vuln_desc: XSS vulnerability in Basic18
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 38
+                file: securibench/micro/basic/Basic18.java
+            sink:
+                symbol: writer.println
+                line: 43
+                file: securibench/micro/basic/Basic18.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic2-001
+      name: 'Basic2 #1'
+      description: XSS combined with a simple conditional
+      vuln_desc: XSS vulnerability in Basic2
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 37
+                file: securibench/micro/basic/Basic2.java
+            sink:
+                symbol: writer.println
+                line: 43
+                file: securibench/micro/basic/Basic2.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic25-001
+      name: 'Basic25 #1'
+      description: test getParameterValues
+      vuln_desc: XSS vulnerability in Basic25
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameterValues
+                line: 39
+                file: securibench/micro/basic/Basic25.java
+            sink:
+                symbol: writer.println
+                line: 43
+                file: securibench/micro/basic/Basic25.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic27-001
+      name: 'Basic27 #1'
+      description: test getParameterMap
+      vuln_desc: XSS vulnerability in Basic27
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 44
+                file: securibench/micro/basic/Basic27.java
+            sink:
+                symbol: writer.println
+                line: 45
+                file: securibench/micro/basic/Basic27.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic28-001
+      name: 'Basic28 #1'
+      description: complicated control flow
+      vuln_desc: XSS vulnerability in Basic28
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 36
+                file: securibench/micro/basic/Basic28.java
+            sink:
+                symbol: writer.println
+                line: 72
+                file: securibench/micro/basic/Basic28.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic28-002
+      name: 'Basic28 #2'
+      description: complicated control flow
+      vuln_desc: XSS vulnerability in Basic28
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 36
+                file: securibench/micro/basic/Basic28.java
+            sink:
+                symbol: writer.println
+                line: 140
+                file: securibench/micro/basic/Basic28.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic29-001
+      name: 'Basic29 #1'
+      description: recursive data structures
+      vuln_desc: XSS vulnerability in Basic29
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 41
+                file: securibench/micro/basic/Basic29.java
+            sink:
+                symbol: writer.println
+                line: 48
+                file: securibench/micro/basic/Basic29.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic29-002
+      name: 'Basic29 #2'
+      description: recursive data structures
+      vuln_desc: XSS vulnerability in Basic29
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 41
+                file: securibench/micro/basic/Basic29.java
+            sink:
+                symbol: writer.println
+                line: 49
+                file: securibench/micro/basic/Basic29.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic3-001
+      name: 'Basic3 #1'
+      description: simple derived string test
+      vuln_desc: XSS vulnerability in Basic3
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 36
+                file: securibench/micro/basic/Basic3.java
+            sink:
+                symbol: writer.println
+                line: 40
+                file: securibench/micro/basic/Basic3.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic30-001
+      name: 'Basic30 #1'
+      description: field sensitivity
+      vuln_desc: XSS vulnerability in Basic30
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 41
+                file: securibench/micro/basic/Basic30.java
+            sink:
+                symbol: writer.println
+                line: 48
+                file: securibench/micro/basic/Basic30.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic31-001
+      name: 'Basic31 #1'
+      description: values obtained from cookies
+      vuln_desc: XSS vulnerability in Basic31
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getCookies
+                line: 42
+                file: securibench/micro/basic/Basic31.java
+            sink:
+                symbol: writer.println
+                line: 51
+                file: securibench/micro/basic/Basic31.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic31-002
+      name: 'Basic31 #2'
+      description: values obtained from cookies
+      vuln_desc: XSS vulnerability in Basic31
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getCookies
+                line: 42
+                file: securibench/micro/basic/Basic31.java
+            sink:
+                symbol: writer.println
+                line: 54
+                file: securibench/micro/basic/Basic31.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic31-003
+      name: 'Basic31 #3'
+      description: values obtained from cookies
+      vuln_desc: XSS vulnerability in Basic31
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getCookies
+                line: 42
+                file: securibench/micro/basic/Basic31.java
+            sink:
+                symbol: writer.println
+                line: 57
+                file: securibench/micro/basic/Basic31.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic32-001
+      name: 'Basic32 #1'
+      description: values obtained from headers
+      vuln_desc: XSS vulnerability in Basic32
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getHeader
+                line: 36
+                file: securibench/micro/basic/Basic32.java
+            sink:
+                symbol: writer.println
+                line: 40
+                file: securibench/micro/basic/Basic32.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic34-001
+      name: 'Basic34 #1'
+      description: values obtained from headers
+      vuln_desc: XSS vulnerability in Basic34
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getHeader
+                line: 40
+                file: securibench/micro/basic/Basic34.java
+            sink:
+                symbol: writer.println
+                line: 45
+                file: securibench/micro/basic/Basic34.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic34-002
+      name: 'Basic34 #2'
+      description: values obtained from headers
+      vuln_desc: XSS vulnerability in Basic34
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getHeader
+                line: 40
+                file: securibench/micro/basic/Basic34.java
+            sink:
+                symbol: writer.println
+                line: 46
+                file: securibench/micro/basic/Basic34.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic35-001
+      name: 'Basic35 #1'
+      description: values obtained from HttpServletRequest
+      vuln_desc: XSS vulnerability in Basic35
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getProtocol
+                line: 42
+                file: securibench/micro/basic/Basic35.java
+            sink:
+                symbol: writer.println
+                line: 42
+                file: securibench/micro/basic/Basic35.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic35-002
+      name: 'Basic35 #2'
+      description: values obtained from HttpServletRequest
+      vuln_desc: XSS vulnerability in Basic35
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getProtocol
+                line: 42
+                file: securibench/micro/basic/Basic35.java
+            sink:
+                symbol: writer.println
+                line: 43
+                file: securibench/micro/basic/Basic35.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic35-003
+      name: 'Basic35 #3'
+      description: values obtained from HttpServletRequest
+      vuln_desc: XSS vulnerability in Basic35
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getProtocol
+                line: 42
+                file: securibench/micro/basic/Basic35.java
+            sink:
+                symbol: writer.println
+                line: 44
+                file: securibench/micro/basic/Basic35.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic35-004
+      name: 'Basic35 #4'
+      description: values obtained from HttpServletRequest
+      vuln_desc: XSS vulnerability in Basic35
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getProtocol
+                line: 42
+                file: securibench/micro/basic/Basic35.java
+            sink:
+                symbol: writer.println
+                line: 45
+                file: securibench/micro/basic/Basic35.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic35-005
+      name: 'Basic35 #5'
+      description: values obtained from HttpServletRequest
+      vuln_desc: XSS vulnerability in Basic35
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getProtocol
+                line: 42
+                file: securibench/micro/basic/Basic35.java
+            sink:
+                symbol: writer.println
+                line: 46
+                file: securibench/micro/basic/Basic35.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic35-006
+      name: 'Basic35 #6'
+      description: values obtained from HttpServletRequest
+      vuln_desc: XSS vulnerability in Basic35
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getProtocol
+                line: 42
+                file: securibench/micro/basic/Basic35.java
+            sink:
+                symbol: writer.println
+                line: 47
+                file: securibench/micro/basic/Basic35.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic36-001
+      name: 'Basic36 #1'
+      description: values obtained from HttpServletRequest input stream
+      vuln_desc: XSS vulnerability in Basic36
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getInputStream
+                line: 39
+                file: securibench/micro/basic/Basic36.java
+            sink:
+                symbol: writer.println
+                line: 44
+                file: securibench/micro/basic/Basic36.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic37-001
+      name: 'Basic37 #1'
+      description: StringTokenizer test
+      vuln_desc: XSS vulnerability in Basic37
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 39
+                file: securibench/micro/basic/Basic37.java
+            sink:
+                symbol: writer.println
+                line: 43
+                file: securibench/micro/basic/Basic37.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic38-001
+      name: 'Basic38 #1'
+      description: StringTokenizer test with a false positive
+      vuln_desc: XSS vulnerability in Basic38
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 39
+                file: securibench/micro/basic/Basic38.java
+            sink:
+                symbol: writer.println
+                line: 45
+                file: securibench/micro/basic/Basic38.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic39-001
+      name: 'Basic39 #1'
+      description: StringTokenizer test
+      vuln_desc: XSS vulnerability in Basic39
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 39
+                file: securibench/micro/basic/Basic39.java
+            sink:
+                symbol: writer.println
+                line: 43
+                file: securibench/micro/basic/Basic39.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic4-001
+      name: 'Basic4 #1'
+      description: test path sensitivity just a bit
+      vuln_desc: XSS vulnerability in Basic4
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 37
+                file: securibench/micro/basic/Basic4.java
+            sink:
+                symbol: writer.println
+                line: 46
+                file: securibench/micro/basic/Basic4.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic40-001
+      name: 'Basic40 #1'
+      description: MultipartRequest test
+      vuln_desc: XSS vulnerability in Basic40
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 41
+                file: securibench/micro/basic/Basic40.java
+            sink:
+                symbol: writer.println
+                line: 44
+                file: securibench/micro/basic/Basic40.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic5-001
+      name: 'Basic5 #1'
+      description: moderately complex test of derived strings
+      vuln_desc: XSS vulnerability in Basic5
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 36
+                file: securibench/micro/basic/Basic5.java
+            sink:
+                symbol: writer.println
+                line: 43
+                file: securibench/micro/basic/Basic5.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic5-002
+      name: 'Basic5 #2'
+      description: moderately complex test of derived strings
+      vuln_desc: XSS vulnerability in Basic5
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 36
+                file: securibench/micro/basic/Basic5.java
+            sink:
+                symbol: writer.println
+                line: 44
+                file: securibench/micro/basic/Basic5.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic5-003
+      name: 'Basic5 #3'
+      description: moderately complex test of derived strings
+      vuln_desc: XSS vulnerability in Basic5
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 36
+                file: securibench/micro/basic/Basic5.java
+            sink:
+                symbol: writer.println
+                line: 45
+                file: securibench/micro/basic/Basic5.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic6-001
+      name: 'Basic6 #1'
+      description: complex test of derived strings
+      vuln_desc: XSS vulnerability in Basic6
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 36
+                file: securibench/micro/basic/Basic6.java
+            sink:
+                symbol: writer.println
+                line: 45
+                file: securibench/micro/basic/Basic6.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic7-001
+      name: 'Basic7 #1'
+      description: complex test of derived strings involving a string buffer
+      vuln_desc: XSS vulnerability in Basic7
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 36
+                file: securibench/micro/basic/Basic7.java
+            sink:
+                symbol: writer.println
+                line: 45
+                file: securibench/micro/basic/Basic7.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic8-001
+      name: 'Basic8 #1'
+      description: test of complex conditionals
+      vuln_desc: XSS vulnerability in Basic8
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 37
+                file: securibench/micro/basic/Basic8.java
+            sink:
+                symbol: writer.println
+                line: 49
+                file: securibench/micro/basic/Basic8.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic9-001
+      name: 'Basic9 #1'
+      description: chains of value assignments
+      vuln_desc: XSS vulnerability in Basic9
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 37
+                file: securibench/micro/basic/Basic9.java
+            sink:
+                symbol: writer.println
+                line: 47
+                file: securibench/micro/basic/Basic9.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: collections-collections1-001
+      name: 'Collections1 #1'
+      description: Collections1 test case
+      vuln_desc: XSS vulnerability in Collections1
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 39
+                file: securibench/micro/collections/Collections1.java
+            sink:
+                symbol: writer.println
+                line: 45
+                file: securibench/micro/collections/Collections1.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: collections-collections10-001
+      name: 'Collections10 #1'
+      description: Collections10 test case
+      vuln_desc: XSS vulnerability in Collections10
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 43
+                file: securibench/micro/collections/Collections10.java
+            sink:
+                symbol: writer.println
+                line: 54
+                file: securibench/micro/collections/Collections10.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: collections-collections12-001
+      name: 'Collections12 #1'
+      description: Collections12 test case
+      vuln_desc: XSS vulnerability in Collections12
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 41
+                file: securibench/micro/collections/Collections12.java
+            sink:
+                symbol: writer.println
+                line: 47
+                file: securibench/micro/collections/Collections12.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: collections-collections13-001
+      name: 'Collections13 #1'
+      description: Collections13 test case
+      vuln_desc: XSS vulnerability in Collections13
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 42
+                file: securibench/micro/collections/Collections13.java
+            sink:
+                symbol: writer.println
+                line: 52
+                file: securibench/micro/collections/Collections13.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: collections-collections14-001
+      name: 'Collections14 #1'
+      description: Collections14 test case
+      vuln_desc: XSS vulnerability in Collections14
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 42
+                file: securibench/micro/collections/Collections14.java
+            sink:
+                symbol: writer.println
+                line: 50
+                file: securibench/micro/collections/Collections14.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: collections-collections2-001
+      name: 'Collections2 #1'
+      description: Collections2 test case
+      vuln_desc: XSS vulnerability in Collections2
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 39
+                file: securibench/micro/collections/Collections2.java
+            sink:
+                symbol: writer.println
+                line: 50
+                file: securibench/micro/collections/Collections2.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: collections-collections3-001
+      name: 'Collections3 #1'
+      description: Collections3 test case
+      vuln_desc: XSS vulnerability in Collections3
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 39
+                file: securibench/micro/collections/Collections3.java
+            sink:
+                symbol: writer.println
+                line: 49
+                file: securibench/micro/collections/Collections3.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: collections-collections3-002
+      name: 'Collections3 #2'
+      description: Collections3 test case
+      vuln_desc: XSS vulnerability in Collections3
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 39
+                file: securibench/micro/collections/Collections3.java
+            sink:
+                symbol: writer.println
+                line: 51
+                file: securibench/micro/collections/Collections3.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: collections-collections4-001
+      name: 'Collections4 #1'
+      description: Collections4 test case
+      vuln_desc: XSS vulnerability in Collections4
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 40
+                file: securibench/micro/collections/Collections4.java
+            sink:
+                symbol: writer.println
+                line: 48
+                file: securibench/micro/collections/Collections4.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: collections-collections5-001
+      name: 'Collections5 #1'
+      description: Collections5 test case
+      vuln_desc: XSS vulnerability in Collections5
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 40
+                file: securibench/micro/collections/Collections5.java
+            sink:
+                symbol: writer.println
+                line: 48
+                file: securibench/micro/collections/Collections5.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: collections-collections6-001
+      name: 'Collections6 #1'
+      description: Collections6 test case
+      vuln_desc: XSS vulnerability in Collections6
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 40
+                file: securibench/micro/collections/Collections6.java
+            sink:
+                symbol: writer.println
+                line: 48
+                file: securibench/micro/collections/Collections6.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: collections-collections7-001
+      name: 'Collections7 #1'
+      description: Collections7 test case
+      vuln_desc: XSS vulnerability in Collections7
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 42
+                file: securibench/micro/collections/Collections7.java
+            sink:
+                symbol: writer.println
+                line: 50
+                file: securibench/micro/collections/Collections7.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: collections-collections8-001
+      name: 'Collections8 #1'
+      description: Collections8 test case
+      vuln_desc: XSS vulnerability in Collections8
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 42
+                file: securibench/micro/collections/Collections8.java
+            sink:
+                symbol: writer.println
+                line: 51
+                file: securibench/micro/collections/Collections8.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: datastructures-datastructures1-001
+      name: 'Datastructures1 #1'
+      description: simple test of field assignment
+      vuln_desc: XSS vulnerability in Datastructures1
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 50
+                file: securibench/micro/datastructures/Datastructures1.java
+            sink:
+                symbol: writer.println
+                line: 57
+                file: securibench/micro/datastructures/Datastructures1.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: datastructures-datastructures2-001
+      name: 'Datastructures2 #1'
+      description: multiple objects of the same type
+      vuln_desc: XSS vulnerability in Datastructures2
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 48
+                file: securibench/micro/datastructures/Datastructures2.java
+            sink:
+                symbol: writer.println
+                line: 60
+                file: securibench/micro/datastructures/Datastructures2.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: datastructures-datastructures3-001
+      name: 'Datastructures3 #1'
+      description: simple nexted data
+      vuln_desc: XSS vulnerability in Datastructures3
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 50
+                file: securibench/micro/datastructures/Datastructures3.java
+            sink:
+                symbol: writer.println
+                line: 61
+                file: securibench/micro/datastructures/Datastructures3.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: datastructures-datastructures5-001
+      name: 'Datastructures5 #1'
+      description: nested data in a loop
+      vuln_desc: XSS vulnerability in Datastructures5
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 50
+                file: securibench/micro/datastructures/Datastructures5.java
+            sink:
+                symbol: writer.println
+                line: 66
+                file: securibench/micro/datastructures/Datastructures5.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: datastructures-datastructures6-001
+      name: 'Datastructures6 #1'
+      description: nested data in a loop
+      vuln_desc: XSS vulnerability in Datastructures6
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 50
+                file: securibench/micro/datastructures/Datastructures6.java
+            sink:
+                symbol: writer.println
+                line: 62
+                file: securibench/micro/datastructures/Datastructures6.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: factories-factories1-001
+      name: 'Factories1 #1'
+      description: simple factory problem with toLowerCase
+      vuln_desc: XSS vulnerability in Factories1
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 37
+                file: securibench/micro/factories/Factories1.java
+            sink:
+                symbol: writer.println
+                line: 43
+                file: securibench/micro/factories/Factories1.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: factories-factories2-001
+      name: 'Factories2 #1'
+      description: simple factory problem with String.toString
+      vuln_desc: XSS vulnerability in Factories2
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 37
+                file: securibench/micro/factories/Factories2.java
+            sink:
+                symbol: writer.println
+                line: 43
+                file: securibench/micro/factories/Factories2.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: factories-factories3-001
+      name: 'Factories3 #1'
+      description: Factories3 test case
+      vuln_desc: XSS vulnerability in Factories3
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 48
+                file: securibench/micro/factories/Factories3.java
+            sink:
+                symbol: writer.println
+                line: 55
+                file: securibench/micro/factories/Factories3.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: inter-inter1-001
+      name: 'Inter1 #1'
+      description: simple id method call
+      vuln_desc: XSS vulnerability in Inter1
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 39
+                file: securibench/micro/inter/Inter1.java
+            sink:
+                symbol: writer.println
+                line: 45
+                file: securibench/micro/inter/Inter1.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: inter-inter10-001
+      name: 'Inter10 #1'
+      description: more complex object sensitivity
+      vuln_desc: XSS vulnerability in Inter10
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 41
+                file: securibench/micro/inter/Inter10.java
+            sink:
+                symbol: writer.println
+                line: 47
+                file: securibench/micro/inter/Inter10.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: inter-inter11-001
+      name: 'Inter11 #1'
+      description: object sensitivity and context sensitivity combined
+      vuln_desc: XSS vulnerability in Inter11
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 41
+                file: securibench/micro/inter/Inter11.java
+            sink:
+                symbol: writer.println
+                line: 47
+                file: securibench/micro/inter/Inter11.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: inter-inter12-001
+      name: 'Inter12 #1'
+      description: collection as a static field
+      vuln_desc: XSS vulnerability in Inter12
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 45
+                file: securibench/micro/inter/Inter12.java
+            sink:
+                symbol: writer.println
+                line: 54
+                file: securibench/micro/inter/Inter12.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: inter-inter13-001
+      name: 'Inter13 #1'
+      description: recursive case
+      vuln_desc: XSS vulnerability in Inter13
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 42
+                file: securibench/micro/inter/Inter13.java
+            sink:
+                symbol: writer.println
+                line: 52
+                file: securibench/micro/inter/Inter13.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: inter-inter14-001
+      name: 'Inter14 #1'
+      description: interprocedural loop
+      vuln_desc: XSS vulnerability in Inter14
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 42
+                file: securibench/micro/inter/Inter14.java
+            sink:
+                symbol: writer.println
+                line: 54
+                file: securibench/micro/inter/Inter14.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: inter-inter2-001
+      name: 'Inter2 #1'
+      description: simple id method call
+      vuln_desc: XSS vulnerability in Inter2
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 39
+                file: securibench/micro/inter/Inter2.java
+            sink:
+                symbol: writer.println
+                line: 44
+                file: securibench/micro/inter/Inter2.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: inter-inter2-002
+      name: 'Inter2 #2'
+      description: simple id method call
+      vuln_desc: XSS vulnerability in Inter2
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 39
+                file: securibench/micro/inter/Inter2.java
+            sink:
+                symbol: writer.println
+                line: 49
+                file: securibench/micro/inter/Inter2.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: inter-inter3-001
+      name: 'Inter3 #1'
+      description: chains of method calls
+      vuln_desc: XSS vulnerability in Inter3
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 40
+                file: securibench/micro/inter/Inter3.java
+            sink:
+                symbol: writer.println
+                line: 85
+                file: securibench/micro/inter/Inter3.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: inter-inter4-001
+      name: 'Inter4 #1'
+      description: store stuff in a field
+      vuln_desc: XSS vulnerability in Inter4
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 41
+                file: securibench/micro/inter/Inter4.java
+            sink:
+                symbol: writer.println
+                line: 48
+                file: securibench/micro/inter/Inter4.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: inter-inter5-001
+      name: 'Inter5 #1'
+      description: store stuff in a field
+      vuln_desc: XSS vulnerability in Inter5
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 39
+                file: securibench/micro/inter/Inter5.java
+            sink:
+                symbol: writer.println
+                line: 45
+                file: securibench/micro/inter/Inter5.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: inter-inter6-001
+      name: 'Inter6 #1'
+      description: Inter6 test case
+      vuln_desc: XSS vulnerability in Inter6
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 47
+                file: securibench/micro/inter/Inter6.java
+            sink:
+                symbol: writer.println
+                line: 42
+                file: securibench/micro/inter/Inter6.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: inter-inter7-001
+      name: 'Inter7 #1'
+      description: Inter7 test case
+      vuln_desc: XSS vulnerability in Inter7
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 62
+                file: securibench/micro/inter/Inter7.java
+            sink:
+                symbol: writer.println
+                line: 46
+                file: securibench/micro/inter/Inter7.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: inter-inter8-001
+      name: 'Inter8 #1'
+      description: multi-level context sensitivity test
+      vuln_desc: XSS vulnerability in Inter8
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 39
+                file: securibench/micro/inter/Inter8.java
+            sink:
+                symbol: writer.println
+                line: 45
+                file: securibench/micro/inter/Inter8.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: inter-inter9-001
+      name: 'Inter9 #1'
+      description: simple object sensitivity
+      vuln_desc: XSS vulnerability in Inter9
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 41
+                file: securibench/micro/inter/Inter9.java
+            sink:
+                symbol: writer.println
+                line: 47
+                file: securibench/micro/inter/Inter9.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: inter-inter9-002
+      name: 'Inter9 #2'
+      description: simple object sensitivity
+      vuln_desc: XSS vulnerability in Inter9
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 41
+                file: securibench/micro/inter/Inter9.java
+            sink:
+                symbol: writer.println
+                line: 53
+                file: securibench/micro/inter/Inter9.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: pred-pred2-001
+      name: 'Pred2 #1'
+      description: simple correlated tests
+      vuln_desc: XSS vulnerability in Pred2
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 44
+                file: securibench/micro/pred/Pred2.java
+            sink:
+                symbol: writer.println
+                line: 49
+                file: securibench/micro/pred/Pred2.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: pred-pred4-001
+      name: 'Pred4 #1'
+      description: correlated test with an int variable
+      vuln_desc: XSS vulnerability in Pred4
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 41
+                file: securibench/micro/pred/Pred4.java
+            sink:
+                symbol: writer.println
+                line: 45
+                file: securibench/micro/pred/Pred4.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: pred-pred5-001
+      name: 'Pred5 #1'
+      description: correlated test with a complex conditional
+      vuln_desc: XSS vulnerability in Pred5
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 41
+                file: securibench/micro/pred/Pred5.java
+            sink:
+                symbol: writer.println
+                line: 45
+                file: securibench/micro/pred/Pred5.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: pred-pred8-001
+      name: 'Pred8 #1'
+      description: using an array element as in a predicate
+      vuln_desc: XSS vulnerability in Pred8
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 39
+                file: securibench/micro/pred/Pred8.java
+            sink:
+                symbol: writer.println
+                line: 44
+                file: securibench/micro/pred/Pred8.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: pred-pred9-001
+      name: 'Pred9 #1'
+      description: using an array element as in a predicate
+      vuln_desc: XSS vulnerability in Pred9
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 39
+                file: securibench/micro/pred/Pred9.java
+            sink:
+                symbol: writer.println
+                line: 44
+                file: securibench/micro/pred/Pred9.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: reflection-refl1-001
+      name: 'Refl1 #1'
+      description: reflective call of a method
+      vuln_desc: XSS vulnerability in Refl1
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 41
+                file: securibench/micro/reflection/Refl1.java
+            sink:
+                symbol: writer.println
+                line: 58
+                file: securibench/micro/reflection/Refl1.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: reflection-refl2-001
+      name: 'Refl2 #1'
+      description: reflectively access a field
+      vuln_desc: XSS vulnerability in Refl2
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 42
+                file: securibench/micro/reflection/Refl2.java
+            sink:
+                symbol: writer.println
+                line: 56
+                file: securibench/micro/reflection/Refl2.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: reflection-refl3-001
+      name: 'Refl3 #1'
+      description: Refl3 test case
+      vuln_desc: XSS vulnerability in Refl3
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 45
+                file: securibench/micro/reflection/Refl3.java
+            sink:
+                symbol: writer.println
+                line: 54
+                file: securibench/micro/reflection/Refl3.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: reflection-refl4-001
+      name: 'Refl4 #1'
+      description: Refl4 test case
+      vuln_desc: XSS vulnerability in Refl4
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 48
+                file: securibench/micro/reflection/Refl4.java
+            sink:
+                symbol: writer.println
+                line: 42
+                file: securibench/micro/reflection/Refl4.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: sanitizers-sanitizers1-001
+      name: 'Sanitizers1 #1'
+      description: simple sanitization check
+      vuln_desc: XSS vulnerability in Sanitizers1
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 40
+                file: securibench/micro/sanitizers/Sanitizers1.java
+            sink:
+                symbol: writer.println
+                line: 47
+                file: securibench/micro/sanitizers/Sanitizers1.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: sanitizers-sanitizers4-001
+      name: 'Sanitizers4 #1'
+      description: buggy sanitizer
+      vuln_desc: XSS vulnerability in Sanitizers4
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 40
+                file: securibench/micro/sanitizers/Sanitizers4.java
+            sink:
+                symbol: writer.println
+                line: 46
+                file: securibench/micro/sanitizers/Sanitizers4.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: sanitizers-sanitizers4-002
+      name: 'Sanitizers4 #2'
+      description: buggy sanitizer
+      vuln_desc: XSS vulnerability in Sanitizers4
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 40
+                file: securibench/micro/sanitizers/Sanitizers4.java
+            sink:
+                symbol: writer.println
+                line: 47
+                file: securibench/micro/sanitizers/Sanitizers4.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: session-session1-001
+      name: 'Session1 #1'
+      description: simple session test
+      vuln_desc: XSS vulnerability in Session1
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 40
+                file: securibench/micro/session/Session1.java
+            sink:
+                symbol: writer.println
+                line: 46
+                file: securibench/micro/session/Session1.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: session-session2-001
+      name: 'Session2 #1'
+      description: test of session false positives
+      vuln_desc: XSS vulnerability in Session2
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 40
+                file: securibench/micro/session/Session2.java
+            sink:
+                symbol: writer.println
+                line: 47
+                file: securibench/micro/session/Session2.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: session-session3-001
+      name: 'Session3 #1'
+      description: test of session enumeration
+      vuln_desc: XSS vulnerability in Session3
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 41
+                file: securibench/micro/session/Session3.java
+            sink:
+                symbol: writer.println
+                line: 50
+                file: securibench/micro/session/Session3.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: strong_updates-strongupdates4-001
+      name: 'StrongUpdates4 #1'
+      description: a more tricky test of when we can't assume a strong update with multiple variables that are not thread-local
+      vuln_desc: XSS vulnerability in StrongUpdates4
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 44
+                file: securibench/micro/strong_updates/StrongUpdates4.java
+            sink:
+                symbol: writer.println
+                line: 48
+                file: securibench/micro/strong_updates/StrongUpdates4.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic13-001
+      name: 'Basic13 #1'
+      description: use getInitParameter instead
+      vuln_desc: XSS via getInitParameter in Basic13
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: getServletConfig().getInitParameter
+                line: 38
+                file: securibench/micro/basic/Basic13.java
+            sink:
+                symbol: writer.println
+                line: 39
+                file: securibench/micro/basic/Basic13.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic14-001
+      name: 'Basic14 #1'
+      description: use the servlet context and casts
+      vuln_desc: XSS via getInitParameterNames in Basic14
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: getServletConfig().getInitParameterNames
+                line: 39
+                file: securibench/micro/basic/Basic14.java
+            sink:
+                symbol: writer.println
+                line: 40
+                file: securibench/micro/basic/Basic14.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic33-001
+      name: 'Basic33 #1'
+      description: values obtained from headers
+      vuln_desc: XSS via getHeaders in Basic33
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getHeaders
+                line: 40
+                file: securibench/micro/basic/Basic33.java
+            sink:
+                symbol: writer.println
+                line: 42
+                file: securibench/micro/basic/Basic33.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic41-001
+      name: 'Basic41 #1'
+      description: use getInitParameter instead
+      vuln_desc: XSS via getServletContext().getInitParameter in Basic41
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: getServletContext().getInitParameter
+                line: 38
+                file: securibench/micro/basic/Basic41.java
+            sink:
+                symbol: writer.println
+                line: 39
+                file: securibench/micro/basic/Basic41.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: basic-basic42-001
+      name: 'Basic42 #1'
+      description: use getInitParameterNames
+      vuln_desc: XSS via getInitParameterNames in Basic42
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: context.getInitParameter
+                line: 42
+                file: securibench/micro/basic/Basic42.java
+            sink:
+                symbol: writer.println
+                line: 44
+                file: securibench/micro/basic/Basic42.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench
+    - case_id: collections-collections11b-001
+      name: 'Collections11b #1'
+      description: interprocedural collection passing
+      vuln_desc: XSS via collection passing in Collections11b
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 40
+                file: securibench/micro/collections/Collections11.java
+            sink:
+                symbol: writer.println
+                line: 38
+                file: securibench/micro/collections/Collections11b.java
+      metadata:
+        cwe: CWE-79
+        tags:
+            - xss
+            - java
+            - securibench

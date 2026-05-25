@@ -1,0 +1,285 @@
+project: warehouse
+tool: fortify
+generated_from: /home/zpy/goproject/IRify_SAST/.ai/task-runs/benchmark-framework/projects/13-warehouse/artifacts/truth-evaluation.json
+summary:
+  total: 8
+  by_priority:
+    high: 8
+notes:
+- 这是待复核 finding 转出的 review case 草案，不自动参与正式真值评估。
+- 人工确认后，可按需要提升到 JavaSecLab.review.yaml 的 manual_cases 或 suppressed_findings。
+- candidate_case_ids 非空时，优先判断是否应并入已有 case，而不是直接新增。
+review_cases:
+- review_case_id: PENDING-FORTIFY-001
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'SQL Injection: MyBatis Mapper'
+    severity: critical
+    file_path: src/main/resources/mapper/sys/PermissionMapper.xml
+    line_start: 6
+    evidence: 'Sink: | File: src/main/resources/mapper/sys/PermissionMapper.xml:6'
+  proposed_case:
+    case_id: REVIEW-WAREHOUSE-001
+    scenario_id: pending.warehouse.permissionmapper-6-sql-injection-mybatis-mapper
+    family: sql_injection
+    title: 'SQL Injection: MyBatis Mapper @ PermissionMapper.xml'
+    description: '待复核新增项：SQL Injection: MyBatis Mapper @ src/main/resources/mapper/sys/PermissionMapper.xml:6'
+    expectation: must_alert
+    canonical_file_path: src/main/resources/mapper/sys/PermissionMapper.xml
+    line_start: 6
+    line_end: 6
+    rule_type: 'SQL Injection: MyBatis Mapper'
+    aliases:
+    - 'SQL Injection: MyBatis Mapper'
+    source_notes: 'Sink: | File: src/main/resources/mapper/sys/PermissionMapper.xml:6'
+    sink_api: 'SQL Injection: MyBatis Mapper'
+    source_refs:
+    - src/main/resources/mapper/sys/PermissionMapper.xml:6
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-002
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Insecure Submission'
+    severity: critical
+    file_path: src/main/resources/static/resources/login.html
+    line_start: 25
+    evidence: 'Sink: | File: src/main/resources/static/resources/login.html:25'
+  proposed_case:
+    case_id: REVIEW-WAREHOUSE-002
+    scenario_id: pending.warehouse.login-25-password-management-insecure-submission
+    family: credential_management
+    title: 'Password Management: Insecure Submission @ login.html'
+    description: '待复核新增项：Password Management: Insecure Submission @ src/main/resources/static/resources/login.html:25'
+    expectation: must_alert
+    canonical_file_path: src/main/resources/static/resources/login.html
+    line_start: 25
+    line_end: 25
+    rule_type: 'Password Management: Insecure Submission'
+    aliases:
+    - 'Password Management: Insecure Submission'
+    source_notes: 'Sink: | File: src/main/resources/static/resources/login.html:25'
+    sink_api: 'Password Management: Insecure Submission'
+    source_refs:
+    - src/main/resources/static/resources/login.html:25
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-003
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Insecure Submission'
+    severity: critical
+    file_path: src/main/resources/static/resources/page/login/login.html
+    line_start: 25
+    evidence: 'Sink: | File: src/main/resources/static/resources/page/login/login.html:25'
+  proposed_case:
+    case_id: REVIEW-WAREHOUSE-003
+    scenario_id: pending.warehouse.login-25-password-management-insecure-submission
+    family: credential_management
+    title: 'Password Management: Insecure Submission @ login.html'
+    description: '待复核新增项：Password Management: Insecure Submission @ src/main/resources/static/resources/page/login/login.html:25'
+    expectation: must_alert
+    canonical_file_path: src/main/resources/static/resources/page/login/login.html
+    line_start: 25
+    line_end: 25
+    rule_type: 'Password Management: Insecure Submission'
+    aliases:
+    - 'Password Management: Insecure Submission'
+    source_notes: 'Sink: | File: src/main/resources/static/resources/page/login/login.html:25'
+    sink_api: 'Password Management: Insecure Submission'
+    source_refs:
+    - src/main/resources/static/resources/page/login/login.html:25
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-004
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Insecure Submission'
+    severity: critical
+    file_path: src/main/resources/static/resources/page/user/changePwd.html
+    line_start: 28
+    evidence: 'Sink: | File: src/main/resources/static/resources/page/user/changePwd.html:28'
+  proposed_case:
+    case_id: REVIEW-WAREHOUSE-004
+    scenario_id: pending.warehouse.changepwd-28-password-management-insecure-submission
+    family: credential_management
+    title: 'Password Management: Insecure Submission @ changePwd.html'
+    description: '待复核新增项：Password Management: Insecure Submission @ src/main/resources/static/resources/page/user/changePwd.html:28'
+    expectation: must_alert
+    canonical_file_path: src/main/resources/static/resources/page/user/changePwd.html
+    line_start: 28
+    line_end: 28
+    rule_type: 'Password Management: Insecure Submission'
+    aliases:
+    - 'Password Management: Insecure Submission'
+    source_notes: 'Sink: | File: src/main/resources/static/resources/page/user/changePwd.html:28'
+    sink_api: 'Password Management: Insecure Submission'
+    source_refs:
+    - src/main/resources/static/resources/page/user/changePwd.html:28
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-005
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: Path Manipulation
+    severity: high
+    file_path: mvn/wrapper/MavenWrapperDownloader.java
+    line_start: 48
+    evidence: 'Source: main(0) | File: .mvn/wrapper/MavenWrapperDownloader.java:48'
+  proposed_case:
+    case_id: REVIEW-WAREHOUSE-005
+    scenario_id: pending.warehouse.mavenwrapperdownloader-48-path-manipulation
+    family: path_traversal
+    title: Path Manipulation @ MavenWrapperDownloader.java
+    description: 待复核新增项：Path Manipulation @ mvn/wrapper/MavenWrapperDownloader.java:48
+    expectation: must_alert
+    canonical_file_path: mvn/wrapper/MavenWrapperDownloader.java
+    line_start: 48
+    line_end: 48
+    rule_type: Path Manipulation
+    aliases:
+    - Path Manipulation
+    source_notes: 'Source: main(0) | File: .mvn/wrapper/MavenWrapperDownloader.java:48'
+    sink_api: Path Manipulation
+    source_refs:
+    - mvn/wrapper/MavenWrapperDownloader.java:48
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-006
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: Path Manipulation
+    severity: high
+    file_path: src/main/java/com/yeqifu/sys/common/AppFileUtils.java
+    line_start: 31
+    evidence: 'Source: java.util.Properties.load() | File: src/main/java/com/yeqifu/sys/common/AppFileUtils.java:31'
+  proposed_case:
+    case_id: REVIEW-WAREHOUSE-006
+    scenario_id: pending.warehouse.appfileutils-31-path-manipulation
+    family: path_traversal
+    title: Path Manipulation @ AppFileUtils.java
+    description: 待复核新增项：Path Manipulation @ src/main/java/com/yeqifu/sys/common/AppFileUtils.java:31
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/sys/common/AppFileUtils.java
+    line_start: 31
+    line_end: 31
+    rule_type: Path Manipulation
+    aliases:
+    - Path Manipulation
+    source_notes: 'Source: java.util.Properties.load() | File: src/main/java/com/yeqifu/sys/common/AppFileUtils.java:31'
+    sink_api: Path Manipulation
+    source_refs:
+    - src/main/java/com/yeqifu/sys/common/AppFileUtils.java:31
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-007
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-FILE-UPLOADFILE-UPLOADFILE
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: Path Manipulation
+    severity: high
+    file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+    line_start: 38
+    evidence: 'Sink: java.io.File.File() | File: src/main/java/com/yeqifu/sys/controller/FileController.java:38'
+  proposed_case:
+    case_id: REVIEW-WAREHOUSE-007
+    scenario_id: pending.warehouse.filecontroller-38-path-manipulation
+    family: path_traversal
+    title: Path Manipulation @ FileController.java
+    description: 待复核新增项：Path Manipulation @ src/main/java/com/yeqifu/sys/controller/FileController.java:38
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+    line_start: 38
+    line_end: 38
+    rule_type: Path Manipulation
+    aliases:
+    - Path Manipulation
+    source_notes: 'Sink: java.io.File.File() | File: src/main/java/com/yeqifu/sys/controller/FileController.java:38'
+    sink_api: Path Manipulation
+    source_refs:
+    - src/main/java/com/yeqifu/sys/controller/FileController.java:38
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-008
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A06 Vulnerable and Outdated Components
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Spring Boot Misconfiguration: DevTools Enabled'
+    severity: high
+    file_path: pom.xml
+    line_start: 49
+    evidence: 'Sink: | File: pom.xml:49'
+  proposed_case:
+    case_id: REVIEW-WAREHOUSE-008
+    scenario_id: pending.warehouse.pom-49-spring-boot-misconfiguration-devtools-enabled
+    family: vulnerable_component
+    title: 'Spring Boot Misconfiguration: DevTools Enabled @ pom.xml'
+    description: '待复核新增项：Spring Boot Misconfiguration: DevTools Enabled @ pom.xml:49'
+    expectation: must_alert
+    canonical_file_path: pom.xml
+    line_start: 49
+    line_end: 49
+    rule_type: 'Spring Boot Misconfiguration: DevTools Enabled'
+    aliases:
+    - 'Spring Boot Misconfiguration: DevTools Enabled'
+    source_notes: 'Sink: | File: pom.xml:49'
+    sink_api: 'Spring Boot Misconfiguration: DevTools Enabled'
+    source_refs:
+    - pom.xml:49
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。

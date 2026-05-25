@@ -1,0 +1,899 @@
+project: go-sec-code
+case_overrides: {}
+manual_cases:
+- case_id: GSC-CMDI-VULN1-DIR
+  scenario_id: go-sec-code.cmdi.vuln1.dir
+  family: command_injection
+  title: CommandInjection GET 参数注入
+  description: CommandInjection GET 参数注入
+  route: file:controllers/cmdi.go
+  canonical_file_path: controllers/cmdi.go
+  line_start: 27
+  line_end: 35
+  sink_line_start: 30
+  sink_line_end: 30
+  rule_type: Command Injection
+  aliases: &id001
+  - 检测Golang命令注入漏洞
+  - Command Injection
+  source_kind: request_input
+  source_notes: CommandInjection GET 参数注入
+  sink_api: Command Injection
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes: []
+- case_id: GSC-CMDI-VULN2-HOST
+  scenario_id: go-sec-code.cmdi.vuln2.host
+  family: command_injection
+  title: CommandInjection Host 头注入
+  description: CommandInjection Host 头注入
+  route: file:controllers/cmdi.go
+  canonical_file_path: controllers/cmdi.go
+  line_start: 38
+  line_end: 46
+  sink_line_start: 41
+  sink_line_end: 41
+  rule_type: Command Injection
+  aliases: *id001
+  source_kind: request_input
+  source_notes: CommandInjection Host 头注入
+  sink_api: Command Injection
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes: []
+- case_id: GSC-CMDI-VULN3-GIT
+  scenario_id: go-sec-code.cmdi.vuln3.git
+  family: command_injection
+  title: CommandInjection git 参数注入
+  description: CommandInjection git 参数注入
+  route: file:controllers/cmdi.go
+  canonical_file_path: controllers/cmdi.go
+  line_start: 49
+  line_end: 55
+  sink_line_start: 51
+  sink_line_end: 51
+  rule_type: Command Injection
+  aliases: *id001
+  source_kind: request_input
+  source_notes: CommandInjection git 参数注入
+  sink_api: Command Injection
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes: []
+- case_id: GSC-CMDI-SAFE1-FILTER
+  scenario_id: go-sec-code.cmdi.safe1.filter
+  family: command_injection
+  title: CommandInjection 过滤防护负例
+  description: CommandInjection 过滤防护负例
+  route: file:controllers/cmdi.go
+  canonical_file_path: controllers/cmdi.go
+  line_start: 58
+  line_end: 73
+  sink_line_start: 67
+  sink_line_end: 67
+  rule_type: Command Injection
+  aliases: *id001
+  source_kind: request_input
+  source_notes: CommandInjection 过滤防护负例
+  sink_api: Command Injection
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  irify_support: supported
+  notes: []
+- case_id: GSC-CORS-VULN1-REFLECT
+  scenario_id: go-sec-code.cors.vuln1.reflect
+  family: cors
+  title: CORS 反射 Origin 且允许凭证
+  description: CORS 反射 Origin 且允许凭证
+  route: file:controllers/cors.go
+  canonical_file_path: controllers/cors.go
+  line_start: 22
+  line_end: 37
+  sink_line_start: 24
+  sink_line_end: 24
+  rule_type: CORS
+  aliases: &id002
+  - 检测Golang CORS配置错误漏洞(beego)
+  - CORS
+  source_kind: request_input
+  source_notes: CORS 反射 Origin 且允许凭证
+  sink_api: CORS
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes: []
+- case_id: GSC-CORS-VULN2-WILDCARD-CREDENTIAL
+  scenario_id: go-sec-code.cors.vuln2.wildcard_credential
+  family: cors
+  title: CORS 任意来源且允许凭证
+  description: CORS 任意来源且允许凭证
+  route: file:controllers/cors.go
+  canonical_file_path: controllers/cors.go
+  line_start: 39
+  line_end: 53
+  sink_line_start: 40
+  sink_line_end: 40
+  rule_type: CORS
+  aliases: *id002
+  source_kind: request_input
+  source_notes: CORS 任意来源且允许凭证
+  sink_api: CORS
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes: []
+- case_id: GSC-CORS-SAFE1-WHITELIST
+  scenario_id: go-sec-code.cors.safe1.whitelist
+  family: cors
+  title: CORS 白名单防护负例
+  description: CORS 白名单防护负例
+  route: file:controllers/cors.go
+  canonical_file_path: controllers/cors.go
+  line_start: 55
+  line_end: 74
+  sink_line_start: 60
+  sink_line_end: 60
+  rule_type: CORS
+  aliases: *id002
+  source_kind: request_input
+  source_notes: CORS 白名单防护负例
+  sink_api: CORS
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  irify_support: supported
+  notes: []
+- case_id: GSC-CRLF-SAFE1-HEADER
+  scenario_id: go-sec-code.crlf.safe1.header
+  family: crlf
+  title: CRLF header 设置负例
+  description: CRLF header 设置负例
+  route: file:controllers/crlfi.go
+  canonical_file_path: controllers/crlfi.go
+  line_start: 11
+  line_end: 14
+  sink_line_start: 13
+  sink_line_end: 13
+  rule_type: CRLF Injection
+  aliases:
+  - 检测Golang Beego框架中的CRLF注入漏洞
+  - CRLF Injection
+  source_kind: request_input
+  source_notes: CRLF header 设置负例
+  sink_api: CRLF Injection
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  irify_support: supported
+  notes: []
+- case_id: GSC-UPLOAD-VULN1-USERID-PATH
+  scenario_id: go-sec-code.upload.vuln1.userid_path
+  family: file_upload
+  title: FileUpload POST 参数控制写入路径
+  description: FileUpload POST 参数控制写入路径
+  route: file:controllers/upload.go
+  canonical_file_path: controllers/upload.go
+  line_start: 23
+  line_end: 32
+  sink_line_start: 30
+  sink_line_end: 30
+  rule_type: File Upload
+  aliases: &id003
+  - Beego中Golang文件上传授权审核
+  - File Upload
+  source_kind: request_input
+  source_notes: FileUpload POST 参数控制写入路径
+  sink_api: File Upload
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes: []
+- case_id: GSC-UPLOAD-SAFE1-FILTER
+  scenario_id: go-sec-code.upload.safe1.filter
+  family: file_upload
+  title: FileUpload userid 过滤防护负例
+  description: FileUpload userid 过滤防护负例
+  route: file:controllers/upload.go
+  canonical_file_path: controllers/upload.go
+  line_start: 39
+  line_end: 55
+  sink_line_start: 52
+  sink_line_end: 52
+  rule_type: File Upload
+  aliases: *id003
+  source_kind: request_input
+  source_notes: FileUpload userid 过滤防护负例
+  sink_api: File Upload
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  irify_support: supported
+  notes: []
+- case_id: GSC-JSONP-VULN1-NO-REFERER
+  scenario_id: go-sec-code.jsonp.vuln1.no_referer
+  family: jsonp
+  title: JSONP 无防护信息泄露
+  description: JSONP 无防护信息泄露
+  route: file:controllers/jsonp.go
+  canonical_file_path: controllers/jsonp.go
+  line_start: 22
+  line_end: 34
+  sink_line_start: 33
+  sink_line_end: 33
+  rule_type: JSONP Information Exposure
+  aliases: &id004
+  - 检测Golang JSON信息泄露漏洞
+  - JSONP
+  - Information Exposure
+  source_kind: request_input
+  source_notes: JSONP 无防护信息泄露
+  sink_api: JSONP Information Exposure
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes: []
+- case_id: GSC-JSONP-VULN2-EMPTY-REFERER
+  scenario_id: go-sec-code.jsonp.vuln2.empty_referer
+  family: jsonp
+  title: JSONP 空 Referer 绕过
+  description: JSONP 空 Referer 绕过
+  route: file:controllers/jsonp.go
+  canonical_file_path: controllers/jsonp.go
+  line_start: 36
+  line_end: 55
+  sink_line_start: 51
+  sink_line_end: 51
+  rule_type: JSONP Information Exposure
+  aliases: *id004
+  source_kind: request_input
+  source_notes: JSONP 空 Referer 绕过
+  sink_api: JSONP Information Exposure
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes: []
+- case_id: GSC-JSONP-SAFE1-REFERER-WHITELIST
+  scenario_id: go-sec-code.jsonp.safe1.referer_whitelist
+  family: jsonp
+  title: JSONP Referer 白名单防护负例
+  description: JSONP Referer 白名单防护负例
+  route: file:controllers/jsonp.go
+  canonical_file_path: controllers/jsonp.go
+  line_start: 57
+  line_end: 76
+  sink_line_start: 72
+  sink_line_end: 72
+  rule_type: JSONP Information Exposure
+  aliases: *id004
+  source_kind: request_input
+  source_notes: JSONP Referer 白名单防护负例
+  sink_api: JSONP Information Exposure
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  irify_support: supported
+  notes: []
+- case_id: GSC-PATH-VULN1-READFILE
+  scenario_id: go-sec-code.path.vuln1.readfile
+  family: path_traversal
+  title: PathTraversal 无防护任意文件读取
+  description: PathTraversal 无防护任意文件读取
+  route: file:controllers/traversal.go
+  canonical_file_path: controllers/traversal.go
+  line_start: 28
+  line_end: 35
+  sink_line_start: 30
+  sink_line_end: 30
+  rule_type: Path Traversal
+  aliases: &id005
+  - 检测Golang未过滤的文件或路径漏洞
+  - 检测Golang未过滤文件路径漏洞
+  - Path Traversal
+  source_kind: request_input
+  source_notes: PathTraversal 无防护任意文件读取
+  sink_api: Path Traversal
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes: []
+- case_id: GSC-PATH-VULN2-CLEAN-BYPASS
+  scenario_id: go-sec-code.path.vuln2.clean_bypass
+  family: path_traversal
+  title: PathTraversal 错误使用 filepath.Clean
+  description: PathTraversal 错误使用 filepath.Clean
+  route: file:controllers/traversal.go
+  canonical_file_path: controllers/traversal.go
+  line_start: 37
+  line_end: 45
+  sink_line_start: 40
+  sink_line_end: 40
+  rule_type: Path Traversal
+  aliases: *id005
+  source_kind: request_input
+  source_notes: PathTraversal 错误使用 filepath.Clean
+  sink_api: Path Traversal
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes: []
+- case_id: GSC-PATH-SAFE1-FILTER
+  scenario_id: go-sec-code.path.safe1.filter
+  family: path_traversal
+  title: PathTraversal 过滤防护负例
+  description: PathTraversal 过滤防护负例
+  route: file:controllers/traversal.go
+  canonical_file_path: controllers/traversal.go
+  line_start: 47
+  line_end: 58
+  sink_line_start: 53
+  sink_line_end: 53
+  rule_type: Path Traversal
+  aliases: *id005
+  source_kind: request_input
+  source_notes: PathTraversal 过滤防护负例
+  sink_api: Path Traversal
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  irify_support: supported
+  notes: []
+- case_id: GSC-PATH-SAFE2-PREFIX
+  scenario_id: go-sec-code.path.safe2.prefix
+  family: path_traversal
+  title: PathTraversal Join+前缀检查负例
+  description: PathTraversal Join+前缀检查负例
+  route: file:controllers/traversal.go
+  canonical_file_path: controllers/traversal.go
+  line_start: 61
+  line_end: 73
+  sink_line_start: 67
+  sink_line_end: 67
+  rule_type: Path Traversal
+  aliases: *id005
+  source_kind: request_input
+  source_notes: PathTraversal Join+前缀检查负例
+  sink_api: Path Traversal
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  irify_support: supported
+  notes: []
+- case_id: GSC-SQLI-VULN1-NUMERIC
+  scenario_id: go-sec-code.sqli.vuln1.numeric
+  family: sql_injection
+  title: SQLInjection 数字型注入
+  description: SQLInjection 数字型注入
+  route: file:controllers/sqli.go
+  canonical_file_path: controllers/sqli.go
+  line_start: 52
+  line_end: 74
+  sink_line_start: 65
+  sink_line_end: 65
+  rule_type: SQL Injection
+  aliases: &id006
+  - 检测Golang SQL注入漏洞database(sql)
+  - 检测Golang SQL注入漏洞gin.Context
+  - SQL Injection
+  source_kind: request_input
+  source_notes: SQLInjection 数字型注入
+  sink_api: SQL Injection
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes: []
+- case_id: GSC-SQLI-VULN2-STRING
+  scenario_id: go-sec-code.sqli.vuln2.string
+  family: sql_injection
+  title: SQLInjection 字符型注入
+  description: SQLInjection 字符型注入
+  route: file:controllers/sqli.go
+  canonical_file_path: controllers/sqli.go
+  line_start: 76
+  line_end: 98
+  sink_line_start: 89
+  sink_line_end: 89
+  rule_type: SQL Injection
+  aliases: *id006
+  source_kind: request_input
+  source_notes: SQLInjection 字符型注入
+  sink_api: SQL Injection
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes: []
+- case_id: GSC-SQLI-VULN3-XORM-FIELD
+  scenario_id: go-sec-code.sqli.vuln3.xorm_field
+  family: sql_injection
+  title: SQLInjection 错误 ORM 字段拼接
+  description: SQLInjection 错误 ORM 字段拼接
+  route: file:controllers/sqli.go
+  canonical_file_path: controllers/sqli.go
+  line_start: 100
+  line_end: 119
+  sink_line_start: 109
+  sink_line_end: 109
+  rule_type: SQL Injection
+  aliases: *id006
+  source_kind: request_input
+  source_notes: SQLInjection 错误 ORM 字段拼接
+  sink_api: SQL Injection
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes: []
+- case_id: GSC-SQLI-VULN4-SQUIRREL-ORDER
+  scenario_id: go-sec-code.sqli.vuln4.squirrel_order
+  family: sql_injection
+  title: SQLInjection SQL builder orderBy 拼接
+  description: SQLInjection SQL builder orderBy 拼接
+  route: file:controllers/sqli.go
+  canonical_file_path: controllers/sqli.go
+  line_start: 121
+  line_end: 149
+  sink_line_start: 133
+  sink_line_end: 133
+  rule_type: SQL Injection
+  aliases: *id006
+  source_kind: request_input
+  source_notes: SQLInjection SQL builder orderBy 拼接
+  sink_api: SQL Injection
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes: []
+- case_id: GSC-SQLI-SAFE1-PARAM-ID
+  scenario_id: go-sec-code.sqli.safe1.param_id
+  family: sql_injection
+  title: SQLInjection 数字型预编译负例
+  description: SQLInjection 数字型预编译负例
+  route: file:controllers/sqli.go
+  canonical_file_path: controllers/sqli.go
+  line_start: 151
+  line_end: 176
+  sink_line_start: 167
+  sink_line_end: 167
+  rule_type: SQL Injection
+  aliases: *id006
+  source_kind: request_input
+  source_notes: SQLInjection 数字型预编译负例
+  sink_api: SQL Injection
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  irify_support: supported
+  notes: []
+- case_id: GSC-SQLI-SAFE2-PARAM-USERNAME
+  scenario_id: go-sec-code.sqli.safe2.param_username
+  family: sql_injection
+  title: SQLInjection 字符型预编译负例
+  description: SQLInjection 字符型预编译负例
+  route: file:controllers/sqli.go
+  canonical_file_path: controllers/sqli.go
+  line_start: 178
+  line_end: 200
+  sink_line_start: 191
+  sink_line_end: 191
+  rule_type: SQL Injection
+  aliases: *id006
+  source_kind: request_input
+  source_notes: SQLInjection 字符型预编译负例
+  sink_api: SQL Injection
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  irify_support: supported
+  notes: []
+- case_id: GSC-SQLI-SAFE3-ORM
+  scenario_id: go-sec-code.sqli.safe3.orm
+  family: sql_injection
+  title: SQLInjection ORM 查询负例
+  description: SQLInjection ORM 查询负例
+  route: file:controllers/sqli.go
+  canonical_file_path: controllers/sqli.go
+  line_start: 202
+  line_end: 218
+  sink_line_start: 209
+  sink_line_end: 209
+  rule_type: SQL Injection
+  aliases: *id006
+  source_kind: request_input
+  source_notes: SQLInjection ORM 查询负例
+  sink_api: SQL Injection
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  irify_support: supported
+  notes: []
+- case_id: GSC-SSRF-VULN1-NO-FILTER
+  scenario_id: go-sec-code.ssrf.vuln1.no_filter
+  family: ssrf
+  title: SSRF 无防护
+  description: SSRF 无防护
+  route: file:controllers/ssrf.go
+  canonical_file_path: controllers/ssrf.go
+  line_start: 27
+  line_end: 39
+  sink_line_start: 29
+  sink_line_end: 29
+  rule_type: SSRF
+  aliases: &id007
+  - 检测Golang HTTP SSRF漏洞
+  - SSRF
+  source_kind: request_input
+  source_notes: SSRF 无防护
+  sink_api: SSRF
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes: []
+- case_id: GSC-SSRF-VULN2-BLACKLIST-BYPASS
+  scenario_id: go-sec-code.ssrf.vuln2.blacklist_bypass
+  family: ssrf
+  title: SSRF 黑名单不完整绕过
+  description: SSRF 黑名单不完整绕过
+  route: file:controllers/ssrf.go
+  canonical_file_path: controllers/ssrf.go
+  line_start: 46
+  line_end: 65
+  sink_line_start: 54
+  sink_line_end: 54
+  rule_type: SSRF
+  aliases: *id007
+  source_kind: request_input
+  source_notes: SSRF 黑名单不完整绕过
+  sink_api: SSRF
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes: []
+- case_id: GSC-SSRF-VULN3-302-BYPASS
+  scenario_id: go-sec-code.ssrf.vuln3.redirect_bypass
+  family: ssrf
+  title: SSRF 302 绕过
+  description: SSRF 302 绕过
+  route: file:controllers/ssrf.go
+  canonical_file_path: controllers/ssrf.go
+  line_start: 67
+  line_end: 85
+  sink_line_start: 74
+  sink_line_end: 74
+  rule_type: SSRF
+  aliases: *id007
+  source_kind: request_input
+  source_notes: SSRF 302 绕过
+  sink_api: SSRF
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes: []
+- case_id: GSC-SSRF-SAFE1-WHITELIST
+  scenario_id: go-sec-code.ssrf.safe1.whitelist
+  family: ssrf
+  title: SSRF 白名单防护负例
+  description: SSRF 白名单防护负例
+  route: file:controllers/ssrf.go
+  canonical_file_path: controllers/ssrf.go
+  line_start: 87
+  line_end: 106
+  sink_line_start: 95
+  sink_line_end: 95
+  rule_type: SSRF
+  aliases: *id007
+  source_kind: request_input
+  source_notes: SSRF 白名单防护负例
+  sink_api: SSRF
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  irify_support: supported
+  notes: []
+- case_id: GSC-SSTI-VULN1-SPRIG
+  scenario_id: go-sec-code.ssti.vuln1.sprig
+  family: ssti
+  title: SSTI Sprig env 函数信息泄露
+  description: SSTI Sprig env 函数信息泄露
+  route: file:controllers/ssti.go
+  canonical_file_path: controllers/ssti.go
+  line_start: 21
+  line_end: 37
+  sink_line_start: 24
+  sink_line_end: 24
+  rule_type: SSTI
+  aliases: &id008
+  - 检测Golang中使用Sprig的SSTI漏洞
+  - SSTI
+  source_kind: request_input
+  source_notes: SSTI Sprig env 函数信息泄露
+  sink_api: SSTI
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes: []
+- case_id: GSC-SSTI-SAFE1-PLAIN
+  scenario_id: go-sec-code.ssti.safe1.plain
+  family: ssti
+  title: SSTI 不解析模板负例
+  description: SSTI 不解析模板负例
+  route: file:controllers/ssti.go
+  canonical_file_path: controllers/ssti.go
+  line_start: 39
+  line_end: 43
+  sink_line_start: 41
+  sink_line_end: 41
+  rule_type: SSTI
+  aliases: *id008
+  source_kind: request_input
+  source_notes: SSTI 不解析模板负例
+  sink_api: SSTI
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  irify_support: supported
+  notes: []
+- case_id: GSC-XSS-VULN1-REFLECT
+  scenario_id: go-sec-code.xss.vuln1.reflect
+  family: xss
+  title: XSS 反射型直接输出
+  description: XSS 反射型直接输出
+  route: file:controllers/xss.go
+  canonical_file_path: controllers/xss.go
+  line_start: 35
+  line_end: 39
+  sink_line_start: 38
+  sink_line_end: 38
+  rule_type: XSS
+  aliases: &id009
+  - 检测Golang在Beego框架中的反射型跨站脚本攻击漏洞
+  - 检测到Golang模板引擎中的反射型XSS漏洞
+  - XSS
+  source_kind: request_input
+  source_notes: XSS 反射型直接输出
+  sink_api: XSS
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes: []
+- case_id: GSC-XSS-VULN2-STORED-TEMPLATE
+  scenario_id: go-sec-code.xss.vuln2.stored_template
+  family: xss
+  title: XSS 存储型 template.HTML
+  description: XSS 存储型 template.HTML
+  route: file:controllers/xss.go
+  canonical_file_path: controllers/xss.go
+  line_start: 41
+  line_end: 48
+  sink_line_start: 46
+  sink_line_end: 46
+  rule_type: XSS
+  aliases: *id009
+  source_kind: request_input
+  source_notes: XSS 存储型 template.HTML
+  sink_api: XSS
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes: []
+- case_id: GSC-XSS-VULN3-SVG
+  scenario_id: go-sec-code.xss.vuln3.svg
+  family: xss
+  title: XSS SVG 文件型
+  description: XSS SVG 文件型
+  route: file:controllers/xss.go
+  canonical_file_path: controllers/xss.go
+  line_start: 50
+  line_end: 56
+  sink_line_start: 55
+  sink_line_end: 55
+  rule_type: XSS
+  aliases: *id009
+  source_kind: request_input
+  source_notes: XSS SVG 文件型
+  sink_api: XSS
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes: []
+- case_id: GSC-XSS-VULN4-PDF
+  scenario_id: go-sec-code.xss.vuln4.pdf
+  family: xss
+  title: XSS PDF 文件型
+  description: XSS PDF 文件型
+  route: file:controllers/xss.go
+  canonical_file_path: controllers/xss.go
+  line_start: 58
+  line_end: 65
+  sink_line_start: 64
+  sink_line_end: 64
+  rule_type: XSS
+  aliases: *id009
+  source_kind: request_input
+  source_notes: XSS PDF 文件型
+  sink_api: XSS
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes: []
+- case_id: GSC-XSS-SAFE1-FILTER
+  scenario_id: go-sec-code.xss.safe1.filter
+  family: xss
+  title: XSS 过滤防护负例
+  description: XSS 过滤防护负例
+  route: file:controllers/xss.go
+  canonical_file_path: controllers/xss.go
+  line_start: 74
+  line_end: 80
+  sink_line_start: 79
+  sink_line_end: 79
+  rule_type: XSS
+  aliases: *id009
+  source_kind: request_input
+  source_notes: XSS 过滤防护负例
+  sink_api: XSS
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  irify_support: supported
+  notes: []
+- case_id: GSC-XSS-SAFE2-CSP
+  scenario_id: go-sec-code.xss.safe2.csp
+  family: xss
+  title: XSS CSP 防护负例
+  description: XSS CSP 防护负例
+  route: file:controllers/xss.go
+  canonical_file_path: controllers/xss.go
+  line_start: 82
+  line_end: 89
+  sink_line_start: 88
+  sink_line_end: 88
+  rule_type: XSS
+  aliases: *id009
+  source_kind: request_input
+  source_notes: XSS CSP 防护负例
+  sink_api: XSS
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  irify_support: supported
+  notes: []
+- case_id: GSC-XXE-VULN1-LIBXML2
+  scenario_id: go-sec-code.xxe.vuln1.libxml2
+  family: xxe
+  title: XXE libxml2 外部实体解析
+  description: XXE libxml2 外部实体解析
+  route: file:controllers/xxe.go
+  canonical_file_path: controllers/xxe.go
+  line_start: 34
+  line_end: 46
+  sink_line_start: 36
+  sink_line_end: 36
+  rule_type: XXE
+  aliases: &id010
+  - 检测Golang Beego框架中的XML外部实体(XXE)漏洞
+  - XXE
+  source_kind: request_input
+  source_notes: XXE libxml2 外部实体解析
+  sink_api: XXE
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes: []
+- case_id: GSC-XXE-SAFE1-ENTITYMAP
+  scenario_id: go-sec-code.xxe.safe1.entitymap
+  family: xxe
+  title: XXE 自定义实体映射负例
+  description: XXE 自定义实体映射负例
+  route: file:controllers/xxe.go
+  canonical_file_path: controllers/xxe.go
+  line_start: 57
+  line_end: 73
+  sink_line_start: 67
+  sink_line_end: 67
+  rule_type: XXE
+  aliases: *id010
+  source_kind: request_input
+  source_notes: XXE 自定义实体映射负例
+  sink_api: XXE
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  irify_support: supported
+  notes: []
+- case_id: GSC-ZIPSLIP-VULN1-UNZIP
+  scenario_id: go-sec-code.zipslip.vuln1.unzip
+  family: zipslip
+  title: ZipSlip 解压路径穿越
+  description: ZipSlip 解压路径穿越
+  route: file:controllers/zipslip.go
+  canonical_file_path: controllers/zipslip.go
+  line_start: 22
+  line_end: 70
+  sink_line_start: 48
+  sink_line_end: 48
+  rule_type: ZipSlip
+  aliases:
+  - ZipSlip
+  - Path Traversal
+  source_kind: request_input
+  source_notes: ZipSlip 解压路径穿越
+  sink_api: ZipSlip
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes: []
+suppressed_findings: []

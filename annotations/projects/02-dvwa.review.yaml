@@ -1,0 +1,1858 @@
+project: DVWA
+case_overrides: {}
+manual_cases:
+- case_id: DVWA-EXEC-LOW
+  scenario_id: dvwa.exec.low
+  family: command_injection
+  title: DVWA exec Low 正例
+  description: DVWA `exec` 模块 `low` 难度场景。依据 DVWA 靶场难度语义，`low/medium/high` 视为应告警，`impossible`
+    视为负例。
+  route: file:vulnerabilities/exec/source/low.php
+  canonical_file_path: vulnerabilities/exec/source/low.php
+  line_start: 5
+  line_end: 21
+  sink_line_start: 14
+  sink_line_end: 14
+  rule_type: Command Injection
+  aliases:
+  - 检测PHP命令注入漏洞
+  - Command Injection
+  - 代码注入：命令注入
+  source_kind: request_input
+  source_notes: DVWA exec low 场景的用户输入入口。
+  sink_api: Command Injection
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes:
+  - DVWA difficulty=low
+- case_id: DVWA-EXEC-MEDIUM
+  scenario_id: dvwa.exec.medium
+  family: command_injection
+  title: DVWA exec Medium 正例
+  description: DVWA `exec` 模块 `medium` 难度场景。依据 DVWA 靶场难度语义，`low/medium/high` 视为应告警，`impossible`
+    视为负例。
+  route: file:vulnerabilities/exec/source/medium.php
+  canonical_file_path: vulnerabilities/exec/source/medium.php
+  line_start: 5
+  line_end: 30
+  sink_line_start: 23
+  sink_line_end: 23
+  rule_type: Command Injection
+  aliases:
+  - 检测PHP命令注入漏洞
+  - Command Injection
+  - 代码注入：命令注入
+  source_kind: request_input
+  source_notes: DVWA exec medium 场景的用户输入入口。
+  sink_api: Command Injection
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes:
+  - DVWA difficulty=medium
+- case_id: DVWA-EXEC-HIGH
+  scenario_id: dvwa.exec.high
+  family: command_injection
+  title: DVWA exec High 正例
+  description: DVWA `exec` 模块 `high` 难度场景。依据 DVWA 靶场难度语义，`low/medium/high` 视为应告警，`impossible`
+    视为负例。
+  route: file:vulnerabilities/exec/source/high.php
+  canonical_file_path: vulnerabilities/exec/source/high.php
+  line_start: 5
+  line_end: 37
+  sink_line_start: 30
+  sink_line_end: 30
+  rule_type: Command Injection
+  aliases:
+  - 检测PHP命令注入漏洞
+  - Command Injection
+  - 代码注入：命令注入
+  source_kind: request_input
+  source_notes: DVWA exec high 场景的用户输入入口。
+  sink_api: Command Injection
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes:
+  - DVWA difficulty=high
+- case_id: DVWA-EXEC-IMPOSSIBLE
+  scenario_id: dvwa.exec.impossible
+  family: command_injection
+  title: DVWA exec Impossible 负例
+  description: DVWA `exec` 模块 `impossible` 难度场景。依据 DVWA 靶场难度语义，`low/medium/high` 视为应告警，`impossible`
+    视为负例。
+  route: file:vulnerabilities/exec/source/impossible.php
+  canonical_file_path: vulnerabilities/exec/source/impossible.php
+  line_start: 8
+  line_end: 41
+  sink_line_start: 26
+  sink_line_end: 26
+  rule_type: Command Injection
+  aliases:
+  - 检测PHP命令注入漏洞
+  - Command Injection
+  - 代码注入：命令注入
+  source_kind: request_input
+  source_notes: DVWA exec impossible 场景的用户输入入口。
+  sink_api: Command Injection
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  irify_support: supported
+  notes:
+  - DVWA difficulty=impossible
+- case_id: DVWA-SQLI-LOW
+  scenario_id: dvwa.sqli.low
+  family: sql_injection
+  title: DVWA sqli Low 正例
+  description: DVWA `sqli` 模块 `low` 难度场景。依据 DVWA 靶场难度语义，`low/medium/high` 视为应告警，`impossible`
+    视为负例。
+  route: file:vulnerabilities/sqli/source/low.php
+  canonical_file_path: vulnerabilities/sqli/source/low.php
+  line_start: 5
+  line_end: 56
+  sink_line_start: 11
+  sink_line_end: 11
+  rule_type: SQL Injection
+  aliases:
+  - 检测PHP MySQL注入漏洞
+  - SQL Injection
+  - 'SQL Injection: Poor Validation'
+  - 代码注入：SQL注入
+  source_kind: request_input
+  source_notes: DVWA sqli low 场景的用户输入入口。
+  sink_api: SQL Injection
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes:
+  - DVWA difficulty=low
+- case_id: DVWA-SQLI-MEDIUM
+  scenario_id: dvwa.sqli.medium
+  family: sql_injection
+  title: DVWA sqli Medium 正例
+  description: DVWA `sqli` 模块 `medium` 难度场景。依据 DVWA 靶场难度语义，`low/medium/high` 视为应告警，`impossible`
+    视为负例。
+  route: file:vulnerabilities/sqli/source/medium.php
+  canonical_file_path: vulnerabilities/sqli/source/medium.php
+  line_start: 5
+  line_end: 59
+  sink_line_start: 12
+  sink_line_end: 12
+  rule_type: SQL Injection
+  aliases:
+  - 检测PHP MySQL注入漏洞
+  - SQL Injection
+  - 'SQL Injection: Poor Validation'
+  - 代码注入：SQL注入
+  source_kind: request_input
+  source_notes: DVWA sqli medium 场景的用户输入入口。
+  sink_api: SQL Injection
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes:
+  - DVWA difficulty=medium
+- case_id: DVWA-SQLI-HIGH
+  scenario_id: dvwa.sqli.high
+  family: sql_injection
+  title: DVWA sqli High 正例
+  description: DVWA `sqli` 模块 `high` 难度场景。依据 DVWA 靶场难度语义，`low/medium/high` 视为应告警，`impossible`
+    视为负例。
+  route: file:vulnerabilities/sqli/source/high.php
+  canonical_file_path: vulnerabilities/sqli/source/high.php
+  line_start: 11
+  line_end: 53
+  sink_line_start: 11
+  sink_line_end: 11
+  rule_type: SQL Injection
+  aliases:
+  - 检测PHP MySQL注入漏洞
+  - SQL Injection
+  - 'SQL Injection: Poor Validation'
+  - 代码注入：SQL注入
+  source_kind: request_input
+  source_notes: DVWA sqli high 场景的用户输入入口。
+  sink_api: SQL Injection
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes:
+  - DVWA difficulty=high
+- case_id: DVWA-SQLI-IMPOSSIBLE
+  scenario_id: dvwa.sqli.impossible
+  family: sql_injection
+  title: DVWA sqli Impossible 负例
+  description: DVWA `sqli` 模块 `impossible` 难度场景。依据 DVWA 靶场难度语义，`low/medium/high` 视为应告警，`impossible`
+    视为负例。
+  route: file:vulnerabilities/sqli/source/impossible.php
+  canonical_file_path: vulnerabilities/sqli/source/impossible.php
+  line_start: 1
+  line_end: 65
+  sink_line_start: 65
+  sink_line_end: 65
+  rule_type: SQL Injection
+  aliases:
+  - 检测PHP MySQL注入漏洞
+  - SQL Injection
+  - 'SQL Injection: Poor Validation'
+  - 代码注入：SQL注入
+  source_kind: request_input
+  source_notes: DVWA sqli impossible 场景的用户输入入口。
+  sink_api: SQL Injection
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  irify_support: supported
+  notes:
+  - DVWA difficulty=impossible
+- case_id: DVWA-UPLOAD-LOW
+  scenario_id: dvwa.upload.low
+  family: file_upload
+  title: DVWA upload Low 正例
+  description: DVWA `upload` 模块 `low` 难度场景。依据 DVWA 靶场难度语义，`low/medium/high` 视为应告警，`impossible`
+    视为负例。
+  route: file:vulnerabilities/upload/source/low.php
+  canonical_file_path: vulnerabilities/upload/source/low.php
+  line_start: 6
+  line_end: 19
+  sink_line_start: 9
+  sink_line_end: 9
+  rule_type: File Upload
+  aliases:
+  - 检测PHP不安全的文件上传漏洞
+  - 'Often Misused: File Upload'
+  - 输入验证：文件上传
+  - 输入验证：路径遍历
+  - Path Manipulation
+  source_kind: request_input
+  source_notes: DVWA upload low 场景的用户输入入口。
+  sink_api: File Upload
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes:
+  - DVWA difficulty=low
+- case_id: DVWA-UPLOAD-MEDIUM
+  scenario_id: dvwa.upload.medium
+  family: file_upload
+  title: DVWA upload Medium 正例
+  description: DVWA `upload` 模块 `medium` 难度场景。依据 DVWA 靶场难度语义，`low/medium/high` 视为应告警，`impossible`
+    视为负例。
+  route: file:vulnerabilities/upload/source/medium.php
+  canonical_file_path: vulnerabilities/upload/source/medium.php
+  line_start: 6
+  line_end: 33
+  sink_line_start: 18
+  sink_line_end: 18
+  rule_type: File Upload
+  aliases:
+  - 检测PHP不安全的文件上传漏洞
+  - 'Often Misused: File Upload'
+  - 输入验证：文件上传
+  - 输入验证：路径遍历
+  - Path Manipulation
+  source_kind: request_input
+  source_notes: DVWA upload medium 场景的用户输入入口。
+  sink_api: File Upload
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes:
+  - DVWA difficulty=medium
+- case_id: DVWA-UPLOAD-HIGH
+  scenario_id: dvwa.upload.high
+  family: file_upload
+  title: DVWA upload High 正例
+  description: DVWA `upload` 模块 `high` 难度场景。依据 DVWA 靶场难度语义，`low/medium/high` 视为应告警，`impossible`
+    视为负例。
+  route: file:vulnerabilities/upload/source/high.php
+  canonical_file_path: vulnerabilities/upload/source/high.php
+  line_start: 6
+  line_end: 35
+  sink_line_start: 20
+  sink_line_end: 20
+  rule_type: File Upload
+  aliases:
+  - 检测PHP不安全的文件上传漏洞
+  - 'Often Misused: File Upload'
+  - 输入验证：文件上传
+  - 输入验证：路径遍历
+  - Path Manipulation
+  source_kind: request_input
+  source_notes: DVWA upload high 场景的用户输入入口。
+  sink_api: File Upload
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes:
+  - DVWA difficulty=high
+- case_id: DVWA-UPLOAD-IMPOSSIBLE
+  scenario_id: dvwa.upload.impossible
+  family: file_upload
+  title: DVWA upload Impossible 负例
+  description: DVWA `upload` 模块 `impossible` 难度场景。依据 DVWA 靶场难度语义，`low/medium/high`
+    视为应告警，`impossible` 视为负例。
+  route: file:vulnerabilities/upload/source/impossible.php
+  canonical_file_path: vulnerabilities/upload/source/impossible.php
+  line_start: 9
+  line_end: 62
+  sink_line_start: 51
+  sink_line_end: 51
+  rule_type: File Upload
+  aliases:
+  - 检测PHP不安全的文件上传漏洞
+  - 'Often Misused: File Upload'
+  - 输入验证：文件上传
+  - 输入验证：路径遍历
+  - Path Manipulation
+  source_kind: request_input
+  source_notes: DVWA upload impossible 场景的用户输入入口。
+  sink_api: File Upload
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  irify_support: supported
+  notes:
+  - DVWA difficulty=impossible
+- case_id: DVWA-FI-LOW
+  scenario_id: dvwa.fi.low
+  family: file_inclusion
+  title: DVWA fi Low 正例
+  description: DVWA `fi` 模块 `low` 难度场景。依据 DVWA 靶场难度语义，`low/medium/high` 视为应告警，`impossible`
+    视为负例。
+  route: file:vulnerabilities/fi/source/low.php
+  canonical_file_path: vulnerabilities/fi/source/low.php
+  line_start: 4
+  line_end: 6
+  sink_line_start: 4
+  sink_line_end: 4
+  rule_type: File Inclusion
+  aliases:
+  - 审计PHP文件包含漏洞
+  - Dangerous File Inclusion
+  source_kind: request_input
+  source_notes: DVWA fi low 场景的用户输入入口。
+  sink_api: File Inclusion
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes:
+  - DVWA difficulty=low
+- case_id: DVWA-FI-MEDIUM
+  scenario_id: dvwa.fi.medium
+  family: file_inclusion
+  title: DVWA fi Medium 正例
+  description: DVWA `fi` 模块 `medium` 难度场景。依据 DVWA 靶场难度语义，`low/medium/high` 视为应告警，`impossible`
+    视为负例。
+  route: file:vulnerabilities/fi/source/medium.php
+  canonical_file_path: vulnerabilities/fi/source/medium.php
+  line_start: 4
+  line_end: 10
+  sink_line_start: 4
+  sink_line_end: 4
+  rule_type: File Inclusion
+  aliases:
+  - 审计PHP文件包含漏洞
+  - Dangerous File Inclusion
+  source_kind: request_input
+  source_notes: DVWA fi medium 场景的用户输入入口。
+  sink_api: File Inclusion
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes:
+  - DVWA difficulty=medium
+- case_id: DVWA-FI-HIGH
+  scenario_id: dvwa.fi.high
+  family: file_inclusion
+  title: DVWA fi High 正例
+  description: DVWA `fi` 模块 `high` 难度场景。依据 DVWA 靶场难度语义，`low/medium/high` 视为应告警，`impossible`
+    视为负例。
+  route: file:vulnerabilities/fi/source/high.php
+  canonical_file_path: vulnerabilities/fi/source/high.php
+  line_start: 4
+  line_end: 13
+  sink_line_start: 4
+  sink_line_end: 4
+  rule_type: File Inclusion
+  aliases:
+  - 审计PHP文件包含漏洞
+  - Dangerous File Inclusion
+  source_kind: request_input
+  source_notes: DVWA fi high 场景的用户输入入口。
+  sink_api: File Inclusion
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes:
+  - DVWA difficulty=high
+- case_id: DVWA-FI-IMPOSSIBLE
+  scenario_id: dvwa.fi.impossible
+  family: file_inclusion
+  title: DVWA fi Impossible 负例
+  description: DVWA `fi` 模块 `impossible` 难度场景。依据 DVWA 靶场难度语义，`low/medium/high` 视为应告警，`impossible`
+    视为负例。
+  route: file:vulnerabilities/fi/source/impossible.php
+  canonical_file_path: vulnerabilities/fi/source/impossible.php
+  line_start: 4
+  line_end: 20
+  sink_line_start: 4
+  sink_line_end: 4
+  rule_type: File Inclusion
+  aliases:
+  - 审计PHP文件包含漏洞
+  - Dangerous File Inclusion
+  source_kind: request_input
+  source_notes: DVWA fi impossible 场景的用户输入入口。
+  sink_api: File Inclusion
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  irify_support: supported
+  notes:
+  - DVWA difficulty=impossible
+- case_id: DVWA-XSS_R-LOW
+  scenario_id: dvwa.xss_r.low
+  family: xss
+  title: DVWA xss_r Low 正例
+  description: DVWA `xss_r` 模块 `low` 难度场景。依据 DVWA 靶场难度语义，`low/medium/high` 视为应告警，`impossible`
+    视为负例。
+  route: file:vulnerabilities/xss_r/source/low.php
+  canonical_file_path: vulnerabilities/xss_r/source/low.php
+  line_start: 6
+  line_end: 11
+  sink_line_start: 8
+  sink_line_end: 8
+  rule_type: XSS
+  aliases:
+  - 检测PHP跨站脚本漏洞
+  - 'Cross-Site Scripting: Reflected'
+  - 'Cross-Site Scripting: Poor Validation'
+  - 跨站脚本：反射型XSS
+  source_kind: request_input
+  source_notes: DVWA xss_r low 场景的用户输入入口。
+  sink_api: XSS
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes:
+  - DVWA difficulty=low
+- case_id: DVWA-XSS_R-MEDIUM
+  scenario_id: dvwa.xss_r.medium
+  family: xss
+  title: DVWA xss_r Medium 正例
+  description: DVWA `xss_r` 模块 `medium` 难度场景。依据 DVWA 靶场难度语义，`low/medium/high` 视为应告警，`impossible`
+    视为负例。
+  route: file:vulnerabilities/xss_r/source/medium.php
+  canonical_file_path: vulnerabilities/xss_r/source/medium.php
+  line_start: 6
+  line_end: 14
+  sink_line_start: 11
+  sink_line_end: 11
+  rule_type: XSS
+  aliases:
+  - 检测PHP跨站脚本漏洞
+  - 'Cross-Site Scripting: Reflected'
+  - 'Cross-Site Scripting: Poor Validation'
+  - 跨站脚本：反射型XSS
+  source_kind: request_input
+  source_notes: DVWA xss_r medium 场景的用户输入入口。
+  sink_api: XSS
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes:
+  - DVWA difficulty=medium
+- case_id: DVWA-XSS_R-HIGH
+  scenario_id: dvwa.xss_r.high
+  family: xss
+  title: DVWA xss_r High 正例
+  description: DVWA `xss_r` 模块 `high` 难度场景。依据 DVWA 靶场难度语义，`low/medium/high` 视为应告警，`impossible`
+    视为负例。
+  route: file:vulnerabilities/xss_r/source/high.php
+  canonical_file_path: vulnerabilities/xss_r/source/high.php
+  line_start: 6
+  line_end: 14
+  sink_line_start: 11
+  sink_line_end: 11
+  rule_type: XSS
+  aliases:
+  - 检测PHP跨站脚本漏洞
+  - 'Cross-Site Scripting: Reflected'
+  - 'Cross-Site Scripting: Poor Validation'
+  - 跨站脚本：反射型XSS
+  source_kind: request_input
+  source_notes: DVWA xss_r high 场景的用户输入入口。
+  sink_api: XSS
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes:
+  - DVWA difficulty=high
+- case_id: DVWA-XSS_R-IMPOSSIBLE
+  scenario_id: dvwa.xss_r.impossible
+  family: xss
+  title: DVWA xss_r Impossible 负例
+  description: DVWA `xss_r` 模块 `impossible` 难度场景。依据 DVWA 靶场难度语义，`low/medium/high`
+    视为应告警，`impossible` 视为负例。
+  route: file:vulnerabilities/xss_r/source/impossible.php
+  canonical_file_path: vulnerabilities/xss_r/source/impossible.php
+  line_start: 4
+  line_end: 18
+  sink_line_start: 12
+  sink_line_end: 12
+  rule_type: XSS
+  aliases:
+  - 检测PHP跨站脚本漏洞
+  - 'Cross-Site Scripting: Reflected'
+  - 'Cross-Site Scripting: Poor Validation'
+  - 跨站脚本：反射型XSS
+  source_kind: request_input
+  source_notes: DVWA xss_r impossible 场景的用户输入入口。
+  sink_api: XSS
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  irify_support: supported
+  notes:
+  - DVWA difficulty=impossible
+- case_id: DVWA-OPEN_REDIRECT-LOW
+  scenario_id: dvwa.open_redirect.low
+  family: open_redirect
+  title: DVWA open_redirect Low 正例
+  description: DVWA `open_redirect` 模块 `low` 难度场景。依据 DVWA 靶场难度语义，`low/medium/high`
+    视为应告警，`impossible` 视为负例。
+  route: file:vulnerabilities/open_redirect/source/low.php
+  canonical_file_path: vulnerabilities/open_redirect/source/low.php
+  line_start: 4
+  line_end: 13
+  sink_line_start: 4
+  sink_line_end: 4
+  rule_type: Open Redirect
+  aliases:
+  - 检测PHP开放重定向漏洞
+  - Open Redirect
+  source_kind: request_input
+  source_notes: DVWA open_redirect low 场景的用户输入入口。
+  sink_api: Open Redirect
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes:
+  - DVWA difficulty=low
+- case_id: DVWA-OPEN_REDIRECT-MEDIUM
+  scenario_id: dvwa.open_redirect.medium
+  family: open_redirect
+  title: DVWA open_redirect Medium 正例
+  description: DVWA `open_redirect` 模块 `medium` 难度场景。依据 DVWA 靶场难度语义，`low/medium/high`
+    视为应告警，`impossible` 视为负例。
+  route: file:vulnerabilities/open_redirect/source/medium.php
+  canonical_file_path: vulnerabilities/open_redirect/source/medium.php
+  line_start: 11
+  line_end: 21
+  sink_line_start: 11
+  sink_line_end: 11
+  rule_type: Open Redirect
+  aliases:
+  - 检测PHP开放重定向漏洞
+  - Open Redirect
+  source_kind: request_input
+  source_notes: DVWA open_redirect medium 场景的用户输入入口。
+  sink_api: Open Redirect
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes:
+  - DVWA difficulty=medium
+- case_id: DVWA-OPEN_REDIRECT-HIGH
+  scenario_id: dvwa.open_redirect.high
+  family: open_redirect
+  title: DVWA open_redirect High 正例
+  description: DVWA `open_redirect` 模块 `high` 难度场景。依据 DVWA 靶场难度语义，`low/medium/high`
+    视为应告警，`impossible` 视为负例。
+  route: file:vulnerabilities/open_redirect/source/high.php
+  canonical_file_path: vulnerabilities/open_redirect/source/high.php
+  line_start: 5
+  line_end: 21
+  sink_line_start: 5
+  sink_line_end: 5
+  rule_type: Open Redirect
+  aliases:
+  - 检测PHP开放重定向漏洞
+  - Open Redirect
+  source_kind: request_input
+  source_notes: DVWA open_redirect high 场景的用户输入入口。
+  sink_api: Open Redirect
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes:
+  - DVWA difficulty=high
+- case_id: DVWA-OPEN_REDIRECT-IMPOSSIBLE
+  scenario_id: dvwa.open_redirect.impossible
+  family: open_redirect
+  title: DVWA open_redirect Impossible 负例
+  description: DVWA `open_redirect` 模块 `impossible` 难度场景。依据 DVWA 靶场难度语义，`low/medium/high`
+    视为应告警，`impossible` 视为负例。
+  route: file:vulnerabilities/open_redirect/source/impossible.php
+  canonical_file_path: vulnerabilities/open_redirect/source/impossible.php
+  line_start: 1
+  line_end: 29
+  sink_line_start: 29
+  sink_line_end: 29
+  rule_type: Open Redirect
+  aliases:
+  - 检测PHP开放重定向漏洞
+  - Open Redirect
+  source_kind: request_input
+  source_notes: DVWA open_redirect impossible 场景的用户输入入口。
+  sink_api: Open Redirect
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  irify_support: supported
+  notes:
+  - DVWA difficulty=impossible
+- case_id: DVWA-API-HEALTH-CONNECTIVITY-CMDI
+  scenario_id: dvwa.api.health.connectivity
+  family: command_injection
+  title: DVWA API connectivity 命令注入
+  description: DVWA API `health/connectivity` 将 JSON 请求中的 target 直接拼接到 ping 命令执行。
+  route: POST /vulnerabilities/api/v2/health/connectivity
+  canonical_file_path: vulnerabilities/api/src/HealthController.php
+  line_start: 84
+  line_end: 200
+  sink_line_start: 88
+  sink_line_end: 88
+  rule_type: Command Injection
+  aliases:
+  - 检测PHP命令注入漏洞
+  - Command Injection
+  - 代码注入：命令注入
+  source_kind: request_input
+  source_notes: JSON body 中的 target 参数。
+  sink_api: exec
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes:
+  - DVWA API 模块额外案例
+- case_id: DVWA-SQLI-BLIND-LOW
+  scenario_id: dvwa.sqli_blind.low
+  family: sql_injection
+  title: DVWA SQLi Blind Low 正例
+  description: DVWA blind SQL injection low 场景。
+  route: file:vulnerabilities/sqli_blind/source/low.php
+  canonical_file_path: vulnerabilities/sqli_blind/source/low.php
+  line_start: 5
+  line_end: 57
+  sink_line_start: 13
+  sink_line_end: 13
+  rule_type: SQL Injection
+  aliases: &id001
+  - 检测PHP MySQL注入漏洞
+  - SQL Injection
+  - 'SQL Injection: Poor Validation'
+  - 代码注入：SQL注入
+  source_kind: request_input
+  source_notes: DVWA SQLi Blind Low 正例
+  sink_api: SQL Injection
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+- case_id: DVWA-SQLI-BLIND-MEDIUM
+  scenario_id: dvwa.sqli_blind.medium
+  family: sql_injection
+  title: DVWA SQLi Blind Medium 正例
+  description: DVWA blind SQL injection medium 场景。
+  route: file:vulnerabilities/sqli_blind/source/medium.php
+  canonical_file_path: vulnerabilities/sqli_blind/source/medium.php
+  line_start: 5
+  line_end: 54
+  sink_line_start: 15
+  sink_line_end: 15
+  rule_type: SQL Injection
+  aliases: *id001
+  source_kind: request_input
+  source_notes: DVWA SQLi Blind Medium 正例
+  sink_api: SQL Injection
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+- case_id: DVWA-SQLI-BLIND-HIGH
+  scenario_id: dvwa.sqli_blind.high
+  family: sql_injection
+  title: DVWA SQLi Blind High 正例
+  description: DVWA blind SQL injection high 场景。
+  route: file:vulnerabilities/sqli_blind/source/high.php
+  canonical_file_path: vulnerabilities/sqli_blind/source/high.php
+  line_start: 5
+  line_end: 63
+  sink_line_start: 13
+  sink_line_end: 13
+  rule_type: SQL Injection
+  aliases: *id001
+  source_kind: request_input
+  source_notes: DVWA SQLi Blind High 正例
+  sink_api: SQL Injection
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+- case_id: DVWA-SQLI-BLIND-IMPOSSIBLE
+  scenario_id: dvwa.sqli_blind.impossible
+  family: sql_injection
+  title: DVWA SQLi Blind Impossible 负例
+  description: DVWA blind SQL injection impossible 场景。
+  route: file:vulnerabilities/sqli_blind/source/impossible.php
+  canonical_file_path: vulnerabilities/sqli_blind/source/impossible.php
+  line_start: 1
+  line_end: 65
+  sink_line_start: 65
+  sink_line_end: 65
+  rule_type: SQL Injection
+  aliases: *id001
+  source_kind: request_input
+  source_notes: DVWA SQLi Blind Impossible 负例
+  sink_api: SQL Injection
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  irify_support: supported
+- case_id: DVWA-VIEW-HELP-PATHTRAV
+  scenario_id: dvwa.view_help.path_traversal
+  family: path_traversal
+  title: DVWA view_help 路径遍历正例
+  description: DVWA 帮助页通过 id/locale 动态读取文件。
+  route: file:vulnerabilities/view_help.php
+  canonical_file_path: vulnerabilities/view_help.php
+  line_start: 14
+  line_end: 40
+  sink_line_start: 22
+  sink_line_end: 22
+  rule_type: Path Traversal
+  aliases: &id002
+  - 检测PHP路径遍历漏洞
+  - Path Manipulation
+  - 输入验证：路径遍历
+  - 检测PHP不安全的文件操作
+  source_kind: request_input
+  source_notes: DVWA view_help 路径遍历正例
+  sink_api: Path Traversal
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+- case_id: DVWA-VIEW-SOURCE-PATHTRAV
+  scenario_id: dvwa.view_source.path_traversal
+  family: path_traversal
+  title: DVWA view_source 路径遍历正例
+  description: DVWA 源码查看页通过 id/security 动态读取文件。
+  route: file:vulnerabilities/view_source.php
+  canonical_file_path: vulnerabilities/view_source.php
+  line_start: 12
+  line_end: 103
+  sink_line_start: 65
+  sink_line_end: 65
+  rule_type: Path Traversal
+  aliases: *id002
+  source_kind: request_input
+  source_notes: DVWA view_source 路径遍历正例
+  sink_api: Path Traversal
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+- case_id: DVWA-VIEW-SOURCE-ALL-PATHTRAV
+  scenario_id: dvwa.view_source_all.path_traversal
+  family: path_traversal
+  title: DVWA view_source_all 路径遍历正例
+  description: DVWA 全量源码查看页通过 id 动态读取多份文件。
+  route: file:vulnerabilities/view_source_all.php
+  canonical_file_path: vulnerabilities/view_source_all.php
+  line_start: 12
+  line_end: 122
+  sink_line_start: 26
+  sink_line_end: 26
+  rule_type: Path Traversal
+  aliases: *id002
+  source_kind: request_input
+  source_notes: DVWA view_source_all 路径遍历正例
+  sink_api: Path Traversal
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+- case_id: DVWA-API-TOKEN-HARDCODED-KEY
+  scenario_id: dvwa.api.token.hardcoded_key
+  family: credential_management
+  title: DVWA API Token 硬编码加密密钥
+  description: DVWA API Token 使用硬编码对称密钥。
+  route: file:vulnerabilities/api/src/Token.php
+  canonical_file_path: vulnerabilities/api/src/Token.php
+  line_start: 1
+  line_end: 62
+  sink_line_start: 62
+  sink_line_end: 62
+  rule_type: Credential Management
+  aliases: &id003
+  - 密码管理：硬编码加密密钥
+  - 'Key Management: Hardcoded Encryption Key'
+  - 密码管理：硬编码密码
+  - 'Password Management: Hardcoded Password'
+  source_kind: request_input
+  source_notes: DVWA API Token 硬编码加密密钥
+  sink_api: Credential Management
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+- case_id: DVWA-API-LOGIN-HARDCODED-CREDS
+  scenario_id: dvwa.api.login.hardcoded_creds
+  family: credential_management
+  title: DVWA API Login 硬编码凭据
+  description: DVWA API LoginController 中存在硬编码用户名、密码与 client secret。
+  route: file:vulnerabilities/api/src/LoginController.php
+  canonical_file_path: vulnerabilities/api/src/LoginController.php
+  line_start: 1
+  line_end: 282
+  sink_line_start: 282
+  sink_line_end: 282
+  rule_type: Credential Management
+  aliases: *id003
+  source_kind: request_input
+  source_notes: DVWA API Login 硬编码凭据
+  sink_api: Credential Management
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+- case_id: DVWA-CRYPTO-TOKENLIB-HIGH-HARDCODED-KEY
+  scenario_id: dvwa.cryptography.token_library_high.hardcoded_key
+  family: cryptographic_failure
+  title: DVWA cryptography high 硬编码加密密钥
+  description: DVWA cryptography high 的 token library 使用硬编码对称加密密钥。
+  route: file:vulnerabilities/cryptography/source/token_library_high.php
+  canonical_file_path: vulnerabilities/cryptography/source/token_library_high.php
+  line_start: 3
+  line_end: 132
+  sink_line_start: 3
+  sink_line_end: 3
+  rule_type: Cryptographic Failures
+  aliases:
+  - 密码管理：硬编码加密密钥
+  - 'Key Management: Hardcoded Encryption Key'
+  source_kind: manual_review
+  source_notes: DVWA cryptography high 硬编码加密密钥
+  sink_api: Cryptographic Failures
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes:
+  - DVWA cryptography token library high
+- case_id: DVWA-CRYPTO-TOKENLIB-IMPOSSIBLE-HARDCODED-KEY
+  scenario_id: dvwa.cryptography.token_library_impossible.hardcoded_key
+  family: cryptographic_failure
+  title: DVWA cryptography impossible 硬编码加密密钥
+  description: DVWA cryptography impossible 的 token library 仍使用硬编码对称加密密钥。
+  route: file:vulnerabilities/cryptography/source/token_library_impossible.php
+  canonical_file_path: vulnerabilities/cryptography/source/token_library_impossible.php
+  line_start: 3
+  line_end: 130
+  sink_line_start: 3
+  sink_line_end: 3
+  rule_type: Cryptographic Failures
+  aliases:
+  - 密码管理：硬编码加密密钥
+  - 'Key Management: Hardcoded Encryption Key'
+  source_kind: manual_review
+  source_notes: DVWA cryptography impossible 硬编码加密密钥
+  sink_api: Cryptographic Failures
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes:
+  - DVWA cryptography token library impossible
+- case_id: DVWA-CRYPTO-LOW-HARDCODED-PASSWORD
+  scenario_id: dvwa.cryptography.low.hardcoded_password
+  family: credential_management
+  title: DVWA cryptography low 硬编码密码
+  description: DVWA cryptography low 中存在硬编码口令比较逻辑。
+  route: file:vulnerabilities/cryptography/source/low.php
+  canonical_file_path: vulnerabilities/cryptography/source/low.php
+  line_start: 41
+  line_end: 112
+  sink_line_start: 41
+  sink_line_end: 41
+  rule_type: Credential Management
+  aliases:
+  - 密码管理：硬编码密码
+  - 'Password Management: Hardcoded Password'
+  source_kind: manual_review
+  source_notes: DVWA cryptography low 硬编码密码
+  sink_api: Credential Management
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes:
+  - DVWA cryptography low hardcoded password
+- case_id: DVWA-CSP-JSONP-XSS
+  scenario_id: dvwa.csp.jsonp.xss
+  family: xss
+  title: DVWA CSP JSONP 回调注入
+  description: DVWA csp/jsonp.php 将 callback 参数直接拼接输出，属于典型 JSONP/XSS 场景。
+  route: file:vulnerabilities/csp/source/jsonp.php
+  canonical_file_path: vulnerabilities/csp/source/jsonp.php
+  line_start: 5
+  line_end: 13
+  sink_line_start: 12
+  sink_line_end: 12
+  rule_type: XSS
+  aliases:
+  - 检测PHP跨站脚本漏洞
+  - 'Cross-Site Scripting: Reflected'
+  - 跨站脚本：反射型XSS
+  source_kind: manual_review
+  source_notes: DVWA CSP JSONP 回调注入
+  sink_api: XSS
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  irify_support: supported
+  notes:
+  - DVWA csp jsonp callback injection
+- case_id: DVWA-BRUTE-LOW-MISSING-LOCKOUT
+  scenario_id: dvwa.brute.low.missing_lockout
+  family: brute_force
+  title: DVWA brute low 缺少登录重试限制
+  description: Low 级别没有失败次数限制、延迟或锁定机制，可无限尝试登录。
+  route: file:vulnerabilities/brute/source/low.php
+  canonical_file_path: vulnerabilities/brute/source/low.php
+  line_start: 3
+  line_end: 32
+  sink_line_start: 12
+  sink_line_end: 12
+  rule_type: Brute Force Protection
+  aliases: &id004
+  - Brute Force
+  - Password Cracking
+  - Account Lockout
+  - Rate Limit
+  source_kind: manual_review
+  source_notes: DVWA brute low 缺少登录重试限制
+  sink_api: Brute Force Protection
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: module_main_vulnerability
+  irify_support: unsupported
+  notes:
+  - 模块主旨 case；当前 SAST 数据流规则不作为召回率分母。
+- case_id: DVWA-BRUTE-MEDIUM-WEAK-THROTTLE
+  scenario_id: dvwa.brute.medium.weak_throttle
+  family: brute_force
+  title: DVWA brute medium 弱延迟防护
+  description: Medium 级别只在失败后固定 sleep 2 秒，仍可自动化爆破。
+  route: file:vulnerabilities/brute/source/medium.php
+  canonical_file_path: vulnerabilities/brute/source/medium.php
+  line_start: 3
+  line_end: 35
+  sink_line_start: 28
+  sink_line_end: 28
+  rule_type: Brute Force Protection
+  aliases: *id004
+  source_kind: manual_review
+  source_notes: DVWA brute medium 弱延迟防护
+  sink_api: Brute Force Protection
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: module_main_vulnerability
+  irify_support: unsupported
+  notes:
+  - 模块主旨 case；当前 SAST 数据流规则不作为召回率分母。
+- case_id: DVWA-BRUTE-HIGH-WEAK-THROTTLE
+  scenario_id: dvwa.brute.high.weak_throttle
+  family: brute_force
+  title: DVWA brute high 弱随机延迟防护
+  description: High 级别使用 CSRF token 与随机延迟，但没有账户锁定，仍不阻断爆破。
+  route: file:vulnerabilities/brute/source/high.php
+  canonical_file_path: vulnerabilities/brute/source/high.php
+  line_start: 3
+  line_end: 43
+  sink_line_start: 33
+  sink_line_end: 33
+  rule_type: Brute Force Protection
+  aliases: *id004
+  source_kind: manual_review
+  source_notes: DVWA brute high 弱随机延迟防护
+  sink_api: Brute Force Protection
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: module_main_vulnerability
+  irify_support: unsupported
+  notes:
+  - 模块主旨 case；当前 SAST 数据流规则不作为召回率分母。
+- case_id: DVWA-BRUTE-IMPOSSIBLE-LOCKOUT
+  scenario_id: dvwa.brute.impossible.lockout
+  family: brute_force
+  title: DVWA brute impossible 登录锁定负例
+  description: Impossible 级别加入失败计数与锁定窗口，作为爆破防护负例。
+  route: file:vulnerabilities/brute/source/impossible.php
+  canonical_file_path: vulnerabilities/brute/source/impossible.php
+  line_start: 18
+  line_end: 102
+  sink_line_start: 30
+  sink_line_end: 30
+  rule_type: Brute Force Protection
+  aliases: *id004
+  source_kind: manual_review
+  source_notes: DVWA brute impossible 登录锁定负例
+  sink_api: Brute Force Protection
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  irify_support: unsupported
+  notes:
+  - 模块主旨 case；当前 SAST 数据流规则不作为召回率分母。
+- case_id: DVWA-CAPTCHA-LOW-DIRECT-STEP-BYPASS
+  scenario_id: dvwa.captcha.low.direct_step_bypass
+  family: insecure_captcha
+  title: DVWA captcha low 直接提交第二步绕过
+  description: Low 级别把 CAPTCHA 与改密动作拆成两步，可直接提交 step=2 绕过验证。
+  route: file:vulnerabilities/captcha/source/low.php
+  canonical_file_path: vulnerabilities/captcha/source/low.php
+  line_start: 45
+  line_end: 75
+  sink_line_start: 60
+  sink_line_end: 60
+  rule_type: Insecure CAPTCHA
+  aliases: &id005
+  - Insecure CAPTCHA
+  - CAPTCHA Bypass
+  - Client-side State Bypass
+  source_kind: manual_review
+  source_notes: DVWA captcha low 直接提交第二步绕过
+  sink_api: Insecure CAPTCHA
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: module_main_vulnerability
+  irify_support: unsupported
+  notes:
+  - 模块主旨 case；当前 SAST 数据流规则不作为召回率分母。
+- case_id: DVWA-CAPTCHA-MEDIUM-CLIENT-FLAG-BYPASS
+  scenario_id: dvwa.captcha.medium.client_flag_bypass
+  family: insecure_captcha
+  title: DVWA captcha medium 客户端状态绕过
+  description: Medium 级别把 passed_captcha 放在客户端隐藏字段，攻击者可伪造。
+  route: file:vulnerabilities/captcha/source/medium.php
+  canonical_file_path: vulnerabilities/captcha/source/medium.php
+  line_start: 46
+  line_end: 83
+  sink_line_start: 68
+  sink_line_end: 68
+  rule_type: Insecure CAPTCHA
+  aliases: *id005
+  source_kind: manual_review
+  source_notes: DVWA captcha medium 客户端状态绕过
+  sink_api: Insecure CAPTCHA
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: module_main_vulnerability
+  irify_support: unsupported
+  notes:
+  - 模块主旨 case；当前 SAST 数据流规则不作为召回率分母。
+- case_id: DVWA-CAPTCHA-HIGH-DEV-BACKDOOR
+  scenario_id: dvwa.captcha.high.dev_backdoor
+  family: insecure_captcha
+  title: DVWA captcha high 调试后门绕过
+  description: High 级别保留开发调试后门，可用固定 CAPTCHA 值和 User-Agent 绕过。
+  route: file:vulnerabilities/captcha/source/high.php
+  canonical_file_path: vulnerabilities/captcha/source/high.php
+  line_start: 17
+  line_end: 55
+  sink_line_start: 30
+  sink_line_end: 30
+  rule_type: Insecure CAPTCHA
+  aliases: *id005
+  source_kind: manual_review
+  source_notes: DVWA captcha high 调试后门绕过
+  sink_api: Insecure CAPTCHA
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: module_main_vulnerability
+  irify_support: unsupported
+  notes:
+  - 模块主旨 case；当前 SAST 数据流规则不作为召回率分母。
+- case_id: DVWA-CAPTCHA-IMPOSSIBLE-SINGLE-STEP
+  scenario_id: dvwa.captcha.impossible.single_step
+  family: insecure_captcha
+  title: DVWA captcha impossible 单步校验负例
+  description: Impossible 级别在同一步内完成 CAPTCHA、当前密码与新密码校验。
+  route: file:vulnerabilities/captcha/source/impossible.php
+  canonical_file_path: vulnerabilities/captcha/source/impossible.php
+  line_start: 3
+  line_end: 67
+  sink_line_start: 40
+  sink_line_end: 40
+  rule_type: Insecure CAPTCHA
+  aliases: *id005
+  source_kind: manual_review
+  source_notes: DVWA captcha impossible 单步校验负例
+  sink_api: Insecure CAPTCHA
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  irify_support: unsupported
+  notes:
+  - 模块主旨 case；当前 SAST 数据流规则不作为召回率分母。
+- case_id: DVWA-CSRF-LOW-MISSING-TOKEN
+  scenario_id: dvwa.csrf.low.missing_token
+  family: csrf
+  title: DVWA csrf low 缺少 CSRF 防护
+  description: Low 级别 GET 改密接口没有 CSRF token，可被诱导触发。
+  route: file:vulnerabilities/csrf/source/low.php
+  canonical_file_path: vulnerabilities/csrf/source/low.php
+  line_start: 3
+  line_end: 30
+  sink_line_start: 16
+  sink_line_end: 16
+  rule_type: CSRF
+  aliases: &id006
+  - CSRF
+  - Cross Site Request Forgery
+  - Anti-CSRF Token Missing
+  - Weak Referer Check
+  source_kind: manual_review
+  source_notes: DVWA csrf low 缺少 CSRF 防护
+  sink_api: CSRF
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: module_main_vulnerability
+  irify_support: unsupported
+  notes:
+  - 模块主旨 case；当前 SAST 数据流规则不作为召回率分母。
+- case_id: DVWA-CSRF-MEDIUM-WEAK-REFERER
+  scenario_id: dvwa.csrf.medium.weak_referer
+  family: csrf
+  title: DVWA csrf medium 弱 Referer 校验
+  description: Medium 级别只检查 HTTP_REFERER 是否包含当前域名，可被组合绕过。
+  route: file:vulnerabilities/csrf/source/medium.php
+  canonical_file_path: vulnerabilities/csrf/source/medium.php
+  line_start: 3
+  line_end: 37
+  sink_line_start: 18
+  sink_line_end: 18
+  rule_type: CSRF
+  aliases: *id006
+  source_kind: manual_review
+  source_notes: DVWA csrf medium 弱 Referer 校验
+  sink_api: CSRF
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: module_main_vulnerability
+  irify_support: unsupported
+  notes:
+  - 模块主旨 case；当前 SAST 数据流规则不作为召回率分母。
+- case_id: DVWA-CSRF-HIGH-TOKEN-BYPASSABLE
+  scenario_id: dvwa.csrf.high.token_bypassable
+  family: csrf
+  title: DVWA csrf high token 可组合绕过
+  description: High 级别需要 token，但靶场目标仍认为可结合其它漏洞完成 CSRF。
+  route: file:vulnerabilities/csrf/source/high.php
+  canonical_file_path: vulnerabilities/csrf/source/high.php
+  line_start: 7
+  line_end: 69
+  sink_line_start: 43
+  sink_line_end: 43
+  rule_type: CSRF
+  aliases: *id006
+  source_kind: manual_review
+  source_notes: DVWA csrf high token 可组合绕过
+  sink_api: CSRF
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: module_main_vulnerability
+  irify_support: unsupported
+  notes:
+  - 模块主旨 case；当前 SAST 数据流规则不作为召回率分母。
+- case_id: DVWA-CSRF-IMPOSSIBLE-CURRENT-PASSWORD
+  scenario_id: dvwa.csrf.impossible.current_password
+  family: csrf
+  title: DVWA csrf impossible 当前密码校验负例
+  description: Impossible 级别要求当前密码和 CSRF token，作为 CSRF 防护负例。
+  route: file:vulnerabilities/csrf/source/impossible.php
+  canonical_file_path: vulnerabilities/csrf/source/impossible.php
+  line_start: 3
+  line_end: 50
+  sink_line_start: 18
+  sink_line_end: 18
+  rule_type: CSRF
+  aliases: *id006
+  source_kind: manual_review
+  source_notes: DVWA csrf impossible 当前密码校验负例
+  sink_api: CSRF
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  irify_support: unsupported
+  notes:
+  - 模块主旨 case；当前 SAST 数据流规则不作为召回率分母。
+- case_id: DVWA-AUTHBYPASS-LOW-DIRECT-PAGE
+  scenario_id: dvwa.authbypass.low.direct_page
+  family: broken_access_control
+  title: DVWA authbypass low 页面直访越权
+  description: Low 级别非管理员可直接访问用户管理页面。
+  route: file:vulnerabilities/authbypass/index.php
+  canonical_file_path: vulnerabilities/authbypass/index.php
+  line_start: 15
+  line_end: 77
+  sink_line_start: 75
+  sink_line_end: 75
+  rule_type: Broken Access Control
+  aliases: &id007
+  - Broken Access Control
+  - Authorization Bypass
+  - Missing Authorization Check
+  source_kind: manual_review
+  source_notes: DVWA authbypass low 页面直访越权
+  sink_api: Broken Access Control
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: module_main_vulnerability
+  irify_support: unsupported
+  notes:
+  - 模块主旨 case；当前 SAST 数据流规则不作为召回率分母。
+- case_id: DVWA-AUTHBYPASS-MEDIUM-UNPROTECTED-API
+  scenario_id: dvwa.authbypass.medium.unprotected_api
+  family: broken_access_control
+  title: DVWA authbypass medium 数据 API 越权
+  description: Medium 级别页面入口被限制，但 get_user_data.php API 对非管理员开放。
+  route: file:vulnerabilities/authbypass/get_user_data.php
+  canonical_file_path: vulnerabilities/authbypass/get_user_data.php
+  line_start: 5
+  line_end: 42
+  sink_line_start: 40
+  sink_line_end: 40
+  rule_type: Broken Access Control
+  aliases: *id007
+  source_kind: manual_review
+  source_notes: DVWA authbypass medium 数据 API 越权
+  sink_api: Broken Access Control
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: module_main_vulnerability
+  irify_support: unsupported
+  notes:
+  - 模块主旨 case；当前 SAST 数据流规则不作为召回率分母。
+- case_id: DVWA-AUTHBYPASS-HIGH-UNPROTECTED-UPDATE
+  scenario_id: dvwa.authbypass.high.unprotected_update
+  family: broken_access_control
+  title: DVWA authbypass high 更新 API 越权
+  description: High 级别读取 API 受限，但 change_user_details.php 更新接口缺少非管理员限制。
+  route: file:vulnerabilities/authbypass/change_user_details.php
+  canonical_file_path: vulnerabilities/authbypass/change_user_details.php
+  line_start: 11
+  line_end: 52
+  sink_line_start: 47
+  sink_line_end: 47
+  rule_type: Broken Access Control
+  aliases: *id007
+  source_kind: manual_review
+  source_notes: DVWA authbypass high 更新 API 越权
+  sink_api: Broken Access Control
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: module_main_vulnerability
+  irify_support: unsupported
+  notes:
+  - 模块主旨 case；当前 SAST 数据流规则不作为召回率分母。
+- case_id: DVWA-AUTHBYPASS-IMPOSSIBLE-AUTHZ-CHECK
+  scenario_id: dvwa.authbypass.impossible.authz_check
+  family: broken_access_control
+  title: DVWA authbypass impossible 鉴权负例
+  description: Impossible 级别对敏感接口进行管理员校验。
+  route: file:vulnerabilities/authbypass/change_user_details.php
+  canonical_file_path: vulnerabilities/authbypass/change_user_details.php
+  line_start: 11
+  line_end: 52
+  sink_line_start: 11
+  sink_line_end: 11
+  rule_type: Broken Access Control
+  aliases: *id007
+  source_kind: manual_review
+  source_notes: DVWA authbypass impossible 鉴权负例
+  sink_api: Broken Access Control
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  irify_support: unsupported
+  notes:
+  - 模块主旨 case；当前 SAST 数据流规则不作为召回率分母。
+suppressed_findings:
+- tool: irify
+  rule_name: 检测PHP跨站脚本漏洞
+  file_path: vulnerabilities/brute/source/low.php
+  reason: 该 finding 属于非当前 benchmark 主口径的 side finding；DVWA 当前按模块主旨评估，不把此类跨家族 XSS 单列为
+    case
+- tool: irify
+  rule_name: 检测PHP MySQL注入漏洞
+  file_path: vulnerabilities/brute/source/low.php
+  reason: 该 finding 属于非当前 benchmark 主口径的 side finding；DVWA 当前按模块主旨评估，不把此类跨家族 SQL 注入单列为
+    case
+- tool: irify
+  rule_name: 检测PHP跨站脚本漏洞
+  file_path: vulnerabilities/brute/source/medium.php
+  reason: 该 finding 属于非当前 benchmark 主口径的 side finding；DVWA 当前按模块主旨评估，不把此类跨家族 XSS 单列为
+    case
+- tool: irify
+  rule_name: 检测PHP MySQL注入漏洞
+  file_path: vulnerabilities/brute/source/medium.php
+  reason: 该 finding 属于非当前 benchmark 主口径的 side finding；DVWA 当前按模块主旨评估，不把此类跨家族 SQL 注入单列为
+    case
+- tool: irify
+  rule_name: 检测PHP跨站脚本漏洞
+  file_path: vulnerabilities/brute/source/high.php
+  reason: 该 finding 属于非当前 benchmark 主口径的 side finding；DVWA 当前按模块主旨评估，不把此类跨家族 XSS 单列为
+    case
+- tool: irify
+  rule_name: 检测PHP MySQL注入漏洞
+  file_path: vulnerabilities/brute/source/high.php
+  reason: 该 finding 属于非当前 benchmark 主口径的 side finding；DVWA 当前按模块主旨评估，不把此类跨家族 SQL 注入单列为
+    case
+- tool: irify
+  rule_name: 检测PHP跨站脚本漏洞
+  file_path: vulnerabilities/captcha/source/low.php
+  reason: 该 finding 属于非当前 benchmark 主口径的 side finding；DVWA 当前按模块主旨评估，不把此类跨家族 XSS 单列为
+    case
+- tool: irify
+  rule_name: 检测PHP MySQL注入漏洞
+  file_path: vulnerabilities/captcha/source/low.php
+  reason: 该 finding 属于非当前 benchmark 主口径的 side finding；DVWA 当前按模块主旨评估，不把此类跨家族 SQL 注入单列为
+    case
+- tool: irify
+  rule_name: 检测PHP跨站脚本漏洞
+  file_path: vulnerabilities/captcha/source/medium.php
+  reason: 该 finding 属于非当前 benchmark 主口径的 side finding；DVWA 当前按模块主旨评估，不把此类跨家族 XSS 单列为
+    case
+- tool: irify
+  rule_name: 检测PHP MySQL注入漏洞
+  file_path: vulnerabilities/captcha/source/medium.php
+  reason: 该 finding 属于非当前 benchmark 主口径的 side finding；DVWA 当前按模块主旨评估，不把此类跨家族 SQL 注入单列为
+    case
+- tool: irify
+  rule_name: 检测PHP跨站脚本漏洞
+  file_path: vulnerabilities/captcha/source/high.php
+  reason: 该 finding 属于非当前 benchmark 主口径的 side finding；DVWA 当前按模块主旨评估，不把此类跨家族 XSS 单列为
+    case
+- tool: irify
+  rule_name: 检测PHP MySQL注入漏洞
+  file_path: vulnerabilities/captcha/source/high.php
+  reason: 该 finding 属于非当前 benchmark 主口径的 side finding；DVWA 当前按模块主旨评估，不把此类跨家族 SQL 注入单列为
+    case
+- tool: irify
+  rule_name: 检测PHP跨站脚本漏洞
+  file_path: vulnerabilities/captcha/source/impossible.php
+  reason: 该 finding 属于非当前 benchmark 主口径的 side finding；DVWA 当前按模块主旨评估，不把此类跨家族 XSS 单列为
+    case
+- tool: irify
+  rule_name: 检测PHP MySQL注入漏洞
+  file_path: vulnerabilities/captcha/source/impossible.php
+  reason: 该 finding 属于非当前 benchmark 主口径的 side finding；DVWA 当前按模块主旨评估，不把此类跨家族 SQL 注入单列为
+    case
+- tool: irify
+  rule_name: 检测PHP跨站脚本漏洞
+  file_path: vulnerabilities/csrf/source/low.php
+  reason: 该 finding 属于非当前 benchmark 主口径的 side finding；DVWA 当前按模块主旨评估，不把此类跨家族 XSS 单列为
+    case
+- tool: irify
+  rule_name: 检测PHP MySQL注入漏洞
+  file_path: vulnerabilities/csrf/source/low.php
+  reason: 该 finding 属于非当前 benchmark 主口径的 side finding；DVWA 当前按模块主旨评估，不把此类跨家族 SQL 注入单列为
+    case
+- tool: irify
+  rule_name: 检测PHP跨站脚本漏洞
+  file_path: vulnerabilities/csrf/source/medium.php
+  reason: 该 finding 属于非当前 benchmark 主口径的 side finding；DVWA 当前按模块主旨评估，不把此类跨家族 XSS 单列为
+    case
+- tool: irify
+  rule_name: 检测PHP MySQL注入漏洞
+  file_path: vulnerabilities/csrf/source/medium.php
+  reason: 该 finding 属于非当前 benchmark 主口径的 side finding；DVWA 当前按模块主旨评估，不把此类跨家族 SQL 注入单列为
+    case
+- tool: irify
+  rule_name: 检测PHP跨站脚本漏洞
+  file_path: vulnerabilities/csrf/source/high.php
+  reason: 该 finding 属于非当前 benchmark 主口径的 side finding；DVWA 当前按模块主旨评估，不把此类跨家族 XSS 单列为
+    case
+- tool: irify
+  rule_name: 检测PHP MySQL注入漏洞
+  file_path: vulnerabilities/csrf/source/high.php
+  reason: 该 finding 属于非当前 benchmark 主口径的 side finding；DVWA 当前按模块主旨评估，不把此类跨家族 SQL 注入单列为
+    case
+- tool: irify
+  rule_name: 检测PHP跨站脚本漏洞
+  file_path: vulnerabilities/csrf/source/impossible.php
+  reason: 该 finding 属于非当前 benchmark 主口径的 side finding；DVWA 当前按模块主旨评估，不把此类跨家族 XSS 单列为
+    case
+- tool: irify
+  rule_name: 检测PHP MySQL注入漏洞
+  file_path: vulnerabilities/csrf/source/impossible.php
+  reason: 该 finding 属于非当前 benchmark 主口径的 side finding；DVWA 当前按模块主旨评估，不把此类跨家族 SQL 注入单列为
+    case
+- tool: irify
+  rule_name: 检测PHP跨站脚本漏洞
+  file_path: vulnerabilities/authbypass/get_user_data.php
+  reason: 该 finding 属于非当前 benchmark 主口径的 side finding；DVWA 当前按模块主旨评估，不把此类跨家族 XSS 单列为
+    case
+- tool: irify
+  rule_name: 检测PHP MySQL注入漏洞
+  file_path: vulnerabilities/authbypass/get_user_data.php
+  reason: 该 finding 属于非当前 benchmark 主口径的 side finding；DVWA 当前按模块主旨评估，不把此类跨家族 SQL 注入单列为
+    case
+- tool: irify
+  rule_name: 检测PHP跨站脚本漏洞
+  file_path: login.php
+  reason: 该 finding 属于非当前 benchmark 主口径的 side finding；DVWA 当前按模块主旨评估，不把此类跨家族 XSS 单列为
+    case
+- tool: irify
+  rule_name: 检测PHP MySQL注入漏洞
+  file_path: login.php
+  reason: 该 finding 属于非当前 benchmark 主口径的 side finding；DVWA 当前按模块主旨评估，不把此类跨家族 SQL 注入单列为
+    case
+- tool: irify
+  rule_name: 检测PHP跨站脚本漏洞
+  file_path: dvwa/includes/DBMS/MySQL.php
+  reason: 该 finding 属于非当前 benchmark 主口径的 side finding；DVWA 当前按模块主旨评估，不把此类跨家族 XSS 单列为
+    case
+- tool: irify
+  rule_name: 检测PHP MySQL注入漏洞
+  file_path: dvwa/includes/DBMS/MySQL.php
+  reason: 该 finding 属于非当前 benchmark 主口径的 side finding；DVWA 当前按模块主旨评估，不把此类跨家族 SQL 注入单列为
+    case
+- tool: irify
+  rule_name: 检测PHP跨站脚本漏洞
+  file_path: vulnerabilities/csrf/test_credentials.php
+  reason: 该 finding 属于非当前 benchmark 主口径的 side finding；DVWA 当前按模块主旨评估，不把此类跨家族 XSS 单列为
+    case
+- tool: irify
+  rule_name: 检测PHP MySQL注入漏洞
+  file_path: vulnerabilities/csrf/test_credentials.php
+  reason: 该 finding 属于非当前 benchmark 主口径的 side finding；DVWA 当前按模块主旨评估，不把此类跨家族 SQL 注入单列为
+    case
+- tool: irify
+  rule_name: 检测PHP跨站脚本漏洞
+  file_path: vulnerabilities/exec/source/low.php
+  reason: 该 finding 是主漏洞场景上的跨家族副作用告警；DVWA 当前按模块主漏洞口径评估，不单列 XSS side finding
+- tool: irify
+  rule_name: 检测PHP跨站脚本漏洞
+  file_path: vulnerabilities/exec/source/medium.php
+  reason: 该 finding 是主漏洞场景上的跨家族副作用告警；DVWA 当前按模块主漏洞口径评估，不单列 XSS side finding
+- tool: irify
+  rule_name: 检测PHP跨站脚本漏洞
+  file_path: vulnerabilities/exec/source/high.php
+  reason: 该 finding 是主漏洞场景上的跨家族副作用告警；DVWA 当前按模块主漏洞口径评估，不单列 XSS side finding
+- tool: irify
+  rule_name: 检测PHP跨站脚本漏洞
+  file_path: vulnerabilities/exec/source/impossible.php
+  reason: 该 finding 是主漏洞场景上的跨家族副作用告警；DVWA 当前按模块主漏洞口径评估，不单列 XSS side finding
+- tool: irify
+  rule_name: 检测PHP跨站脚本漏洞
+  file_path: vulnerabilities/sqli/source/low.php
+  reason: 该 finding 是主漏洞场景上的跨家族副作用告警；DVWA 当前按模块主漏洞口径评估，不单列 XSS side finding
+- tool: irify
+  rule_name: 检测PHP跨站脚本漏洞
+  file_path: vulnerabilities/sqli/source/medium.php
+  reason: 该 finding 是主漏洞场景上的跨家族副作用告警；DVWA 当前按模块主漏洞口径评估，不单列 XSS side finding
+- tool: irify
+  rule_name: 检测PHP跨站脚本漏洞
+  file_path: vulnerabilities/sqli/source/impossible.php
+  reason: 该 finding 是主漏洞场景上的跨家族副作用告警；DVWA 当前按模块主漏洞口径评估，不单列 XSS side finding
+- tool: irify
+  rule_name: 检测PHP跨站脚本漏洞
+  file_path: vulnerabilities/sqli_blind/source/high.php
+  reason: 该 finding 是主漏洞场景上的跨家族副作用告警；DVWA 当前按模块主漏洞口径评估，不单列 XSS side finding
+- tool: irify
+  rule_name: 检测PHP跨站脚本漏洞
+  file_path: vulnerabilities/sqli_blind/source/impossible.php
+  reason: 该 finding 是主漏洞场景上的跨家族副作用告警；DVWA 当前按模块主漏洞口径评估，不单列 XSS side finding
+- tool: irify
+  rule_name: 检测PHP跨站脚本漏洞
+  file_path: vulnerabilities/upload/source/high.php
+  reason: 该 finding 是主漏洞场景上的跨家族副作用告警；DVWA 当前按模块主漏洞口径评估，不单列 XSS side finding
+- tool: irify
+  rule_name: 检测PHP跨站脚本漏洞
+  file_path: vulnerabilities/upload/source/impossible.php
+  reason: 该 finding 是主漏洞场景上的跨家族副作用告警；DVWA 当前按模块主漏洞口径评估，不单列 XSS side finding
+- tool: irify
+  rule_name: 检测PHP跨站脚本漏洞
+  file_path: vulnerabilities/upload/source/low.php
+  reason: 该 finding 是主漏洞场景上的跨家族副作用告警；DVWA 当前按模块主漏洞口径评估，不单列 XSS side finding
+- tool: irify
+  rule_name: 检测PHP跨站脚本漏洞
+  file_path: vulnerabilities/upload/source/medium.php
+  reason: 该 finding 是主漏洞场景上的跨家族副作用告警；DVWA 当前按模块主漏洞口径评估，不单列 XSS side finding
+- tool: irify
+  rule_name: 检测PHP命令注入漏洞
+  file_path: vulnerabilities/view_help.php
+  reason: view_help 的主风险已按路径遍历/文件读取口径建 case，不单列命令注入误分类
+- tool: irify
+  rule_name: 检测PHP路径遍历漏洞
+  file_path: external/recaptcha/recaptchalib.php
+  reason: 第三方 reCAPTCHA 库文件不纳入当前 benchmark case
+- tool: irify
+  rule_name: 检测PHP路径遍历漏洞
+  file_path: instructions.php
+  reason: 说明页文件包含/读取辅助行为不纳入当前 benchmark case
+- tool: code_guard
+  rule_name: 跨站脚本：反射型XSS
+  file_path: DVWA-master/dvwa/includes/dvwaPage.inc.php
+  reason: 统一响应包装/页面渲染位点属于派生输出 sink，不单列为 benchmark case
+- tool: code_guard
+  rule_name: 跨站脚本：存储型XSS
+  file_path: DVWA-master/dvwa/includes/dvwaPage.inc.php
+  reason: 统一响应包装/页面渲染位点属于派生输出 sink，不单列为 benchmark case
+- tool: code_guard
+  rule_name: 跨站脚本：弱验证
+  file_path: DVWA-master/dvwa/includes/dvwaPage.inc.php
+  reason: 统一响应包装/页面渲染位点属于派生输出 sink，不单列为 benchmark case
+- tool: code_guard
+  rule_name: 跨站脚本：反射型XSS
+  file_path: src/HealthController.php
+  reason: 统一响应包装/页面渲染位点属于派生输出 sink，不单列为 benchmark case
+- tool: code_guard
+  rule_name: 跨站脚本：存储型XSS
+  file_path: src/HealthController.php
+  reason: 统一响应包装/页面渲染位点属于派生输出 sink，不单列为 benchmark case
+- tool: code_guard
+  rule_name: 跨站脚本：弱验证
+  file_path: src/HealthController.php
+  reason: 统一响应包装/页面渲染位点属于派生输出 sink，不单列为 benchmark case
+- tool: code_guard
+  rule_name: 跨站脚本：反射型XSS
+  file_path: src/OrderController.php
+  reason: 统一响应包装/页面渲染位点属于派生输出 sink，不单列为 benchmark case
+- tool: code_guard
+  rule_name: 跨站脚本：存储型XSS
+  file_path: src/OrderController.php
+  reason: 统一响应包装/页面渲染位点属于派生输出 sink，不单列为 benchmark case
+- tool: code_guard
+  rule_name: 跨站脚本：弱验证
+  file_path: src/OrderController.php
+  reason: 统一响应包装/页面渲染位点属于派生输出 sink，不单列为 benchmark case
+- tool: code_guard
+  rule_name: 跨站脚本：反射型XSS
+  file_path: src/UserController.php
+  reason: 统一响应包装/页面渲染位点属于派生输出 sink，不单列为 benchmark case
+- tool: code_guard
+  rule_name: 跨站脚本：存储型XSS
+  file_path: src/UserController.php
+  reason: 统一响应包装/页面渲染位点属于派生输出 sink，不单列为 benchmark case
+- tool: code_guard
+  rule_name: 跨站脚本：弱验证
+  file_path: src/UserController.php
+  reason: 统一响应包装/页面渲染位点属于派生输出 sink，不单列为 benchmark case
+- tool: code_guard
+  rule_name: 跨站脚本：反射型XSS
+  file_path: DVWA-master/vulnerabilities/authbypass/get_user_data.php
+  reason: 统一响应包装/页面渲染位点属于派生输出 sink，不单列为 benchmark case
+- tool: code_guard
+  rule_name: 跨站脚本：存储型XSS
+  file_path: DVWA-master/vulnerabilities/authbypass/get_user_data.php
+  reason: 统一响应包装/页面渲染位点属于派生输出 sink，不单列为 benchmark case
+- tool: code_guard
+  rule_name: 跨站脚本：弱验证
+  file_path: DVWA-master/vulnerabilities/authbypass/get_user_data.php
+  reason: 统一响应包装/页面渲染位点属于派生输出 sink，不单列为 benchmark case
+- tool: code_guard
+  rule_name: 代码注入：SQL注入
+  file_path: DVWA-master/dvwa/includes/DBMS/PGSQL.php
+  reason: 该 finding 属于模块主旨之外的 side SQLI/helper 告警，当前不纳入 DVWA benchmark case
+- tool: code_guard
+  rule_name: 代码注入：SQL注入
+  file_path: DVWA-master/vulnerabilities/authbypass/change_user_details.php
+  reason: 该 finding 属于模块主旨之外的 side SQLI/helper 告警，当前不纳入 DVWA benchmark case
+- tool: code_guard
+  rule_name: 代码注入：SQL注入
+  file_path: DVWA-master/vulnerabilities/brute/source/low.php
+  reason: 该 finding 属于模块主旨之外的 side SQLI/helper 告警，当前不纳入 DVWA benchmark case
+- tool: code_guard
+  rule_name: 密码管理：硬编码密码
+  file_path: DVWA-master/vulnerabilities/sqli/test.php
+  reason: 测试辅助文件不纳入 benchmark case
+- tool: fortify
+  rule_name: SQL Injection
+  file_path: dvwa/includes/DBMS/MySQL.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: 'SQL Injection: Poor Validation'
+  file_path: dvwa/includes/DBMS/MySQL.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: SQL Injection
+  file_path: dvwa/includes/DBMS/PGSQL.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: 'SQL Injection: Poor Validation'
+  file_path: dvwa/includes/DBMS/PGSQL.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: SQL Injection
+  file_path: vulnerabilities/authbypass/change_user_details.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: 'SQL Injection: Poor Validation'
+  file_path: vulnerabilities/authbypass/change_user_details.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: SQL Injection
+  file_path: vulnerabilities/brute/source/low.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: 'SQL Injection: Poor Validation'
+  file_path: vulnerabilities/brute/source/low.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: SQL Injection
+  file_path: login.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: 'SQL Injection: Poor Validation'
+  file_path: login.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: SQL Injection
+  file_path: vulnerabilities/brute/source/high.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: 'SQL Injection: Poor Validation'
+  file_path: vulnerabilities/brute/source/high.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: SQL Injection
+  file_path: vulnerabilities/brute/source/medium.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: 'SQL Injection: Poor Validation'
+  file_path: vulnerabilities/brute/source/medium.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: SQL Injection
+  file_path: vulnerabilities/captcha/source/high.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: 'SQL Injection: Poor Validation'
+  file_path: vulnerabilities/captcha/source/high.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: SQL Injection
+  file_path: vulnerabilities/captcha/source/low.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: 'SQL Injection: Poor Validation'
+  file_path: vulnerabilities/captcha/source/low.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: SQL Injection
+  file_path: vulnerabilities/captcha/source/medium.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: 'SQL Injection: Poor Validation'
+  file_path: vulnerabilities/captcha/source/medium.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: SQL Injection
+  file_path: vulnerabilities/csrf/source/high.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: 'SQL Injection: Poor Validation'
+  file_path: vulnerabilities/csrf/source/high.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: SQL Injection
+  file_path: vulnerabilities/csrf/source/low.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: 'SQL Injection: Poor Validation'
+  file_path: vulnerabilities/csrf/source/low.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: SQL Injection
+  file_path: vulnerabilities/csrf/source/medium.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: 'SQL Injection: Poor Validation'
+  file_path: vulnerabilities/csrf/source/medium.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: SQL Injection
+  file_path: vulnerabilities/csrf/test_credentials.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: 'SQL Injection: Poor Validation'
+  file_path: vulnerabilities/csrf/test_credentials.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: SQL Injection
+  file_path: vulnerabilities/xss_s/source/high.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: 'SQL Injection: Poor Validation'
+  file_path: vulnerabilities/xss_s/source/high.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: SQL Injection
+  file_path: vulnerabilities/xss_s/source/low.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: 'SQL Injection: Poor Validation'
+  file_path: vulnerabilities/xss_s/source/low.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: SQL Injection
+  file_path: vulnerabilities/xss_s/source/medium.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: 'SQL Injection: Poor Validation'
+  file_path: vulnerabilities/xss_s/source/medium.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: SQL Injection
+  file_path: dvwa/includes/dvwaPage.inc.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: 'SQL Injection: Poor Validation'
+  file_path: dvwa/includes/dvwaPage.inc.php
+  reason: 该 finding 属于 helper/side SQLI 告警，DVWA 当前按模块主漏洞口径评估，不单列为 case
+- tool: fortify
+  rule_name: 'OpenAPI Misconfiguration: Credential Leakage'
+  file_path: vulnerabilities/api/openapi.yml
+  reason: OpenAPI 描述文件配置项不纳入当前 benchmark case
+- tool: fortify
+  rule_name: 'Password Management: Hardcoded Password'
+  file_path: vulnerabilities/sqli/test.php
+  reason: 测试辅助文件不纳入 benchmark case
+- tool: fortify
+  rule_name: :password
+  file_path: vulnerabilities/brute/source/low.php
+  reason: Fortify PDF 解析出的参数占位符条目不是独立漏洞 case
+- tool: irify
+  rule_name: 检测PHP跨站脚本漏洞
+  file_path: vulnerabilities/sqli_blind/source/low.php
+  reason: 该 finding 是 blind SQL injection 主场景上的跨家族副作用告警；DVWA 当前按模块主漏洞口径评估，不单列 XSS
+    side finding
+- tool: irify
+  rule_name: 检测PHP跨站脚本漏洞
+  file_path: vulnerabilities/sqli_blind/source/medium.php
+  reason: 该 finding 是 blind SQL injection 主场景上的跨家族副作用告警；DVWA 当前按模块主漏洞口径评估，不单列 XSS
+    side finding

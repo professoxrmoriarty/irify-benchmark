@@ -1,0 +1,45 @@
+project_id: demo-project
+version: 1.0.0
+cases:
+    - case_id: demo-cmdi-001
+      language: java
+      source_code: controllers/CmdiController.java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: request.getParameter
+                line: 13
+                column: 22
+                file: controllers/CmdiController.java
+            sink:
+                symbol: Runtime.getRuntime().exec
+                line: 14
+                column: 9
+                file: controllers/CmdiController.java
+      metadata:
+        cwe: CWE-78
+        tags:
+            - command-injection
+      notes: Direct command injection via request parameter
+    - case_id: demo-cmdi-002
+      language: java
+      source_code: controllers/CmdiController.java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getHeader
+                line: 20
+                column: 22
+                file: controllers/CmdiController.java
+            sink:
+                symbol: ProcessBuilder.start
+                line: 21
+                column: 9
+                file: controllers/CmdiController.java
+      metadata:
+        cwe: CWE-78
+        tags:
+            - command-injection
+      notes: Command injection via HTTP header

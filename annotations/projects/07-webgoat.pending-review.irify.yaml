@@ -1,0 +1,3384 @@
+project: WebGoat
+tool: irify
+generated_from: /home/zpy/goproject/IRify_SAST/.ai/task-runs/benchmark-framework/projects/07-webgoat/artifacts/truth-evaluation.json
+summary:
+  total: 98
+  by_priority:
+    high: 98
+notes:
+- 这是待复核 finding 转出的 review case 草案，不自动参与正式真值评估。
+- 人工确认后，可按需要提升到 JavaSecLab.review.yaml 的 manual_cases 或 suppressed_findings。
+- candidate_case_ids 非空时，优先判断是否应并入已有 case，而不是直接新增。
+review_cases:
+- review_case_id: PENDING-IRIFY-001
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: src/it/java/org/owasp/webgoat/playwright/webwolf/JwtUITest.java
+    line_start: 21
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-001
+    scenario_id: pending.webgoat.jwtuitest-21-检测通用硬编码凭据
+    family: credential_management
+    title: 检测通用硬编码凭据 @ JwtUITest.java
+    description: 待复核新增项：检测通用硬编码凭据 @ src/it/java/org/owasp/webgoat/playwright/webwolf/JwtUITest.java:21
+    expectation: must_alert
+    canonical_file_path: src/it/java/org/owasp/webgoat/playwright/webwolf/JwtUITest.java
+    line_start: 21
+    line_end: 21
+    rule_type: 检测通用硬编码凭据
+    aliases:
+    - 检测通用硬编码凭据
+    source_notes: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测通用硬编码凭据
+    source_refs:
+    - src/it/java/org/owasp/webgoat/playwright/webwolf/JwtUITest.java:21
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-002
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: src/main/resources/i18n/messages.properties
+    line_start: 8
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-002
+    scenario_id: pending.webgoat.messages-8-检测通用硬编码凭据
+    family: credential_management
+    title: 检测通用硬编码凭据 @ messages.properties
+    description: 待复核新增项：检测通用硬编码凭据 @ src/main/resources/i18n/messages.properties:8
+    expectation: must_alert
+    canonical_file_path: src/main/resources/i18n/messages.properties
+    line_start: 8
+    line_end: 8
+    rule_type: 检测通用硬编码凭据
+    aliases:
+    - 检测通用硬编码凭据
+    source_notes: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测通用硬编码凭据
+    source_refs:
+    - src/main/resources/i18n/messages.properties:8
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-003
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: src/main/resources/i18n/messages_de.properties
+    line_start: 11
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-003
+    scenario_id: pending.webgoat.messages_de-11-检测通用硬编码凭据
+    family: credential_management
+    title: 检测通用硬编码凭据 @ messages_de.properties
+    description: 待复核新增项：检测通用硬编码凭据 @ src/main/resources/i18n/messages_de.properties:11
+    expectation: must_alert
+    canonical_file_path: src/main/resources/i18n/messages_de.properties
+    line_start: 11
+    line_end: 11
+    rule_type: 检测通用硬编码凭据
+    aliases:
+    - 检测通用硬编码凭据
+    source_notes: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测通用硬编码凭据
+    source_refs:
+    - src/main/resources/i18n/messages_de.properties:11
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-004
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: src/main/resources/i18n/messages_nl.properties
+    line_start: 8
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-004
+    scenario_id: pending.webgoat.messages_nl-8-检测通用硬编码凭据
+    family: credential_management
+    title: 检测通用硬编码凭据 @ messages_nl.properties
+    description: 待复核新增项：检测通用硬编码凭据 @ src/main/resources/i18n/messages_nl.properties:8
+    expectation: must_alert
+    canonical_file_path: src/main/resources/i18n/messages_nl.properties
+    line_start: 8
+    line_end: 8
+    rule_type: 检测通用硬编码凭据
+    aliases:
+    - 检测通用硬编码凭据
+    source_notes: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测通用硬编码凭据
+    source_refs:
+    - src/main/resources/i18n/messages_nl.properties:8
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-005
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: src/main/resources/lessons/challenges/challenge7/git.zip
+    line_start: 61
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-005
+    scenario_id: pending.webgoat.git-61-检测通用硬编码凭据
+    family: credential_management
+    title: 检测通用硬编码凭据 @ git.zip
+    description: 待复核新增项：检测通用硬编码凭据 @ src/main/resources/lessons/challenges/challenge7/git.zip:61
+    expectation: must_alert
+    canonical_file_path: src/main/resources/lessons/challenges/challenge7/git.zip
+    line_start: 61
+    line_end: 61
+    rule_type: 检测通用硬编码凭据
+    aliases:
+    - 检测通用硬编码凭据
+    source_notes: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测通用硬编码凭据
+    source_refs:
+    - src/main/resources/lessons/challenges/challenge7/git.zip:61
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-006
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: src/main/resources/lessons/jwt/documentation/JWT_libraries.adoc
+    line_start: 28
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-006
+    scenario_id: pending.webgoat.jwt_libraries-28-检测通用硬编码凭据
+    family: credential_management
+    title: 检测通用硬编码凭据 @ JWT_libraries.adoc
+    description: 待复核新增项：检测通用硬编码凭据 @ src/main/resources/lessons/jwt/documentation/JWT_libraries.adoc:28
+    expectation: must_alert
+    canonical_file_path: src/main/resources/lessons/jwt/documentation/JWT_libraries.adoc
+    line_start: 28
+    line_end: 28
+    rule_type: 检测通用硬编码凭据
+    aliases:
+    - 检测通用硬编码凭据
+    source_notes: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测通用硬编码凭据
+    source_refs:
+    - src/main/resources/lessons/jwt/documentation/JWT_libraries.adoc:28
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-007
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: src/main/resources/lessons/jwt/i18n/WebGoatLabels.properties
+    line_start: 5
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-007
+    scenario_id: pending.webgoat.webgoatlabels-5-检测通用硬编码凭据
+    family: credential_management
+    title: 检测通用硬编码凭据 @ WebGoatLabels.properties
+    description: 待复核新增项：检测通用硬编码凭据 @ src/main/resources/lessons/jwt/i18n/WebGoatLabels.properties:5
+    expectation: must_alert
+    canonical_file_path: src/main/resources/lessons/jwt/i18n/WebGoatLabels.properties
+    line_start: 5
+    line_end: 5
+    rule_type: 检测通用硬编码凭据
+    aliases:
+    - 检测通用硬编码凭据
+    source_notes: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测通用硬编码凭据
+    source_refs:
+    - src/main/resources/lessons/jwt/i18n/WebGoatLabels.properties:5
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-008
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: src/main/resources/lessons/passwordreset/i18n/WebGoatLabels.properties
+    line_start: 1
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-008
+    scenario_id: pending.webgoat.webgoatlabels-1-检测通用硬编码凭据
+    family: credential_management
+    title: 检测通用硬编码凭据 @ WebGoatLabels.properties
+    description: 待复核新增项：检测通用硬编码凭据 @ src/main/resources/lessons/passwordreset/i18n/WebGoatLabels.properties:1
+    expectation: must_alert
+    canonical_file_path: src/main/resources/lessons/passwordreset/i18n/WebGoatLabels.properties
+    line_start: 1
+    line_end: 1
+    rule_type: 检测通用硬编码凭据
+    aliases:
+    - 检测通用硬编码凭据
+    source_notes: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测通用硬编码凭据
+    source_refs:
+    - src/main/resources/lessons/passwordreset/i18n/WebGoatLabels.properties:1
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-009
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: src/main/resources/lessons/securepasswords/i18n/WebGoatLabels.properties
+    line_start: 1
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-009
+    scenario_id: pending.webgoat.webgoatlabels-1-检测通用硬编码凭据
+    family: credential_management
+    title: 检测通用硬编码凭据 @ WebGoatLabels.properties
+    description: 待复核新增项：检测通用硬编码凭据 @ src/main/resources/lessons/securepasswords/i18n/WebGoatLabels.properties:1
+    expectation: must_alert
+    canonical_file_path: src/main/resources/lessons/securepasswords/i18n/WebGoatLabels.properties
+    line_start: 1
+    line_end: 1
+    rule_type: 检测通用硬编码凭据
+    aliases:
+    - 检测通用硬编码凭据
+    source_notes: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测通用硬编码凭据
+    source_refs:
+    - src/main/resources/lessons/securepasswords/i18n/WebGoatLabels.properties:1
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-010
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: src/main/resources/lessons/securepasswords/i18n/WebGoatLabels_nl.properties
+    line_start: 1
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-010
+    scenario_id: pending.webgoat.webgoatlabels_nl-1-检测通用硬编码凭据
+    family: credential_management
+    title: 检测通用硬编码凭据 @ WebGoatLabels_nl.properties
+    description: 待复核新增项：检测通用硬编码凭据 @ src/main/resources/lessons/securepasswords/i18n/WebGoatLabels_nl.properties:1
+    expectation: must_alert
+    canonical_file_path: src/main/resources/lessons/securepasswords/i18n/WebGoatLabels_nl.properties
+    line_start: 1
+    line_end: 1
+    rule_type: 检测通用硬编码凭据
+    aliases:
+    - 检测通用硬编码凭据
+    source_notes: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测通用硬编码凭据
+    source_refs:
+    - src/main/resources/lessons/securepasswords/i18n/WebGoatLabels_nl.properties:1
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-011
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: high
+    file_path: src/main/java/org/owasp/webgoat/lessons/xxe/Ping.java
+    line_start: 29
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中发现路径穿越漏洞，并且数据流中间没有进行任何过滤。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-011
+    scenario_id: pending.webgoat.ping-29-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ Ping.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/xxe/Ping.java:29
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/xxe/Ping.java
+    line_start: 29
+    line_end: 29
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中发现路径穿越漏洞，并且数据流中间没有进行任何过滤。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/xxe/Ping.java:29
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-012
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-FILESERVER-IMPORTFILE-FILEUPLOAD
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: high
+    file_path: src/main/java/org/owasp/webgoat/webwolf/FileServer.java
+    line_start: 67
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中发现路径穿越漏洞，并且数据流中间没有进行任何过滤。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-012
+    scenario_id: pending.webgoat.fileserver-67-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ FileServer.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/webwolf/FileServer.java:67
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/webwolf/FileServer.java
+    line_start: 67
+    line_end: 67
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中发现路径穿越漏洞，并且数据流中间没有进行任何过滤。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/webwolf/FileServer.java:67
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-013
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java SQL注入漏洞
+    severity: high
+    file_path: src/main/java/org/owasp/webgoat/lessons/jwt/claimmisuse/JWTHeaderKIDEndpoint.java
+    line_start: 69
+    evidence: 检测Java SQL注入漏洞 | 检测到Java SQL注入漏洞 | 检测到Java SQL注入漏洞，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-013
+    scenario_id: pending.webgoat.jwtheaderkidendpoint-69-检测java-sql注入漏洞
+    family: sql_injection
+    title: 检测Java SQL注入漏洞 @ JWTHeaderKIDEndpoint.java
+    description: 待复核新增项：检测Java SQL注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/jwt/claimmisuse/JWTHeaderKIDEndpoint.java:69
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/jwt/claimmisuse/JWTHeaderKIDEndpoint.java
+    line_start: 69
+    line_end: 69
+    rule_type: 检测Java SQL注入漏洞
+    aliases:
+    - 检测Java SQL注入漏洞
+    source_notes: 检测Java SQL注入漏洞 | 检测到Java SQL注入漏洞 | 检测到Java SQL注入漏洞，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测Java SQL注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/jwt/claimmisuse/JWTHeaderKIDEndpoint.java:69
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-014
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java SQL注入漏洞
+    severity: high
+    file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionChallenge.java
+    line_start: 46
+    evidence: 检测Java SQL注入漏洞 | 检测到Java SQL注入漏洞 | 检测到Java SQL注入漏洞，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-014
+    scenario_id: pending.webgoat.sqlinjectionchallenge-46-检测java-sql注入漏洞
+    family: sql_injection
+    title: 检测Java SQL注入漏洞 @ SqlInjectionChallenge.java
+    description: 待复核新增项：检测Java SQL注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionChallenge.java:46
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionChallenge.java
+    line_start: 46
+    line_end: 46
+    rule_type: 检测Java SQL注入漏洞
+    aliases:
+    - 检测Java SQL注入漏洞
+    source_notes: 检测Java SQL注入漏洞 | 检测到Java SQL注入漏洞 | 检测到Java SQL注入漏洞，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测Java SQL注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionChallenge.java:46
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-015
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java SQL注入漏洞
+    severity: high
+    file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6a.java
+    line_start: 68
+    evidence: 检测Java SQL注入漏洞 | 检测到Java SQL注入漏洞 | 检测到Java SQL注入漏洞，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-015
+    scenario_id: pending.webgoat.sqlinjectionlesson6a-68-检测java-sql注入漏洞
+    family: sql_injection
+    title: 检测Java SQL注入漏洞 @ SqlInjectionLesson6a.java
+    description: 待复核新增项：检测Java SQL注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6a.java:68
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6a.java
+    line_start: 68
+    line_end: 68
+    rule_type: 检测Java SQL注入漏洞
+    aliases:
+    - 检测Java SQL注入漏洞
+    source_notes: 检测Java SQL注入漏洞 | 检测到Java SQL注入漏洞 | 检测到Java SQL注入漏洞，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测Java SQL注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6a.java:68
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-016
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java SQL注入漏洞
+    severity: high
+    file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson2.java
+    line_start: 46
+    evidence: 检测Java SQL注入漏洞 | 检测到Java SQL注入漏洞 | 检测到Java SQL注入漏洞，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-016
+    scenario_id: pending.webgoat.sqlinjectionlesson2-46-检测java-sql注入漏洞
+    family: sql_injection
+    title: 检测Java SQL注入漏洞 @ SqlInjectionLesson2.java
+    description: 待复核新增项：检测Java SQL注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson2.java:46
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson2.java
+    line_start: 46
+    line_end: 46
+    rule_type: 检测Java SQL注入漏洞
+    aliases:
+    - 检测Java SQL注入漏洞
+    source_notes: 检测Java SQL注入漏洞 | 检测到Java SQL注入漏洞 | 检测到Java SQL注入漏洞，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测Java SQL注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson2.java:46
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-017
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java SQL注入漏洞
+    severity: high
+    file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5.java
+    line_start: 60
+    evidence: 检测Java SQL注入漏洞 | 检测到Java SQL注入漏洞 | 检测到Java SQL注入漏洞，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-017
+    scenario_id: pending.webgoat.sqlinjectionlesson5-60-检测java-sql注入漏洞
+    family: sql_injection
+    title: 检测Java SQL注入漏洞 @ SqlInjectionLesson5.java
+    description: 待复核新增项：检测Java SQL注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5.java:60
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5.java
+    line_start: 60
+    line_end: 60
+    rule_type: 检测Java SQL注入漏洞
+    aliases:
+    - 检测Java SQL注入漏洞
+    source_notes: 检测Java SQL注入漏洞 | 检测到Java SQL注入漏洞 | 检测到Java SQL注入漏洞，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测Java SQL注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5.java:60
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-018
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java SQL注入漏洞
+    severity: high
+    file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson9.java
+    line_start: 92
+    evidence: 检测Java SQL注入漏洞 | 检测到Java SQL注入漏洞 | 检测到Java SQL注入漏洞，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-018
+    scenario_id: pending.webgoat.sqlinjectionlesson9-92-检测java-sql注入漏洞
+    family: sql_injection
+    title: 检测Java SQL注入漏洞 @ SqlInjectionLesson9.java
+    description: 待复核新增项：检测Java SQL注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson9.java:92
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson9.java
+    line_start: 92
+    line_end: 92
+    rule_type: 检测Java SQL注入漏洞
+    aliases:
+    - 检测Java SQL注入漏洞
+    source_notes: 检测Java SQL注入漏洞 | 检测到Java SQL注入漏洞 | 检测到Java SQL注入漏洞，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测Java SQL注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson9.java:92
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-019
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java硬编码弱密码漏洞
+    severity: high
+    file_path: src/it/java/org/owasp/webgoat/playwright/webgoat/RegistrationUITest.java
+    line_start: 27
+    evidence: 检测Java硬编码弱密码漏洞 | 检测到Java硬编码弱密码漏洞 | 检测到Java代码中存在硬编码的弱密码，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-019
+    scenario_id: pending.webgoat.registrationuitest-27-检测java硬编码弱密码漏洞
+    family: credential_management
+    title: 检测Java硬编码弱密码漏洞 @ RegistrationUITest.java
+    description: 待复核新增项：检测Java硬编码弱密码漏洞 @ src/it/java/org/owasp/webgoat/playwright/webgoat/RegistrationUITest.java:27
+    expectation: must_alert
+    canonical_file_path: src/it/java/org/owasp/webgoat/playwright/webgoat/RegistrationUITest.java
+    line_start: 27
+    line_end: 27
+    rule_type: 检测Java硬编码弱密码漏洞
+    aliases:
+    - 检测Java硬编码弱密码漏洞
+    source_notes: 检测Java硬编码弱密码漏洞 | 检测到Java硬编码弱密码漏洞 | 检测到Java代码中存在硬编码的弱密码，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测Java硬编码弱密码漏洞
+    source_refs:
+    - src/it/java/org/owasp/webgoat/playwright/webgoat/RegistrationUITest.java:27
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-020
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java硬编码弱密码漏洞
+    severity: high
+    file_path: src/it/java/org/owasp/webgoat/playwright/webwolf/JwtUITest.java
+    line_start: 19
+    evidence: 检测Java硬编码弱密码漏洞 | 检测到Java硬编码弱密码漏洞 | 检测到Java代码中存在硬编码的弱密码，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-020
+    scenario_id: pending.webgoat.jwtuitest-19-检测java硬编码弱密码漏洞
+    family: credential_management
+    title: 检测Java硬编码弱密码漏洞 @ JwtUITest.java
+    description: 待复核新增项：检测Java硬编码弱密码漏洞 @ src/it/java/org/owasp/webgoat/playwright/webwolf/JwtUITest.java:19
+    expectation: must_alert
+    canonical_file_path: src/it/java/org/owasp/webgoat/playwright/webwolf/JwtUITest.java
+    line_start: 19
+    line_end: 19
+    rule_type: 检测Java硬编码弱密码漏洞
+    aliases:
+    - 检测Java硬编码弱密码漏洞
+    source_notes: 检测Java硬编码弱密码漏洞 | 检测到Java硬编码弱密码漏洞 | 检测到Java代码中存在硬编码的弱密码，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测Java硬编码弱密码漏洞
+    source_refs:
+    - src/it/java/org/owasp/webgoat/playwright/webwolf/JwtUITest.java:19
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-021
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java硬编码弱密码漏洞
+    severity: high
+    file_path: src/main/java/org/owasp/webgoat/lessons/challenges/challenge7/Assignment7.java
+    line_start: 36
+    evidence: 检测Java硬编码弱密码漏洞 | 检测到Java硬编码弱密码漏洞 | 检测到Java代码中存在硬编码的弱密码，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-021
+    scenario_id: pending.webgoat.assignment7-36-检测java硬编码弱密码漏洞
+    family: credential_management
+    title: 检测Java硬编码弱密码漏洞 @ Assignment7.java
+    description: 待复核新增项：检测Java硬编码弱密码漏洞 @ src/main/java/org/owasp/webgoat/lessons/challenges/challenge7/Assignment7.java:36
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/challenges/challenge7/Assignment7.java
+    line_start: 36
+    line_end: 36
+    rule_type: 检测Java硬编码弱密码漏洞
+    aliases:
+    - 检测Java硬编码弱密码漏洞
+    source_notes: 检测Java硬编码弱密码漏洞 | 检测到Java硬编码弱密码漏洞 | 检测到Java代码中存在硬编码的弱密码，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测Java硬编码弱密码漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/challenges/challenge7/Assignment7.java:36
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-022
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java硬编码弱密码漏洞
+    severity: high
+    file_path: src/main/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpoint.java
+    line_start: 45
+    evidence: 检测Java硬编码弱密码漏洞 | 检测到Java硬编码弱密码漏洞 | 检测到Java代码中存在硬编码的弱密码，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-022
+    scenario_id: pending.webgoat.jwtrefreshendpoint-45-检测java硬编码弱密码漏洞
+    family: credential_management
+    title: 检测Java硬编码弱密码漏洞 @ JWTRefreshEndpoint.java
+    description: 待复核新增项：检测Java硬编码弱密码漏洞 @ src/main/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpoint.java:45
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpoint.java
+    line_start: 45
+    line_end: 45
+    rule_type: 检测Java硬编码弱密码漏洞
+    aliases:
+    - 检测Java硬编码弱密码漏洞
+    source_notes: 检测Java硬编码弱密码漏洞 | 检测到Java硬编码弱密码漏洞 | 检测到Java代码中存在硬编码的弱密码，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测Java硬编码弱密码漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpoint.java:45
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-023
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java硬编码弱密码漏洞
+    severity: high
+    file_path: src/main/java/org/owasp/webgoat/lessons/lessontemplate/SampleAttack.java
+    line_start: 27
+    evidence: 检测Java硬编码弱密码漏洞 | 检测到Java硬编码弱密码漏洞 | 检测到Java代码中存在硬编码的弱密码，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-023
+    scenario_id: pending.webgoat.sampleattack-27-检测java硬编码弱密码漏洞
+    family: credential_management
+    title: 检测Java硬编码弱密码漏洞 @ SampleAttack.java
+    description: 待复核新增项：检测Java硬编码弱密码漏洞 @ src/main/java/org/owasp/webgoat/lessons/lessontemplate/SampleAttack.java:27
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/lessontemplate/SampleAttack.java
+    line_start: 27
+    line_end: 27
+    rule_type: 检测Java硬编码弱密码漏洞
+    aliases:
+    - 检测Java硬编码弱密码漏洞
+    source_notes: 检测Java硬编码弱密码漏洞 | 检测到Java硬编码弱密码漏洞 | 检测到Java代码中存在硬编码的弱密码，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测Java硬编码弱密码漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/lessontemplate/SampleAttack.java:27
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-024
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java硬编码弱密码漏洞
+    severity: high
+    file_path: src/main/java/org/owasp/webgoat/lessons/missingac/MissingFunctionAC.java
+    line_start: 14
+    evidence: 检测Java硬编码弱密码漏洞 | 检测到Java硬编码弱密码漏洞 | 检测到Java代码中存在硬编码的弱密码，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-024
+    scenario_id: pending.webgoat.missingfunctionac-14-检测java硬编码弱密码漏洞
+    family: credential_management
+    title: 检测Java硬编码弱密码漏洞 @ MissingFunctionAC.java
+    description: 待复核新增项：检测Java硬编码弱密码漏洞 @ src/main/java/org/owasp/webgoat/lessons/missingac/MissingFunctionAC.java:14
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/missingac/MissingFunctionAC.java
+    line_start: 14
+    line_end: 14
+    rule_type: 检测Java硬编码弱密码漏洞
+    aliases:
+    - 检测Java硬编码弱密码漏洞
+    source_notes: 检测Java硬编码弱密码漏洞 | 检测到Java硬编码弱密码漏洞 | 检测到Java代码中存在硬编码的弱密码，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测Java硬编码弱密码漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/missingac/MissingFunctionAC.java:14
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-025
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java硬编码弱密码漏洞
+    severity: high
+    file_path: src/main/java/org/owasp/webgoat/lessons/passwordreset/ResetLinkAssignment.java
+    line_start: 45
+    evidence: 检测Java硬编码弱密码漏洞 | 检测到Java硬编码弱密码漏洞 | 检测到Java代码中存在硬编码的弱密码，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-025
+    scenario_id: pending.webgoat.resetlinkassignment-45-检测java硬编码弱密码漏洞
+    family: credential_management
+    title: 检测Java硬编码弱密码漏洞 @ ResetLinkAssignment.java
+    description: 待复核新增项：检测Java硬编码弱密码漏洞 @ src/main/java/org/owasp/webgoat/lessons/passwordreset/ResetLinkAssignment.java:45
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/passwordreset/ResetLinkAssignment.java
+    line_start: 45
+    line_end: 45
+    rule_type: 检测Java硬编码弱密码漏洞
+    aliases:
+    - 检测Java硬编码弱密码漏洞
+    source_notes: 检测Java硬编码弱密码漏洞 | 检测到Java硬编码弱密码漏洞 | 检测到Java代码中存在硬编码的弱密码，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测Java硬编码弱密码漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/passwordreset/ResetLinkAssignment.java:45
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-026
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java硬编码弱密码漏洞
+    severity: high
+    file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6b.java
+    line_start: 42
+    evidence: 检测Java硬编码弱密码漏洞 | 检测到Java硬编码弱密码漏洞 | 检测到Java代码中存在硬编码的弱密码，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-026
+    scenario_id: pending.webgoat.sqlinjectionlesson6b-42-检测java硬编码弱密码漏洞
+    family: credential_management
+    title: 检测Java硬编码弱密码漏洞 @ SqlInjectionLesson6b.java
+    description: 待复核新增项：检测Java硬编码弱密码漏洞 @ src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6b.java:42
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6b.java
+    line_start: 42
+    line_end: 42
+    rule_type: 检测Java硬编码弱密码漏洞
+    aliases:
+    - 检测Java硬编码弱密码漏洞
+    source_notes: 检测Java硬编码弱密码漏洞 | 检测到Java硬编码弱密码漏洞 | 检测到Java代码中存在硬编码的弱密码，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测Java硬编码弱密码漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6b.java:42
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-027
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-VULNERABLECOMPONENTSLESSON-COMPLETED-VULNERABLECOMPONENTS-ATTACK1
+  owasp_category: A08 Software and Data Integrity Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测 Java XStream 不安全反序列化
+    severity: high
+    file_path: src/main/java/org/owasp/webgoat/lessons/vulnerablecomponents/VulnerableComponentsLesson.java
+    line_start: 42
+    evidence: 检测 Java XStream 不安全反序列化 | 检测 Java XStream 不安全反序列化 | XStream Unsafe Use
+      in Context Sink
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-027
+    scenario_id: pending.webgoat.vulnerablecomponentslesson-42-检测-java-xstream-不安全反序列化
+    family: deserialization
+    title: 检测 Java XStream 不安全反序列化 @ VulnerableComponentsLesson.java
+    description: 待复核新增项：检测 Java XStream 不安全反序列化 @ src/main/java/org/owasp/webgoat/lessons/vulnerablecomponents/VulnerableComponentsLesson.java:42
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/vulnerablecomponents/VulnerableComponentsLesson.java
+    line_start: 42
+    line_end: 42
+    rule_type: 检测 Java XStream 不安全反序列化
+    aliases:
+    - 检测 Java XStream 不安全反序列化
+    source_notes: 检测 Java XStream 不安全反序列化 | 检测 Java XStream 不安全反序列化 | XStream Unsafe
+      Use in Context Sink
+    sink_api: 检测 Java XStream 不安全反序列化
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/vulnerablecomponents/VulnerableComponentsLesson.java:42
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-028
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/authbypass/VerifyAccount.java
+    line_start: 46
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-028
+    scenario_id: pending.webgoat.verifyaccount-46-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ VerifyAccount.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/authbypass/VerifyAccount.java:46
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/authbypass/VerifyAccount.java
+    line_start: 46
+    line_end: 46
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/authbypass/VerifyAccount.java:46
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-029
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/bypassrestrictions/BypassRestrictionsFrontendValidation.java
+    line_start: 23
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-029
+    scenario_id: pending.webgoat.bypassrestrictionsfrontendvalidation-23-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ BypassRestrictionsFrontendValidation.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/bypassrestrictions/BypassRestrictionsFrontendValidation.java:23
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/bypassrestrictions/BypassRestrictionsFrontendValidation.java
+    line_start: 23
+    line_end: 23
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/bypassrestrictions/BypassRestrictionsFrontendValidation.java:23
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-030
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/cia/CIAQuiz.java
+    line_start: 27
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-030
+    scenario_id: pending.webgoat.ciaquiz-27-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ CIAQuiz.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/cia/CIAQuiz.java:27
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/cia/CIAQuiz.java
+    line_start: 27
+    line_end: 27
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/cia/CIAQuiz.java:27
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-031
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-CSRFFEEDBACK-COMPLETED-CSRF-FEEDBACK-MESSAGE
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/csrf/CSRFFeedback.java
+    line_start: 45
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-031
+    scenario_id: pending.webgoat.csrffeedback-45-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ CSRFFeedback.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/csrf/CSRFFeedback.java:45
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/csrf/CSRFFeedback.java
+    line_start: 45
+    line_end: 45
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/csrf/CSRFFeedback.java:45
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-032
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/csrf/CSRFLogin.java
+    line_start: 26
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-032
+    scenario_id: pending.webgoat.csrflogin-26-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ CSRFLogin.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/csrf/CSRFLogin.java:26
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/csrf/CSRFLogin.java
+    line_start: 26
+    line_end: 26
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/csrf/CSRFLogin.java:26
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-033
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/hijacksession/HijackSessionAssignment.java
+    line_start: 44
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-033
+    scenario_id: pending.webgoat.hijacksessionassignment-44-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ HijackSessionAssignment.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/hijacksession/HijackSessionAssignment.java:44
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/hijacksession/HijackSessionAssignment.java
+    line_start: 44
+    line_end: 44
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/hijacksession/HijackSessionAssignment.java:44
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-034
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/httpproxies/HttpBasicsInterceptRequest.java
+    line_start: 31
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-034
+    scenario_id: pending.webgoat.httpbasicsinterceptrequest-31-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ HttpBasicsInterceptRequest.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/httpproxies/HttpBasicsInterceptRequest.java:31
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/httpproxies/HttpBasicsInterceptRequest.java
+    line_start: 31
+    line_end: 31
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/httpproxies/HttpBasicsInterceptRequest.java:31
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-035
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-IDORLOGIN-COMPLETED-IDOR-LOGIN
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/idor/IDORLogin.java
+    line_start: 49
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-035
+    scenario_id: pending.webgoat.idorlogin-49-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ IDORLogin.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/idor/IDORLogin.java:49
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/idor/IDORLogin.java
+    line_start: 49
+    line_end: 49
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/idor/IDORLogin.java:49
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-036
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/jwt/JWTQuiz.java
+    line_start: 27
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-036
+    scenario_id: pending.webgoat.jwtquiz-27-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ JWTQuiz.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/jwt/JWTQuiz.java:27
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/jwt/JWTQuiz.java
+    line_start: 27
+    line_end: 27
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/jwt/JWTQuiz.java:27
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-037
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpoint.java
+    line_start: 112
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-037
+    scenario_id: pending.webgoat.jwtrefreshendpoint-112-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ JWTRefreshEndpoint.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpoint.java:112
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpoint.java
+    line_start: 112
+    line_end: 112
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpoint.java:112
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-038
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/jwt/JWTSecretKeyEndpoint.java
+    line_start: 61
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-038
+    scenario_id: pending.webgoat.jwtsecretkeyendpoint-61-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ JWTSecretKeyEndpoint.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/jwt/JWTSecretKeyEndpoint.java:61
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/jwt/JWTSecretKeyEndpoint.java
+    line_start: 61
+    line_end: 61
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/jwt/JWTSecretKeyEndpoint.java:61
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-039
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/jwt/JWTVotesEndpoint.java
+    line_start: 104
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-039
+    scenario_id: pending.webgoat.jwtvotesendpoint-104-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ JWTVotesEndpoint.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/jwt/JWTVotesEndpoint.java:104
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/jwt/JWTVotesEndpoint.java
+    line_start: 104
+    line_end: 104
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/jwt/JWTVotesEndpoint.java:104
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-040
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/logging/LogSpoofingTask.java
+    line_start: 23
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-040
+    scenario_id: pending.webgoat.logspoofingtask-23-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ LogSpoofingTask.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/logging/LogSpoofingTask.java:23
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/logging/LogSpoofingTask.java
+    line_start: 23
+    line_end: 23
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/logging/LogSpoofingTask.java:23
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-041
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/passwordreset/ResetLinkAssignment.java
+    line_start: 81
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-041
+    scenario_id: pending.webgoat.resetlinkassignment-81-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ ResetLinkAssignment.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/passwordreset/ResetLinkAssignment.java:81
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/passwordreset/ResetLinkAssignment.java
+    line_start: 81
+    line_end: 81
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/passwordreset/ResetLinkAssignment.java:81
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-042
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/passwordreset/ResetLinkAssignmentForgotPassword.java
+    line_start: 50
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-042
+    scenario_id: pending.webgoat.resetlinkassignmentforgotpassword-50-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ ResetLinkAssignmentForgotPassword.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/passwordreset/ResetLinkAssignmentForgotPassword.java:50
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/passwordreset/ResetLinkAssignmentForgotPassword.java
+    line_start: 50
+    line_end: 50
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/passwordreset/ResetLinkAssignmentForgotPassword.java:50
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-043
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-PROFILEUPLOADRETRIEVAL-GETPROFILEPICTURE-PATHTRAVERSAL-RANDOM-PICTURE
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileUploadRetrieval.java
+    line_start: 92
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-043
+    scenario_id: pending.webgoat.profileuploadretrieval-92-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ ProfileUploadRetrieval.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileUploadRetrieval.java:92
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileUploadRetrieval.java
+    line_start: 92
+    line_end: 92
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileUploadRetrieval.java:92
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-044
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-SQLINJECTIONLESSON6A-COMPLETED-SQLINJECTIONADVANCED-ATTACK6A
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6a.java
+    line_start: 44
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-044
+    scenario_id: pending.webgoat.sqlinjectionlesson6a-44-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ SqlInjectionLesson6a.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6a.java:44
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6a.java
+    line_start: 44
+    line_end: 44
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6a.java:44
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-045
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-SQLINJECTIONQUIZ-COMPLETED-SQLINJECTIONADVANCED-QUIZ
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionQuiz.java
+    line_start: 33
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-045
+    scenario_id: pending.webgoat.sqlinjectionquiz-33-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ SqlInjectionQuiz.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionQuiz.java:33
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionQuiz.java
+    line_start: 33
+    line_end: 33
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionQuiz.java:33
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-046
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-SQLINJECTIONLESSON10A-COMPLETED-SQLINJECTIONMITIGATIONS-ATTACK10A
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlInjectionLesson10a.java
+    line_start: 32
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-046
+    scenario_id: pending.webgoat.sqlinjectionlesson10a-32-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ SqlInjectionLesson10a.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlInjectionLesson10a.java:32
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlInjectionLesson10a.java
+    line_start: 32
+    line_end: 32
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlInjectionLesson10a.java:32
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-047
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-SQLONLYINPUTVALIDATION-ATTACK-SQLONLYINPUTVALIDATION-ATTACK
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlOnlyInputValidation.java
+    line_start: 31
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-047
+    scenario_id: pending.webgoat.sqlonlyinputvalidation-31-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ SqlOnlyInputValidation.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlOnlyInputValidation.java:31
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlOnlyInputValidation.java
+    line_start: 31
+    line_end: 31
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlOnlyInputValidation.java:31
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-048
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-SQLONLYINPUTVALIDATIONONKEYWORDS-ATTACK-SQLONLYINPUTVALIDATIONONKEYWORDS-ATTACK
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlOnlyInputValidationOnKeywords.java
+    line_start: 36
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-048
+    scenario_id: pending.webgoat.sqlonlyinputvalidationonkeywords-36-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ SqlOnlyInputValidationOnKeywords.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlOnlyInputValidationOnKeywords.java:36
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlOnlyInputValidationOnKeywords.java
+    line_start: 36
+    line_end: 36
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlOnlyInputValidationOnKeywords.java:36
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-049
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-SSRFTASK1-COMPLETED-SSRF-TASK1
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/ssrf/SSRFTask1.java
+    line_start: 24
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-049
+    scenario_id: pending.webgoat.ssrftask1-24-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ SSRFTask1.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/ssrf/SSRFTask1.java:24
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/ssrf/SSRFTask1.java
+    line_start: 24
+    line_end: 24
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/ssrf/SSRFTask1.java:24
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-050
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-SSRFTASK2-COMPLETED-SSRF-TASK2
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/ssrf/SSRFTask2.java
+    line_start: 29
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-050
+    scenario_id: pending.webgoat.ssrftask2-29-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ SSRFTask2.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/ssrf/SSRFTask2.java:29
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/ssrf/SSRFTask2.java
+    line_start: 29
+    line_end: 29
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/ssrf/SSRFTask2.java:29
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-051
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-CROSSSITESCRIPTINGLESSON5A-COMPLETED-CROSSSITESCRIPTING-ATTACK5A
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson5a.java
+    line_start: 49
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-051
+    scenario_id: pending.webgoat.crosssitescriptinglesson5a-49-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ CrossSiteScriptingLesson5a.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson5a.java:49
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson5a.java
+    line_start: 49
+    line_end: 49
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson5a.java:49
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-052
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-CROSSSITESCRIPTINGLESSON6A-COMPLETED-CROSSSITESCRIPTING-ATTACK6A
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson6a.java
+    line_start: 36
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-052
+    scenario_id: pending.webgoat.crosssitescriptinglesson6a-36-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ CrossSiteScriptingLesson6a.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson6a.java:36
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson6a.java
+    line_start: 36
+    line_end: 36
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson6a.java:36
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-053
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-CROSSSITESCRIPTINGQUIZ-COMPLETED-CROSSSITESCRIPTING-QUIZ
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingQuiz.java
+    line_start: 30
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-053
+    scenario_id: pending.webgoat.crosssitescriptingquiz-30-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ CrossSiteScriptingQuiz.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingQuiz.java:30
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingQuiz.java
+    line_start: 30
+    line_end: 30
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingQuiz.java:30
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-054
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-CROSSSITESCRIPTINGLESSON3-COMPLETED-CROSSSITESCRIPTING-ATTACK3
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/xss/mitigation/CrossSiteScriptingLesson3.java
+    line_start: 32
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-054
+    scenario_id: pending.webgoat.crosssitescriptinglesson3-32-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ CrossSiteScriptingLesson3.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/xss/mitigation/CrossSiteScriptingLesson3.java:32
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/xss/mitigation/CrossSiteScriptingLesson3.java
+    line_start: 32
+    line_end: 32
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/xss/mitigation/CrossSiteScriptingLesson3.java:32
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-055
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-CROSSSITESCRIPTINGLESSON4-COMPLETED-CROSSSITESCRIPTING-ATTACK4
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/xss/mitigation/CrossSiteScriptingLesson4.java
+    line_start: 24
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-055
+    scenario_id: pending.webgoat.crosssitescriptinglesson4-24-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ CrossSiteScriptingLesson4.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/xss/mitigation/CrossSiteScriptingLesson4.java:24
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/xss/mitigation/CrossSiteScriptingLesson4.java
+    line_start: 24
+    line_end: 24
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/xss/mitigation/CrossSiteScriptingLesson4.java:24
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-056
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/xxe/BlindSendFileAssignment.java
+    line_start: 70
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-056
+    scenario_id: pending.webgoat.blindsendfileassignment-70-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ BlindSendFileAssignment.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/xxe/BlindSendFileAssignment.java:70
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/xxe/BlindSendFileAssignment.java
+    line_start: 70
+    line_end: 70
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/xxe/BlindSendFileAssignment.java:70
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-057
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/xxe/ContentTypeAssignment.java
+    line_start: 48
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-057
+    scenario_id: pending.webgoat.contenttypeassignment-48-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ ContentTypeAssignment.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/xxe/ContentTypeAssignment.java:48
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/xxe/ContentTypeAssignment.java
+    line_start: 48
+    line_end: 48
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/xxe/ContentTypeAssignment.java:48
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-058
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/xxe/SimpleXXE.java
+    line_start: 51
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-058
+    scenario_id: pending.webgoat.simplexxe-51-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ SimpleXXE.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/owasp/webgoat/lessons/xxe/SimpleXXE.java:51
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/xxe/SimpleXXE.java
+    line_start: 51
+    line_end: 51
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/xxe/SimpleXXE.java:51
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-059
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/authbypass/VerifyAccount.java
+    line_start: 46
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-059
+    scenario_id: pending.webgoat.verifyaccount-46-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ VerifyAccount.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/authbypass/VerifyAccount.java:46
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/authbypass/VerifyAccount.java
+    line_start: 46
+    line_end: 46
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/authbypass/VerifyAccount.java:46
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-060
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/bypassrestrictions/BypassRestrictionsFrontendValidation.java
+    line_start: 23
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-060
+    scenario_id: pending.webgoat.bypassrestrictionsfrontendvalidation-23-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ BypassRestrictionsFrontendValidation.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/bypassrestrictions/BypassRestrictionsFrontendValidation.java:23
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/bypassrestrictions/BypassRestrictionsFrontendValidation.java
+    line_start: 23
+    line_end: 23
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/bypassrestrictions/BypassRestrictionsFrontendValidation.java:23
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-061
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/challenges/challenge5/Assignment5.java
+    line_start: 35
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-061
+    scenario_id: pending.webgoat.assignment5-35-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ Assignment5.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/challenges/challenge5/Assignment5.java:35
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/challenges/challenge5/Assignment5.java
+    line_start: 35
+    line_end: 35
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/challenges/challenge5/Assignment5.java:35
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-062
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/challenges/challenge7/Assignment7.java
+    line_start: 76
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-062
+    scenario_id: pending.webgoat.assignment7-76-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ Assignment7.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/challenges/challenge7/Assignment7.java:76
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/challenges/challenge7/Assignment7.java
+    line_start: 76
+    line_end: 76
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/challenges/challenge7/Assignment7.java:76
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-063
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/cia/CIAQuiz.java
+    line_start: 27
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-063
+    scenario_id: pending.webgoat.ciaquiz-27-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ CIAQuiz.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/cia/CIAQuiz.java:27
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/cia/CIAQuiz.java
+    line_start: 27
+    line_end: 27
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/cia/CIAQuiz.java:27
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-064
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/cryptography/EncodingAssignment.java
+    line_start: 31
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-064
+    scenario_id: pending.webgoat.encodingassignment-31-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ EncodingAssignment.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/cryptography/EncodingAssignment.java:31
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/cryptography/EncodingAssignment.java
+    line_start: 31
+    line_end: 31
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/cryptography/EncodingAssignment.java:31
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-065
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-CSRFFEEDBACK-COMPLETED-CSRF-FEEDBACK-MESSAGE
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/csrf/CSRFFeedback.java
+    line_start: 45
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-065
+    scenario_id: pending.webgoat.csrffeedback-45-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ CSRFFeedback.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/csrf/CSRFFeedback.java:45
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/csrf/CSRFFeedback.java
+    line_start: 45
+    line_end: 45
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/csrf/CSRFFeedback.java:45
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-066
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/csrf/CSRFLogin.java
+    line_start: 26
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-066
+    scenario_id: pending.webgoat.csrflogin-26-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ CSRFLogin.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/csrf/CSRFLogin.java:26
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/csrf/CSRFLogin.java
+    line_start: 26
+    line_end: 26
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/csrf/CSRFLogin.java:26
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-067
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/hijacksession/HijackSessionAssignment.java
+    line_start: 44
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-067
+    scenario_id: pending.webgoat.hijacksessionassignment-44-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ HijackSessionAssignment.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/hijacksession/HijackSessionAssignment.java:44
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/hijacksession/HijackSessionAssignment.java
+    line_start: 44
+    line_end: 44
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/hijacksession/HijackSessionAssignment.java:44
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-068
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/httpbasics/HttpBasicsLesson.java
+    line_start: 24
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-068
+    scenario_id: pending.webgoat.httpbasicslesson-24-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ HttpBasicsLesson.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/httpbasics/HttpBasicsLesson.java:24
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/httpbasics/HttpBasicsLesson.java
+    line_start: 24
+    line_end: 24
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/httpbasics/HttpBasicsLesson.java:24
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-069
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/httpproxies/HttpBasicsInterceptRequest.java
+    line_start: 31
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-069
+    scenario_id: pending.webgoat.httpbasicsinterceptrequest-31-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ HttpBasicsInterceptRequest.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/httpproxies/HttpBasicsInterceptRequest.java:31
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/httpproxies/HttpBasicsInterceptRequest.java
+    line_start: 31
+    line_end: 31
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/httpproxies/HttpBasicsInterceptRequest.java:31
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-070
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-IDORLOGIN-COMPLETED-IDOR-LOGIN
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/idor/IDORLogin.java
+    line_start: 49
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-070
+    scenario_id: pending.webgoat.idorlogin-49-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ IDORLogin.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/idor/IDORLogin.java:49
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/idor/IDORLogin.java
+    line_start: 49
+    line_end: 49
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/idor/IDORLogin.java:49
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-071
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/jwt/JWTQuiz.java
+    line_start: 27
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-071
+    scenario_id: pending.webgoat.jwtquiz-27-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ JWTQuiz.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/jwt/JWTQuiz.java:27
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/jwt/JWTQuiz.java
+    line_start: 27
+    line_end: 27
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/jwt/JWTQuiz.java:27
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-072
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpoint.java
+    line_start: 86
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-072
+    scenario_id: pending.webgoat.jwtrefreshendpoint-86-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ JWTRefreshEndpoint.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpoint.java:86
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpoint.java
+    line_start: 86
+    line_end: 86
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpoint.java:86
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-073
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/jwt/JWTSecretKeyEndpoint.java
+    line_start: 61
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-073
+    scenario_id: pending.webgoat.jwtsecretkeyendpoint-61-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ JWTSecretKeyEndpoint.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/jwt/JWTSecretKeyEndpoint.java:61
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/jwt/JWTSecretKeyEndpoint.java
+    line_start: 61
+    line_end: 61
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/jwt/JWTSecretKeyEndpoint.java:61
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-074
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/jwt/JWTVotesEndpoint.java
+    line_start: 104
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-074
+    scenario_id: pending.webgoat.jwtvotesendpoint-104-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ JWTVotesEndpoint.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/jwt/JWTVotesEndpoint.java:104
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/jwt/JWTVotesEndpoint.java
+    line_start: 104
+    line_end: 104
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/jwt/JWTVotesEndpoint.java:104
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-075
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/logging/LogSpoofingTask.java
+    line_start: 23
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-075
+    scenario_id: pending.webgoat.logspoofingtask-23-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ LogSpoofingTask.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/logging/LogSpoofingTask.java:23
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/logging/LogSpoofingTask.java
+    line_start: 23
+    line_end: 23
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/logging/LogSpoofingTask.java:23
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-076
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/passwordreset/ResetLinkAssignment.java
+    line_start: 81
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-076
+    scenario_id: pending.webgoat.resetlinkassignment-81-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ ResetLinkAssignment.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/passwordreset/ResetLinkAssignment.java:81
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/passwordreset/ResetLinkAssignment.java
+    line_start: 81
+    line_end: 81
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/passwordreset/ResetLinkAssignment.java:81
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-077
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/passwordreset/ResetLinkAssignmentForgotPassword.java
+    line_start: 50
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-077
+    scenario_id: pending.webgoat.resetlinkassignmentforgotpassword-50-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ ResetLinkAssignmentForgotPassword.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/passwordreset/ResetLinkAssignmentForgotPassword.java:50
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/passwordreset/ResetLinkAssignmentForgotPassword.java
+    line_start: 50
+    line_end: 50
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/passwordreset/ResetLinkAssignmentForgotPassword.java:50
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-078
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileZipSlip.java
+    line_start: 99
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-078
+    scenario_id: pending.webgoat.profilezipslip-99-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ ProfileZipSlip.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileZipSlip.java:99
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileZipSlip.java
+    line_start: 99
+    line_end: 99
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileZipSlip.java:99
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-079
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-SQLINJECTIONLESSON6A-COMPLETED-SQLINJECTIONADVANCED-ATTACK6A
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6a.java
+    line_start: 44
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-079
+    scenario_id: pending.webgoat.sqlinjectionlesson6a-44-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ SqlInjectionLesson6a.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6a.java:44
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6a.java
+    line_start: 44
+    line_end: 44
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6a.java:44
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-080
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-SQLINJECTIONQUIZ-COMPLETED-SQLINJECTIONADVANCED-QUIZ
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionQuiz.java
+    line_start: 33
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-080
+    scenario_id: pending.webgoat.sqlinjectionquiz-33-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ SqlInjectionQuiz.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionQuiz.java:33
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionQuiz.java
+    line_start: 33
+    line_end: 33
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionQuiz.java:33
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-081
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-SQLINJECTIONLESSON5-COMPLETED-SQLINJECTION-ATTACK5
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5.java
+    line_start: 55
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-081
+    scenario_id: pending.webgoat.sqlinjectionlesson5-55-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ SqlInjectionLesson5.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5.java:55
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5.java
+    line_start: 55
+    line_end: 55
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5.java:55
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-082
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-SQLINJECTIONLESSON10A-COMPLETED-SQLINJECTIONMITIGATIONS-ATTACK10A
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlInjectionLesson10a.java
+    line_start: 32
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-082
+    scenario_id: pending.webgoat.sqlinjectionlesson10a-32-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ SqlInjectionLesson10a.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlInjectionLesson10a.java:32
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlInjectionLesson10a.java
+    line_start: 32
+    line_end: 32
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlInjectionLesson10a.java:32
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-083
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-SQLONLYINPUTVALIDATION-ATTACK-SQLONLYINPUTVALIDATION-ATTACK
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlOnlyInputValidation.java
+    line_start: 31
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-083
+    scenario_id: pending.webgoat.sqlonlyinputvalidation-31-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ SqlOnlyInputValidation.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlOnlyInputValidation.java:31
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlOnlyInputValidation.java
+    line_start: 31
+    line_end: 31
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlOnlyInputValidation.java:31
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-084
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-SQLONLYINPUTVALIDATIONONKEYWORDS-ATTACK-SQLONLYINPUTVALIDATIONONKEYWORDS-ATTACK
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlOnlyInputValidationOnKeywords.java
+    line_start: 36
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-084
+    scenario_id: pending.webgoat.sqlonlyinputvalidationonkeywords-36-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ SqlOnlyInputValidationOnKeywords.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlOnlyInputValidationOnKeywords.java:36
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlOnlyInputValidationOnKeywords.java
+    line_start: 36
+    line_end: 36
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlOnlyInputValidationOnKeywords.java:36
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-085
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-SSRFTASK1-COMPLETED-SSRF-TASK1
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/ssrf/SSRFTask1.java
+    line_start: 24
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-085
+    scenario_id: pending.webgoat.ssrftask1-24-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ SSRFTask1.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/ssrf/SSRFTask1.java:24
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/ssrf/SSRFTask1.java
+    line_start: 24
+    line_end: 24
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/ssrf/SSRFTask1.java:24
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-086
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-SSRFTASK2-COMPLETED-SSRF-TASK2
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/ssrf/SSRFTask2.java
+    line_start: 29
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-086
+    scenario_id: pending.webgoat.ssrftask2-29-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ SSRFTask2.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/ssrf/SSRFTask2.java:29
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/ssrf/SSRFTask2.java
+    line_start: 29
+    line_end: 29
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/ssrf/SSRFTask2.java:29
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-087
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-CROSSSITESCRIPTINGLESSON5A-COMPLETED-CROSSSITESCRIPTING-ATTACK5A
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson5a.java
+    line_start: 49
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-087
+    scenario_id: pending.webgoat.crosssitescriptinglesson5a-49-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ CrossSiteScriptingLesson5a.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson5a.java:49
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson5a.java
+    line_start: 49
+    line_end: 49
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson5a.java:49
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-088
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-CROSSSITESCRIPTINGLESSON6A-COMPLETED-CROSSSITESCRIPTING-ATTACK6A
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson6a.java
+    line_start: 36
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-088
+    scenario_id: pending.webgoat.crosssitescriptinglesson6a-36-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ CrossSiteScriptingLesson6a.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson6a.java:36
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson6a.java
+    line_start: 36
+    line_end: 36
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson6a.java:36
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-089
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-CROSSSITESCRIPTINGQUIZ-COMPLETED-CROSSSITESCRIPTING-QUIZ
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingQuiz.java
+    line_start: 30
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-089
+    scenario_id: pending.webgoat.crosssitescriptingquiz-30-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ CrossSiteScriptingQuiz.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingQuiz.java:30
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingQuiz.java
+    line_start: 30
+    line_end: 30
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingQuiz.java:30
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-090
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-CROSSSITESCRIPTINGLESSON3-COMPLETED-CROSSSITESCRIPTING-ATTACK3
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/xss/mitigation/CrossSiteScriptingLesson3.java
+    line_start: 32
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-090
+    scenario_id: pending.webgoat.crosssitescriptinglesson3-32-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ CrossSiteScriptingLesson3.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/xss/mitigation/CrossSiteScriptingLesson3.java:32
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/xss/mitigation/CrossSiteScriptingLesson3.java
+    line_start: 32
+    line_end: 32
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/xss/mitigation/CrossSiteScriptingLesson3.java:32
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-091
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-CROSSSITESCRIPTINGLESSON4-COMPLETED-CROSSSITESCRIPTING-ATTACK4
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/xss/mitigation/CrossSiteScriptingLesson4.java
+    line_start: 24
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-091
+    scenario_id: pending.webgoat.crosssitescriptinglesson4-24-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ CrossSiteScriptingLesson4.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/xss/mitigation/CrossSiteScriptingLesson4.java:24
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/xss/mitigation/CrossSiteScriptingLesson4.java
+    line_start: 24
+    line_end: 24
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/xss/mitigation/CrossSiteScriptingLesson4.java:24
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-092
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/xxe/BlindSendFileAssignment.java
+    line_start: 70
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-092
+    scenario_id: pending.webgoat.blindsendfileassignment-70-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ BlindSendFileAssignment.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/xxe/BlindSendFileAssignment.java:70
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/xxe/BlindSendFileAssignment.java
+    line_start: 70
+    line_end: 70
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/xxe/BlindSendFileAssignment.java:70
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-093
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/xxe/ContentTypeAssignment.java
+    line_start: 48
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-093
+    scenario_id: pending.webgoat.contenttypeassignment-48-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ ContentTypeAssignment.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/xxe/ContentTypeAssignment.java:48
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/xxe/ContentTypeAssignment.java
+    line_start: 48
+    line_end: 48
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/xxe/ContentTypeAssignment.java:48
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-094
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/xxe/SimpleXXE.java
+    line_start: 51
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-094
+    scenario_id: pending.webgoat.simplexxe-51-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ SimpleXXE.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/lessons/xxe/SimpleXXE.java:51
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/xxe/SimpleXXE.java
+    line_start: 51
+    line_end: 51
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/xxe/SimpleXXE.java:51
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-095
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/webwolf/FileServer.java
+    line_start: 88
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-095
+    scenario_id: pending.webgoat.fileserver-88-检测java路径穿越漏洞
+    family: path_traversal
+    title: 检测Java路径穿越漏洞 @ FileServer.java
+    description: 待复核新增项：检测Java路径穿越漏洞 @ src/main/java/org/owasp/webgoat/webwolf/FileServer.java:88
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/webwolf/FileServer.java
+    line_start: 88
+    line_end: 88
+    rule_type: 检测Java路径穿越漏洞
+    aliases:
+    - 检测Java路径穿越漏洞
+    source_notes: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    sink_api: 检测Java路径穿越漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/webwolf/FileServer.java:88
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-096
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: low
+    file_path: src/main/java/org/dummy/insecure/framework/VulnerableTaskHolder.java
+    line_start: 63
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测Java Servlet和SpringMVC中的命令注入漏洞
+      | 发现Java代码中可能存在命令注入，但并没有发现参数可控。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-096
+    scenario_id: pending.webgoat.vulnerabletaskholder-63-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ VulnerableTaskHolder.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/org/dummy/insecure/framework/VulnerableTaskHolder.java:63
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/dummy/insecure/framework/VulnerableTaskHolder.java
+    line_start: 63
+    line_end: 63
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测Java Servlet和SpringMVC中的命令注入漏洞
+      | 发现Java代码中可能存在命令注入，但并没有发现参数可控。
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/org/dummy/insecure/framework/VulnerableTaskHolder.java:63
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-097
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A10 Server-Side Request Forgery
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/jwt/claimmisuse/JWTHeaderJKUEndpoint.java
+    line_start: 50
+    evidence: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 | 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+      | 发现Java SpringBoot SSRF漏洞,但是有数据流过滤。
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-097
+    scenario_id: pending.webgoat.jwtheaderjkuendpoint-50-检测java-springboot-服务端请求伪造-ssrf-漏洞
+    family: ssrf
+    title: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 @ JWTHeaderJKUEndpoint.java
+    description: 待复核新增项：检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 @ src/main/java/org/owasp/webgoat/lessons/jwt/claimmisuse/JWTHeaderJKUEndpoint.java:50
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/jwt/claimmisuse/JWTHeaderJKUEndpoint.java
+    line_start: 50
+    line_end: 50
+    rule_type: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+    aliases:
+    - 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+    source_notes: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞 | 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+      | 发现Java SpringBoot SSRF漏洞,但是有数据流过滤。
+    sink_api: 检测Java SpringBoot 服务端请求伪造(SSRF)漏洞
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/jwt/claimmisuse/JWTHeaderJKUEndpoint.java:50
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-098
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A06 Vulnerable and Outdated Components
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 'SCA: 检测Java Spring Boot Devtools使用'
+    severity: info
+    file_path: pom.xml
+    line_start: 1
+    evidence: 'SCA: 检测Java Spring Boot Devtools使用 | 检测到Java Spring Boot Devtools的使用
+      | 检测到Java Spring Boot Devtools的使用'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-098
+    scenario_id: pending.webgoat.pom-1-sca-检测java-spring-boot-devtools使用
+    family: vulnerable_component
+    title: 'SCA: 检测Java Spring Boot Devtools使用 @ pom.xml'
+    description: '待复核新增项：SCA: 检测Java Spring Boot Devtools使用 @ pom.xml:1'
+    expectation: must_alert
+    canonical_file_path: pom.xml
+    line_start: 1
+    line_end: 1
+    rule_type: 'SCA: 检测Java Spring Boot Devtools使用'
+    aliases:
+    - 'SCA: 检测Java Spring Boot Devtools使用'
+    source_notes: 'SCA: 检测Java Spring Boot Devtools使用 | 检测到Java Spring Boot Devtools的使用
+      | 检测到Java Spring Boot Devtools的使用'
+    sink_api: 'SCA: 检测Java Spring Boot Devtools使用'
+    source_refs:
+    - pom.xml:1
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。

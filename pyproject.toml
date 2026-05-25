@@ -1,0 +1,14 @@
+[project]
+name = "irify-benchmark"
+version = "0.1.0"
+description = "IRify code scan benchmark framework"
+requires-python = ">=3.10"
+dependencies = [
+  "PyYAML>=6.0",
+  "PyMuPDF>=1.23",
+  "PyPDF2>=3.0",
+]
+
+[project.scripts]
+irify-benchmark = "irify_benchmark.cli:main"
+

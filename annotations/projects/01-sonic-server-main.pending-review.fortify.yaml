@@ -1,0 +1,114 @@
+project: sonic-server-main
+tool: fortify
+generated_from: /home/zpy/goproject/IRify_SAST/.ai/task-runs/benchmark-framework/projects/01-sonic-server-main/artifacts/truth-evaluation.json
+summary:
+  total: 3
+  by_priority:
+    high: 3
+notes:
+- 这是待复核 finding 转出的 review case 草案，不自动参与正式真值评估。
+- 人工确认后，可按需要提升到 JavaSecLab.review.yaml 的 manual_cases 或 suppressed_findings。
+- candidate_case_ids 非空时，优先判断是否应并入已有 case，而不是直接新增。
+review_cases:
+- review_case_id: PENDING-FORTIFY-001
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Hardcoded Password'
+    severity: critical
+    file_path: env
+    line_start: 12
+    evidence: 'Sink: | File: .env:12'
+  proposed_case:
+    case_id: REVIEW-SONIC-SERVER-MAIN-001
+    scenario_id: pending.sonic-server-main.env-12-password-management-hardcoded-password
+    family: credential_management
+    title: 'Password Management: Hardcoded Password @ env'
+    description: '待复核新增项：Password Management: Hardcoded Password @ env:12'
+    expectation: must_alert
+    canonical_file_path: env
+    line_start: 12
+    line_end: 12
+    rule_type: 'Password Management: Hardcoded Password'
+    aliases:
+    - 'Password Management: Hardcoded Password'
+    source_notes: 'Sink: | File: .env:12'
+    sink_api: 'Password Management: Hardcoded Password'
+    source_refs:
+    - env:12
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-002
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Hardcoded Password'
+    severity: high
+    file_path: github/workflows/maven.yml
+    line_start: 25
+    evidence: 'Sink: ConfigPair | File: .github/workflows/maven.yml:25'
+  proposed_case:
+    case_id: REVIEW-SONIC-SERVER-MAIN-002
+    scenario_id: pending.sonic-server-main.maven-25-password-management-hardcoded-password
+    family: credential_management
+    title: 'Password Management: Hardcoded Password @ maven.yml'
+    description: '待复核新增项：Password Management: Hardcoded Password @ github/workflows/maven.yml:25'
+    expectation: must_alert
+    canonical_file_path: github/workflows/maven.yml
+    line_start: 25
+    line_end: 25
+    rule_type: 'Password Management: Hardcoded Password'
+    aliases:
+    - 'Password Management: Hardcoded Password'
+    source_notes: 'Sink: ConfigPair | File: .github/workflows/maven.yml:25'
+    sink_api: 'Password Management: Hardcoded Password'
+    source_refs:
+    - github/workflows/maven.yml:25
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-003
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A08 Software and Data Integrity Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: Access Specifier Manipulation
+    severity: high
+    file_path: src/main/java/org/cloud/sonic/controller/services/impl/base/SonicServiceImpl.java
+    line_start: 72
+    evidence: 'Sink: setAccessible() | File: sonic-server-controller/src/main/java/org/cloud/sonic/controller/services/impl/base/SonicServiceImpl.java:72'
+  proposed_case:
+    case_id: REVIEW-SONIC-SERVER-MAIN-003
+    scenario_id: pending.sonic-server-main.sonicserviceimpl-72-access-specifier-manipulation
+    family: software_data_integrity_failure
+    title: Access Specifier Manipulation @ SonicServiceImpl.java
+    description: 待复核新增项：Access Specifier Manipulation @ src/main/java/org/cloud/sonic/controller/services/impl/base/SonicServiceImpl.java:72
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/cloud/sonic/controller/services/impl/base/SonicServiceImpl.java
+    line_start: 72
+    line_end: 72
+    rule_type: Access Specifier Manipulation
+    aliases:
+    - Access Specifier Manipulation
+    source_notes: 'Sink: setAccessible() | File: sonic-server-controller/src/main/java/org/cloud/sonic/controller/services/impl/base/SonicServiceImpl.java:72'
+    sink_api: Access Specifier Manipulation
+    source_refs:
+    - src/main/java/org/cloud/sonic/controller/services/impl/base/SonicServiceImpl.java:72
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。

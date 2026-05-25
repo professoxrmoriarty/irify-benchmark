@@ -1,0 +1,695 @@
+openapi: 3.0.3
+info:
+  title: IRify Benchmark API
+  description: |
+    REST API for the irify-benchmark framework. Provides endpoints for
+    project management, case annotations, engine findings, evaluation
+    results, and pending review queue.
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:8081
+    description: Local development server
+
+paths:
+  /api/projects:
+    get:
+      summary: List all projects
+      operationId: listProjects
+      tags: [Projects]
+      responses:
+        '200':
+          description: Array of projects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /api/projects/{id}:
+    get:
+      summary: Get project details
+      operationId: getProject
+      tags: [Projects]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Project details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /api/projects/{id}/files:
+    get:
+      summary: Get project file tree
+      operationId: getProjectFiles
+      tags: [Projects]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: File tree root node
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileNode'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /api/projects/{id}/files/{path}:
+    get:
+      summary: Get file content
+      operationId: getFileContent
+      tags: [Projects]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path
+          in: path
+          required: true
+          description: Relative file path within the project's source root
+          schema:
+            type: string
+      responses:
+        '200':
+          description: File content as plain text
+          content:
+            text/plain:
+              schema:
+                type: string
+        '403':
+          description: Invalid or forbidden path
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /api/projects/{id}/cases:
+    get:
+      summary: Get cases for a project
+      description: |
+        Without query parameters, returns the full CaseSet from filesystem.
+        With query parameters, returns filtered cases from the SQLite index.
+      operationId: getProjectCases
+      tags: [Cases]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: keyword
+          in: query
+          schema:
+            type: string
+        - name: cwe
+          in: query
+          schema:
+            type: string
+        - name: language
+          in: query
+          schema:
+            type: string
+        - name: tag
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: |
+            CaseSet when no filters provided; array of CaseWithProject when filters present.
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/CaseSet'
+                  - type: array
+                    items:
+                      $ref: '#/components/schemas/CaseWithProject'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /api/projects/{id}/results:
+    get:
+      summary: List evaluation results for a project
+      operationId: getProjectResults
+      tags: [Results]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Array of evaluation results
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Result'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /api/projects/{id}/findings:
+    get:
+      summary: Get engine findings for a project
+      description: |
+        Without engine/version, returns a list of available finding set versions.
+        With engine/version, returns the full FindingSet.
+      operationId: getProjectFindings
+      tags: [Results]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: engine
+          in: query
+          schema:
+            type: string
+        - name: version
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: FindingSet or version list
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/FindingSet'
+                  - type: object
+                    properties:
+                      versions:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ResultMeta'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /api/projects/{id}/raw-scan:
+    get:
+      summary: Download raw engine scan report
+      operationId: downloadRawScan
+      tags: [Results]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: engine
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Raw scan report (JSON or YAML)
+          content:
+            application/json:
+              schema:
+                type: object
+            application/x-yaml:
+              schema:
+                type: string
+          headers:
+            Content-Disposition:
+              schema:
+                type: string
+              description: Attachment filename hint
+        '400':
+          description: engine and version required
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /api/cases:
+    get:
+      summary: Search cases across all projects
+      operationId: searchCases
+      tags: [Cases]
+      parameters:
+        - name: project_id
+          in: query
+          schema:
+            type: string
+        - name: keyword
+          in: query
+          schema:
+            type: string
+        - name: cwe
+          in: query
+          schema:
+            type: string
+        - name: language
+          in: query
+          schema:
+            type: string
+        - name: tag
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Filtered cases with project info
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  cases:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/CaseWithProject'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /api/pending:
+    get:
+      summary: Get all pending review items
+      operationId: getPendingQueue
+      tags: [Review]
+      responses:
+        '200':
+          description: Aggregated pending items across all projects
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PendingItem'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /api/pending/{itemId}/approve:
+    post:
+      summary: Approve a pending item
+      operationId: approvePendingItem
+      tags: [Review]
+      parameters:
+        - name: itemId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reviewer:
+                  type: string
+                  default: user
+                notes:
+                  type: string
+      responses:
+        '200':
+          description: Item approved
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+        '404':
+          description: Item not found
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /api/pending/{itemId}/reject:
+    post:
+      summary: Reject a pending item
+      operationId: rejectPendingItem
+      tags: [Review]
+      parameters:
+        - name: itemId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reviewer:
+                  type: string
+                  default: user
+                reason:
+                  type: string
+      responses:
+        '200':
+          description: Item rejected
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+        '404':
+          description: Item not found
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+components:
+  schemas:
+    Project:
+      type: object
+      properties:
+        project_id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        language:
+          type: string
+        framework:
+          type: string
+        source_root:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+
+    FileNode:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+          enum: [file, directory]
+        path:
+          type: string
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/FileNode'
+
+    CaseSet:
+      type: object
+      properties:
+        project_id:
+          type: string
+        version:
+          type: string
+        cases:
+          type: array
+          items:
+            $ref: '#/components/schemas/Case'
+
+    Case:
+      type: object
+      properties:
+        case_id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        vuln_desc:
+          type: string
+        language:
+          type: string
+        source_code:
+          type: string
+        expectation:
+          $ref: '#/components/schemas/Expectation'
+        metadata:
+          $ref: '#/components/schemas/Metadata'
+        notes:
+          type: string
+
+    CaseWithProject:
+      allOf:
+        - $ref: '#/components/schemas/Case'
+        - type: object
+          properties:
+            project:
+              $ref: '#/components/schemas/Project'
+
+    Expectation:
+      type: object
+      properties:
+        type:
+          type: string
+        flow:
+          $ref: '#/components/schemas/Flow'
+
+    Flow:
+      type: object
+      properties:
+        source:
+          $ref: '#/components/schemas/Location'
+        sanitizers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Sanitizer'
+        sink:
+          $ref: '#/components/schemas/Location'
+
+    Location:
+      type: object
+      properties:
+        symbol:
+          type: string
+        line:
+          type: integer
+        column:
+          type: integer
+        file:
+          type: string
+
+    Sanitizer:
+      allOf:
+        - $ref: '#/components/schemas/Location'
+        - type: object
+          properties:
+            effective:
+              type: boolean
+
+    Metadata:
+      type: object
+      properties:
+        cwe:
+          type: string
+        framework:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+
+    FindingSet:
+      type: object
+      properties:
+        benchmark_id:
+          type: string
+        engine:
+          type: string
+        engine_version:
+          type: string
+        scan_time:
+          type: string
+          format: date-time
+        program_name:
+          type: string
+        findings:
+          type: array
+          items:
+            $ref: '#/components/schemas/Finding'
+
+    Finding:
+      type: object
+      properties:
+        rule_id:
+          type: string
+        rule_name:
+          type: string
+        severity:
+          type: string
+        confidence:
+          type: string
+        flow:
+          $ref: '#/components/schemas/Flow'
+
+    Result:
+      type: object
+      properties:
+        benchmark_id:
+          type: string
+        engine:
+          type: string
+        engine_version:
+          type: string
+        scan_time:
+          type: string
+          format: date-time
+        summary:
+          $ref: '#/components/schemas/Summary'
+        case_results:
+          type: array
+          items:
+            $ref: '#/components/schemas/CaseResult'
+        pending_review:
+          type: array
+          items:
+            $ref: '#/components/schemas/PendingItem'
+
+    ResultMeta:
+      type: object
+      properties:
+        project_id:
+          type: string
+        engine:
+          type: string
+        engine_version:
+          type: string
+        scan_time:
+          type: string
+          format: date-time
+
+    Summary:
+      type: object
+      properties:
+        total_cases:
+          type: integer
+        tp:
+          type: integer
+        fn:
+          type: integer
+        fp:
+          type: integer
+        tn:
+          type: integer
+        recall:
+          type: number
+        precision:
+          type: number
+        f1:
+          type: number
+
+    CaseResult:
+      type: object
+      properties:
+        case_id:
+          type: string
+        status:
+          type: string
+          description: 'One of: tp, fn, fp, tn'
+        matched_finding:
+          $ref: '#/components/schemas/MatchedFinding'
+        match_score:
+          type: number
+        match_details:
+          $ref: '#/components/schemas/MatchDetails'
+
+    MatchedFinding:
+      type: object
+      properties:
+        rule_id:
+          type: string
+        rule_name:
+          type: string
+        severity:
+          type: string
+
+    MatchDetails:
+      type: object
+      properties:
+        source_match:
+          type: boolean
+        sink_match:
+          type: boolean
+        sanitizer_match:
+          type: boolean
+        trace_complete:
+          type: boolean
+        line_distance:
+          type: integer
+
+    PendingItem:
+      type: object
+      properties:
+        item_id:
+          type: string
+        project_id:
+          type: string
+        source:
+          type: string
+        status:
+          type: string
+        proposed_case:
+          $ref: '#/components/schemas/Case'
+        original_finding:
+          $ref: '#/components/schemas/Finding'
+        submitted_at:
+          type: string
+          format: date-time
+        reviewed_at:
+          type: string
+          format: date-time
+        reviewer:
+          type: string
+        review_notes:
+          type: string
+
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        text/plain:
+          schema:
+            type: string
+
+    InternalError:
+      description: Internal server error
+      content:
+        text/plain:
+          schema:
+            type: string

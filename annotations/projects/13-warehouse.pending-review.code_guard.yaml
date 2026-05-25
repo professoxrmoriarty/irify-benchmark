@@ -1,0 +1,11 @@
+project: warehouse
+tool: code_guard
+generated_from: /home/zpy/goproject/IRify_SAST/.ai/task-runs/benchmark-framework/projects/13-warehouse/artifacts/truth-evaluation.json
+summary:
+  total: 0
+  by_priority: {}
+notes:
+- 这是待复核 finding 转出的 review case 草案，不自动参与正式真值评估。
+- 人工确认后，可按需要提升到 JavaSecLab.review.yaml 的 manual_cases 或 suppressed_findings。
+- candidate_case_ids 非空时，优先判断是否应并入已有 case，而不是直接新增。
+review_cases: []

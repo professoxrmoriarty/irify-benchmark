@@ -1,0 +1,1288 @@
+project: carRental
+tool: fortify
+generated_from: /home/zpy/goproject/IRify_SAST/.ai/task-runs/benchmark-framework/projects/14-carrental/artifacts/truth-evaluation.json
+summary:
+  total: 37
+  by_priority:
+    high: 37
+notes:
+- 这是待复核 finding 转出的 review case 草案，不自动参与正式真值评估。
+- 人工确认后，可按需要提升到 JavaSecLab.review.yaml 的 manual_cases 或 suppressed_findings。
+- candidate_case_ids 非空时，优先判断是否应并入已有 case，而不是直接新增。
+review_cases:
+- review_case_id: PENDING-FORTIFY-001
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: Path Manipulation
+    severity: critical
+    file_path: src/main/java/com/yeqifu/bus/controller/CarController.java
+    line_start: 42
+    evidence: 'Source: addCar(0) | File: src/main/java/com/yeqifu/bus/controller/CarController.java:42'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-001
+    scenario_id: pending.carrental.carcontroller-42-path-manipulation
+    family: path_traversal
+    title: Path Manipulation @ CarController.java
+    description: 待复核新增项：Path Manipulation @ src/main/java/com/yeqifu/bus/controller/CarController.java:42
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/bus/controller/CarController.java
+    line_start: 42
+    line_end: 42
+    rule_type: Path Manipulation
+    aliases:
+    - Path Manipulation
+    source_notes: 'Source: addCar(0) | File: src/main/java/com/yeqifu/bus/controller/CarController.java:42'
+    sink_api: Path Manipulation
+    source_refs:
+    - src/main/java/com/yeqifu/bus/controller/CarController.java:42
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-002
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: Path Manipulation
+    severity: critical
+    file_path: src/main/java/com/yeqifu/bus/service/impl/CarServiceImpl.java
+    line_start: 60
+    evidence: 'Source: com.yeqifu.bus.mapper.CarMapper.selectByPrimaryKey() | File:
+      src/main/java/com/yeqifu/bus/service/impl/CarServiceImpl.java:60'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-002
+    scenario_id: pending.carrental.carserviceimpl-60-path-manipulation
+    family: path_traversal
+    title: Path Manipulation @ CarServiceImpl.java
+    description: 待复核新增项：Path Manipulation @ src/main/java/com/yeqifu/bus/service/impl/CarServiceImpl.java:60
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/bus/service/impl/CarServiceImpl.java
+    line_start: 60
+    line_end: 60
+    rule_type: Path Manipulation
+    aliases:
+    - Path Manipulation
+    source_notes: 'Source: com.yeqifu.bus.mapper.CarMapper.selectByPrimaryKey() |
+      File: src/main/java/com/yeqifu/bus/service/impl/CarServiceImpl.java:60'
+    sink_api: Path Manipulation
+    source_refs:
+    - src/main/java/com/yeqifu/bus/service/impl/CarServiceImpl.java:60
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-003
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-FILE-UPLOADFILE-UPLOADFILE
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: Path Manipulation
+    severity: critical
+    file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+    line_start: 36
+    evidence: 'Source: uploadFile(0) | File: src/main/java/com/yeqifu/sys/controller/FileController.java:36'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-003
+    scenario_id: pending.carrental.filecontroller-36-path-manipulation
+    family: path_traversal
+    title: Path Manipulation @ FileController.java
+    description: 待复核新增项：Path Manipulation @ src/main/java/com/yeqifu/sys/controller/FileController.java:36
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+    line_start: 36
+    line_end: 36
+    rule_type: Path Manipulation
+    aliases:
+    - Path Manipulation
+    source_notes: 'Source: uploadFile(0) | File: src/main/java/com/yeqifu/sys/controller/FileController.java:36'
+    sink_api: Path Manipulation
+    source_refs:
+    - src/main/java/com/yeqifu/sys/controller/FileController.java:36
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-004
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: Path Manipulation
+    severity: critical
+    file_path: src/main/java/com/yeqifu/sys/utils/AppFileUtils.java
+    line_start: 51
+    evidence: 'Sink: java.io.File.File() | File: src/main/java/com/yeqifu/sys/utils/AppFileUtils.java:51'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-004
+    scenario_id: pending.carrental.appfileutils-51-path-manipulation
+    family: path_traversal
+    title: Path Manipulation @ AppFileUtils.java
+    description: 待复核新增项：Path Manipulation @ src/main/java/com/yeqifu/sys/utils/AppFileUtils.java:51
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/sys/utils/AppFileUtils.java
+    line_start: 51
+    line_end: 51
+    rule_type: Path Manipulation
+    aliases:
+    - Path Manipulation
+    source_notes: 'Sink: java.io.File.File() | File: src/main/java/com/yeqifu/sys/utils/AppFileUtils.java:51'
+    sink_api: Path Manipulation
+    source_refs:
+    - src/main/java/com/yeqifu/sys/utils/AppFileUtils.java:51
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-005
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Insecure Submission'
+    severity: critical
+    file_path: src/main/webapp/WEB-INF/view/system/user/changePassword.jsp
+    line_start: 32
+    evidence: 'Sink: | File: src/main/webapp/WEB-INF/view/system/user/changePassword.jsp:32'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-005
+    scenario_id: pending.carrental.changepassword-32-password-management-insecure-submission
+    family: credential_management
+    title: 'Password Management: Insecure Submission @ changePassword.jsp'
+    description: '待复核新增项：Password Management: Insecure Submission @ src/main/webapp/WEB-INF/view/system/user/changePassword.jsp:32'
+    expectation: must_alert
+    canonical_file_path: src/main/webapp/WEB-INF/view/system/user/changePassword.jsp
+    line_start: 32
+    line_end: 32
+    rule_type: 'Password Management: Insecure Submission'
+    aliases:
+    - 'Password Management: Insecure Submission'
+    source_notes: 'Sink: | File: src/main/webapp/WEB-INF/view/system/user/changePassword.jsp:32'
+    sink_api: 'Password Management: Insecure Submission'
+    source_refs:
+    - src/main/webapp/WEB-INF/view/system/user/changePassword.jsp:32
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-006
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Insecure Submission'
+    severity: critical
+    file_path: src/main/webapp/static/page/login/login.html
+    line_start: 25
+    evidence: 'Sink: | File: src/main/webapp/static/page/login/login.html:25'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-006
+    scenario_id: pending.carrental.login-25-password-management-insecure-submission
+    family: credential_management
+    title: 'Password Management: Insecure Submission @ login.html'
+    description: '待复核新增项：Password Management: Insecure Submission @ src/main/webapp/static/page/login/login.html:25'
+    expectation: must_alert
+    canonical_file_path: src/main/webapp/static/page/login/login.html
+    line_start: 25
+    line_end: 25
+    rule_type: 'Password Management: Insecure Submission'
+    aliases:
+    - 'Password Management: Insecure Submission'
+    source_notes: 'Sink: | File: src/main/webapp/static/page/login/login.html:25'
+    sink_api: 'Password Management: Insecure Submission'
+    source_refs:
+    - src/main/webapp/static/page/login/login.html:25
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-007
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Insecure Submission'
+    severity: critical
+    file_path: src/main/webapp/static/page/user/changePwd.html
+    line_start: 21
+    evidence: 'Sink: | File: src/main/webapp/static/page/user/changePwd.html:21'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-007
+    scenario_id: pending.carrental.changepwd-21-password-management-insecure-submission
+    family: credential_management
+    title: 'Password Management: Insecure Submission @ changePwd.html'
+    description: '待复核新增项：Password Management: Insecure Submission @ src/main/webapp/static/page/user/changePwd.html:21'
+    expectation: must_alert
+    canonical_file_path: src/main/webapp/static/page/user/changePwd.html
+    line_start: 21
+    line_end: 21
+    rule_type: 'Password Management: Insecure Submission'
+    aliases:
+    - 'Password Management: Insecure Submission'
+    source_notes: 'Sink: | File: src/main/webapp/static/page/user/changePwd.html:21'
+    sink_api: 'Password Management: Insecure Submission'
+    source_refs:
+    - src/main/webapp/static/page/user/changePwd.html:21
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-008
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Insecure Submission'
+    severity: critical
+    file_path: target/carRental/static/page/login/login.html
+    line_start: 25
+    evidence: 'Sink: | File: target/carRental/static/page/login/login.html:25'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-008
+    scenario_id: pending.carrental.login-25-password-management-insecure-submission
+    family: credential_management
+    title: 'Password Management: Insecure Submission @ login.html'
+    description: '待复核新增项：Password Management: Insecure Submission @ target/carRental/static/page/login/login.html:25'
+    expectation: must_alert
+    canonical_file_path: target/carRental/static/page/login/login.html
+    line_start: 25
+    line_end: 25
+    rule_type: 'Password Management: Insecure Submission'
+    aliases:
+    - 'Password Management: Insecure Submission'
+    source_notes: 'Sink: | File: target/carRental/static/page/login/login.html:25'
+    sink_api: 'Password Management: Insecure Submission'
+    source_refs:
+    - target/carRental/static/page/login/login.html:25
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-009
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Insecure Submission'
+    severity: critical
+    file_path: target/carRental/static/page/user/changePwd.html
+    line_start: 21
+    evidence: 'Sink: | File: target/carRental/static/page/user/changePwd.html:21'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-009
+    scenario_id: pending.carrental.changepwd-21-password-management-insecure-submission
+    family: credential_management
+    title: 'Password Management: Insecure Submission @ changePwd.html'
+    description: '待复核新增项：Password Management: Insecure Submission @ target/carRental/static/page/user/changePwd.html:21'
+    expectation: must_alert
+    canonical_file_path: target/carRental/static/page/user/changePwd.html
+    line_start: 21
+    line_end: 21
+    rule_type: 'Password Management: Insecure Submission'
+    aliases:
+    - 'Password Management: Insecure Submission'
+    source_notes: 'Sink: | File: target/carRental/static/page/user/changePwd.html:21'
+    sink_api: 'Password Management: Insecure Submission'
+    source_refs:
+    - target/carRental/static/page/user/changePwd.html:21
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-010
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/bus/controller/CarController.java
+    line_start: 32
+    evidence: 'Source: loadAllCar(0) | File: src/main/java/com/yeqifu/bus/controller/CarController.java:32'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-010
+    scenario_id: pending.carrental.carcontroller-32-access-control-database
+    family: broken_access_control
+    title: 'Access Control: Database @ CarController.java'
+    description: '待复核新增项：Access Control: Database @ src/main/java/com/yeqifu/bus/controller/CarController.java:32'
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/bus/controller/CarController.java
+    line_start: 32
+    line_end: 32
+    rule_type: 'Access Control: Database'
+    aliases:
+    - 'Access Control: Database'
+    source_notes: 'Source: loadAllCar(0) | File: src/main/java/com/yeqifu/bus/controller/CarController.java:32'
+    sink_api: 'Access Control: Database'
+    source_refs:
+    - src/main/java/com/yeqifu/bus/controller/CarController.java:32
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-011
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/bus/controller/CheckController.java
+    line_start: 35
+    evidence: 'Source: checkRentExist(0) | File: src/main/java/com/yeqifu/bus/controller/CheckController.java:35'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-011
+    scenario_id: pending.carrental.checkcontroller-35-access-control-database
+    family: broken_access_control
+    title: 'Access Control: Database @ CheckController.java'
+    description: '待复核新增项：Access Control: Database @ src/main/java/com/yeqifu/bus/controller/CheckController.java:35'
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/bus/controller/CheckController.java
+    line_start: 35
+    line_end: 35
+    rule_type: 'Access Control: Database'
+    aliases:
+    - 'Access Control: Database'
+    source_notes: 'Source: checkRentExist(0) | File: src/main/java/com/yeqifu/bus/controller/CheckController.java:35'
+    sink_api: 'Access Control: Database'
+    source_refs:
+    - src/main/java/com/yeqifu/bus/controller/CheckController.java:35
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-012
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/bus/controller/CustomerController.java
+    line_start: 29
+    evidence: 'Source: loadAllCustomer(0) | File: src/main/java/com/yeqifu/bus/controller/CustomerController.java:29'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-012
+    scenario_id: pending.carrental.customercontroller-29-access-control-database
+    family: broken_access_control
+    title: 'Access Control: Database @ CustomerController.java'
+    description: '待复核新增项：Access Control: Database @ src/main/java/com/yeqifu/bus/controller/CustomerController.java:29'
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/bus/controller/CustomerController.java
+    line_start: 29
+    line_end: 29
+    rule_type: 'Access Control: Database'
+    aliases:
+    - 'Access Control: Database'
+    source_notes: 'Source: loadAllCustomer(0) | File: src/main/java/com/yeqifu/bus/controller/CustomerController.java:29'
+    sink_api: 'Access Control: Database'
+    source_refs:
+    - src/main/java/com/yeqifu/bus/controller/CustomerController.java:29
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-013
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/bus/controller/FranchiseeController.java
+    line_start: 40
+    evidence: 'Source: loadAllFranchisee(0) | File: src/main/java/com/yeqifu/bus/controller/FranchiseeController.java:40'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-013
+    scenario_id: pending.carrental.franchiseecontroller-40-access-control-database
+    family: broken_access_control
+    title: 'Access Control: Database @ FranchiseeController.java'
+    description: '待复核新增项：Access Control: Database @ src/main/java/com/yeqifu/bus/controller/FranchiseeController.java:40'
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/bus/controller/FranchiseeController.java
+    line_start: 40
+    line_end: 40
+    rule_type: 'Access Control: Database'
+    aliases:
+    - 'Access Control: Database'
+    source_notes: 'Source: loadAllFranchisee(0) | File: src/main/java/com/yeqifu/bus/controller/FranchiseeController.java:40'
+    sink_api: 'Access Control: Database'
+    source_refs:
+    - src/main/java/com/yeqifu/bus/controller/FranchiseeController.java:40
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-014
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/bus/controller/RentController.java
+    line_start: 43
+    evidence: 'Source: checkCustomerExist(0) | File: src/main/java/com/yeqifu/bus/controller/RentController.java:43'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-014
+    scenario_id: pending.carrental.rentcontroller-43-access-control-database
+    family: broken_access_control
+    title: 'Access Control: Database @ RentController.java'
+    description: '待复核新增项：Access Control: Database @ src/main/java/com/yeqifu/bus/controller/RentController.java:43'
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/bus/controller/RentController.java
+    line_start: 43
+    line_end: 43
+    rule_type: 'Access Control: Database'
+    aliases:
+    - 'Access Control: Database'
+    source_notes: 'Source: checkCustomerExist(0) | File: src/main/java/com/yeqifu/bus/controller/RentController.java:43'
+    sink_api: 'Access Control: Database'
+    source_refs:
+    - src/main/java/com/yeqifu/bus/controller/RentController.java:43
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-015
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/bus/service/impl/CarServiceImpl.java
+    line_start: 31
+    evidence: 'Sink: com.yeqifu.bus.mapper.CarMapper.queryAllCar() | File: src/main/java/com/yeqifu/bus/service/impl/CarServiceImpl.java:31'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-015
+    scenario_id: pending.carrental.carserviceimpl-31-access-control-database
+    family: broken_access_control
+    title: 'Access Control: Database @ CarServiceImpl.java'
+    description: '待复核新增项：Access Control: Database @ src/main/java/com/yeqifu/bus/service/impl/CarServiceImpl.java:31'
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/bus/service/impl/CarServiceImpl.java
+    line_start: 31
+    line_end: 31
+    rule_type: 'Access Control: Database'
+    aliases:
+    - 'Access Control: Database'
+    source_notes: 'Sink: com.yeqifu.bus.mapper.CarMapper.queryAllCar() | File: src/main/java/com/yeqifu/bus/service/impl/CarServiceImpl.java:31'
+    sink_api: 'Access Control: Database'
+    source_refs:
+    - src/main/java/com/yeqifu/bus/service/impl/CarServiceImpl.java:31
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-016
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/bus/service/impl/CustomerServiceImpl.java
+    line_start: 39
+    evidence: 'Sink: com.yeqifu.bus.mapper.CustomerMapper.insertSelective() | File:
+      src/main/java/com/yeqifu/bus/service/impl/CustomerServiceImpl.java:39'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-016
+    scenario_id: pending.carrental.customerserviceimpl-39-access-control-database
+    family: broken_access_control
+    title: 'Access Control: Database @ CustomerServiceImpl.java'
+    description: '待复核新增项：Access Control: Database @ src/main/java/com/yeqifu/bus/service/impl/CustomerServiceImpl.java:39'
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/bus/service/impl/CustomerServiceImpl.java
+    line_start: 39
+    line_end: 39
+    rule_type: 'Access Control: Database'
+    aliases:
+    - 'Access Control: Database'
+    source_notes: 'Sink: com.yeqifu.bus.mapper.CustomerMapper.insertSelective() |
+      File: src/main/java/com/yeqifu/bus/service/impl/CustomerServiceImpl.java:39'
+    sink_api: 'Access Control: Database'
+    source_refs:
+    - src/main/java/com/yeqifu/bus/service/impl/CustomerServiceImpl.java:39
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-017
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/bus/service/impl/FranchiseeServiceImpl.java
+    line_start: 34
+    evidence: 'Sink: com.yeqifu.bus.mapper.FranchiseeMapper.queryAllFranchisee() |
+      File: src/main/java/com/yeqifu/bus/service/impl/FranchiseeServiceImpl.java:34'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-017
+    scenario_id: pending.carrental.franchiseeserviceimpl-34-access-control-database
+    family: broken_access_control
+    title: 'Access Control: Database @ FranchiseeServiceImpl.java'
+    description: '待复核新增项：Access Control: Database @ src/main/java/com/yeqifu/bus/service/impl/FranchiseeServiceImpl.java:34'
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/bus/service/impl/FranchiseeServiceImpl.java
+    line_start: 34
+    line_end: 34
+    rule_type: 'Access Control: Database'
+    aliases:
+    - 'Access Control: Database'
+    source_notes: 'Sink: com.yeqifu.bus.mapper.FranchiseeMapper.queryAllFranchisee()
+      | File: src/main/java/com/yeqifu/bus/service/impl/FranchiseeServiceImpl.java:34'
+    sink_api: 'Access Control: Database'
+    source_refs:
+    - src/main/java/com/yeqifu/bus/service/impl/FranchiseeServiceImpl.java:34
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-018
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/stat/controller/StatController.java
+    line_start: 78
+    evidence: 'Source: loadCustomerAreaSexStatJson(0) | File: src/main/java/com/yeqifu/stat/controller/StatController.java:78'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-018
+    scenario_id: pending.carrental.statcontroller-78-access-control-database
+    family: broken_access_control
+    title: 'Access Control: Database @ StatController.java'
+    description: '待复核新增项：Access Control: Database @ src/main/java/com/yeqifu/stat/controller/StatController.java:78'
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/stat/controller/StatController.java
+    line_start: 78
+    line_end: 78
+    rule_type: 'Access Control: Database'
+    aliases:
+    - 'Access Control: Database'
+    source_notes: 'Source: loadCustomerAreaSexStatJson(0) | File: src/main/java/com/yeqifu/stat/controller/StatController.java:78'
+    sink_api: 'Access Control: Database'
+    source_refs:
+    - src/main/java/com/yeqifu/stat/controller/StatController.java:78
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-019
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/stat/service/impl/StatServiceImpl.java
+    line_start: 43
+    evidence: 'Sink: com.yeqifu.stat.mapper.StatMapper.queryOpernameYearGradeStat()
+      | File: src/main/java/com/yeqifu/stat/service/impl/StatServiceImpl.java:43'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-019
+    scenario_id: pending.carrental.statserviceimpl-43-access-control-database
+    family: broken_access_control
+    title: 'Access Control: Database @ StatServiceImpl.java'
+    description: '待复核新增项：Access Control: Database @ src/main/java/com/yeqifu/stat/service/impl/StatServiceImpl.java:43'
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/stat/service/impl/StatServiceImpl.java
+    line_start: 43
+    line_end: 43
+    rule_type: 'Access Control: Database'
+    aliases:
+    - 'Access Control: Database'
+    source_notes: 'Sink: com.yeqifu.stat.mapper.StatMapper.queryOpernameYearGradeStat()
+      | File: src/main/java/com/yeqifu/stat/service/impl/StatServiceImpl.java:43'
+    sink_api: 'Access Control: Database'
+    source_refs:
+    - src/main/java/com/yeqifu/stat/service/impl/StatServiceImpl.java:43
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-020
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/sys/controller/LogInfoController.java
+    line_start: 28
+    evidence: 'Source: loadAllLogInfo(0) | File: src/main/java/com/yeqifu/sys/controller/LogInfoController.java:28'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-020
+    scenario_id: pending.carrental.loginfocontroller-28-access-control-database
+    family: broken_access_control
+    title: 'Access Control: Database @ LogInfoController.java'
+    description: '待复核新增项：Access Control: Database @ src/main/java/com/yeqifu/sys/controller/LogInfoController.java:28'
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/sys/controller/LogInfoController.java
+    line_start: 28
+    line_end: 28
+    rule_type: 'Access Control: Database'
+    aliases:
+    - 'Access Control: Database'
+    source_notes: 'Source: loadAllLogInfo(0) | File: src/main/java/com/yeqifu/sys/controller/LogInfoController.java:28'
+    sink_api: 'Access Control: Database'
+    source_refs:
+    - src/main/java/com/yeqifu/sys/controller/LogInfoController.java:28
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-021
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/sys/controller/LoginController.java
+    line_start: 52
+    evidence: 'Source: login(0) | File: src/main/java/com/yeqifu/sys/controller/LoginController.java:52'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-021
+    scenario_id: pending.carrental.logincontroller-52-access-control-database
+    family: broken_access_control
+    title: 'Access Control: Database @ LoginController.java'
+    description: '待复核新增项：Access Control: Database @ src/main/java/com/yeqifu/sys/controller/LoginController.java:52'
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/sys/controller/LoginController.java
+    line_start: 52
+    line_end: 52
+    rule_type: 'Access Control: Database'
+    aliases:
+    - 'Access Control: Database'
+    source_notes: 'Source: login(0) | File: src/main/java/com/yeqifu/sys/controller/LoginController.java:52'
+    sink_api: 'Access Control: Database'
+    source_refs:
+    - src/main/java/com/yeqifu/sys/controller/LoginController.java:52
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-022
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/sys/controller/MenuController.java
+    line_start: 28
+    evidence: 'Source: loadIndexLeftMenuJson(0) | File: src/main/java/com/yeqifu/sys/controller/MenuController.java:28'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-022
+    scenario_id: pending.carrental.menucontroller-28-access-control-database
+    family: broken_access_control
+    title: 'Access Control: Database @ MenuController.java'
+    description: '待复核新增项：Access Control: Database @ src/main/java/com/yeqifu/sys/controller/MenuController.java:28'
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/sys/controller/MenuController.java
+    line_start: 28
+    line_end: 28
+    rule_type: 'Access Control: Database'
+    aliases:
+    - 'Access Control: Database'
+    source_notes: 'Source: loadIndexLeftMenuJson(0) | File: src/main/java/com/yeqifu/sys/controller/MenuController.java:28'
+    sink_api: 'Access Control: Database'
+    source_refs:
+    - src/main/java/com/yeqifu/sys/controller/MenuController.java:28
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-023
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/sys/controller/MessageController.java
+    line_start: 32
+    evidence: 'Source: loadAllMessage(0) | File: src/main/java/com/yeqifu/sys/controller/MessageController.java:32'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-023
+    scenario_id: pending.carrental.messagecontroller-32-access-control-database
+    family: broken_access_control
+    title: 'Access Control: Database @ MessageController.java'
+    description: '待复核新增项：Access Control: Database @ src/main/java/com/yeqifu/sys/controller/MessageController.java:32'
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/sys/controller/MessageController.java
+    line_start: 32
+    line_end: 32
+    rule_type: 'Access Control: Database'
+    aliases:
+    - 'Access Control: Database'
+    source_notes: 'Source: loadAllMessage(0) | File: src/main/java/com/yeqifu/sys/controller/MessageController.java:32'
+    sink_api: 'Access Control: Database'
+    source_refs:
+    - src/main/java/com/yeqifu/sys/controller/MessageController.java:32
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-024
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/sys/controller/NewsController.java
+    line_start: 37
+    evidence: 'Source: loadAllNews(0) | File: src/main/java/com/yeqifu/sys/controller/NewsController.java:37'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-024
+    scenario_id: pending.carrental.newscontroller-37-access-control-database
+    family: broken_access_control
+    title: 'Access Control: Database @ NewsController.java'
+    description: '待复核新增项：Access Control: Database @ src/main/java/com/yeqifu/sys/controller/NewsController.java:37'
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/sys/controller/NewsController.java
+    line_start: 37
+    line_end: 37
+    rule_type: 'Access Control: Database'
+    aliases:
+    - 'Access Control: Database'
+    source_notes: 'Source: loadAllNews(0) | File: src/main/java/com/yeqifu/sys/controller/NewsController.java:37'
+    sink_api: 'Access Control: Database'
+    source_refs:
+    - src/main/java/com/yeqifu/sys/controller/NewsController.java:37
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-025
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/sys/controller/RoleController.java
+    line_start: 28
+    evidence: 'Source: loadAllRole(0) | File: src/main/java/com/yeqifu/sys/controller/RoleController.java:28'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-025
+    scenario_id: pending.carrental.rolecontroller-28-access-control-database
+    family: broken_access_control
+    title: 'Access Control: Database @ RoleController.java'
+    description: '待复核新增项：Access Control: Database @ src/main/java/com/yeqifu/sys/controller/RoleController.java:28'
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/sys/controller/RoleController.java
+    line_start: 28
+    line_end: 28
+    rule_type: 'Access Control: Database'
+    aliases:
+    - 'Access Control: Database'
+    source_notes: 'Source: loadAllRole(0) | File: src/main/java/com/yeqifu/sys/controller/RoleController.java:28'
+    sink_api: 'Access Control: Database'
+    source_refs:
+    - src/main/java/com/yeqifu/sys/controller/RoleController.java:28
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-026
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/sys/controller/UserController.java
+    line_start: 31
+    evidence: 'Source: loadAllUser(0) | File: src/main/java/com/yeqifu/sys/controller/UserController.java:31'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-026
+    scenario_id: pending.carrental.usercontroller-31-access-control-database
+    family: broken_access_control
+    title: 'Access Control: Database @ UserController.java'
+    description: '待复核新增项：Access Control: Database @ src/main/java/com/yeqifu/sys/controller/UserController.java:31'
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/sys/controller/UserController.java
+    line_start: 31
+    line_end: 31
+    rule_type: 'Access Control: Database'
+    aliases:
+    - 'Access Control: Database'
+    source_notes: 'Source: loadAllUser(0) | File: src/main/java/com/yeqifu/sys/controller/UserController.java:31'
+    sink_api: 'Access Control: Database'
+    source_refs:
+    - src/main/java/com/yeqifu/sys/controller/UserController.java:31
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-027
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/sys/service/impl/LogInfoServiceImpl.java
+    line_start: 33
+    evidence: 'Sink: com.yeqifu.sys.mapper.LogInfoMapper.queryAllLogInfo() | File:
+      src/main/java/com/yeqifu/sys/service/impl/LogInfoServiceImpl.java:33'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-027
+    scenario_id: pending.carrental.loginfoserviceimpl-33-access-control-database
+    family: broken_access_control
+    title: 'Access Control: Database @ LogInfoServiceImpl.java'
+    description: '待复核新增项：Access Control: Database @ src/main/java/com/yeqifu/sys/service/impl/LogInfoServiceImpl.java:33'
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/sys/service/impl/LogInfoServiceImpl.java
+    line_start: 33
+    line_end: 33
+    rule_type: 'Access Control: Database'
+    aliases:
+    - 'Access Control: Database'
+    source_notes: 'Sink: com.yeqifu.sys.mapper.LogInfoMapper.queryAllLogInfo() | File:
+      src/main/java/com/yeqifu/sys/service/impl/LogInfoServiceImpl.java:33'
+    sink_api: 'Access Control: Database'
+    source_refs:
+    - src/main/java/com/yeqifu/sys/service/impl/LogInfoServiceImpl.java:33
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-028
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/sys/service/impl/MenuServiceImpl.java
+    line_start: 59
+    evidence: 'Sink: com.yeqifu.sys.mapper.MenuMapper.insertSelective() | File: src/main/java/com/yeqifu/sys/service/impl/MenuServiceImpl.java:59'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-028
+    scenario_id: pending.carrental.menuserviceimpl-59-access-control-database
+    family: broken_access_control
+    title: 'Access Control: Database @ MenuServiceImpl.java'
+    description: '待复核新增项：Access Control: Database @ src/main/java/com/yeqifu/sys/service/impl/MenuServiceImpl.java:59'
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/sys/service/impl/MenuServiceImpl.java
+    line_start: 59
+    line_end: 59
+    rule_type: 'Access Control: Database'
+    aliases:
+    - 'Access Control: Database'
+    source_notes: 'Sink: com.yeqifu.sys.mapper.MenuMapper.insertSelective() | File:
+      src/main/java/com/yeqifu/sys/service/impl/MenuServiceImpl.java:59'
+    sink_api: 'Access Control: Database'
+    source_refs:
+    - src/main/java/com/yeqifu/sys/service/impl/MenuServiceImpl.java:59
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-029
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/sys/service/impl/NewsServiceImpl.java
+    line_start: 48
+    evidence: 'Sink: com.yeqifu.sys.mapper.NewsMapper.deleteByPrimaryKey() | File:
+      src/main/java/com/yeqifu/sys/service/impl/NewsServiceImpl.java:48'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-029
+    scenario_id: pending.carrental.newsserviceimpl-48-access-control-database
+    family: broken_access_control
+    title: 'Access Control: Database @ NewsServiceImpl.java'
+    description: '待复核新增项：Access Control: Database @ src/main/java/com/yeqifu/sys/service/impl/NewsServiceImpl.java:48'
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/sys/service/impl/NewsServiceImpl.java
+    line_start: 48
+    line_end: 48
+    rule_type: 'Access Control: Database'
+    aliases:
+    - 'Access Control: Database'
+    source_notes: 'Sink: com.yeqifu.sys.mapper.NewsMapper.deleteByPrimaryKey() | File:
+      src/main/java/com/yeqifu/sys/service/impl/NewsServiceImpl.java:48'
+    sink_api: 'Access Control: Database'
+    source_refs:
+    - src/main/java/com/yeqifu/sys/service/impl/NewsServiceImpl.java:48
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-030
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/sys/service/impl/RoleServiceImpl.java
+    line_start: 89
+    evidence: 'Sink: com.yeqifu.sys.mapper.RoleMapper.deleteRoleMenuByRid() | File:
+      src/main/java/com/yeqifu/sys/service/impl/RoleServiceImpl.java:89'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-030
+    scenario_id: pending.carrental.roleserviceimpl-89-access-control-database
+    family: broken_access_control
+    title: 'Access Control: Database @ RoleServiceImpl.java'
+    description: '待复核新增项：Access Control: Database @ src/main/java/com/yeqifu/sys/service/impl/RoleServiceImpl.java:89'
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/sys/service/impl/RoleServiceImpl.java
+    line_start: 89
+    line_end: 89
+    rule_type: 'Access Control: Database'
+    aliases:
+    - 'Access Control: Database'
+    source_notes: 'Sink: com.yeqifu.sys.mapper.RoleMapper.deleteRoleMenuByRid() |
+      File: src/main/java/com/yeqifu/sys/service/impl/RoleServiceImpl.java:89'
+    sink_api: 'Access Control: Database'
+    source_refs:
+    - src/main/java/com/yeqifu/sys/service/impl/RoleServiceImpl.java:89
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-031
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/sys/service/impl/UserServiceImpl.java
+    line_start: 88
+    evidence: 'Sink: com.yeqifu.sys.mapper.RoleMapper.deleteRoleUserByUid() | File:
+      src/main/java/com/yeqifu/sys/service/impl/UserServiceImpl.java:88'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-031
+    scenario_id: pending.carrental.userserviceimpl-88-access-control-database
+    family: broken_access_control
+    title: 'Access Control: Database @ UserServiceImpl.java'
+    description: '待复核新增项：Access Control: Database @ src/main/java/com/yeqifu/sys/service/impl/UserServiceImpl.java:88'
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/sys/service/impl/UserServiceImpl.java
+    line_start: 88
+    line_end: 88
+    rule_type: 'Access Control: Database'
+    aliases:
+    - 'Access Control: Database'
+    source_notes: 'Sink: com.yeqifu.sys.mapper.RoleMapper.deleteRoleUserByUid() |
+      File: src/main/java/com/yeqifu/sys/service/impl/UserServiceImpl.java:88'
+    sink_api: 'Access Control: Database'
+    source_refs:
+    - src/main/java/com/yeqifu/sys/service/impl/UserServiceImpl.java:88
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-032
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: Path Manipulation
+    severity: high
+    file_path: src/main/java/com/yeqifu/sys/task/RecycleTempFileTask.java
+    line_start: 25
+    evidence: 'Sink: java.io.File.File() | File: src/main/java/com/yeqifu/sys/task/RecycleTempFileTask.java:25'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-032
+    scenario_id: pending.carrental.recycletempfiletask-25-path-manipulation
+    family: path_traversal
+    title: Path Manipulation @ RecycleTempFileTask.java
+    description: 待复核新增项：Path Manipulation @ src/main/java/com/yeqifu/sys/task/RecycleTempFileTask.java:25
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/yeqifu/sys/task/RecycleTempFileTask.java
+    line_start: 25
+    line_end: 25
+    rule_type: Path Manipulation
+    aliases:
+    - Path Manipulation
+    source_notes: 'Sink: java.io.File.File() | File: src/main/java/com/yeqifu/sys/task/RecycleTempFileTask.java:25'
+    sink_api: Path Manipulation
+    source_refs:
+    - src/main/java/com/yeqifu/sys/task/RecycleTempFileTask.java:25
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-033
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Password in Configuration File'
+    severity: high
+    file_path: mbg_news.xml
+    line_start: 15
+    evidence: 'Sink: | File: mbg_news.xml:15'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-033
+    scenario_id: pending.carrental.mbg_news-15-password-management-password-in-configuration-file
+    family: credential_management
+    title: 'Password Management: Password in Configuration File @ mbg_news.xml'
+    description: '待复核新增项：Password Management: Password in Configuration File @ mbg_news.xml:15'
+    expectation: must_alert
+    canonical_file_path: mbg_news.xml
+    line_start: 15
+    line_end: 15
+    rule_type: 'Password Management: Password in Configuration File'
+    aliases:
+    - 'Password Management: Password in Configuration File'
+    source_notes: 'Sink: | File: mbg_news.xml:15'
+    sink_api: 'Password Management: Password in Configuration File'
+    source_refs:
+    - mbg_news.xml:15
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-034
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Password in Configuration File'
+    severity: high
+    file_path: mbg_user.xml
+    line_start: 15
+    evidence: 'Sink: | File: mbg_user.xml:15'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-034
+    scenario_id: pending.carrental.mbg_user-15-password-management-password-in-configuration-file
+    family: credential_management
+    title: 'Password Management: Password in Configuration File @ mbg_user.xml'
+    description: '待复核新增项：Password Management: Password in Configuration File @ mbg_user.xml:15'
+    expectation: must_alert
+    canonical_file_path: mbg_user.xml
+    line_start: 15
+    line_end: 15
+    rule_type: 'Password Management: Password in Configuration File'
+    aliases:
+    - 'Password Management: Password in Configuration File'
+    source_notes: 'Sink: | File: mbg_user.xml:15'
+    sink_api: 'Password Management: Password in Configuration File'
+    source_refs:
+    - mbg_user.xml:15
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-035
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Password in Configuration File'
+    severity: high
+    file_path: src/main/resources/db.properties
+    line_start: 2
+    evidence: 'Sink: jdbc.password | File: src/main/resources/db.properties:2'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-035
+    scenario_id: pending.carrental.db-2-password-management-password-in-configuration-file
+    family: credential_management
+    title: 'Password Management: Password in Configuration File @ db.properties'
+    description: '待复核新增项：Password Management: Password in Configuration File @ src/main/resources/db.properties:2'
+    expectation: must_alert
+    canonical_file_path: src/main/resources/db.properties
+    line_start: 2
+    line_end: 2
+    rule_type: 'Password Management: Password in Configuration File'
+    aliases:
+    - 'Password Management: Password in Configuration File'
+    source_notes: 'Sink: jdbc.password | File: src/main/resources/db.properties:2'
+    sink_api: 'Password Management: Password in Configuration File'
+    source_refs:
+    - src/main/resources/db.properties:2
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-036
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Password in Configuration File'
+    severity: high
+    file_path: target/carRental/WEB-INF/classes/db.properties
+    line_start: 2
+    evidence: 'Sink: jdbc.password | File: target/carRental/WEB-INF/classes/db.properties:2'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-036
+    scenario_id: pending.carrental.db-2-password-management-password-in-configuration-file
+    family: credential_management
+    title: 'Password Management: Password in Configuration File @ db.properties'
+    description: '待复核新增项：Password Management: Password in Configuration File @ target/carRental/WEB-INF/classes/db.properties:2'
+    expectation: must_alert
+    canonical_file_path: target/carRental/WEB-INF/classes/db.properties
+    line_start: 2
+    line_end: 2
+    rule_type: 'Password Management: Password in Configuration File'
+    aliases:
+    - 'Password Management: Password in Configuration File'
+    source_notes: 'Sink: jdbc.password | File: target/carRental/WEB-INF/classes/db.properties:2'
+    sink_api: 'Password Management: Password in Configuration File'
+    source_refs:
+    - target/carRental/WEB-INF/classes/db.properties:2
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-037
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Password in Configuration File'
+    severity: high
+    file_path: target/classes/db.properties
+    line_start: 2
+    evidence: 'Sink: jdbc.password | File: target/classes/db.properties:2'
+  proposed_case:
+    case_id: REVIEW-CARRENTAL-037
+    scenario_id: pending.carrental.db-2-password-management-password-in-configuration-file
+    family: credential_management
+    title: 'Password Management: Password in Configuration File @ db.properties'
+    description: '待复核新增项：Password Management: Password in Configuration File @ target/classes/db.properties:2'
+    expectation: must_alert
+    canonical_file_path: target/classes/db.properties
+    line_start: 2
+    line_end: 2
+    rule_type: 'Password Management: Password in Configuration File'
+    aliases:
+    - 'Password Management: Password in Configuration File'
+    source_notes: 'Sink: jdbc.password | File: target/classes/db.properties:2'
+    sink_api: 'Password Management: Password in Configuration File'
+    source_refs:
+    - target/classes/db.properties:2
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。

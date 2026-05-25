@@ -1,0 +1,935 @@
+project: carRental
+source: java_truth_builder_v3
+notes:
+- 以 carRental 靶场/项目源码里的 vul/safe 或可识别场景为真值主口径。
+- IRify 内置规则来源于 sfbuildin Java 规则目录。
+- 镜像/副本源码路径不单独计数，统一折叠到 canonical file path。
+metadata:
+  summary:
+    controllers_with_cases: 1
+    total_cases: 4
+    total_vul_cases: 4
+    total_safe_cases: 0
+  rule_count: 154
+  rules_root: /home/zpy/goproject/IRify_SAST/yaklang/common/syntaxflow/sfbuildin/buildin
+  source_root: /home/zpy/goproject/IRify_SAST/.ai/task-runs/benchmark-framework/projects/14-carrental/tmp/source/carRental-master
+  readme_path: /home/zpy/goproject/IRify_SAST/.ai/task-runs/benchmark-framework/projects/14-carrental/tmp/source/carRental-master/README.md
+  review_config_path: /home/zpy/goproject/IRify_SAST/irify-benchmark/annotations/projects/14-carrental.review.yaml
+cases:
+- case_id: JSL-FILE-UPLOADFILE-UPLOADFILE
+  scenario_id: javaseclab.file.uploadfile
+  family: file_upload
+  module: sys
+  controller_name: FileController.java
+  class_tags: ''
+  controller_path: com/yeqifu/sys/controller/FileController.java
+  canonical_file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+  class_route: file
+  route: /file/uploadFile
+  method_name: uploadFile
+  title: FileController uploadFile
+  description: ''
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 36
+  line_end: 57
+  source:
+    kind: request_input
+    line_start: 36
+    line_end: 36
+    params:
+    - name: mf
+      type: MultipartFile
+      annotation: ''
+      line_start: 36
+      line_end: 36
+    notes: 请求输入参数：mf(MultipartFile)
+  sink:
+    kind: observed_finding
+    file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+    line_start: 36
+    line_end: 36
+    api: 检测Spring MVC任意文件上传漏洞
+    source_tool: irify
+    evidence: 检测Spring MVC任意文件上传漏洞 | 检测Spring MVC任意文件上传漏洞 | 发现Java SpringBoot可能存在文件上传漏洞
+  trace:
+  - stage: source
+    file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+    line_start: 36
+    line_end: 36
+    symbol: mf
+    note: 请求输入参数：mf(MultipartFile)
+  - stage: sink
+    file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+    line_start: 36
+    line_end: 36
+    symbol: 检测Spring MVC任意文件上传漏洞
+    note: 检测Spring MVC任意文件上传漏洞 | 检测Spring MVC任意文件上传漏洞 | 发现Java SpringBoot可能存在文件上传漏洞
+  safe_guards: []
+  rule_type: Unrestricted File Upload
+  aliases:
+  - 任意文件上传
+  - Unrestricted File Upload
+  - 检测Spring MVC任意文件上传漏洞
+  - 文件上传
+  - 审计Java Spring Framework文件上传保存
+  - 审计 Java Spring MultipartFile TransferTo 目标
+  - Audit Java Spring Framework Multipart File Saving
+  - Check Java Spring MVC Arbitrary File Upload Vulnerability
+  - Audit Java Spring MultipartFile TransferTo Target
+  irify_support: supported
+  irify_rule_candidates:
+  - rule_file: java/cwe-434-unrestricted-upload-file/java-spring-multipart-file-saving.sf
+    rule_id: 5a5c7d06-ece9-4a26-879c-e6e91d73b01e
+    title_zh: 审计Java Spring Framework文件上传保存
+    title: Audit Java Spring Framework Multipart File Saving
+    risk: 远程代码执行（RCE）
+  - rule_file: java/cwe-434-unrestricted-upload-file/java-spring-mvc-arbitrary-file-upload.sf
+    rule_id: 2e6a2485-77c7-4b0e-a421-476b5804a941
+    title_zh: 检测Spring MVC任意文件上传漏洞
+    title: Check Java Spring MVC Arbitrary File Upload Vulnerability
+    risk: 任意文件上传
+  - rule_file: java/lib/spring/java-spring-boot-multipartfile-params.sf
+    rule_id: 8577b8ff-aeab-4830-a21c-b5a342f0cbe3
+    title_zh: 审计 Java Spring MultipartFile TransferTo 目标
+    title: Audit Java Spring MultipartFile TransferTo Target
+    risk: 任意文件上传
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Spring MVC任意文件上传漏洞
+      severity: low
+      line_start: 36
+      evidence: 检测Spring MVC任意文件上传漏洞 | 检测Spring MVC任意文件上传漏洞 | 发现Java SpringBoot可能存在文件上传漏洞
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: hit_downgraded
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - src/main/java/com/yeqifu/sys/controller/FileController.java:36
+  notes: []
+- case_id: JSL-FILE-UPLOADIMAGE-UPLOADIMAGE
+  scenario_id: javaseclab.file.uploadimage
+  family: file_upload
+  module: sys
+  controller_name: FileController.java
+  class_tags: ''
+  controller_path: com/yeqifu/sys/controller/FileController.java
+  canonical_file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+  class_route: file
+  route: /file/uploadImage
+  method_name: uploadImage
+  title: FileController uploadImage
+  description: ''
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 61
+  line_end: 63
+  source:
+    kind: request_input
+    line_start: 61
+    line_end: 61
+    params:
+    - name: file
+      type: MultipartFile
+      annotation: ''
+      line_start: 61
+      line_end: 61
+    notes: 请求输入参数：file(MultipartFile)
+  sink:
+    kind: heuristic_sink
+    file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+    line_start: 61
+    line_end: 61
+    api: public DataGridView uploadImage(MultipartFile file){
+    source_tool: heuristic
+    evidence: public DataGridView uploadImage(MultipartFile file){
+  trace:
+  - stage: source
+    file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+    line_start: 61
+    line_end: 61
+    symbol: file
+    note: 请求输入参数：file(MultipartFile)
+  - stage: sink
+    file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+    line_start: 61
+    line_end: 61
+    symbol: public DataGridView uploadImage(MultipartFile file){
+    note: public DataGridView uploadImage(MultipartFile file){
+  safe_guards: []
+  rule_type: Unrestricted File Upload
+  aliases:
+  - 任意文件上传
+  - Unrestricted File Upload
+  - 检测Spring MVC任意文件上传漏洞
+  - 文件上传
+  - 审计Java Spring Framework文件上传保存
+  - 审计 Java Spring MultipartFile TransferTo 目标
+  - Audit Java Spring Framework Multipart File Saving
+  - Check Java Spring MVC Arbitrary File Upload Vulnerability
+  - Audit Java Spring MultipartFile TransferTo Target
+  irify_support: supported
+  irify_rule_candidates:
+  - rule_file: java/cwe-434-unrestricted-upload-file/java-spring-multipart-file-saving.sf
+    rule_id: 5a5c7d06-ece9-4a26-879c-e6e91d73b01e
+    title_zh: 审计Java Spring Framework文件上传保存
+    title: Audit Java Spring Framework Multipart File Saving
+    risk: 远程代码执行（RCE）
+  - rule_file: java/cwe-434-unrestricted-upload-file/java-spring-mvc-arbitrary-file-upload.sf
+    rule_id: 2e6a2485-77c7-4b0e-a421-476b5804a941
+    title_zh: 检测Spring MVC任意文件上传漏洞
+    title: Check Java Spring MVC Arbitrary File Upload Vulnerability
+    risk: 任意文件上传
+  - rule_file: java/lib/spring/java-spring-boot-multipartfile-params.sf
+    rule_id: 8577b8ff-aeab-4830-a21c-b5a342f0cbe3
+    title_zh: 审计 Java Spring MultipartFile TransferTo 目标
+    title: Audit Java Spring MultipartFile TransferTo Target
+    risk: 任意文件上传
+  scan_observed_rules:
+    irify: []
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: covered_missed
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - src/main/java/com/yeqifu/sys/controller/FileController.java:61
+  notes:
+  - 存在规则映射但未命中，属于漏报候选。
+- case_id: JSL-FILE-DOWNLOADSHOWFILE-DOWNLOADSHOWFILE
+  scenario_id: javaseclab.file.downloadshowfile
+  family: path_traversal
+  module: sys
+  controller_name: FileController.java
+  class_tags: ''
+  controller_path: com/yeqifu/sys/controller/FileController.java
+  canonical_file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+  class_route: file
+  route: /file/downloadShowFile
+  method_name: downloadShowFile
+  title: FileController downloadShowFile
+  description: ''
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 69
+  line_end: 71
+  source:
+    kind: request_input
+    line_start: 69
+    line_end: 69
+    params:
+    - name: path
+      type: String
+      annotation: ''
+      line_start: 69
+      line_end: 69
+    notes: 请求输入参数：path(String)
+  sink:
+    kind: observed_finding
+    file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+    line_start: 69
+    line_end: 69
+    api: 检测Java路径穿越漏洞
+    source_tool: irify
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中发现路径穿越漏洞，并且数据流中间没有进行任何过滤。
+  trace:
+  - stage: source
+    file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+    line_start: 69
+    line_end: 69
+    symbol: path
+    note: 请求输入参数：path(String)
+  - stage: sink
+    file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+    line_start: 69
+    line_end: 69
+    symbol: 检测Java路径穿越漏洞
+    note: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中发现路径穿越漏洞，并且数据流中间没有进行任何过滤。
+  safe_guards: []
+  rule_type: Path Traversal
+  aliases:
+  - 路径穿越
+  - Path Traversal
+  - Path Manipulation
+  - 检测Java路径穿越漏洞
+  - 检测Java路径遍历漏洞
+  - 输入验证：路径遍历
+  - 检测到Java Springboot文件下载路径遍历漏洞
+  - 审计Java SetHeader中文件下载位置配置点
+  - 检测 Java Spring Boot 任意文件删除
+  - 检测Java Springboot文件下载漏洞
+  - 检测Java MultipartFile路径穿越漏洞
+  - 审计 Java 文件写入操作接收点
+  - Check Java Path Traversal Vulnerability
+  - Detect Java Path Traversal Vulnerability
+  - Audit Java SetHeader for File Download Position Config
+  - Detect Java Spring Boot Arbitrary File Deletion
+  - Check Java Springboot File Download Vulnerability
+  - Check Java MultipartFile Path Traversal Vulnerability
+  - Audit Java File Write Operation Sinks
+  irify_support: supported
+  irify_rule_candidates:
+  - rule_file: java/cwe-22-path-travel/java-path-travel.sf
+    rule_id: 7b798768-13e1-4dcd-8ab5-99a6f9635605
+    title_zh: 检测Java路径穿越漏洞
+    title: Check Java Path Traversal Vulnerability
+    risk: 路径穿越
+  - rule_file: java/cwe-73-unfiltered-file-or-path/java-filedownload-attachment-filename.sf
+    rule_id: b381b01b-98e3-44f4-b046-7712dcacbe72
+    title_zh: 检测Java路径遍历漏洞
+    title: Detect Java Path Traversal Vulnerability
+    risk: 路径穿越
+  - rule_file: java/cwe-73-unfiltered-file-or-path/java-set-header-filedownload.sf
+    rule_id: df1af403-0bc8-4d7e-bcd6-6bb863559f02
+    title_zh: 审计Java SetHeader中文件下载位置配置点
+    title: Audit Java SetHeader for File Download Position Config
+    risk: 路径穿越
+  - rule_file: java/cwe-73-unfiltered-file-or-path/java-spring-arbitrary-file-deletion.sf
+    rule_id: 52765bd8-011f-49f1-a492-c8f172b3acdc
+    title_zh: 检测 Java Spring Boot 任意文件删除
+    title: Detect Java Spring Boot Arbitrary File Deletion
+    risk: 任意文件删除
+  - rule_file: java/cwe-73-unfiltered-file-or-path/java-springboot-filedownload.sf
+    rule_id: 41bfcaa6-f47e-4843-8bf0-9575eea4ee7a
+    title_zh: 检测Java Springboot文件下载漏洞
+    title: Check Java Springboot File Download Vulnerability
+    risk: 路径穿越
+  - rule_file: java/cwe-73-unfiltered-file-or-path/java-springboot-multipart-files-write.sf
+    rule_id: 15815212-0f58-413f-ad8e-a514778eea85
+    title_zh: 检测Java MultipartFile路径穿越漏洞
+    title: Check Java MultipartFile Path Traversal Vulnerability
+    risk: 路径穿越
+  - rule_file: java/lib/file-operator/java-file-write-filename-params.sf
+    rule_id: 6e39de24-d79a-4475-98b8-f1842417bca1
+    title_zh: 审计 Java 文件写入操作接收点
+    title: Audit Java File Write Operation Sinks
+    risk: 路径遍历
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测 Java Spring Boot 任意文件删除
+      severity: high
+      line_start: 69
+      evidence: 检测 Java Spring Boot 任意文件删除 | 检测 Java Spring Boot 任意文件删除 | 发现Java Spring
+        Boot应用中的任意文件删除漏洞。
+    - rule_name: 检测Java路径穿越漏洞
+      severity: high
+      line_start: 69
+      evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中发现路径穿越漏洞，并且数据流中间没有进行任何过滤。
+    code_guard: []
+    fortify:
+    - rule_name: Path Manipulation
+      severity: critical
+      line_start: 69
+      evidence: 'Source: downloadShowFile(0) | File: src/main/java/com/yeqifu/sys/controller/FileController.java:69'
+  verification_status:
+    irify: hit_exact
+    code_guard: covered_missed
+    fortify: hit_exact
+  alias_locations: []
+  source_refs:
+  - src/main/java/com/yeqifu/sys/controller/FileController.java:69
+  notes: []
+- case_id: JSL-FILE-DOWNLOADFILE-DOWNLOADFILE
+  scenario_id: javaseclab.file.downloadfile
+  family: path_traversal
+  module: sys
+  controller_name: FileController.java
+  class_tags: ''
+  controller_path: com/yeqifu/sys/controller/FileController.java
+  canonical_file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+  class_route: file
+  route: /file/downloadFile
+  method_name: downloadFile
+  title: FileController downloadFile
+  description: ''
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 80
+  line_end: 83
+  source:
+    kind: request_input
+    line_start: 80
+    line_end: 80
+    params:
+    - name: path
+      type: String
+      annotation: ''
+      line_start: 80
+      line_end: 80
+    notes: 请求输入参数：path(String)
+  sink:
+    kind: observed_finding
+    file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+    line_start: 80
+    line_end: 80
+    api: 检测Java路径穿越漏洞
+    source_tool: irify
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中发现路径穿越漏洞，并且数据流中间没有进行任何过滤。
+  trace:
+  - stage: source
+    file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+    line_start: 80
+    line_end: 80
+    symbol: path
+    note: 请求输入参数：path(String)
+  - stage: sink
+    file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+    line_start: 80
+    line_end: 80
+    symbol: 检测Java路径穿越漏洞
+    note: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中发现路径穿越漏洞，并且数据流中间没有进行任何过滤。
+  safe_guards: []
+  rule_type: Path Traversal
+  aliases:
+  - 路径穿越
+  - Path Traversal
+  - Path Manipulation
+  - 检测Java路径穿越漏洞
+  - 检测Java路径遍历漏洞
+  - 输入验证：路径遍历
+  - 检测到Java Springboot文件下载路径遍历漏洞
+  - 审计Java SetHeader中文件下载位置配置点
+  - 检测 Java Spring Boot 任意文件删除
+  - 检测Java Springboot文件下载漏洞
+  - 检测Java MultipartFile路径穿越漏洞
+  - 审计 Java 文件写入操作接收点
+  - Check Java Path Traversal Vulnerability
+  - Detect Java Path Traversal Vulnerability
+  - Audit Java SetHeader for File Download Position Config
+  - Detect Java Spring Boot Arbitrary File Deletion
+  - Check Java Springboot File Download Vulnerability
+  - Check Java MultipartFile Path Traversal Vulnerability
+  - Audit Java File Write Operation Sinks
+  irify_support: supported
+  irify_rule_candidates:
+  - rule_file: java/cwe-22-path-travel/java-path-travel.sf
+    rule_id: 7b798768-13e1-4dcd-8ab5-99a6f9635605
+    title_zh: 检测Java路径穿越漏洞
+    title: Check Java Path Traversal Vulnerability
+    risk: 路径穿越
+  - rule_file: java/cwe-73-unfiltered-file-or-path/java-filedownload-attachment-filename.sf
+    rule_id: b381b01b-98e3-44f4-b046-7712dcacbe72
+    title_zh: 检测Java路径遍历漏洞
+    title: Detect Java Path Traversal Vulnerability
+    risk: 路径穿越
+  - rule_file: java/cwe-73-unfiltered-file-or-path/java-set-header-filedownload.sf
+    rule_id: df1af403-0bc8-4d7e-bcd6-6bb863559f02
+    title_zh: 审计Java SetHeader中文件下载位置配置点
+    title: Audit Java SetHeader for File Download Position Config
+    risk: 路径穿越
+  - rule_file: java/cwe-73-unfiltered-file-or-path/java-spring-arbitrary-file-deletion.sf
+    rule_id: 52765bd8-011f-49f1-a492-c8f172b3acdc
+    title_zh: 检测 Java Spring Boot 任意文件删除
+    title: Detect Java Spring Boot Arbitrary File Deletion
+    risk: 任意文件删除
+  - rule_file: java/cwe-73-unfiltered-file-or-path/java-springboot-filedownload.sf
+    rule_id: 41bfcaa6-f47e-4843-8bf0-9575eea4ee7a
+    title_zh: 检测Java Springboot文件下载漏洞
+    title: Check Java Springboot File Download Vulnerability
+    risk: 路径穿越
+  - rule_file: java/cwe-73-unfiltered-file-or-path/java-springboot-multipart-files-write.sf
+    rule_id: 15815212-0f58-413f-ad8e-a514778eea85
+    title_zh: 检测Java MultipartFile路径穿越漏洞
+    title: Check Java MultipartFile Path Traversal Vulnerability
+    risk: 路径穿越
+  - rule_file: java/lib/file-operator/java-file-write-filename-params.sf
+    rule_id: 6e39de24-d79a-4475-98b8-f1842417bca1
+    title_zh: 审计 Java 文件写入操作接收点
+    title: Audit Java File Write Operation Sinks
+    risk: 路径遍历
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测 Java Spring Boot 任意文件删除
+      severity: high
+      line_start: 80
+      evidence: 检测 Java Spring Boot 任意文件删除 | 检测 Java Spring Boot 任意文件删除 | 发现Java Spring
+        Boot应用中的任意文件删除漏洞。
+    - rule_name: 检测Java路径穿越漏洞
+      severity: high
+      line_start: 80
+      evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中发现路径穿越漏洞，并且数据流中间没有进行任何过滤。
+    code_guard: []
+    fortify:
+    - rule_name: Path Manipulation
+      severity: critical
+      line_start: 80
+      evidence: 'Source: downloadFile(0) | File: src/main/java/com/yeqifu/sys/controller/FileController.java:80'
+  verification_status:
+    irify: hit_exact
+    code_guard: covered_missed
+    fortify: hit_exact
+  alias_locations: []
+  source_refs:
+  - src/main/java/com/yeqifu/sys/controller/FileController.java:80
+  notes: []
+pending_review_additions:
+  irify:
+  - tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: src/main/resources/db.properties
+    line_start: 2
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: irify
+    rule_name: 'SCA: 检测Java Aspectjweaver 依赖漏洞'
+    severity: medium
+    file_path: pom.xml
+    line_start: 46
+    evidence: 'SCA: 检测Java Aspectjweaver 依赖漏洞 | SCA: 检测Java Aspectjweaver 依赖漏洞 | SCA:
+      aspectjweaver version 1.9.5 has a reflective file download vulnerability'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A06 Vulnerable and Outdated Components
+    review_priority: high
+  - tool: irify
+    rule_name: 'SCA: 检测Java jdbc mysql-connector 依赖漏洞'
+    severity: medium
+    file_path: pom.xml
+    line_start: 102
+    evidence: 'SCA: 检测Java jdbc mysql-connector 依赖漏洞 | SCA: 检测Java jdbc mysql-connector
+      依赖漏洞 | SCA: mysql-connector-java versions between 8.0.17 and 8.0.27 have an
+      information disclosure vulnerability'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A06 Vulnerable and Outdated Components
+    review_priority: high
+  - tool: irify
+    rule_name: 检测Java路径穿越漏洞
+    severity: low
+    file_path: src/main/java/com/yeqifu/bus/controller/CarController.java
+    line_start: 42
+    evidence: 检测Java路径穿越漏洞 | 检测到Java路径穿越漏洞 | Java代码中可能存在路径穿越漏洞。
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  code_guard: []
+  fortify:
+  - tool: fortify
+    rule_name: Path Manipulation
+    severity: critical
+    file_path: src/main/java/com/yeqifu/bus/controller/CarController.java
+    line_start: 42
+    evidence: 'Source: addCar(0) | File: src/main/java/com/yeqifu/bus/controller/CarController.java:42'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: Path Manipulation
+    severity: critical
+    file_path: src/main/java/com/yeqifu/bus/service/impl/CarServiceImpl.java
+    line_start: 60
+    evidence: 'Source: com.yeqifu.bus.mapper.CarMapper.selectByPrimaryKey() | File:
+      src/main/java/com/yeqifu/bus/service/impl/CarServiceImpl.java:60'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: Path Manipulation
+    severity: critical
+    file_path: src/main/java/com/yeqifu/sys/controller/FileController.java
+    line_start: 36
+    evidence: 'Source: uploadFile(0) | File: src/main/java/com/yeqifu/sys/controller/FileController.java:36'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids:
+    - JSL-FILE-UPLOADFILE-UPLOADFILE
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: Path Manipulation
+    severity: critical
+    file_path: src/main/java/com/yeqifu/sys/utils/AppFileUtils.java
+    line_start: 51
+    evidence: 'Sink: java.io.File.File() | File: src/main/java/com/yeqifu/sys/utils/AppFileUtils.java:51'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Password Management: Insecure Submission'
+    severity: critical
+    file_path: src/main/webapp/WEB-INF/view/system/user/changePassword.jsp
+    line_start: 32
+    evidence: 'Sink: | File: src/main/webapp/WEB-INF/view/system/user/changePassword.jsp:32'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Password Management: Insecure Submission'
+    severity: critical
+    file_path: src/main/webapp/static/page/login/login.html
+    line_start: 25
+    evidence: 'Sink: | File: src/main/webapp/static/page/login/login.html:25'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Password Management: Insecure Submission'
+    severity: critical
+    file_path: src/main/webapp/static/page/user/changePwd.html
+    line_start: 21
+    evidence: 'Sink: | File: src/main/webapp/static/page/user/changePwd.html:21'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Password Management: Insecure Submission'
+    severity: critical
+    file_path: target/carRental/static/page/login/login.html
+    line_start: 25
+    evidence: 'Sink: | File: target/carRental/static/page/login/login.html:25'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Password Management: Insecure Submission'
+    severity: critical
+    file_path: target/carRental/static/page/user/changePwd.html
+    line_start: 21
+    evidence: 'Sink: | File: target/carRental/static/page/user/changePwd.html:21'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/bus/controller/CarController.java
+    line_start: 32
+    evidence: 'Source: loadAllCar(0) | File: src/main/java/com/yeqifu/bus/controller/CarController.java:32'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/bus/controller/CheckController.java
+    line_start: 35
+    evidence: 'Source: checkRentExist(0) | File: src/main/java/com/yeqifu/bus/controller/CheckController.java:35'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/bus/controller/CustomerController.java
+    line_start: 29
+    evidence: 'Source: loadAllCustomer(0) | File: src/main/java/com/yeqifu/bus/controller/CustomerController.java:29'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/bus/controller/FranchiseeController.java
+    line_start: 40
+    evidence: 'Source: loadAllFranchisee(0) | File: src/main/java/com/yeqifu/bus/controller/FranchiseeController.java:40'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/bus/controller/RentController.java
+    line_start: 43
+    evidence: 'Source: checkCustomerExist(0) | File: src/main/java/com/yeqifu/bus/controller/RentController.java:43'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/bus/service/impl/CarServiceImpl.java
+    line_start: 31
+    evidence: 'Sink: com.yeqifu.bus.mapper.CarMapper.queryAllCar() | File: src/main/java/com/yeqifu/bus/service/impl/CarServiceImpl.java:31'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/bus/service/impl/CustomerServiceImpl.java
+    line_start: 39
+    evidence: 'Sink: com.yeqifu.bus.mapper.CustomerMapper.insertSelective() | File:
+      src/main/java/com/yeqifu/bus/service/impl/CustomerServiceImpl.java:39'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/bus/service/impl/FranchiseeServiceImpl.java
+    line_start: 34
+    evidence: 'Sink: com.yeqifu.bus.mapper.FranchiseeMapper.queryAllFranchisee() |
+      File: src/main/java/com/yeqifu/bus/service/impl/FranchiseeServiceImpl.java:34'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/stat/controller/StatController.java
+    line_start: 78
+    evidence: 'Source: loadCustomerAreaSexStatJson(0) | File: src/main/java/com/yeqifu/stat/controller/StatController.java:78'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/stat/service/impl/StatServiceImpl.java
+    line_start: 43
+    evidence: 'Sink: com.yeqifu.stat.mapper.StatMapper.queryOpernameYearGradeStat()
+      | File: src/main/java/com/yeqifu/stat/service/impl/StatServiceImpl.java:43'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/sys/controller/LogInfoController.java
+    line_start: 28
+    evidence: 'Source: loadAllLogInfo(0) | File: src/main/java/com/yeqifu/sys/controller/LogInfoController.java:28'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/sys/controller/LoginController.java
+    line_start: 52
+    evidence: 'Source: login(0) | File: src/main/java/com/yeqifu/sys/controller/LoginController.java:52'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/sys/controller/MenuController.java
+    line_start: 28
+    evidence: 'Source: loadIndexLeftMenuJson(0) | File: src/main/java/com/yeqifu/sys/controller/MenuController.java:28'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/sys/controller/MessageController.java
+    line_start: 32
+    evidence: 'Source: loadAllMessage(0) | File: src/main/java/com/yeqifu/sys/controller/MessageController.java:32'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/sys/controller/NewsController.java
+    line_start: 37
+    evidence: 'Source: loadAllNews(0) | File: src/main/java/com/yeqifu/sys/controller/NewsController.java:37'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/sys/controller/RoleController.java
+    line_start: 28
+    evidence: 'Source: loadAllRole(0) | File: src/main/java/com/yeqifu/sys/controller/RoleController.java:28'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/sys/controller/UserController.java
+    line_start: 31
+    evidence: 'Source: loadAllUser(0) | File: src/main/java/com/yeqifu/sys/controller/UserController.java:31'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/sys/service/impl/LogInfoServiceImpl.java
+    line_start: 33
+    evidence: 'Sink: com.yeqifu.sys.mapper.LogInfoMapper.queryAllLogInfo() | File:
+      src/main/java/com/yeqifu/sys/service/impl/LogInfoServiceImpl.java:33'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/sys/service/impl/MenuServiceImpl.java
+    line_start: 59
+    evidence: 'Sink: com.yeqifu.sys.mapper.MenuMapper.insertSelective() | File: src/main/java/com/yeqifu/sys/service/impl/MenuServiceImpl.java:59'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/sys/service/impl/NewsServiceImpl.java
+    line_start: 48
+    evidence: 'Sink: com.yeqifu.sys.mapper.NewsMapper.deleteByPrimaryKey() | File:
+      src/main/java/com/yeqifu/sys/service/impl/NewsServiceImpl.java:48'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/sys/service/impl/RoleServiceImpl.java
+    line_start: 89
+    evidence: 'Sink: com.yeqifu.sys.mapper.RoleMapper.deleteRoleMenuByRid() | File:
+      src/main/java/com/yeqifu/sys/service/impl/RoleServiceImpl.java:89'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Access Control: Database'
+    severity: high
+    file_path: src/main/java/com/yeqifu/sys/service/impl/UserServiceImpl.java
+    line_start: 88
+    evidence: 'Sink: com.yeqifu.sys.mapper.RoleMapper.deleteRoleUserByUid() | File:
+      src/main/java/com/yeqifu/sys/service/impl/UserServiceImpl.java:88'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: Path Manipulation
+    severity: high
+    file_path: src/main/java/com/yeqifu/sys/task/RecycleTempFileTask.java
+    line_start: 25
+    evidence: 'Sink: java.io.File.File() | File: src/main/java/com/yeqifu/sys/task/RecycleTempFileTask.java:25'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A01 Broken Access Control
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Password Management: Password in Configuration File'
+    severity: high
+    file_path: mbg_news.xml
+    line_start: 15
+    evidence: 'Sink: | File: mbg_news.xml:15'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Password Management: Password in Configuration File'
+    severity: high
+    file_path: mbg_user.xml
+    line_start: 15
+    evidence: 'Sink: | File: mbg_user.xml:15'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Password Management: Password in Configuration File'
+    severity: high
+    file_path: src/main/resources/db.properties
+    line_start: 2
+    evidence: 'Sink: jdbc.password | File: src/main/resources/db.properties:2'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Password Management: Password in Configuration File'
+    severity: high
+    file_path: target/carRental/WEB-INF/classes/db.properties
+    line_start: 2
+    evidence: 'Sink: jdbc.password | File: target/carRental/WEB-INF/classes/db.properties:2'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+  - tool: fortify
+    rule_name: 'Password Management: Password in Configuration File'
+    severity: high
+    file_path: target/classes/db.properties
+    line_start: 2
+    evidence: 'Sink: jdbc.password | File: target/classes/db.properties:2'
+    reason: owasp_top10_missing_truth_case
+    candidate_case_ids: []
+    owasp_category: A07 Identification and Authentication Failures
+    review_priority: high
+pending_review_policy:
+  version: owasp_top10_high_signal_v1
+  description: 只保留 OWASP Top10 且具备新增案例价值的高信号 finding，过滤注释/调试/资源释放/泛型异常等低价值噪声、第三方静态资产，并折叠同规则同
+    scope 的重复告警。
+  tools:
+    irify:
+      raw_total: 135
+      kept_total: 4
+      excluded_total: 131
+      excluded_reasons:
+        low_signal_rule: 128
+        non_owasp_top10: 2
+        deduplicated_same_rule_scope: 1
+    code_guard:
+      raw_total: 0
+      kept_total: 0
+      excluded_total: 0
+      excluded_reasons: {}
+    fortify:
+      raw_total: 783
+      kept_total: 37
+      excluded_total: 746
+      excluded_reasons:
+        non_owasp_top10: 248
+        deduplicated_same_rule_scope: 81
+        low_signal_rule: 304
+        third_party_asset: 12
+        comment_rule: 101

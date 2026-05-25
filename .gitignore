@@ -1,0 +1,31 @@
+# Binaries
+bin/
+build/
+*.exe
+
+# Go
+vendor/
+
+# Frontend
+web/node_modules/
+web/dist/
+
+# Data / runtime artifacts
+data/
+!web/public/data/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts at repo root
+/irify-benchmark
+
+# Generated reports
+reports/*.html
+

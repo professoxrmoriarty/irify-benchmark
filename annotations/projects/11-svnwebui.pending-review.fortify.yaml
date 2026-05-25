@@ -1,0 +1,250 @@
+project: svnwebui
+tool: fortify
+generated_from: /home/zpy/goproject/IRify_SAST/.ai/task-runs/benchmark-framework/projects/11-svnwebui/artifacts/truth-evaluation.json
+summary:
+  total: 7
+  by_priority:
+    high: 7
+notes:
+- 这是待复核 finding 转出的 review case 草案，不自动参与正式真值评估。
+- 人工确认后，可按需要提升到 JavaSecLab.review.yaml 的 manual_cases 或 suppressed_findings。
+- candidate_case_ids 非空时，优先判断是否应并入已有 case，而不是直接新增。
+review_cases:
+- review_case_id: PENDING-FORTIFY-001
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Insecure Submission'
+    severity: critical
+    file_path: src/main/resources/WEB-INF/view/adminPage/info/index.html
+    line_start: 73
+    evidence: 'Sink: | File: src/main/resources/WEB-INF/view/adminPage/info/index.html:73'
+  proposed_case:
+    case_id: REVIEW-SVNWEBUI-001
+    scenario_id: pending.svnwebui.index-73-password-management-insecure-submission
+    family: credential_management
+    title: 'Password Management: Insecure Submission @ index.html'
+    description: '待复核新增项：Password Management: Insecure Submission @ src/main/resources/WEB-INF/view/adminPage/info/index.html:73'
+    expectation: must_alert
+    canonical_file_path: src/main/resources/WEB-INF/view/adminPage/info/index.html
+    line_start: 73
+    line_end: 73
+    rule_type: 'Password Management: Insecure Submission'
+    aliases:
+    - 'Password Management: Insecure Submission'
+    source_notes: 'Sink: | File: src/main/resources/WEB-INF/view/adminPage/info/index.html:73'
+    sink_api: 'Password Management: Insecure Submission'
+    source_refs:
+    - src/main/resources/WEB-INF/view/adminPage/info/index.html:73
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-002
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Insecure Submission'
+    severity: critical
+    file_path: src/main/resources/WEB-INF/view/adminPage/login/index.html
+    line_start: 21
+    evidence: 'Sink: | File: src/main/resources/WEB-INF/view/adminPage/login/index.html:21'
+  proposed_case:
+    case_id: REVIEW-SVNWEBUI-002
+    scenario_id: pending.svnwebui.index-21-password-management-insecure-submission
+    family: credential_management
+    title: 'Password Management: Insecure Submission @ index.html'
+    description: '待复核新增项：Password Management: Insecure Submission @ src/main/resources/WEB-INF/view/adminPage/login/index.html:21'
+    expectation: must_alert
+    canonical_file_path: src/main/resources/WEB-INF/view/adminPage/login/index.html
+    line_start: 21
+    line_end: 21
+    rule_type: 'Password Management: Insecure Submission'
+    aliases:
+    - 'Password Management: Insecure Submission'
+    source_notes: 'Sink: | File: src/main/resources/WEB-INF/view/adminPage/login/index.html:21'
+    sink_api: 'Password Management: Insecure Submission'
+    source_refs:
+    - src/main/resources/WEB-INF/view/adminPage/login/index.html:21
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-003
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Insecure Submission'
+    severity: critical
+    file_path: src/main/resources/WEB-INF/view/adminPage/repository/index.html
+    line_start: 163
+    evidence: 'Sink: | File: src/main/resources/WEB-INF/view/adminPage/repository/index.html:163'
+  proposed_case:
+    case_id: REVIEW-SVNWEBUI-003
+    scenario_id: pending.svnwebui.index-163-password-management-insecure-submission
+    family: credential_management
+    title: 'Password Management: Insecure Submission @ index.html'
+    description: '待复核新增项：Password Management: Insecure Submission @ src/main/resources/WEB-INF/view/adminPage/repository/index.html:163'
+    expectation: must_alert
+    canonical_file_path: src/main/resources/WEB-INF/view/adminPage/repository/index.html
+    line_start: 163
+    line_end: 163
+    rule_type: 'Password Management: Insecure Submission'
+    aliases:
+    - 'Password Management: Insecure Submission'
+    source_notes: 'Sink: | File: src/main/resources/WEB-INF/view/adminPage/repository/index.html:163'
+    sink_api: 'Password Management: Insecure Submission'
+    source_refs:
+    - src/main/resources/WEB-INF/view/adminPage/repository/index.html:163
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-004
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Insecure Submission'
+    severity: critical
+    file_path: src/main/resources/WEB-INF/view/adminPage/user/index.html
+    line_start: 125
+    evidence: 'Sink: | File: src/main/resources/WEB-INF/view/adminPage/user/index.html:125'
+  proposed_case:
+    case_id: REVIEW-SVNWEBUI-004
+    scenario_id: pending.svnwebui.index-125-password-management-insecure-submission
+    family: credential_management
+    title: 'Password Management: Insecure Submission @ index.html'
+    description: '待复核新增项：Password Management: Insecure Submission @ src/main/resources/WEB-INF/view/adminPage/user/index.html:125'
+    expectation: must_alert
+    canonical_file_path: src/main/resources/WEB-INF/view/adminPage/user/index.html
+    line_start: 125
+    line_end: 125
+    rule_type: 'Password Management: Insecure Submission'
+    aliases:
+    - 'Password Management: Insecure Submission'
+    source_notes: 'Sink: | File: src/main/resources/WEB-INF/view/adminPage/user/index.html:125'
+    sink_api: 'Password Management: Insecure Submission'
+    source_refs:
+    - src/main/resources/WEB-INF/view/adminPage/user/index.html:125
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-005
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Hardcoded Password'
+    severity: high
+    file_path: src/main/resources/static/js/adminPage/config/index.js
+    line_start: 142
+    evidence: 'Sink: StringLiteral | File: src/main/resources/static/js/adminPage/config/index.js:142'
+  proposed_case:
+    case_id: REVIEW-SVNWEBUI-005
+    scenario_id: pending.svnwebui.index-142-password-management-hardcoded-password
+    family: credential_management
+    title: 'Password Management: Hardcoded Password @ index.js'
+    description: '待复核新增项：Password Management: Hardcoded Password @ src/main/resources/static/js/adminPage/config/index.js:142'
+    expectation: must_alert
+    canonical_file_path: src/main/resources/static/js/adminPage/config/index.js
+    line_start: 142
+    line_end: 142
+    rule_type: 'Password Management: Hardcoded Password'
+    aliases:
+    - 'Password Management: Hardcoded Password'
+    source_notes: 'Sink: StringLiteral | File: src/main/resources/static/js/adminPage/config/index.js:142'
+    sink_api: 'Password Management: Hardcoded Password'
+    source_refs:
+    - src/main/resources/static/js/adminPage/config/index.js:142
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-006
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A08 Software and Data Integrity Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: Access Specifier Manipulation
+    severity: high
+    file_path: src/main/java/com/cym/sqlhelper/reflection/ReflectionUtil.java
+    line_start: 31
+    evidence: 'Sink: setAccessible() | File: src/main/java/com/cym/sqlhelper/reflection/ReflectionUtil.java:31'
+  proposed_case:
+    case_id: REVIEW-SVNWEBUI-006
+    scenario_id: pending.svnwebui.reflectionutil-31-access-specifier-manipulation
+    family: software_data_integrity_failure
+    title: Access Specifier Manipulation @ ReflectionUtil.java
+    description: 待复核新增项：Access Specifier Manipulation @ src/main/java/com/cym/sqlhelper/reflection/ReflectionUtil.java:31
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/sqlhelper/reflection/ReflectionUtil.java
+    line_start: 31
+    line_end: 31
+    rule_type: Access Specifier Manipulation
+    aliases:
+    - Access Specifier Manipulation
+    source_notes: 'Sink: setAccessible() | File: src/main/java/com/cym/sqlhelper/reflection/ReflectionUtil.java:31'
+    sink_api: Access Specifier Manipulation
+    source_refs:
+    - src/main/java/com/cym/sqlhelper/reflection/ReflectionUtil.java:31
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-007
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: Command Injection
+    severity: low
+    file_path: src/main/java/com/cym/controller/ConfigController.java
+    line_start: 148
+    evidence: 'Sink: exec(0) | File: src/main/java/com/cym/controller/ConfigController.java:148'
+  proposed_case:
+    case_id: REVIEW-SVNWEBUI-007
+    scenario_id: pending.svnwebui.configcontroller-148-command-injection
+    family: command_injection
+    title: Command Injection @ ConfigController.java
+    description: 待复核新增项：Command Injection @ src/main/java/com/cym/controller/ConfigController.java:148
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/cym/controller/ConfigController.java
+    line_start: 148
+    line_end: 148
+    rule_type: Command Injection
+    aliases:
+    - Command Injection
+    source_notes: 'Sink: exec(0) | File: src/main/java/com/cym/controller/ConfigController.java:148'
+    sink_api: Command Injection
+    source_refs:
+    - src/main/java/com/cym/controller/ConfigController.java:148
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。

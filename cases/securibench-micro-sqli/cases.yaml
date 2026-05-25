@@ -1,0 +1,141 @@
+project_id: securibench-micro-sqli
+version: 1.0.0
+cases:
+    - case_id: basic-basic19-001
+      name: 'Basic19 #1'
+      description: simple SQL injection with prepared statements
+      vuln_desc: SQLI vulnerability in Basic19
+      language: java
+      source_code: securibench/micro/basic/Basic19.java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 40
+                file: securibench/micro/basic/Basic19.java
+            sink:
+                symbol: con.prepareStatement
+                line: 45
+                file: securibench/micro/basic/Basic19.java
+      metadata:
+        cwe: CWE-89
+        tags:
+            - sqli
+            - java
+            - securibench
+    - case_id: basic-basic20-001
+      name: 'Basic20 #1'
+      description: simple SQL injection
+      vuln_desc: SQLI vulnerability in Basic20
+      language: java
+      source_code: securibench/micro/basic/Basic20.java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 41
+                file: securibench/micro/basic/Basic20.java
+            sink:
+                symbol: stmt.execute
+                line: 47
+                file: securibench/micro/basic/Basic20.java
+      metadata:
+        cwe: CWE-89
+        tags:
+            - sqli
+            - java
+            - securibench
+    - case_id: basic-basic21-001
+      name: 'Basic21 #1'
+      description: SQL injection with less commonly used methods
+      vuln_desc: SQLI vulnerability in Basic21
+      language: java
+      source_code: securibench/micro/basic/Basic21.java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 42
+                file: securibench/micro/basic/Basic21.java
+            sink:
+                symbol: stmt.executeUpdate
+                line: 49
+                file: securibench/micro/basic/Basic21.java
+      metadata:
+        cwe: CWE-89
+        tags:
+            - sqli
+            - java
+            - securibench
+    - case_id: basic-basic21-002
+      name: 'Basic21 #2'
+      description: SQL injection with less commonly used methods
+      vuln_desc: SQLI vulnerability in Basic21
+      language: java
+      source_code: securibench/micro/basic/Basic21.java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 42
+                file: securibench/micro/basic/Basic21.java
+            sink:
+                symbol: stmt.executeUpdate
+                line: 50
+                file: securibench/micro/basic/Basic21.java
+      metadata:
+        cwe: CWE-89
+        tags:
+            - sqli
+            - java
+            - securibench
+    - case_id: basic-basic21-003
+      name: 'Basic21 #3'
+      description: SQL injection with less commonly used methods
+      vuln_desc: SQLI vulnerability in Basic21
+      language: java
+      source_code: securibench/micro/basic/Basic21.java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 42
+                file: securibench/micro/basic/Basic21.java
+            sink:
+                symbol: stmt.executeUpdate
+                line: 51
+                file: securibench/micro/basic/Basic21.java
+      metadata:
+        cwe: CWE-89
+        tags:
+            - sqli
+            - java
+            - securibench
+    - case_id: basic-basic21-004
+      name: 'Basic21 #4'
+      description: SQL injection with less commonly used methods
+      vuln_desc: SQLI vulnerability in Basic21
+      language: java
+      source_code: securibench/micro/basic/Basic21.java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 42
+                file: securibench/micro/basic/Basic21.java
+            sink:
+                symbol: stmt.executeQuery
+                line: 53
+                file: securibench/micro/basic/Basic21.java
+      metadata:
+        cwe: CWE-89
+        tags:
+            - sqli
+            - java
+            - securibench

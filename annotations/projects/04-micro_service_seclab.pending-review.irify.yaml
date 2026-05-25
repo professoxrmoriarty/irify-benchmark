@@ -1,0 +1,261 @@
+project: micro_service_seclab
+tool: irify
+generated_from: /home/zpy/goproject/IRify_SAST/.ai/task-runs/benchmark-framework/projects/04-micro_service_seclab/artifacts/truth-evaluation.json
+summary:
+  total: 7
+  by_priority:
+    high: 7
+notes:
+- 这是待复核 finding 转出的 review case 草案，不自动参与正式真值评估。
+- 人工确认后，可按需要提升到 JavaSecLab.review.yaml 的 manual_cases 或 suppressed_findings。
+- candidate_case_ids 非空时，优先判断是否应并入已有 case，而不是直接新增。
+review_cases:
+- review_case_id: PENDING-IRIFY-001
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A06 Vulnerable and Outdated Components
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 'SCA: 检测Java Fastjson依赖漏洞'
+    severity: critical
+    file_path: pom.xml
+    line_start: 61
+    evidence: 'SCA: 检测Java Fastjson依赖漏洞 | SCA: 检测Java Fastjson依赖漏洞 | SCA: com.alibaba.fastjson
+      < 1.2.83 RCE Hard to exploit'
+  proposed_case:
+    case_id: REVIEW-MICRO_SERVICE_SECLAB-001
+    scenario_id: pending.micro_service_seclab.pom-61-sca-检测java-fastjson依赖漏洞
+    family: deserialization
+    title: 'SCA: 检测Java Fastjson依赖漏洞 @ pom.xml'
+    description: '待复核新增项：SCA: 检测Java Fastjson依赖漏洞 @ pom.xml:61'
+    expectation: must_alert
+    canonical_file_path: pom.xml
+    line_start: 61
+    line_end: 61
+    rule_type: 'SCA: 检测Java Fastjson依赖漏洞'
+    aliases:
+    - 'SCA: 检测Java Fastjson依赖漏洞'
+    source_notes: 'SCA: 检测Java Fastjson依赖漏洞 | SCA: 检测Java Fastjson依赖漏洞 | SCA: com.alibaba.fastjson
+      < 1.2.83 RCE Hard to exploit'
+    sink_api: 'SCA: 检测Java Fastjson依赖漏洞'
+    source_refs:
+    - pom.xml:61
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-002
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测通用硬编码凭据
+    severity: critical
+    file_path: src/main/resources/application.properties
+    line_start: 3
+    evidence: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+  proposed_case:
+    case_id: REVIEW-MICRO_SERVICE_SECLAB-002
+    scenario_id: pending.micro_service_seclab.application-3-检测通用硬编码凭据
+    family: credential_management
+    title: 检测通用硬编码凭据 @ application.properties
+    description: 待复核新增项：检测通用硬编码凭据 @ src/main/resources/application.properties:3
+    expectation: must_alert
+    canonical_file_path: src/main/resources/application.properties
+    line_start: 3
+    line_end: 3
+    rule_type: 检测通用硬编码凭据
+    aliases:
+    - 检测通用硬编码凭据
+    source_notes: 检测通用硬编码凭据 | 检测到通用硬编码凭据漏洞 | 检测到通用硬编码凭据，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    sink_api: 检测通用硬编码凭据
+    source_refs:
+    - src/main/resources/application.properties:3
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-003
+  review_status: pending_review
+  proposed_action: merge_or_expand_existing_case
+  candidate_case_ids:
+  - JSL-INDEX-MYBATIS-MYBATIS
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数
+    severity: high
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java
+    line_start: 69
+    evidence: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数 | 检测 Java MyBatis/iBatis
+      XML Mapper 不安全(${...})参数 | 发现Mybatis SQL注入，并且数据流中没有过滤函数。
+  proposed_case:
+    case_id: REVIEW-MICRO_SERVICE_SECLAB-003
+    scenario_id: pending.micro_service_seclab.indexcontroller-69-检测-java-mybatis-ibatis-xml-mapper-不安全-...-参数
+    family: injection
+    title: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数 @ IndexController.java
+    description: 待复核新增项：检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数 @ src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java:69
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java
+    line_start: 69
+    line_end: 69
+    rule_type: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数
+    aliases:
+    - 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数
+    source_notes: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数 | 检测 Java MyBatis/iBatis
+      XML Mapper 不安全(${...})参数 | 发现Mybatis SQL注入，并且数据流中没有过滤函数。
+    sink_api: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数
+    source_refs:
+    - src/main/java/com/l4yn3/microserviceseclab/controller/IndexController.java:69
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-004
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A06 Vulnerable and Outdated Components
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java FastJson依赖漏洞
+    severity: high
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/FastJsonController.java
+    line_start: 15
+    evidence: 检测Java FastJson依赖漏洞 | 检测Java FastJson依赖漏洞 | FastJson uses the unsafe
+      parseObject/parse method (parameter reachable)
+  proposed_case:
+    case_id: REVIEW-MICRO_SERVICE_SECLAB-004
+    scenario_id: pending.micro_service_seclab.fastjsoncontroller-15-检测java-fastjson依赖漏洞
+    family: deserialization
+    title: 检测Java FastJson依赖漏洞 @ FastJsonController.java
+    description: 待复核新增项：检测Java FastJson依赖漏洞 @ src/main/java/com/l4yn3/microserviceseclab/controller/FastJsonController.java:15
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/l4yn3/microserviceseclab/controller/FastJsonController.java
+    line_start: 15
+    line_end: 15
+    rule_type: 检测Java FastJson依赖漏洞
+    aliases:
+    - 检测Java FastJson依赖漏洞
+    source_notes: 检测Java FastJson依赖漏洞 | 检测Java FastJson依赖漏洞 | FastJson uses the unsafe
+      parseObject/parse method (parameter reachable)
+    sink_api: 检测Java FastJson依赖漏洞
+    source_refs:
+    - src/main/java/com/l4yn3/microserviceseclab/controller/FastJsonController.java:15
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-005
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    severity: medium
+    file_path: src/main/java/com/l4yn3/microserviceseclab/controller/RceController.java
+    line_start: 47
+    evidence: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+  proposed_case:
+    case_id: REVIEW-MICRO_SERVICE_SECLAB-005
+    scenario_id: pending.micro_service_seclab.rcecontroller-47-检测java-servlet和springmvc中的命令注入漏洞
+    family: injection
+    title: 检测Java Servlet和SpringMVC中的命令注入漏洞 @ RceController.java
+    description: 待复核新增项：检测Java Servlet和SpringMVC中的命令注入漏洞 @ src/main/java/com/l4yn3/microserviceseclab/controller/RceController.java:47
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/l4yn3/microserviceseclab/controller/RceController.java
+    line_start: 47
+    line_end: 47
+    rule_type: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    aliases:
+    - 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_notes: 检测Java Servlet和SpringMVC中的命令注入漏洞 | 检测到Java命令注入漏洞 | 发现Java代码存在命令注入漏洞，数据流中存在过滤
+    sink_api: 检测Java Servlet和SpringMVC中的命令注入漏洞
+    source_refs:
+    - src/main/java/com/l4yn3/microserviceseclab/controller/RceController.java:47
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-006
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数
+    severity: low
+    file_path: src/main/java/com/l4yn3/microserviceseclab/mapper/IStudentMapper.java
+    line_start: 16
+    evidence: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数 | 检测 Java MyBatis/iBatis
+      XML Mapper 不安全(${...})参数
+  proposed_case:
+    case_id: REVIEW-MICRO_SERVICE_SECLAB-006
+    scenario_id: pending.micro_service_seclab.istudentmapper-16-检测-java-mybatis-ibatis-xml-mapper-不安全-...-参数
+    family: injection
+    title: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数 @ IStudentMapper.java
+    description: 待复核新增项：检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数 @ src/main/java/com/l4yn3/microserviceseclab/mapper/IStudentMapper.java:16
+    expectation: must_alert
+    canonical_file_path: src/main/java/com/l4yn3/microserviceseclab/mapper/IStudentMapper.java
+    line_start: 16
+    line_end: 16
+    rule_type: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数
+    aliases:
+    - 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数
+    source_notes: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数 | 检测 Java MyBatis/iBatis
+      XML Mapper 不安全(${...})参数
+    sink_api: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数
+    source_refs:
+    - src/main/java/com/l4yn3/microserviceseclab/mapper/IStudentMapper.java:16
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-IRIFY-007
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A06 Vulnerable and Outdated Components
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: irify
+    rule_name: 'SCA: 检测Java Spring Boot Devtools使用'
+    severity: info
+    file_path: pom.xml
+    line_start: 1
+    evidence: 'SCA: 检测Java Spring Boot Devtools使用 | 检测到Java Spring Boot Devtools的使用
+      | 检测到Java Spring Boot Devtools的使用'
+  proposed_case:
+    case_id: REVIEW-MICRO_SERVICE_SECLAB-007
+    scenario_id: pending.micro_service_seclab.pom-1-sca-检测java-spring-boot-devtools使用
+    family: vulnerable_component
+    title: 'SCA: 检测Java Spring Boot Devtools使用 @ pom.xml'
+    description: '待复核新增项：SCA: 检测Java Spring Boot Devtools使用 @ pom.xml:1'
+    expectation: must_alert
+    canonical_file_path: pom.xml
+    line_start: 1
+    line_end: 1
+    rule_type: 'SCA: 检测Java Spring Boot Devtools使用'
+    aliases:
+    - 'SCA: 检测Java Spring Boot Devtools使用'
+    source_notes: 'SCA: 检测Java Spring Boot Devtools使用 | 检测到Java Spring Boot Devtools的使用
+      | 检测到Java Spring Boot Devtools的使用'
+    sink_api: 'SCA: 检测Java Spring Boot Devtools使用'
+    source_refs:
+    - pom.xml:1
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。

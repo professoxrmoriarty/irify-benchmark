@@ -1,0 +1,91 @@
+project_id: securibench-micro-path-traversal
+version: 1.0.0
+cases:
+    - case_id: basic-basic22-001
+      name: 'Basic22 #1'
+      description: basic path traversal
+      vuln_desc: PATH-TRAVERSAL vulnerability in Basic22
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 39
+                file: securibench/micro/basic/Basic22.java
+            sink:
+                symbol: f.createNewFile
+                line: 47
+                file: securibench/micro/basic/Basic22.java
+      metadata:
+        cwe: CWE-22
+        tags:
+            - path-traversal
+            - java
+            - securibench
+    - case_id: basic-basic23-001
+      name: 'Basic23 #1'
+      description: path traversal
+      vuln_desc: PATH-TRAVERSAL vulnerability in Basic23
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 40
+                file: securibench/micro/basic/Basic23.java
+            sink:
+                symbol: new FileWriter
+                line: 44
+                file: securibench/micro/basic/Basic23.java
+      metadata:
+        cwe: CWE-22
+        tags:
+            - path-traversal
+            - java
+            - securibench
+    - case_id: basic-basic23-002
+      name: 'Basic23 #2'
+      description: path traversal
+      vuln_desc: PATH-TRAVERSAL vulnerability in Basic23
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 40
+                file: securibench/micro/basic/Basic23.java
+            sink:
+                symbol: new FileWriter
+                line: 45
+                file: securibench/micro/basic/Basic23.java
+      metadata:
+        cwe: CWE-22
+        tags:
+            - path-traversal
+            - java
+            - securibench
+    - case_id: basic-basic23-003
+      name: 'Basic23 #3'
+      description: path traversal
+      vuln_desc: PATH-TRAVERSAL vulnerability in Basic23
+      language: java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: req.getParameter
+                line: 40
+                file: securibench/micro/basic/Basic23.java
+            sink:
+                symbol: new FileInputStream
+                line: 46
+                file: securibench/micro/basic/Basic23.java
+      metadata:
+        cwe: CWE-22
+        tags:
+            - path-traversal
+            - java
+            - securibench

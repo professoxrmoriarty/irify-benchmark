@@ -1,0 +1,1925 @@
+project: WebGoat
+tool: fortify
+generated_from: /home/zpy/goproject/IRify_SAST/.ai/task-runs/benchmark-framework/projects/07-webgoat/artifacts/truth-evaluation.json
+summary:
+  total: 56
+  by_priority:
+    high: 53
+    medium: 3
+notes:
+- 这是待复核 finding 转出的 review case 草案，不自动参与正式真值评估。
+- 人工确认后，可按需要提升到 JavaSecLab.review.yaml 的 manual_cases 或 suppressed_findings。
+- candidate_case_ids 非空时，优先判断是否应并入已有 case，而不是直接新增。
+review_cases:
+- review_case_id: PENDING-FORTIFY-001
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A02 Cryptographic Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Key Management: Hardcoded Encryption Key'
+    severity: critical
+    file_path: src/main/java/org/owasp/webgoat/lessons/cryptography/CryptoUtil.java
+    line_start: 49
+    evidence: 'Sink: | File: src/main/java/org/owasp/webgoat/lessons/cryptography/CryptoUtil.java:49'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-001
+    scenario_id: pending.webgoat.cryptoutil-49-key-management-hardcoded-encryption-key
+    family: cryptographic_failure
+    title: 'Key Management: Hardcoded Encryption Key @ CryptoUtil.java'
+    description: '待复核新增项：Key Management: Hardcoded Encryption Key @ src/main/java/org/owasp/webgoat/lessons/cryptography/CryptoUtil.java:49'
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/cryptography/CryptoUtil.java
+    line_start: 49
+    line_end: 49
+    rule_type: 'Key Management: Hardcoded Encryption Key'
+    aliases:
+    - 'Key Management: Hardcoded Encryption Key'
+    source_notes: 'Sink: | File: src/main/java/org/owasp/webgoat/lessons/cryptography/CryptoUtil.java:49'
+    sink_api: 'Key Management: Hardcoded Encryption Key'
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/cryptography/CryptoUtil.java:49
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-002
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Credential Management: Hardcoded API Credentials'
+    severity: critical
+    file_path: src/it/java/org/owasp/webgoat/playwright/webwolf/JwtUITest.java
+    line_start: 21
+    evidence: 'Sink: | File: src/it/java/org/owasp/webgoat/playwright/webwolf/JwtUITest.java:21'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-002
+    scenario_id: pending.webgoat.jwtuitest-21-credential-management-hardcoded-api-credentials
+    family: credential_management
+    title: 'Credential Management: Hardcoded API Credentials @ JwtUITest.java'
+    description: '待复核新增项：Credential Management: Hardcoded API Credentials @ src/it/java/org/owasp/webgoat/playwright/webwolf/JwtUITest.java:21'
+    expectation: must_alert
+    canonical_file_path: src/it/java/org/owasp/webgoat/playwright/webwolf/JwtUITest.java
+    line_start: 21
+    line_end: 21
+    rule_type: 'Credential Management: Hardcoded API Credentials'
+    aliases:
+    - 'Credential Management: Hardcoded API Credentials'
+    source_notes: 'Sink: | File: src/it/java/org/owasp/webgoat/playwright/webwolf/JwtUITest.java:21'
+    sink_api: 'Credential Management: Hardcoded API Credentials'
+    source_refs:
+    - src/it/java/org/owasp/webgoat/playwright/webwolf/JwtUITest.java:21
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-003
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Credential Management: Hardcoded API Credentials'
+    severity: critical
+    file_path: src/main/resources/lessons/jwt/documentation/JWT_decode.adoc
+    line_start: 8
+    evidence: 'Sink: | File: src/main/resources/lessons/jwt/documentation/JWT_decode.adoc:8'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-003
+    scenario_id: pending.webgoat.jwt_decode-8-credential-management-hardcoded-api-credentials
+    family: credential_management
+    title: 'Credential Management: Hardcoded API Credentials @ JWT_decode.adoc'
+    description: '待复核新增项：Credential Management: Hardcoded API Credentials @ src/main/resources/lessons/jwt/documentation/JWT_decode.adoc:8'
+    expectation: must_alert
+    canonical_file_path: src/main/resources/lessons/jwt/documentation/JWT_decode.adoc
+    line_start: 8
+    line_end: 8
+    rule_type: 'Credential Management: Hardcoded API Credentials'
+    aliases:
+    - 'Credential Management: Hardcoded API Credentials'
+    source_notes: 'Sink: | File: src/main/resources/lessons/jwt/documentation/JWT_decode.adoc:8'
+    sink_api: 'Credential Management: Hardcoded API Credentials'
+    source_refs:
+    - src/main/resources/lessons/jwt/documentation/JWT_decode.adoc:8
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-004
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Credential Management: Hardcoded API Credentials'
+    severity: critical
+    file_path: src/main/resources/lessons/jwt/documentation/JWT_libraries.adoc
+    line_start: 28
+    evidence: 'Sink: | File: src/main/resources/lessons/jwt/documentation/JWT_libraries.adoc:28'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-004
+    scenario_id: pending.webgoat.jwt_libraries-28-credential-management-hardcoded-api-credentials
+    family: credential_management
+    title: 'Credential Management: Hardcoded API Credentials @ JWT_libraries.adoc'
+    description: '待复核新增项：Credential Management: Hardcoded API Credentials @ src/main/resources/lessons/jwt/documentation/JWT_libraries.adoc:28'
+    expectation: must_alert
+    canonical_file_path: src/main/resources/lessons/jwt/documentation/JWT_libraries.adoc
+    line_start: 28
+    line_end: 28
+    rule_type: 'Credential Management: Hardcoded API Credentials'
+    aliases:
+    - 'Credential Management: Hardcoded API Credentials'
+    source_notes: 'Sink: | File: src/main/resources/lessons/jwt/documentation/JWT_libraries.adoc:28'
+    sink_api: 'Credential Management: Hardcoded API Credentials'
+    source_refs:
+    - src/main/resources/lessons/jwt/documentation/JWT_libraries.adoc:28
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-005
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Credential Management: Hardcoded API Credentials'
+    severity: critical
+    file_path: src/main/resources/lessons/jwt/documentation/JWT_signing_solution.adoc
+    line_start: 35
+    evidence: 'Sink: | File: src/main/resources/lessons/jwt/documentation/JWT_signing_solution.adoc:35'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-005
+    scenario_id: pending.webgoat.jwt_signing_solution-35-credential-management-hardcoded-api-credentials
+    family: credential_management
+    title: 'Credential Management: Hardcoded API Credentials @ JWT_signing_solution.adoc'
+    description: '待复核新增项：Credential Management: Hardcoded API Credentials @ src/main/resources/lessons/jwt/documentation/JWT_signing_solution.adoc:35'
+    expectation: must_alert
+    canonical_file_path: src/main/resources/lessons/jwt/documentation/JWT_signing_solution.adoc
+    line_start: 35
+    line_end: 35
+    rule_type: 'Credential Management: Hardcoded API Credentials'
+    aliases:
+    - 'Credential Management: Hardcoded API Credentials'
+    source_notes: 'Sink: | File: src/main/resources/lessons/jwt/documentation/JWT_signing_solution.adoc:35'
+    sink_api: 'Credential Management: Hardcoded API Credentials'
+    source_refs:
+    - src/main/resources/lessons/jwt/documentation/JWT_signing_solution.adoc:35
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-006
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Credential Management: Hardcoded API Credentials'
+    severity: critical
+    file_path: src/main/resources/lessons/jwt/html/JWT.html
+    line_start: 323
+    evidence: 'Sink: | File: src/main/resources/lessons/jwt/html/JWT.html:323'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-006
+    scenario_id: pending.webgoat.jwt-323-credential-management-hardcoded-api-credentials
+    family: credential_management
+    title: 'Credential Management: Hardcoded API Credentials @ JWT.html'
+    description: '待复核新增项：Credential Management: Hardcoded API Credentials @ src/main/resources/lessons/jwt/html/JWT.html:323'
+    expectation: must_alert
+    canonical_file_path: src/main/resources/lessons/jwt/html/JWT.html
+    line_start: 323
+    line_end: 323
+    rule_type: 'Credential Management: Hardcoded API Credentials'
+    aliases:
+    - 'Credential Management: Hardcoded API Credentials'
+    source_notes: 'Sink: | File: src/main/resources/lessons/jwt/html/JWT.html:323'
+    sink_api: 'Credential Management: Hardcoded API Credentials'
+    source_refs:
+    - src/main/resources/lessons/jwt/html/JWT.html:323
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-007
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Credential Management: Hardcoded API Credentials'
+    severity: critical
+    file_path: src/main/resources/lessons/jwt/images/logs.txt
+    line_start: 2
+    evidence: 'Sink: | File: src/main/resources/lessons/jwt/images/logs.txt:2'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-007
+    scenario_id: pending.webgoat.logs-2-credential-management-hardcoded-api-credentials
+    family: credential_management
+    title: 'Credential Management: Hardcoded API Credentials @ logs.txt'
+    description: '待复核新增项：Credential Management: Hardcoded API Credentials @ src/main/resources/lessons/jwt/images/logs.txt:2'
+    expectation: must_alert
+    canonical_file_path: src/main/resources/lessons/jwt/images/logs.txt
+    line_start: 2
+    line_end: 2
+    rule_type: 'Credential Management: Hardcoded API Credentials'
+    aliases:
+    - 'Credential Management: Hardcoded API Credentials'
+    source_notes: 'Sink: | File: src/main/resources/lessons/jwt/images/logs.txt:2'
+    sink_api: 'Credential Management: Hardcoded API Credentials'
+    source_refs:
+    - src/main/resources/lessons/jwt/images/logs.txt:2
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-008
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Credential Management: Hardcoded API Credentials'
+    severity: critical
+    file_path: src/test/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpointTest.java
+    line_start: 55
+    evidence: 'Sink: | File: src/test/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpointTest.java:55'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-008
+    scenario_id: pending.webgoat.jwtrefreshendpointtest-55-credential-management-hardcoded-api-credential
+    family: credential_management
+    title: 'Credential Management: Hardcoded API Credentials @ JWTRefreshEndpointTest.java'
+    description: '待复核新增项：Credential Management: Hardcoded API Credentials @ src/test/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpointTest.java:55'
+    expectation: must_alert
+    canonical_file_path: src/test/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpointTest.java
+    line_start: 55
+    line_end: 55
+    rule_type: 'Credential Management: Hardcoded API Credentials'
+    aliases:
+    - 'Credential Management: Hardcoded API Credentials'
+    source_notes: 'Sink: | File: src/test/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpointTest.java:55'
+    sink_api: 'Credential Management: Hardcoded API Credentials'
+    source_refs:
+    - src/test/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpointTest.java:55
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-009
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Credential Management: Hardcoded API Credentials'
+    severity: critical
+    file_path: src/test/java/org/owasp/webgoat/lessons/jwt/claimmisuse/JWTHeaderKIDEndpointTest.java
+    line_start: 26
+    evidence: 'Sink: | File: src/test/java/org/owasp/webgoat/lessons/jwt/claimmisuse/JWTHeaderKIDEndpointTest.java:26'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-009
+    scenario_id: pending.webgoat.jwtheaderkidendpointtest-26-credential-management-hardcoded-api-credenti
+    family: credential_management
+    title: 'Credential Management: Hardcoded API Credentials @ JWTHeaderKIDEndpointTest.java'
+    description: '待复核新增项：Credential Management: Hardcoded API Credentials @ src/test/java/org/owasp/webgoat/lessons/jwt/claimmisuse/JWTHeaderKIDEndpointTest.java:26'
+    expectation: must_alert
+    canonical_file_path: src/test/java/org/owasp/webgoat/lessons/jwt/claimmisuse/JWTHeaderKIDEndpointTest.java
+    line_start: 26
+    line_end: 26
+    rule_type: 'Credential Management: Hardcoded API Credentials'
+    aliases:
+    - 'Credential Management: Hardcoded API Credentials'
+    source_notes: 'Sink: | File: src/test/java/org/owasp/webgoat/lessons/jwt/claimmisuse/JWTHeaderKIDEndpointTest.java:26'
+    sink_api: 'Credential Management: Hardcoded API Credentials'
+    source_refs:
+    - src/test/java/org/owasp/webgoat/lessons/jwt/claimmisuse/JWTHeaderKIDEndpointTest.java:26
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-010
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Credential Management: Hardcoded API Credentials'
+    severity: critical
+    file_path: src/test/java/org/owasp/webgoat/webwolf/jwt/JWTTokenTest.java
+    line_start: 34
+    evidence: 'Sink: | File: src/test/java/org/owasp/webgoat/webwolf/jwt/JWTTokenTest.java:34'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-010
+    scenario_id: pending.webgoat.jwttokentest-34-credential-management-hardcoded-api-credentials
+    family: credential_management
+    title: 'Credential Management: Hardcoded API Credentials @ JWTTokenTest.java'
+    description: '待复核新增项：Credential Management: Hardcoded API Credentials @ src/test/java/org/owasp/webgoat/webwolf/jwt/JWTTokenTest.java:34'
+    expectation: must_alert
+    canonical_file_path: src/test/java/org/owasp/webgoat/webwolf/jwt/JWTTokenTest.java
+    line_start: 34
+    line_end: 34
+    rule_type: 'Credential Management: Hardcoded API Credentials'
+    aliases:
+    - 'Credential Management: Hardcoded API Credentials'
+    source_notes: 'Sink: | File: src/test/java/org/owasp/webgoat/webwolf/jwt/JWTTokenTest.java:34'
+    sink_api: 'Credential Management: Hardcoded API Credentials'
+    source_refs:
+    - src/test/java/org/owasp/webgoat/webwolf/jwt/JWTTokenTest.java:34
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-011
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: Path Manipulation
+    severity: high
+    file_path: mvn/wrapper/MavenWrapperDownloader.java
+    line_start: 48
+    evidence: 'Source: main(0) | File: .mvn/wrapper/MavenWrapperDownloader.java:48'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-011
+    scenario_id: pending.webgoat.mavenwrapperdownloader-48-path-manipulation
+    family: path_traversal
+    title: Path Manipulation @ MavenWrapperDownloader.java
+    description: 待复核新增项：Path Manipulation @ mvn/wrapper/MavenWrapperDownloader.java:48
+    expectation: must_alert
+    canonical_file_path: mvn/wrapper/MavenWrapperDownloader.java
+    line_start: 48
+    line_end: 48
+    rule_type: Path Manipulation
+    aliases:
+    - Path Manipulation
+    source_notes: 'Source: main(0) | File: .mvn/wrapper/MavenWrapperDownloader.java:48'
+    sink_api: Path Manipulation
+    source_refs:
+    - mvn/wrapper/MavenWrapperDownloader.java:48
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-012
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: Path Manipulation
+    severity: high
+    file_path: src/main/java/org/owasp/webgoat/lessons/challenges/challenge7/MD5.java
+    line_start: 47
+    evidence: 'Source: main(0) | File: src/main/java/org/owasp/webgoat/lessons/challenges/challenge7/MD5.java:47'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-012
+    scenario_id: pending.webgoat.md5-47-path-manipulation
+    family: path_traversal
+    title: Path Manipulation @ MD5.java
+    description: 待复核新增项：Path Manipulation @ src/main/java/org/owasp/webgoat/lessons/challenges/challenge7/MD5.java:47
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/challenges/challenge7/MD5.java
+    line_start: 47
+    line_end: 47
+    rule_type: Path Manipulation
+    aliases:
+    - Path Manipulation
+    source_notes: 'Source: main(0) | File: src/main/java/org/owasp/webgoat/lessons/challenges/challenge7/MD5.java:47'
+    sink_api: Path Manipulation
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/challenges/challenge7/MD5.java:47
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-013
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: Path Manipulation
+    severity: high
+    file_path: src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileZipSlip.java
+    line_start: 76
+    evidence: 'Source: java.util.zip.ZipFile.entries() | File: src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileZipSlip.java:76'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-013
+    scenario_id: pending.webgoat.profilezipslip-76-path-manipulation
+    family: path_traversal
+    title: Path Manipulation @ ProfileZipSlip.java
+    description: 待复核新增项：Path Manipulation @ src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileZipSlip.java:76
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileZipSlip.java
+    line_start: 76
+    line_end: 76
+    rule_type: Path Manipulation
+    aliases:
+    - Path Manipulation
+    source_notes: 'Source: java.util.zip.ZipFile.entries() | File: src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileZipSlip.java:76'
+    sink_api: Path Manipulation
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileZipSlip.java:76
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-014
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A02 Cryptographic Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Key Management: Hardcoded Encryption Key'
+    severity: high
+    file_path: src/it/java/org/owasp/webgoat/playwright/webwolf/JwtUITest.java
+    line_start: 19
+    evidence: 'Sink: VariableAccess: secretKey | File: src/it/java/org/owasp/webgoat/playwright/webwolf/JwtUITest.java:19'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-014
+    scenario_id: pending.webgoat.jwtuitest-19-key-management-hardcoded-encryption-key
+    family: cryptographic_failure
+    title: 'Key Management: Hardcoded Encryption Key @ JwtUITest.java'
+    description: '待复核新增项：Key Management: Hardcoded Encryption Key @ src/it/java/org/owasp/webgoat/playwright/webwolf/JwtUITest.java:19'
+    expectation: must_alert
+    canonical_file_path: src/it/java/org/owasp/webgoat/playwright/webwolf/JwtUITest.java
+    line_start: 19
+    line_end: 19
+    rule_type: 'Key Management: Hardcoded Encryption Key'
+    aliases:
+    - 'Key Management: Hardcoded Encryption Key'
+    source_notes: 'Sink: VariableAccess: secretKey | File: src/it/java/org/owasp/webgoat/playwright/webwolf/JwtUITest.java:19'
+    sink_api: 'Key Management: Hardcoded Encryption Key'
+    source_refs:
+    - src/it/java/org/owasp/webgoat/playwright/webwolf/JwtUITest.java:19
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-015
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A02 Cryptographic Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Key Management: Hardcoded Encryption Key'
+    severity: high
+    file_path: src/main/resources/goatkeystore.pkcs12
+    line_start: 0
+    evidence: 'Sink: | File: src/main/resources/goatkeystore.pkcs12:0'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-015
+    scenario_id: pending.webgoat.goatkeystore-0-key-management-hardcoded-encryption-key
+    family: cryptographic_failure
+    title: 'Key Management: Hardcoded Encryption Key @ goatkeystore.pkcs12'
+    description: '待复核新增项：Key Management: Hardcoded Encryption Key @ src/main/resources/goatkeystore.pkcs12:0'
+    expectation: must_alert
+    canonical_file_path: src/main/resources/goatkeystore.pkcs12
+    line_start: 0
+    line_end: 0
+    rule_type: 'Key Management: Hardcoded Encryption Key'
+    aliases:
+    - 'Key Management: Hardcoded Encryption Key'
+    source_notes: 'Sink: | File: src/main/resources/goatkeystore.pkcs12:0'
+    sink_api: 'Key Management: Hardcoded Encryption Key'
+    source_refs:
+    - src/main/resources/goatkeystore.pkcs12:0
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-016
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A05 Security Misconfiguration
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: XML External Entity Injection
+    severity: high
+    file_path: src/main/java/org/owasp/webgoat/lessons/xxe/CommentsCache.java
+    line_start: 79
+    evidence: 'Sink: xif.createXMLStreamReader(...) : XML document parsed allowing
+      external entity resolution | File: src/main/java/org/owasp/webgoat/lessons/xxe/CommentsCache.java:79'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-016
+    scenario_id: pending.webgoat.commentscache-79-xml-external-entity-injection
+    family: xxe
+    title: XML External Entity Injection @ CommentsCache.java
+    description: 待复核新增项：XML External Entity Injection @ src/main/java/org/owasp/webgoat/lessons/xxe/CommentsCache.java:79
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/xxe/CommentsCache.java
+    line_start: 79
+    line_end: 79
+    rule_type: XML External Entity Injection
+    aliases:
+    - XML External Entity Injection
+    source_notes: 'Sink: xif.createXMLStreamReader(...) : XML document parsed allowing
+      external entity resolution | File: src/main/java/org/owasp/webgoat/lessons/xxe/CommentsCache.java:79'
+    sink_api: XML External Entity Injection
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/xxe/CommentsCache.java:79
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-017
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Credential Management: Hardcoded API Credentials'
+    severity: high
+    file_path: src/main/resources/lessons/jwt/i18n/WebGoatLabels.properties
+    line_start: 22
+    evidence: 'Sink: | File: src/main/resources/lessons/jwt/i18n/WebGoatLabels.properties:22'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-017
+    scenario_id: pending.webgoat.webgoatlabels-22-credential-management-hardcoded-api-credentials
+    family: credential_management
+    title: 'Credential Management: Hardcoded API Credentials @ WebGoatLabels.properties'
+    description: '待复核新增项：Credential Management: Hardcoded API Credentials @ src/main/resources/lessons/jwt/i18n/WebGoatLabels.properties:22'
+    expectation: must_alert
+    canonical_file_path: src/main/resources/lessons/jwt/i18n/WebGoatLabels.properties
+    line_start: 22
+    line_end: 22
+    rule_type: 'Credential Management: Hardcoded API Credentials'
+    aliases:
+    - 'Credential Management: Hardcoded API Credentials'
+    source_notes: 'Sink: | File: src/main/resources/lessons/jwt/i18n/WebGoatLabels.properties:22'
+    sink_api: 'Credential Management: Hardcoded API Credentials'
+    source_refs:
+    - src/main/resources/lessons/jwt/i18n/WebGoatLabels.properties:22
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-018
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Empty Password'
+    severity: high
+    file_path: src/main/java/org/owasp/webgoat/lessons/xxe/User.java
+    line_start: 13
+    evidence: 'Sink: FieldAccess: password | File: src/main/java/org/owasp/webgoat/lessons/xxe/User.java:13'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-018
+    scenario_id: pending.webgoat.user-13-password-management-empty-password
+    family: credential_management
+    title: 'Password Management: Empty Password @ User.java'
+    description: '待复核新增项：Password Management: Empty Password @ src/main/java/org/owasp/webgoat/lessons/xxe/User.java:13'
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/xxe/User.java
+    line_start: 13
+    line_end: 13
+    rule_type: 'Password Management: Empty Password'
+    aliases:
+    - 'Password Management: Empty Password'
+    source_notes: 'Sink: FieldAccess: password | File: src/main/java/org/owasp/webgoat/lessons/xxe/User.java:13'
+    sink_api: 'Password Management: Empty Password'
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/xxe/User.java:13
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-019
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Hardcoded Password'
+    severity: high
+    file_path: src/it/java/org/owasp/webgoat/integration/CSRFIntegrationTest.java
+    line_start: 213
+    evidence: 'Sink: FunctionCall: put | File: src/it/java/org/owasp/webgoat/integration/CSRFIntegrationTest.java:213'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-019
+    scenario_id: pending.webgoat.csrfintegrationtest-213-password-management-hardcoded-password
+    family: credential_management
+    title: 'Password Management: Hardcoded Password @ CSRFIntegrationTest.java'
+    description: '待复核新增项：Password Management: Hardcoded Password @ src/it/java/org/owasp/webgoat/integration/CSRFIntegrationTest.java:213'
+    expectation: must_alert
+    canonical_file_path: src/it/java/org/owasp/webgoat/integration/CSRFIntegrationTest.java
+    line_start: 213
+    line_end: 213
+    rule_type: 'Password Management: Hardcoded Password'
+    aliases:
+    - 'Password Management: Hardcoded Password'
+    source_notes: 'Sink: FunctionCall: put | File: src/it/java/org/owasp/webgoat/integration/CSRFIntegrationTest.java:213'
+    sink_api: 'Password Management: Hardcoded Password'
+    source_refs:
+    - src/it/java/org/owasp/webgoat/integration/CSRFIntegrationTest.java:213
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-020
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Hardcoded Password'
+    severity: high
+    file_path: src/it/java/org/owasp/webgoat/integration/GeneralLessonIntegrationTest.java
+    line_start: 123
+    evidence: 'Sink: FunctionCall: put | File: src/it/java/org/owasp/webgoat/integration/GeneralLessonIntegrationTest.java:123'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-020
+    scenario_id: pending.webgoat.generallessonintegrationtest-123-password-management-hardcoded-password
+    family: credential_management
+    title: 'Password Management: Hardcoded Password @ GeneralLessonIntegrationTest.java'
+    description: '待复核新增项：Password Management: Hardcoded Password @ src/it/java/org/owasp/webgoat/integration/GeneralLessonIntegrationTest.java:123'
+    expectation: must_alert
+    canonical_file_path: src/it/java/org/owasp/webgoat/integration/GeneralLessonIntegrationTest.java
+    line_start: 123
+    line_end: 123
+    rule_type: 'Password Management: Hardcoded Password'
+    aliases:
+    - 'Password Management: Hardcoded Password'
+    source_notes: 'Sink: FunctionCall: put | File: src/it/java/org/owasp/webgoat/integration/GeneralLessonIntegrationTest.java:123'
+    sink_api: 'Password Management: Hardcoded Password'
+    source_refs:
+    - src/it/java/org/owasp/webgoat/integration/GeneralLessonIntegrationTest.java:123
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-021
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Hardcoded Password'
+    severity: high
+    file_path: src/it/java/org/owasp/webgoat/integration/IDORIntegrationTest.java
+    line_start: 44
+    evidence: 'Sink: FunctionCall: put | File: src/it/java/org/owasp/webgoat/integration/IDORIntegrationTest.java:44'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-021
+    scenario_id: pending.webgoat.idorintegrationtest-44-password-management-hardcoded-password
+    family: credential_management
+    title: 'Password Management: Hardcoded Password @ IDORIntegrationTest.java'
+    description: '待复核新增项：Password Management: Hardcoded Password @ src/it/java/org/owasp/webgoat/integration/IDORIntegrationTest.java:44'
+    expectation: must_alert
+    canonical_file_path: src/it/java/org/owasp/webgoat/integration/IDORIntegrationTest.java
+    line_start: 44
+    line_end: 44
+    rule_type: 'Password Management: Hardcoded Password'
+    aliases:
+    - 'Password Management: Hardcoded Password'
+    source_notes: 'Sink: FunctionCall: put | File: src/it/java/org/owasp/webgoat/integration/IDORIntegrationTest.java:44'
+    sink_api: 'Password Management: Hardcoded Password'
+    source_refs:
+    - src/it/java/org/owasp/webgoat/integration/IDORIntegrationTest.java:44
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-022
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Hardcoded Password'
+    severity: high
+    file_path: src/it/java/org/owasp/webgoat/playwright/webgoat/RegistrationUITest.java
+    line_start: 27
+    evidence: 'Sink: VariableAccess: password | File: src/it/java/org/owasp/webgoat/playwright/webgoat/RegistrationUITest.java:27'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-022
+    scenario_id: pending.webgoat.registrationuitest-27-password-management-hardcoded-password
+    family: credential_management
+    title: 'Password Management: Hardcoded Password @ RegistrationUITest.java'
+    description: '待复核新增项：Password Management: Hardcoded Password @ src/it/java/org/owasp/webgoat/playwright/webgoat/RegistrationUITest.java:27'
+    expectation: must_alert
+    canonical_file_path: src/it/java/org/owasp/webgoat/playwright/webgoat/RegistrationUITest.java
+    line_start: 27
+    line_end: 27
+    rule_type: 'Password Management: Hardcoded Password'
+    aliases:
+    - 'Password Management: Hardcoded Password'
+    source_notes: 'Sink: VariableAccess: password | File: src/it/java/org/owasp/webgoat/playwright/webgoat/RegistrationUITest.java:27'
+    sink_api: 'Password Management: Hardcoded Password'
+    source_refs:
+    - src/it/java/org/owasp/webgoat/playwright/webgoat/RegistrationUITest.java:27
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-023
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Hardcoded Password'
+    severity: high
+    file_path: src/main/java/org/owasp/webgoat/lessons/challenges/SolutionConstants.java
+    line_start: 10
+    evidence: 'Sink: FieldAccess: PASSWORD | File: src/main/java/org/owasp/webgoat/lessons/challenges/SolutionConstants.java:10'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-023
+    scenario_id: pending.webgoat.solutionconstants-10-password-management-hardcoded-password
+    family: credential_management
+    title: 'Password Management: Hardcoded Password @ SolutionConstants.java'
+    description: '待复核新增项：Password Management: Hardcoded Password @ src/main/java/org/owasp/webgoat/lessons/challenges/SolutionConstants.java:10'
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/challenges/SolutionConstants.java
+    line_start: 10
+    line_end: 10
+    rule_type: 'Password Management: Hardcoded Password'
+    aliases:
+    - 'Password Management: Hardcoded Password'
+    source_notes: 'Sink: FieldAccess: PASSWORD | File: src/main/java/org/owasp/webgoat/lessons/challenges/SolutionConstants.java:10'
+    sink_api: 'Password Management: Hardcoded Password'
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/challenges/SolutionConstants.java:10
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-024
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Hardcoded Password'
+    severity: high
+    file_path: src/main/java/org/owasp/webgoat/lessons/idor/IDORLogin.java
+    line_start: 35
+    evidence: 'Sink: FunctionCall: put | File: src/main/java/org/owasp/webgoat/lessons/idor/IDORLogin.java:35'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-024
+    scenario_id: pending.webgoat.idorlogin-35-password-management-hardcoded-password
+    family: credential_management
+    title: 'Password Management: Hardcoded Password @ IDORLogin.java'
+    description: '待复核新增项：Password Management: Hardcoded Password @ src/main/java/org/owasp/webgoat/lessons/idor/IDORLogin.java:35'
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/idor/IDORLogin.java
+    line_start: 35
+    line_end: 35
+    rule_type: 'Password Management: Hardcoded Password'
+    aliases:
+    - 'Password Management: Hardcoded Password'
+    source_notes: 'Sink: FunctionCall: put | File: src/main/java/org/owasp/webgoat/lessons/idor/IDORLogin.java:35'
+    sink_api: 'Password Management: Hardcoded Password'
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/idor/IDORLogin.java:35
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-025
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Hardcoded Password'
+    severity: high
+    file_path: src/main/java/org/owasp/webgoat/lessons/insecurelogin/InsecureLoginTask.java
+    line_start: 21
+    evidence: 'Sink: FunctionCall: equals | File: src/main/java/org/owasp/webgoat/lessons/insecurelogin/InsecureLoginTask.java:21'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-025
+    scenario_id: pending.webgoat.insecurelogintask-21-password-management-hardcoded-password
+    family: credential_management
+    title: 'Password Management: Hardcoded Password @ InsecureLoginTask.java'
+    description: '待复核新增项：Password Management: Hardcoded Password @ src/main/java/org/owasp/webgoat/lessons/insecurelogin/InsecureLoginTask.java:21'
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/insecurelogin/InsecureLoginTask.java
+    line_start: 21
+    line_end: 21
+    rule_type: 'Password Management: Hardcoded Password'
+    aliases:
+    - 'Password Management: Hardcoded Password'
+    source_notes: 'Sink: FunctionCall: equals | File: src/main/java/org/owasp/webgoat/lessons/insecurelogin/InsecureLoginTask.java:21'
+    sink_api: 'Password Management: Hardcoded Password'
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/insecurelogin/InsecureLoginTask.java:21
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-026
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Hardcoded Password'
+    severity: high
+    file_path: src/main/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpoint.java
+    line_start: 45
+    evidence: 'Sink: FieldAccess: PASSWORD | File: src/main/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpoint.java:45'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-026
+    scenario_id: pending.webgoat.jwtrefreshendpoint-45-password-management-hardcoded-password
+    family: credential_management
+    title: 'Password Management: Hardcoded Password @ JWTRefreshEndpoint.java'
+    description: '待复核新增项：Password Management: Hardcoded Password @ src/main/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpoint.java:45'
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpoint.java
+    line_start: 45
+    line_end: 45
+    rule_type: 'Password Management: Hardcoded Password'
+    aliases:
+    - 'Password Management: Hardcoded Password'
+    source_notes: 'Sink: FieldAccess: PASSWORD | File: src/main/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpoint.java:45'
+    sink_api: 'Password Management: Hardcoded Password'
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpoint.java:45
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-027
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Hardcoded Password'
+    severity: high
+    file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6b.java
+    line_start: 42
+    evidence: 'Sink: VariableAccess: password | File: src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6b.java:42'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-027
+    scenario_id: pending.webgoat.sqlinjectionlesson6b-42-password-management-hardcoded-password
+    family: credential_management
+    title: 'Password Management: Hardcoded Password @ SqlInjectionLesson6b.java'
+    description: '待复核新增项：Password Management: Hardcoded Password @ src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6b.java:42'
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6b.java
+    line_start: 42
+    line_end: 42
+    rule_type: 'Password Management: Hardcoded Password'
+    aliases:
+    - 'Password Management: Hardcoded Password'
+    source_notes: 'Sink: VariableAccess: password | File: src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6b.java:42'
+    sink_api: 'Password Management: Hardcoded Password'
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6b.java:42
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-028
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Hardcoded Password'
+    severity: high
+    file_path: src/main/resources/lessons/jwt/js/jwt-refresh.js
+    line_start: 10
+    evidence: 'Sink: FieldAccess: password | File: src/main/resources/lessons/jwt/js/jwt-refresh.js:10'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-028
+    scenario_id: pending.webgoat.jwt-refresh-10-password-management-hardcoded-password
+    family: credential_management
+    title: 'Password Management: Hardcoded Password @ jwt-refresh.js'
+    description: '待复核新增项：Password Management: Hardcoded Password @ src/main/resources/lessons/jwt/js/jwt-refresh.js:10'
+    expectation: must_alert
+    canonical_file_path: src/main/resources/lessons/jwt/js/jwt-refresh.js
+    line_start: 10
+    line_end: 10
+    rule_type: 'Password Management: Hardcoded Password'
+    aliases:
+    - 'Password Management: Hardcoded Password'
+    source_notes: 'Sink: FieldAccess: password | File: src/main/resources/lessons/jwt/js/jwt-refresh.js:10'
+    sink_api: 'Password Management: Hardcoded Password'
+    source_refs:
+    - src/main/resources/lessons/jwt/js/jwt-refresh.js:10
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-029
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Hardcoded Password'
+    severity: high
+    file_path: src/test/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpointTest.java
+    line_start: 179
+    evidence: 'Sink: FunctionCall: put | File: src/test/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpointTest.java:179'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-029
+    scenario_id: pending.webgoat.jwtrefreshendpointtest-179-password-management-hardcoded-password
+    family: credential_management
+    title: 'Password Management: Hardcoded Password @ JWTRefreshEndpointTest.java'
+    description: '待复核新增项：Password Management: Hardcoded Password @ src/test/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpointTest.java:179'
+    expectation: must_alert
+    canonical_file_path: src/test/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpointTest.java
+    line_start: 179
+    line_end: 179
+    rule_type: 'Password Management: Hardcoded Password'
+    aliases:
+    - 'Password Management: Hardcoded Password'
+    source_notes: 'Sink: FunctionCall: put | File: src/test/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpointTest.java:179'
+    sink_api: 'Password Management: Hardcoded Password'
+    source_refs:
+    - src/test/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpointTest.java:179
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-030
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Hardcoded Password'
+    severity: high
+    file_path: src/test/java/org/owasp/webgoat/lessons/missingac/MissingFunctionACUsersTest.java
+    line_start: 41
+    evidence: 'Sink: StringLiteral | File: src/test/java/org/owasp/webgoat/lessons/missingac/MissingFunctionACUsersTest.java:41'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-030
+    scenario_id: pending.webgoat.missingfunctionacuserstest-41-password-management-hardcoded-password
+    family: credential_management
+    title: 'Password Management: Hardcoded Password @ MissingFunctionACUsersTest.java'
+    description: '待复核新增项：Password Management: Hardcoded Password @ src/test/java/org/owasp/webgoat/lessons/missingac/MissingFunctionACUsersTest.java:41'
+    expectation: must_alert
+    canonical_file_path: src/test/java/org/owasp/webgoat/lessons/missingac/MissingFunctionACUsersTest.java
+    line_start: 41
+    line_end: 41
+    rule_type: 'Password Management: Hardcoded Password'
+    aliases:
+    - 'Password Management: Hardcoded Password'
+    source_notes: 'Sink: StringLiteral | File: src/test/java/org/owasp/webgoat/lessons/missingac/MissingFunctionACUsersTest.java:41'
+    sink_api: 'Password Management: Hardcoded Password'
+    source_refs:
+    - src/test/java/org/owasp/webgoat/lessons/missingac/MissingFunctionACUsersTest.java:41
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-031
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Hardcoded Password'
+    severity: high
+    file_path: src/test/java/org/owasp/webgoat/lessons/spoofcookie/SpoofCookieAssignmentTest.java
+    line_start: 53
+    evidence: 'Sink: VariableAccess: password | File: src/test/java/org/owasp/webgoat/lessons/spoofcookie/SpoofCookieAssignmentTest.java:53'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-031
+    scenario_id: pending.webgoat.spoofcookieassignmenttest-53-password-management-hardcoded-password
+    family: credential_management
+    title: 'Password Management: Hardcoded Password @ SpoofCookieAssignmentTest.java'
+    description: '待复核新增项：Password Management: Hardcoded Password @ src/test/java/org/owasp/webgoat/lessons/spoofcookie/SpoofCookieAssignmentTest.java:53'
+    expectation: must_alert
+    canonical_file_path: src/test/java/org/owasp/webgoat/lessons/spoofcookie/SpoofCookieAssignmentTest.java
+    line_start: 53
+    line_end: 53
+    rule_type: 'Password Management: Hardcoded Password'
+    aliases:
+    - 'Password Management: Hardcoded Password'
+    source_notes: 'Sink: VariableAccess: password | File: src/test/java/org/owasp/webgoat/lessons/spoofcookie/SpoofCookieAssignmentTest.java:53'
+    sink_api: 'Password Management: Hardcoded Password'
+    source_refs:
+    - src/test/java/org/owasp/webgoat/lessons/spoofcookie/SpoofCookieAssignmentTest.java:53
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-032
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Hardcoded Password'
+    severity: high
+    file_path: src/test/java/org/owasp/webgoat/webwolf/user/UserServiceTest.java
+    line_start: 31
+    evidence: 'Sink: VariableAccess: password | File: src/test/java/org/owasp/webgoat/webwolf/user/UserServiceTest.java:31'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-032
+    scenario_id: pending.webgoat.userservicetest-31-password-management-hardcoded-password
+    family: credential_management
+    title: 'Password Management: Hardcoded Password @ UserServiceTest.java'
+    description: '待复核新增项：Password Management: Hardcoded Password @ src/test/java/org/owasp/webgoat/webwolf/user/UserServiceTest.java:31'
+    expectation: must_alert
+    canonical_file_path: src/test/java/org/owasp/webgoat/webwolf/user/UserServiceTest.java
+    line_start: 31
+    line_end: 31
+    rule_type: 'Password Management: Hardcoded Password'
+    aliases:
+    - 'Password Management: Hardcoded Password'
+    source_notes: 'Sink: VariableAccess: password | File: src/test/java/org/owasp/webgoat/webwolf/user/UserServiceTest.java:31'
+    sink_api: 'Password Management: Hardcoded Password'
+    source_refs:
+    - src/test/java/org/owasp/webgoat/webwolf/user/UserServiceTest.java:31
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-033
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Password Management: Password in Configuration File'
+    severity: high
+    file_path: src/main/resources/i18n/messages.properties
+    line_start: 8
+    evidence: 'Sink: password | File: src/main/resources/i18n/messages.properties:8'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-033
+    scenario_id: pending.webgoat.messages-8-password-management-password-in-configuration-file
+    family: credential_management
+    title: 'Password Management: Password in Configuration File @ messages.properties'
+    description: '待复核新增项：Password Management: Password in Configuration File @ src/main/resources/i18n/messages.properties:8'
+    expectation: must_alert
+    canonical_file_path: src/main/resources/i18n/messages.properties
+    line_start: 8
+    line_end: 8
+    rule_type: 'Password Management: Password in Configuration File'
+    aliases:
+    - 'Password Management: Password in Configuration File'
+    source_notes: 'Sink: password | File: src/main/resources/i18n/messages.properties:8'
+    sink_api: 'Password Management: Password in Configuration File'
+    source_refs:
+    - src/main/resources/i18n/messages.properties:8
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-034
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: 'Path Manipulation: Zip Entry Overwrite'
+    severity: medium
+    file_path: src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileZipSlip.java
+    line_start: 79
+    evidence: 'Source: java.util.zip.ZipEntry.getName() | File: src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileZipSlip.java:79'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-034
+    scenario_id: pending.webgoat.profilezipslip-79-path-manipulation-zip-entry-overwrite
+    family: path_traversal
+    title: 'Path Manipulation: Zip Entry Overwrite @ ProfileZipSlip.java'
+    description: '待复核新增项：Path Manipulation: Zip Entry Overwrite @ src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileZipSlip.java:79'
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileZipSlip.java
+    line_start: 79
+    line_end: 79
+    rule_type: 'Path Manipulation: Zip Entry Overwrite'
+    aliases:
+    - 'Path Manipulation: Zip Entry Overwrite'
+    source_notes: 'Source: java.util.zip.ZipEntry.getName() | File: src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileZipSlip.java:79'
+    sink_api: 'Path Manipulation: Zip Entry Overwrite'
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileZipSlip.java:79
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-035
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: '"/CrossSiteScriptingStored/stored-xss"'
+    severity: low
+    file_path: src/test/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson1Test.java
+    line_start: 28
+    evidence: 'Sink: Function: failure | File: src/test/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson1Test.java:28'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-035
+    scenario_id: pending.webgoat.crosssitescriptinglesson1test-28--crosssitescriptingstored-stored-xss
+    family: xss
+    title: '"/CrossSiteScriptingStored/stored-xss" @ CrossSiteScriptingLesson1Test.java'
+    description: 待复核新增项："/CrossSiteScriptingStored/stored-xss" @ src/test/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson1Test.java:28
+    expectation: must_alert
+    canonical_file_path: src/test/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson1Test.java
+    line_start: 28
+    line_end: 28
+    rule_type: '"/CrossSiteScriptingStored/stored-xss"'
+    aliases:
+    - '"/CrossSiteScriptingStored/stored-xss"'
+    source_notes: 'Sink: Function: failure | File: src/test/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson1Test.java:28'
+    sink_api: '"/CrossSiteScriptingStored/stored-xss"'
+    source_refs:
+    - src/test/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson1Test.java:28
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-036
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: Command Injection
+    severity: low
+    file_path: src/main/java/org/dummy/insecure/framework/VulnerableTaskHolder.java
+    line_start: 67
+    evidence: 'Sink: exec(0) | File: src/main/java/org/dummy/insecure/framework/VulnerableTaskHolder.java:67'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-036
+    scenario_id: pending.webgoat.vulnerabletaskholder-67-command-injection
+    family: command_injection
+    title: Command Injection @ VulnerableTaskHolder.java
+    description: 待复核新增项：Command Injection @ src/main/java/org/dummy/insecure/framework/VulnerableTaskHolder.java:67
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/dummy/insecure/framework/VulnerableTaskHolder.java
+    line_start: 67
+    line_end: 67
+    rule_type: Command Injection
+    aliases:
+    - Command Injection
+    source_notes: 'Sink: exec(0) | File: src/main/java/org/dummy/insecure/framework/VulnerableTaskHolder.java:67'
+    sink_api: Command Injection
+    source_refs:
+    - src/main/java/org/dummy/insecure/framework/VulnerableTaskHolder.java:67
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-037
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: SQL Injection
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/container/lessons/LessonConnectionInvocationHandler.java
+    line_start: 31
+    evidence: 'Sink: execute() | File: src/main/java/org/owasp/webgoat/container/lessons/LessonConnectionInvocationHandler.java:31'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-037
+    scenario_id: pending.webgoat.lessonconnectioninvocationhandler-31-sql-injection
+    family: sql_injection
+    title: SQL Injection @ LessonConnectionInvocationHandler.java
+    description: 待复核新增项：SQL Injection @ src/main/java/org/owasp/webgoat/container/lessons/LessonConnectionInvocationHandler.java:31
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/container/lessons/LessonConnectionInvocationHandler.java
+    line_start: 31
+    line_end: 31
+    rule_type: SQL Injection
+    aliases:
+    - SQL Injection
+    source_notes: 'Sink: execute() | File: src/main/java/org/owasp/webgoat/container/lessons/LessonConnectionInvocationHandler.java:31'
+    sink_api: SQL Injection
+    source_refs:
+    - src/main/java/org/owasp/webgoat/container/lessons/LessonConnectionInvocationHandler.java:31
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-038
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: SQL Injection
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/challenges/challenge5/Assignment5.java
+    line_start: 44
+    evidence: 'Sink: prepareStatement() | File: src/main/java/org/owasp/webgoat/lessons/challenges/challenge5/Assignment5.java:44'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-038
+    scenario_id: pending.webgoat.assignment5-44-sql-injection
+    family: sql_injection
+    title: SQL Injection @ Assignment5.java
+    description: 待复核新增项：SQL Injection @ src/main/java/org/owasp/webgoat/lessons/challenges/challenge5/Assignment5.java:44
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/challenges/challenge5/Assignment5.java
+    line_start: 44
+    line_end: 44
+    rule_type: SQL Injection
+    aliases:
+    - SQL Injection
+    source_notes: 'Sink: prepareStatement() | File: src/main/java/org/owasp/webgoat/lessons/challenges/challenge5/Assignment5.java:44'
+    sink_api: SQL Injection
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/challenges/challenge5/Assignment5.java:44
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-039
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: SQL Injection
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/jwt/claimmisuse/JWTHeaderKIDEndpoint.java
+    line_start: 75
+    evidence: 'Sink: executeQuery() | File: src/main/java/org/owasp/webgoat/lessons/jwt/claimmisuse/JWTHeaderKIDEndpoint.java:75'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-039
+    scenario_id: pending.webgoat.jwtheaderkidendpoint-75-sql-injection
+    family: sql_injection
+    title: SQL Injection @ JWTHeaderKIDEndpoint.java
+    description: 待复核新增项：SQL Injection @ src/main/java/org/owasp/webgoat/lessons/jwt/claimmisuse/JWTHeaderKIDEndpoint.java:75
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/jwt/claimmisuse/JWTHeaderKIDEndpoint.java
+    line_start: 75
+    line_end: 75
+    rule_type: SQL Injection
+    aliases:
+    - SQL Injection
+    source_notes: 'Sink: executeQuery() | File: src/main/java/org/owasp/webgoat/lessons/jwt/claimmisuse/JWTHeaderKIDEndpoint.java:75'
+    sink_api: SQL Injection
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/jwt/claimmisuse/JWTHeaderKIDEndpoint.java:75
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-040
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: SQL Injection
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionChallenge.java
+    line_start: 57
+    evidence: 'Sink: executeQuery() | File: src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionChallenge.java:57'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-040
+    scenario_id: pending.webgoat.sqlinjectionchallenge-57-sql-injection
+    family: sql_injection
+    title: SQL Injection @ SqlInjectionChallenge.java
+    description: 待复核新增项：SQL Injection @ src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionChallenge.java:57
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionChallenge.java
+    line_start: 57
+    line_end: 57
+    rule_type: SQL Injection
+    aliases:
+    - SQL Injection
+    source_notes: 'Sink: executeQuery() | File: src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionChallenge.java:57'
+    sink_api: SQL Injection
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionChallenge.java:57
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-041
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: SQL Injection
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6a.java
+    line_start: 72
+    evidence: 'Sink: executeQuery() | File: src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6a.java:72'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-041
+    scenario_id: pending.webgoat.sqlinjectionlesson6a-72-sql-injection
+    family: sql_injection
+    title: SQL Injection @ SqlInjectionLesson6a.java
+    description: 待复核新增项：SQL Injection @ src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6a.java:72
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6a.java
+    line_start: 72
+    line_end: 72
+    rule_type: SQL Injection
+    aliases:
+    - SQL Injection
+    source_notes: 'Sink: executeQuery() | File: src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6a.java:72'
+    sink_api: SQL Injection
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6a.java:72
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-042
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: SQL Injection
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson10.java
+    line_start: 56
+    evidence: 'Sink: executeQuery() | File: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson10.java:56'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-042
+    scenario_id: pending.webgoat.sqlinjectionlesson10-56-sql-injection
+    family: sql_injection
+    title: SQL Injection @ SqlInjectionLesson10.java
+    description: 待复核新增项：SQL Injection @ src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson10.java:56
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson10.java
+    line_start: 56
+    line_end: 56
+    rule_type: SQL Injection
+    aliases:
+    - SQL Injection
+    source_notes: 'Sink: executeQuery() | File: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson10.java:56'
+    sink_api: SQL Injection
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson10.java:56
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-043
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: SQL Injection
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson2.java
+    line_start: 49
+    evidence: 'Sink: executeQuery() | File: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson2.java:49'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-043
+    scenario_id: pending.webgoat.sqlinjectionlesson2-49-sql-injection
+    family: sql_injection
+    title: SQL Injection @ SqlInjectionLesson2.java
+    description: 待复核新增项：SQL Injection @ src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson2.java:49
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson2.java
+    line_start: 49
+    line_end: 49
+    rule_type: SQL Injection
+    aliases:
+    - SQL Injection
+    source_notes: 'Sink: executeQuery() | File: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson2.java:49'
+    sink_api: SQL Injection
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson2.java:49
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-044
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: SQL Injection
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson3.java
+    line_start: 47
+    evidence: 'Sink: executeUpdate() | File: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson3.java:47'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-044
+    scenario_id: pending.webgoat.sqlinjectionlesson3-47-sql-injection
+    family: sql_injection
+    title: SQL Injection @ SqlInjectionLesson3.java
+    description: 待复核新增项：SQL Injection @ src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson3.java:47
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson3.java
+    line_start: 47
+    line_end: 47
+    rule_type: SQL Injection
+    aliases:
+    - SQL Injection
+    source_notes: 'Sink: executeUpdate() | File: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson3.java:47'
+    sink_api: SQL Injection
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson3.java:47
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-045
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: SQL Injection
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson4.java
+    line_start: 46
+    evidence: 'Sink: executeUpdate() | File: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson4.java:46'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-045
+    scenario_id: pending.webgoat.sqlinjectionlesson4-46-sql-injection
+    family: sql_injection
+    title: SQL Injection @ SqlInjectionLesson4.java
+    description: 待复核新增项：SQL Injection @ src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson4.java:46
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson4.java
+    line_start: 46
+    line_end: 46
+    rule_type: SQL Injection
+    aliases:
+    - SQL Injection
+    source_notes: 'Sink: executeUpdate() | File: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson4.java:46'
+    sink_api: SQL Injection
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson4.java:46
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-046
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: SQL Injection
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5.java
+    line_start: 65
+    evidence: 'Sink: executeQuery() | File: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5.java:65'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-046
+    scenario_id: pending.webgoat.sqlinjectionlesson5-65-sql-injection
+    family: sql_injection
+    title: SQL Injection @ SqlInjectionLesson5.java
+    description: 待复核新增项：SQL Injection @ src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5.java:65
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5.java
+    line_start: 65
+    line_end: 65
+    rule_type: SQL Injection
+    aliases:
+    - SQL Injection
+    source_notes: 'Sink: executeQuery() | File: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5.java:65'
+    sink_api: SQL Injection
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5.java:65
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-047
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: SQL Injection
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5a.java
+    line_start: 52
+    evidence: 'Sink: executeQuery() | File: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5a.java:52'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-047
+    scenario_id: pending.webgoat.sqlinjectionlesson5a-52-sql-injection
+    family: sql_injection
+    title: SQL Injection @ SqlInjectionLesson5a.java
+    description: 待复核新增项：SQL Injection @ src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5a.java:52
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5a.java
+    line_start: 52
+    line_end: 52
+    rule_type: SQL Injection
+    aliases:
+    - SQL Injection
+    source_notes: 'Sink: executeQuery() | File: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5a.java:52'
+    sink_api: SQL Injection
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5a.java:52
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-048
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: SQL Injection
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5b.java
+    line_start: 48
+    evidence: 'Sink: prepareStatement() | File: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5b.java:48'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-048
+    scenario_id: pending.webgoat.sqlinjectionlesson5b-48-sql-injection
+    family: sql_injection
+    title: SQL Injection @ SqlInjectionLesson5b.java
+    description: 待复核新增项：SQL Injection @ src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5b.java:48
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5b.java
+    line_start: 48
+    line_end: 48
+    rule_type: SQL Injection
+    aliases:
+    - SQL Injection
+    source_notes: 'Sink: prepareStatement() | File: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5b.java:48'
+    sink_api: SQL Injection
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5b.java:48
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-049
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: SQL Injection
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson8.java
+    line_start: 62
+    evidence: 'Sink: executeQuery() | File: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson8.java:62'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-049
+    scenario_id: pending.webgoat.sqlinjectionlesson8-62-sql-injection
+    family: sql_injection
+    title: SQL Injection @ SqlInjectionLesson8.java
+    description: 待复核新增项：SQL Injection @ src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson8.java:62
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson8.java
+    line_start: 62
+    line_end: 62
+    rule_type: SQL Injection
+    aliases:
+    - SQL Injection
+    source_notes: 'Sink: executeQuery() | File: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson8.java:62'
+    sink_api: SQL Injection
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson8.java:62
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-050
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: SQL Injection
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson9.java
+    line_start: 65
+    evidence: 'Sink: execute() | File: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson9.java:65'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-050
+    scenario_id: pending.webgoat.sqlinjectionlesson9-65-sql-injection
+    family: sql_injection
+    title: SQL Injection @ SqlInjectionLesson9.java
+    description: 待复核新增项：SQL Injection @ src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson9.java:65
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson9.java
+    line_start: 65
+    line_end: 65
+    rule_type: SQL Injection
+    aliases:
+    - SQL Injection
+    source_notes: 'Sink: execute() | File: src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson9.java:65'
+    sink_api: SQL Injection
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson9.java:65
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-051
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: SQL Injection
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/Servers.java
+    line_start: 50
+    evidence: 'Sink: prepareStatement() | File: src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/Servers.java:50'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-051
+    scenario_id: pending.webgoat.servers-50-sql-injection
+    family: sql_injection
+    title: SQL Injection @ Servers.java
+    description: 待复核新增项：SQL Injection @ src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/Servers.java:50
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/Servers.java
+    line_start: 50
+    line_end: 50
+    rule_type: SQL Injection
+    aliases:
+    - SQL Injection
+    source_notes: 'Sink: prepareStatement() | File: src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/Servers.java:50'
+    sink_api: SQL Injection
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/Servers.java:50
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-052
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: '"/PasswordReset/SecurityQuestions"'
+    severity: low
+    file_path: src/test/java/org/owasp/webgoat/lessons/passwordreset/SecurityQuestionAssignmentTest.java
+    line_start: 67
+    evidence: 'Sink: Function: answeringSameQuestionTwiceShouldNotSolveAssignment
+      | File: src/test/java/org/owasp/webgoat/lessons/passwordreset/SecurityQuestionAssignmentTest.java:67'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-052
+    scenario_id: pending.webgoat.securityquestionassignmenttest-67--passwordreset-securityquestions
+    family: credential_management
+    title: '"/PasswordReset/SecurityQuestions" @ SecurityQuestionAssignmentTest.java'
+    description: 待复核新增项："/PasswordReset/SecurityQuestions" @ src/test/java/org/owasp/webgoat/lessons/passwordreset/SecurityQuestionAssignmentTest.java:67
+    expectation: must_alert
+    canonical_file_path: src/test/java/org/owasp/webgoat/lessons/passwordreset/SecurityQuestionAssignmentTest.java
+    line_start: 67
+    line_end: 67
+    rule_type: '"/PasswordReset/SecurityQuestions"'
+    aliases:
+    - '"/PasswordReset/SecurityQuestions"'
+    source_notes: 'Sink: Function: answeringSameQuestionTwiceShouldNotSolveAssignment
+      | File: src/test/java/org/owasp/webgoat/lessons/passwordreset/SecurityQuestionAssignmentTest.java:67'
+    sink_api: '"/PasswordReset/SecurityQuestions"'
+    source_refs:
+    - src/test/java/org/owasp/webgoat/lessons/passwordreset/SecurityQuestionAssignmentTest.java:67
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-053
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A08 Software and Data Integrity Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: '"/InsecureDeserialization/task"'
+    severity: low
+    file_path: src/test/java/org/owasp/webgoat/lessons/hijacksession/HijackSessionAssignmentTest.java
+    line_start: 54
+    evidence: 'Sink: Function: testBlankCookie | File: src/test/java/org/owasp/webgoat/lessons/hijacksession/HijackSessionAssignmentTest.java:54'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-053
+    scenario_id: pending.webgoat.hijacksessionassignmenttest-54--insecuredeserialization-task
+    family: deserialization
+    title: '"/InsecureDeserialization/task" @ HijackSessionAssignmentTest.java'
+    description: 待复核新增项："/InsecureDeserialization/task" @ src/test/java/org/owasp/webgoat/lessons/hijacksession/HijackSessionAssignmentTest.java:54
+    expectation: must_alert
+    canonical_file_path: src/test/java/org/owasp/webgoat/lessons/hijacksession/HijackSessionAssignmentTest.java
+    line_start: 54
+    line_end: 54
+    rule_type: '"/InsecureDeserialization/task"'
+    aliases:
+    - '"/InsecureDeserialization/task"'
+    source_notes: 'Sink: Function: testBlankCookie | File: src/test/java/org/owasp/webgoat/lessons/hijacksession/HijackSessionAssignmentTest.java:54'
+    sink_api: '"/InsecureDeserialization/task"'
+    source_refs:
+    - src/test/java/org/owasp/webgoat/lessons/hijacksession/HijackSessionAssignmentTest.java:54
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-054
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A05 Security Misconfiguration
+  review_priority: medium
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: '"/xxe/blind"'
+    severity: low
+    file_path: src/test/java/org/owasp/webgoat/lessons/xxe/SimpleXXETest.java
+    line_start: 41
+    evidence: 'Sink: Function: postingJsonCommentShouldNotSolveAssignment | File:
+      src/test/java/org/owasp/webgoat/lessons/xxe/SimpleXXETest.java:41'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-054
+    scenario_id: pending.webgoat.simplexxetest-41--xxe-blind
+    family: xxe
+    title: '"/xxe/blind" @ SimpleXXETest.java'
+    description: 待复核新增项："/xxe/blind" @ src/test/java/org/owasp/webgoat/lessons/xxe/SimpleXXETest.java:41
+    expectation: must_alert
+    canonical_file_path: src/test/java/org/owasp/webgoat/lessons/xxe/SimpleXXETest.java
+    line_start: 41
+    line_end: 41
+    rule_type: '"/xxe/blind"'
+    aliases:
+    - '"/xxe/blind"'
+    source_notes: 'Sink: Function: postingJsonCommentShouldNotSolveAssignment | File:
+      src/test/java/org/owasp/webgoat/lessons/xxe/SimpleXXETest.java:41'
+    sink_api: '"/xxe/blind"'
+    source_refs:
+    - src/test/java/org/owasp/webgoat/lessons/xxe/SimpleXXETest.java:41
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-055
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A05 Security Misconfiguration
+  review_priority: medium
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: '"/xxe/simple"'
+    severity: low
+    file_path: src/test/java/org/owasp/webgoat/lessons/xxe/SimpleXXETest.java
+    line_start: 27
+    evidence: 'Sink: Function: workingAttack | File: src/test/java/org/owasp/webgoat/lessons/xxe/SimpleXXETest.java:27'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-055
+    scenario_id: pending.webgoat.simplexxetest-27--xxe-simple
+    family: xxe
+    title: '"/xxe/simple" @ SimpleXXETest.java'
+    description: 待复核新增项："/xxe/simple" @ src/test/java/org/owasp/webgoat/lessons/xxe/SimpleXXETest.java:27
+    expectation: must_alert
+    canonical_file_path: src/test/java/org/owasp/webgoat/lessons/xxe/SimpleXXETest.java
+    line_start: 27
+    line_end: 27
+    rule_type: '"/xxe/simple"'
+    aliases:
+    - '"/xxe/simple"'
+    source_notes: 'Sink: Function: workingAttack | File: src/test/java/org/owasp/webgoat/lessons/xxe/SimpleXXETest.java:27'
+    sink_api: '"/xxe/simple"'
+    source_refs:
+    - src/test/java/org/owasp/webgoat/lessons/xxe/SimpleXXETest.java:27
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-FORTIFY-056
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A05 Security Misconfiguration
+  review_priority: medium
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: fortify
+    rule_name: XML Entity Expansion Injection
+    severity: low
+    file_path: src/main/java/org/owasp/webgoat/lessons/xxe/CommentsCache.java
+    line_start: 79
+    evidence: 'Sink: xif.createXMLStreamReader(...) : XML document parsed allowing
+      external entity resolution | File: src/main/java/org/owasp/webgoat/lessons/xxe/CommentsCache.java:79'
+  proposed_case:
+    case_id: REVIEW-WEBGOAT-056
+    scenario_id: pending.webgoat.commentscache-79-xml-entity-expansion-injection
+    family: security_misconfiguration
+    title: XML Entity Expansion Injection @ CommentsCache.java
+    description: 待复核新增项：XML Entity Expansion Injection @ src/main/java/org/owasp/webgoat/lessons/xxe/CommentsCache.java:79
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/owasp/webgoat/lessons/xxe/CommentsCache.java
+    line_start: 79
+    line_end: 79
+    rule_type: XML Entity Expansion Injection
+    aliases:
+    - XML Entity Expansion Injection
+    source_notes: 'Sink: xif.createXMLStreamReader(...) : XML document parsed allowing
+      external entity resolution | File: src/main/java/org/owasp/webgoat/lessons/xxe/CommentsCache.java:79'
+    sink_api: XML Entity Expansion Injection
+    source_refs:
+    - src/main/java/org/owasp/webgoat/lessons/xxe/CommentsCache.java:79
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。

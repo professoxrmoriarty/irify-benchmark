@@ -1,0 +1,366 @@
+project: sonic-server-main
+tool: code_guard
+generated_from: /home/zpy/goproject/IRify_SAST/.ai/task-runs/benchmark-framework/projects/01-sonic-server-main/artifacts/truth-evaluation.json
+summary:
+  total: 10
+  by_priority:
+    high: 10
+notes:
+- 这是待复核 finding 转出的 review case 草案，不自动参与正式真值评估。
+- 人工确认后，可按需要提升到 JavaSecLab.review.yaml 的 manual_cases 或 suppressed_findings。
+- candidate_case_ids 非空时，优先判断是否应并入已有 case，而不是直接新增。
+review_cases:
+- review_case_id: PENDING-CODE_GUARD-001
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 输入验证：访问权限修饰符修改
+    severity: high
+    file_path: src/main/java/org/cloud/sonic/controller/services/impl/base/SonicServiceImpl.java
+    line_start: 72
+    evidence: 1 sonic-server-main/sonic-server-controller/src/main/java/org/cloud/sonic/controller/services/impl/base/SonicServiceImpl.java;72行setAccessible()
+  proposed_case:
+    case_id: REVIEW-SONIC-SERVER-MAIN-001
+    scenario_id: pending.sonic-server-main.sonicserviceimpl-72-输入验证-访问权限修饰符修改
+    family: broken_access_control
+    title: 输入验证：访问权限修饰符修改 @ SonicServiceImpl.java
+    description: 待复核新增项：输入验证：访问权限修饰符修改 @ src/main/java/org/cloud/sonic/controller/services/impl/base/SonicServiceImpl.java:72
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/cloud/sonic/controller/services/impl/base/SonicServiceImpl.java
+    line_start: 72
+    line_end: 72
+    rule_type: 输入验证：访问权限修饰符修改
+    aliases:
+    - 输入验证：访问权限修饰符修改
+    source_notes: 1 sonic-server-main/sonic-server-controller/src/main/java/org/cloud/sonic/controller/services/impl/base/SonicServiceImpl.java;72行setAccessible()
+    sink_api: 输入验证：访问权限修饰符修改
+    source_refs:
+    - src/main/java/org/cloud/sonic/controller/services/impl/base/SonicServiceImpl.java:72
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-002
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 输入验证：路径遍历
+    severity: high
+    file_path: src/main/java/org/cloud/sonic/folder/controller/UploadController.java
+    line_start: 96
+    evidence: 1 sonic-server-main/sonic-server-folder/src/main/java/org/cloud/sonic/folder/controller/UploadController.java;92行来自于http请求的数据从uploadRecord()方法第2个参数进入2
+      sonic-server-main/sonic-server-folder/src/main/java/org/cloud/sonic/folder/controller/UploadController.java;96行不可信的数据从File()方法第1个参数进入
+  proposed_case:
+    case_id: REVIEW-SONIC-SERVER-MAIN-002
+    scenario_id: pending.sonic-server-main.uploadcontroller-96-输入验证-路径遍历
+    family: path_traversal
+    title: 输入验证：路径遍历 @ UploadController.java
+    description: 待复核新增项：输入验证：路径遍历 @ src/main/java/org/cloud/sonic/folder/controller/UploadController.java:96
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/cloud/sonic/folder/controller/UploadController.java
+    line_start: 96
+    line_end: 96
+    rule_type: 输入验证：路径遍历
+    aliases:
+    - 输入验证：路径遍历
+    source_notes: 1 sonic-server-main/sonic-server-folder/src/main/java/org/cloud/sonic/folder/controller/UploadController.java;92行来自于http请求的数据从uploadRecord()方法第2个参数进入2
+      sonic-server-main/sonic-server-folder/src/main/java/org/cloud/sonic/folder/controller/UploadController.java;96行不可信的数据从File()方法第1个参数进入
+    sink_api: 输入验证：路径遍历
+    source_refs:
+    - src/main/java/org/cloud/sonic/folder/controller/UploadController.java:96
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-003
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A01 Broken Access Control
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 输入验证：路径遍历
+    severity: high
+    file_path: src/main/java/org/cloud/sonic/folder/tools/FileTool.java
+    line_start: 58
+    evidence: 1 sonic-server-main/sonic-server-folder/src/main/java/org/cloud/sonic/folder/controller/UploadController.java;56行来自于http请求的数据从uploadFiles()方法第2个参数进入2
+      sonic-server-main/sonic-server-folder/src/main/java/org/cloud/sonic/folder/controller/UploadController.java;57行不可信的数据从upload()方法第1个参数进入3
+      sonic-server-
+  proposed_case:
+    case_id: REVIEW-SONIC-SERVER-MAIN-003
+    scenario_id: pending.sonic-server-main.filetool-58-输入验证-路径遍历
+    family: path_traversal
+    title: 输入验证：路径遍历 @ FileTool.java
+    description: 待复核新增项：输入验证：路径遍历 @ src/main/java/org/cloud/sonic/folder/tools/FileTool.java:58
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/cloud/sonic/folder/tools/FileTool.java
+    line_start: 58
+    line_end: 58
+    rule_type: 输入验证：路径遍历
+    aliases:
+    - 输入验证：路径遍历
+    source_notes: 1 sonic-server-main/sonic-server-folder/src/main/java/org/cloud/sonic/folder/controller/UploadController.java;56行来自于http请求的数据从uploadFiles()方法第2个参数进入2
+      sonic-server-main/sonic-server-folder/src/main/java/org/cloud/sonic/folder/controller/UploadController.java;57行不可信的数据从upload()方法第1个参数进入3
+      sonic-server-
+    sink_api: 输入验证：路径遍历
+    source_refs:
+    - src/main/java/org/cloud/sonic/folder/tools/FileTool.java:58
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-004
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A02 Cryptographic Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 密码管理：有风险的空的加密密匙
+    severity: high
+    file_path: src/main/java/org/cloud/sonic/controller/tools/robot/vendor/DingTalkImpl.java
+    line_start: 123
+    evidence: 1 sonic-server-main/sonic-server-controller/src/main/java/org/cloud/sonic/controller/tools/robot/vendor/DingTalkImpl.java;123行SecretKeySpec
+  proposed_case:
+    case_id: REVIEW-SONIC-SERVER-MAIN-004
+    scenario_id: pending.sonic-server-main.dingtalkimpl-123-密码管理-有风险的空的加密密匙
+    family: cryptographic_failure
+    title: 密码管理：有风险的空的加密密匙 @ DingTalkImpl.java
+    description: 待复核新增项：密码管理：有风险的空的加密密匙 @ src/main/java/org/cloud/sonic/controller/tools/robot/vendor/DingTalkImpl.java:123
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/cloud/sonic/controller/tools/robot/vendor/DingTalkImpl.java
+    line_start: 123
+    line_end: 123
+    rule_type: 密码管理：有风险的空的加密密匙
+    aliases:
+    - 密码管理：有风险的空的加密密匙
+    source_notes: 1 sonic-server-main/sonic-server-controller/src/main/java/org/cloud/sonic/controller/tools/robot/vendor/DingTalkImpl.java;123行SecretKeySpec
+    sink_api: 密码管理：有风险的空的加密密匙
+    source_refs:
+    - src/main/java/org/cloud/sonic/controller/tools/robot/vendor/DingTalkImpl.java:123
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-005
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：反射型XSS
+    severity: high
+    file_path: src/main/java/org/cloud/sonic/controller/controller/PublicStepsController.java
+    line_start: 88
+    evidence: 1 sonic-server-main/sonic-server-controller/src/main/java/org/cloud/sonic/controller/controller/PublicStepsController.java;84行来自于http请求的数据从save()方法第1个参数进入2
+      sonic-server-main/sonic-server-controller/src/main/java/org/cloud/sonic/controller/controller/PublicStepsController.java;88行不可信的数据从savePublicSte
+  proposed_case:
+    case_id: REVIEW-SONIC-SERVER-MAIN-005
+    scenario_id: pending.sonic-server-main.publicstepscontroller-88-跨站脚本-反射型xss
+    family: xss
+    title: 跨站脚本：反射型XSS @ PublicStepsController.java
+    description: 待复核新增项：跨站脚本：反射型XSS @ src/main/java/org/cloud/sonic/controller/controller/PublicStepsController.java:88
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/cloud/sonic/controller/controller/PublicStepsController.java
+    line_start: 88
+    line_end: 88
+    rule_type: 跨站脚本：反射型XSS
+    aliases:
+    - 跨站脚本：反射型XSS
+    source_notes: 1 sonic-server-main/sonic-server-controller/src/main/java/org/cloud/sonic/controller/controller/PublicStepsController.java;84行来自于http请求的数据从save()方法第1个参数进入2
+      sonic-server-main/sonic-server-controller/src/main/java/org/cloud/sonic/controller/controller/PublicStepsController.java;88行不可信的数据从savePublicSte
+    sink_api: 跨站脚本：反射型XSS
+    source_refs:
+    - src/main/java/org/cloud/sonic/controller/controller/PublicStepsController.java:88
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-006
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A03 Injection
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 跨站脚本：反射型XSS
+    severity: high
+    file_path: src/main/java/org/cloud/sonic/folder/controller/UploadController.java
+    line_start: 59
+    evidence: 1 sonic-server-main/sonic-server-folder/src/main/java/org/cloud/sonic/folder/controller/UploadController.java;56行来自于http请求的数据从uploadFiles()方法第2个参数进入2
+      sonic-server-main/sonic-server-folder/src/main/java/org/cloud/sonic/folder/controller/UploadController.java;57行不可信的数据从upload()方法第1个参数进入,然后从返回值返回3
+      soni
+  proposed_case:
+    case_id: REVIEW-SONIC-SERVER-MAIN-006
+    scenario_id: pending.sonic-server-main.uploadcontroller-59-跨站脚本-反射型xss
+    family: xss
+    title: 跨站脚本：反射型XSS @ UploadController.java
+    description: 待复核新增项：跨站脚本：反射型XSS @ src/main/java/org/cloud/sonic/folder/controller/UploadController.java:59
+    expectation: must_alert
+    canonical_file_path: src/main/java/org/cloud/sonic/folder/controller/UploadController.java
+    line_start: 59
+    line_end: 59
+    rule_type: 跨站脚本：反射型XSS
+    aliases:
+    - 跨站脚本：反射型XSS
+    source_notes: 1 sonic-server-main/sonic-server-folder/src/main/java/org/cloud/sonic/folder/controller/UploadController.java;56行来自于http请求的数据从uploadFiles()方法第2个参数进入2
+      sonic-server-main/sonic-server-folder/src/main/java/org/cloud/sonic/folder/controller/UploadController.java;57行不可信的数据从upload()方法第1个参数进入,然后从返回值返回3
+      soni
+    sink_api: 跨站脚本：反射型XSS
+    source_refs:
+    - src/main/java/org/cloud/sonic/folder/controller/UploadController.java:59
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-007
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 密码管理：配置文件中的明文密码
+    severity: high
+    file_path: github/workflows/maven.yml
+    line_start: 26
+    evidence: 1 sonic-server-main/.github/workflows/maven.yml;26行jobs.build.steps[2].with.mysql
+      root password
+  proposed_case:
+    case_id: REVIEW-SONIC-SERVER-MAIN-007
+    scenario_id: pending.sonic-server-main.maven-26-密码管理-配置文件中的明文密码
+    family: credential_management
+    title: 密码管理：配置文件中的明文密码 @ maven.yml
+    description: 待复核新增项：密码管理：配置文件中的明文密码 @ github/workflows/maven.yml:26
+    expectation: must_alert
+    canonical_file_path: github/workflows/maven.yml
+    line_start: 26
+    line_end: 26
+    rule_type: 密码管理：配置文件中的明文密码
+    aliases:
+    - 密码管理：配置文件中的明文密码
+    source_notes: 1 sonic-server-main/.github/workflows/maven.yml;26行jobs.build.steps[2].with.mysql
+      root password
+    sink_api: 密码管理：配置文件中的明文密码
+    source_refs:
+    - github/workflows/maven.yml:26
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-008
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 密码管理：配置文件中的明文密码
+    severity: high
+    file_path: src/main/resources/i18n/sonic_ja_JP.properties
+    line_start: 46
+    evidence: 1 sonic-server-main/sonic-server-common/src/main/resources/i18n/sonic_ja_JP.properties;46行password.change.ok
+  proposed_case:
+    case_id: REVIEW-SONIC-SERVER-MAIN-008
+    scenario_id: pending.sonic-server-main.sonic_ja_jp-46-密码管理-配置文件中的明文密码
+    family: credential_management
+    title: 密码管理：配置文件中的明文密码 @ sonic_ja_JP.properties
+    description: 待复核新增项：密码管理：配置文件中的明文密码 @ src/main/resources/i18n/sonic_ja_JP.properties:46
+    expectation: must_alert
+    canonical_file_path: src/main/resources/i18n/sonic_ja_JP.properties
+    line_start: 46
+    line_end: 46
+    rule_type: 密码管理：配置文件中的明文密码
+    aliases:
+    - 密码管理：配置文件中的明文密码
+    source_notes: 1 sonic-server-main/sonic-server-common/src/main/resources/i18n/sonic_ja_JP.properties;46行password.change.ok
+    sink_api: 密码管理：配置文件中的明文密码
+    source_refs:
+    - src/main/resources/i18n/sonic_ja_JP.properties:46
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-009
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 密码管理：配置文件中的明文密码
+    severity: high
+    file_path: src/main/resources/i18n/sonic_zh_CN.properties
+    line_start: 46
+    evidence: 1 sonic-server-main/sonic-server-common/src/main/resources/i18n/sonic_zh_CN.properties;46行password.change.ok
+  proposed_case:
+    case_id: REVIEW-SONIC-SERVER-MAIN-009
+    scenario_id: pending.sonic-server-main.sonic_zh_cn-46-密码管理-配置文件中的明文密码
+    family: credential_management
+    title: 密码管理：配置文件中的明文密码 @ sonic_zh_CN.properties
+    description: 待复核新增项：密码管理：配置文件中的明文密码 @ src/main/resources/i18n/sonic_zh_CN.properties:46
+    expectation: must_alert
+    canonical_file_path: src/main/resources/i18n/sonic_zh_CN.properties
+    line_start: 46
+    line_end: 46
+    rule_type: 密码管理：配置文件中的明文密码
+    aliases:
+    - 密码管理：配置文件中的明文密码
+    source_notes: 1 sonic-server-main/sonic-server-common/src/main/resources/i18n/sonic_zh_CN.properties;46行password.change.ok
+    sink_api: 密码管理：配置文件中的明文密码
+    source_refs:
+    - src/main/resources/i18n/sonic_zh_CN.properties:46
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。
+- review_case_id: PENDING-CODE_GUARD-010
+  review_status: pending_review
+  proposed_action: new_case_candidate
+  candidate_case_ids: []
+  owasp_category: A07 Identification and Authentication Failures
+  review_priority: high
+  reason: owasp_top10_missing_truth_case
+  finding:
+    tool: code_guard
+    rule_name: 密码管理：配置文件中的明文密码
+    severity: high
+    file_path: src/main/resources/i18n/sonic_zh_TW.properties
+    line_start: 46
+    evidence: 1 sonic-server-main/sonic-server-common/src/main/resources/i18n/sonic_zh_TW.properties;46行password.change.ok
+  proposed_case:
+    case_id: REVIEW-SONIC-SERVER-MAIN-010
+    scenario_id: pending.sonic-server-main.sonic_zh_tw-46-密码管理-配置文件中的明文密码
+    family: credential_management
+    title: 密码管理：配置文件中的明文密码 @ sonic_zh_TW.properties
+    description: 待复核新增项：密码管理：配置文件中的明文密码 @ src/main/resources/i18n/sonic_zh_TW.properties:46
+    expectation: must_alert
+    canonical_file_path: src/main/resources/i18n/sonic_zh_TW.properties
+    line_start: 46
+    line_end: 46
+    rule_type: 密码管理：配置文件中的明文密码
+    aliases:
+    - 密码管理：配置文件中的明文密码
+    source_notes: 1 sonic-server-main/sonic-server-common/src/main/resources/i18n/sonic_zh_TW.properties;46行password.change.ok
+    sink_api: 密码管理：配置文件中的明文密码
+    source_refs:
+    - src/main/resources/i18n/sonic_zh_TW.properties:46
+    notes:
+    - 由 pending_review_additions 自动导出。
+    - 人工确认后再移动到正式 manual_cases。

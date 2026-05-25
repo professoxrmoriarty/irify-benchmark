@@ -1,0 +1,1014 @@
+project: Hello-Java-Sec
+case_overrides:
+  JSL-JDBC-VUL1-VUL1:
+    family: sql_injection
+    rule_type: SQL Injection
+    aliases_add:
+    - 检测Java SQL注入漏洞
+    - SQL Injection
+    - 代码注入：SQL注入
+    notes_add:
+    - JDBC 字符串拼接场景，IRify SQL 注入告警应并入该 case。
+  JSL-JDBC-SAFE2-SAFE2:
+    expectation: should_warn
+    expected_severity_band:
+    - low
+    - medium
+    sanitizer_expectation: weak_guard
+    family: sql_injection
+    rule_type: SQL Injection
+    aliases_add:
+    - 检测Java SQL注入漏洞
+    - SQL Injection
+    - 代码注入：SQL注入
+    notes_add:
+    - 黑名单过滤不是强 SQL 注入防护，应按弱缓释场景评估。
+  JSL-JDBC-SAFE3-WARN:
+    family: sql_injection
+    rule_type: SQL Injection
+    aliases_add:
+    - 检测Java SQL注入漏洞
+    - SQL Injection
+    - 代码注入：SQL注入
+    notes_add:
+    - ESAPI encodeForSQL 是弱缓释，SQL 注入告警应按 should_warn 评估。
+  JSL-JDBC-SAFE5-SAFE5:
+    family: sql_injection
+    rule_type: SQL Injection
+    aliases_add:
+    - 检测Java SQL注入漏洞
+    - SQL Injection
+    - 代码注入：SQL注入
+    notes_add:
+    - 正则白名单过滤场景，SQL 注入规则落点并入当前 safe case。
+  JSL-MYBATIS-ORDERBY-VUL-ORDER:
+    family: sql_injection
+    rule_type: SQL Injection
+    aliases_add:
+    - 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数
+    - MyBatis SQL Injection
+    - SQL Injection
+    - 代码注入：SQL注入：MyBatis
+    - 'SQL Injection: MyBatis Mapper'
+    notes_add:
+    - MyBatis ${...} order by 注入场景，IRify MyBatis XML Mapper 告警应并入该 case。
+    - MyBatis 控制器与 XML Mapper 根位点视为同一 SQL 注入场景。
+  JSL-REDIRECT-VUL2-VUL2:
+    aliases_add:
+    - 检测 Java Spring Framework ModelAndView SSTI 漏洞
+    - 检测Spring控制器中未调用的SSTI漏洞
+    notes_add:
+    - 该场景是 ModelAndView redirect，IRify 的 SSTI/template-path 派生命中并入 open redirect 主
+      case。
+  JSL-REDIRECT-VUL-VUL:
+    aliases_add:
+    - 检测Spring控制器中未调用的SSTI漏洞
+    notes_add:
+    - Spring redirect 字符串返回场景，IRify 的 template path 派生命中并入 open redirect 主 case。
+  JSL-PROCESSIMPLVUL-VUL-VUL:
+    aliases_add:
+    - 检测Java反射setAccessible函数滥用漏洞
+    - 输入验证：访问权限修饰符修改
+    - Access Specifier Manipulation
+    notes_add:
+    - ProcessImpl 命令执行场景通过 setAccessible 反射调用，反射告警并入命令执行主 case。
+    - setAccessible 反射访问位点属于 ProcessImpl 命令执行主场景。
+  JSL-XSTREAMVUL-VUL-VUL:
+    aliases_add:
+    - 检测 Java XStream 不安全反序列化
+    notes_add:
+    - XStream fromXML 用户输入场景，IRify XStream 告警应并入该 case。
+  JSL-UPLOAD-UPLOADVUL-UPLOADVUL:
+    aliases_add:
+    - 检测Java MultipartFile路径穿越漏洞
+    - Check Java MultipartFile Path Traversal Vulnerability
+    - 检测Java路径穿越漏洞
+    - Path Traversal
+    - 输入验证：路径遍历
+    notes_add:
+    - MultipartFile 文件名直接拼接保存路径的告警并入上传主场景。
+  JSL-UPLOAD-SINGLEFILEUPLOADSAFE-UPLOADSAFE:
+    aliases_add:
+    - 检测Java MultipartFile路径穿越漏洞
+    - Check Java MultipartFile Path Traversal Vulnerability
+    - 检测Java路径穿越漏洞
+    - Path Traversal
+    - 输入验证：路径遍历
+    notes_add:
+    - MultipartFile 文件名直接拼接保存路径的告警并入上传主场景。
+  JSL-UPLOAD-UPLOADVUL2-UPLOADVUL2:
+    aliases_add:
+    - 检测Java MultipartFile路径穿越漏洞
+    - Check Java MultipartFile Path Traversal Vulnerability
+    - 检测Java路径穿越漏洞
+    - Path Traversal
+    - 输入验证：路径遍历
+    notes_add:
+    - MultipartFile 文件名直接拼接保存路径的告警并入上传主场景。
+  JSL-DESERIALIZATION-READOBJECT-READOBJECT-VUL:
+    family: java_deserialization
+    rule_type: Unsafe Deserialization
+    title: vul：readObject 反序列化
+    description: Hello-Java-Sec 中用户可控 base64 内容直接进入 ObjectInputStream.readObject。
+    aliases_add:
+    - 检测Java原生反序列化漏洞
+    - Unsafe Deserialization
+    - ObjectInputStream.readObject
+    - 代码注入：不安全的反序列化
+    notes_add:
+    - 自动场景发现曾误归类为路径穿越，这里修正为原生反序列化。
+  JSL-MYBATIS-ORDERBYSAFERE-SAFE-ORDERBYRE:
+    family: sql_injection
+    rule_type: SQL Injection
+    aliases_add:
+    - 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数
+    - MyBatis SQL Injection
+    - SQL Injection
+    notes_add:
+    - Mapper 接口声明位点由 MyBatis orderBySafeRe 安全场景覆盖，不单列辅助位置。
+  JSL-XMLDECODERVUL-VUL-VUL:
+    family: java_deserialization
+    rule_type: Unsafe Deserialization
+    aliases_add:
+    - 代码注入：XMLDecoder注入
+    - 'Dynamic Code Evaluation: XMLDecoder Injection'
+    - XML External Entity Injection
+    notes_add:
+    - XMLDecoder 反序列化主场景吸收代码卫士/Fortify 的 XMLDecoder 注入命中。
+    - Fortify 将 XMLDecoder 标成 XXE 时，仍按同一危险反序列化根因归并到该 case。
+  JSL-XPATHINJECTION-VUL-VUL:
+    aliases_add:
+    - 输入验证：缺少XML验证
+    - XML External Entity Injection
+    - XML Entity Expansion Injection
+    notes_add:
+    - XPathInjection 的危险 XML 解析命中吸收到 XPath 注入主场景。
+  JSL-XPATHINJECTION-SAFE-SAFE:
+    aliases_add:
+    - 输入验证：缺少XML验证
+    - XML External Entity Injection
+    - XML Entity Expansion Injection
+    notes_add:
+    - XPathInjection safe 场景吸收 XML 验证类命中，用于评估 safe 误报。
+  JSL-XXE-XMLREADER-XMLREADER:
+    aliases_add:
+    - 输入验证：缺少XML验证
+    - XML External Entity Injection
+    - XML Entity Expansion Injection
+    notes_add:
+    - XXE xmlReader 场景吸收 XML 验证/实体扩展类命中。
+  HJS-CRED-APPDEV-DBPWD-VUL:
+    aliases_add:
+    - 密码管理：配置文件中的明文密码
+    - 'Password Management: Password in Configuration File'
+  HJS-CRED-APPDOCKER-DBPWD-VUL:
+    aliases_add:
+    - 密码管理：配置文件中的明文密码
+    - 'Password Management: Password in Configuration File'
+  HJS-CRED-APP-LOCAL-ADMIN-PWD-VUL:
+    aliases_add:
+    - 密码管理：配置文件中的明文密码
+    - 'Password Management: Password in Configuration File'
+  JSL-SHIROVUL-GENKEY-GENKEY:
+    family: cryptographic_failure
+    rule_type: Cryptographic Failures
+    aliases_add:
+    - 密码管理：弱加密：缺少必要加密步骤
+    notes_add:
+    - 未初始化 KeyGenerator 直接 generateKey，按弱加密配置场景评估。
+  JSL-DESERIALIZATION-READUNSHARED-READUNSHARED-VUL:
+    family: java_deserialization
+    rule_type: Unsafe Deserialization
+    title: vul：readUnshared 反序列化
+    description: Hello-Java-Sec 中用户可控 base64 内容直接进入 ObjectInputStream.readUnshared。
+    aliases_add:
+    - 检测Java原生反序列化漏洞
+    - Unsafe Deserialization
+    - ObjectInputStream.readUnshared
+    - 代码注入：不安全的反序列化
+    - 'Dynamic Code Evaluation: Unsafe Deserialization'
+    notes_add:
+    - 自动场景发现曾误归类为路径穿越，这里修正为原生反序列化。
+  JSL-XMLDECODERVUL-SAFE-SAFE:
+    family: java_deserialization
+    rule_type: Unsafe Deserialization
+    aliases_add:
+    - 代码注入：不安全的反序列化
+    - 'Dynamic Code Evaluation: Unsafe Deserialization'
+    notes_add:
+    - XMLDecoder safe 分支读取固定本地文件，不应作为高危漏洞；若命中仅按低危噪声评估。
+  JSL-XXE-SAXPARSER-SAXPARSER:
+    aliases_add:
+    - 输入验证：缺少XML验证
+    notes_add:
+    - SAXParser XXE 场景吸收代码卫士的 XML 验证缺失类命中。
+  JSL-XXE-DOCUMENTBUILDER-DOCUMENTBUILDER:
+    aliases_add:
+    - 输入验证：缺少XML验证
+    notes_add:
+    - DocumentBuilder XXE 场景吸收代码卫士的 XML 验证缺失类命中。
+  JSL-XSS-SAFE1-ESCAPE:
+    expectation: should_warn
+    expected_severity_band:
+    - low
+    - medium
+    sanitizer_expectation: weak_guard
+    family: xss
+    rule_type: XSS
+    aliases_add:
+    - 跨站脚本：弱验证
+    notes_add:
+    - HtmlUtils.htmlEscape 属于输出编码防护，命中时按降级告警评估，高危应视为过报。
+  HJS-CRED-DOCKER-MYSQL-ROOTPWD-VUL:
+    aliases_add:
+    - 密码管理：配置文件中的明文密码
+    - 'Password Management: Password in Configuration File'
+manual_cases:
+- case_id: HJS-SCA-FASTJSON-POM-VUL
+  scenario_id: hello-java-sec.sca.fastjson.pom
+  family: vulnerable_component
+  title: SCA-Fastjson 依赖漏洞
+  description: pom.xml 引入 fastjson 1.2.41，属于 Fastjson 历史高风险组件版本。
+  route: artifact:pom.xml#fastjson
+  canonical_file_path: pom.xml
+  line_start: 77
+  line_end: 82
+  rule_type: Vulnerable Component
+  aliases:
+  - 'SCA: 检测Java Fastjson依赖漏洞'
+  - 检测Java Fastjson依赖漏洞
+  - Fastjson
+  - Vulnerable Component
+  source_notes: 组件声明：com.alibaba:fastjson:1.2.41
+  sink_api: com.alibaba:fastjson
+- case_id: HJS-SCA-SHIRO-POM-VUL
+  scenario_id: hello-java-sec.sca.shiro.pom
+  family: vulnerable_component
+  title: SCA-Shiro 依赖漏洞
+  description: pom.xml 引入 shiro-spring 1.2.4，属于已知高风险旧版本组件。
+  route: artifact:pom.xml#shiro
+  canonical_file_path: pom.xml
+  line_start: 168
+  line_end: 173
+  rule_type: Vulnerable Component
+  aliases:
+  - 'SCA: 检测Java shiro-core 依赖漏洞'
+  - shiro-core
+  - Vulnerable Component
+  source_notes: 组件声明：org.apache.shiro:shiro-spring:1.2.4
+  sink_api: org.apache.shiro:shiro-spring
+- case_id: HJS-SCA-C3P0-POM-VUL
+  scenario_id: hello-java-sec.sca.c3p0.pom
+  family: vulnerable_component
+  title: SCA-c3p0 依赖漏洞
+  description: pom.xml 引入 c3p0 0.9.5.2，命中已知不安全类加载风险组件范围。
+  route: artifact:pom.xml#c3p0
+  canonical_file_path: pom.xml
+  line_start: 289
+  line_end: 293
+  rule_type: Vulnerable Component
+  aliases:
+  - 'SCA: 检测Java c3p0 依赖漏洞'
+  - c3p0
+  - Vulnerable Component
+  source_notes: 组件声明：com.mchange:c3p0:0.9.5.2
+  sink_api: com.mchange:c3p0
+- case_id: HJS-CRED-DOCKER-MYSQL-ROOTPWD-VUL
+  scenario_id: hello-java-sec.credential.docker.mysql-root-password
+  family: credential_management
+  title: Docker Compose 明文 MySQL root 密码
+  description: docker-compose.yml 中硬编码 MYSQL_ROOT_PASSWORD。
+  route: config:docker-compose.yml#mysql-root-password
+  canonical_file_path: docker-compose.yml
+  line_start: 6
+  line_end: 6
+  rule_type: Credential Management
+  aliases:
+  - 检测通用硬编码凭据
+  - 'Password Management: Hardcoded Password'
+  - 密码管理：硬编码密码
+  source_notes: 'MYSQL_ROOT_PASSWORD: 1234567'
+  sink_api: MYSQL_ROOT_PASSWORD
+- case_id: HJS-CRED-APPDEV-DBPWD-VUL
+  scenario_id: hello-java-sec.credential.application-dev.db-password
+  family: credential_management
+  title: application-dev 明文数据库密码
+  description: application-dev.properties 中硬编码数据库密码。
+  route: config:application-dev.properties#db-password
+  canonical_file_path: src/main/resources/application-dev.properties
+  line_start: 3
+  line_end: 3
+  rule_type: Credential Management
+  aliases:
+  - 检测通用硬编码凭据
+  - 'Password Management: Hardcoded Password'
+  - 密码管理：硬编码密码
+  source_notes: spring.datasource.password=1234567
+  sink_api: spring.datasource.password
+- case_id: HJS-CRED-APPDOCKER-DBPWD-VUL
+  scenario_id: hello-java-sec.credential.application-docker.db-password
+  family: credential_management
+  title: application-docker 明文数据库密码
+  description: application-docker.properties 中硬编码数据库密码。
+  route: config:application-docker.properties#db-password
+  canonical_file_path: src/main/resources/application-docker.properties
+  line_start: 3
+  line_end: 3
+  rule_type: Credential Management
+  aliases:
+  - 检测通用硬编码凭据
+  - 'Password Management: Hardcoded Password'
+  - 密码管理：硬编码密码
+  source_notes: spring.datasource.password=1234567
+  sink_api: spring.datasource.password
+- case_id: HJS-CRED-APP-LOCAL-ADMIN-PWD-VUL
+  scenario_id: hello-java-sec.credential.application.local-admin-password
+  family: credential_management
+  title: application.properties 默认管理员密码
+  description: application.properties 中配置默认管理员密码 admin。
+  route: config:application.properties#local-admin-password
+  canonical_file_path: src/main/resources/application.properties
+  line_start: 18
+  line_end: 20
+  rule_type: Credential Management
+  aliases:
+  - 检测通用硬编码凭据
+  - 'Password Management: Hardcoded Password'
+  - 密码管理：硬编码密码
+  source_notes: local.admin.password = admin
+  sink_api: local.admin.password
+- case_id: HJS-CRED-JWT-SECRET-VUL
+  scenario_id: hello-java-sec.credential.jwt.secret
+  family: credential_management
+  title: JWT 工具类硬编码密钥
+  description: JwtUtils 中硬编码 SECRET，并用于 HMAC 签名。
+  route: code:JwtUtils#SECRET
+  canonical_file_path: src/main/java/com/best/hello/util/JwtUtils.java
+  line_start: 20
+  line_end: 21
+  rule_type: Credential Management
+  aliases:
+  - 检测Java硬编码弱密码漏洞
+  - 检测通用硬编码凭据
+  - 'Password Management: Hardcoded Password'
+  - 密码管理：硬编码密码
+  source_notes: SECRET = 123456
+  sink_api: Algorithm.HMAC256(SECRET)
+- case_id: HJS-LOGIN-REFERER-REDIRECT-VUL
+  scenario_id: hello-java-sec.login.referer-redirect
+  family: open_redirect
+  title: 登录后基于 Referer 的重定向
+  description: 登录成功后直接基于 Referer 返回 redirect，存在 open redirect 风险。
+  route: /user/login
+  canonical_file_path: src/main/java/com/best/hello/controller/Login.java
+  line_start: 30
+  line_end: 56
+  rule_type: Open Redirect
+  aliases:
+  - Open Redirect
+  - URL重定向
+  - 检测Java URL重定向漏洞
+  - Check Java URL Redirect Vulnerability
+  source_notes: referer 请求头参与 redirect 返回。
+  sink_api: return "redirect:" + referer
+suppressed_findings:
+- tool: irify
+  rule_name: 检测 Java XStream 不安全反序列化
+  file_path: src/main/java/com/best/hello/controller/ComponentsVul/XStreamVul.java
+  line_start: 68
+  reason: main 方法中的本地 XStream PoC，不作为独立 benchmark case；XStream Web 入口已由 JSL-XSTREAMVUL-VUL-VUL
+    覆盖
+- tool: irify
+  rule_name: 检测Java CRLF注入漏洞
+  file_path: src/main/java/com/best/hello/controller/CORS.java
+  line_start: 26
+  reason: CORS 场景的主风险是宽松跨域策略，响应头拼接派生的 CRLF 不单列 benchmark case
+- tool: irify
+  rule_name: 检测Java CRLF注入漏洞
+  file_path: src/main/java/com/best/hello/controller/Traversal.java
+  line_start: 33
+  reason: 下载接口主风险是路径遍历/任意文件下载，Content-Disposition 派生 CRLF 不单列 benchmark case
+- tool: irify
+  rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+  file_path: src/main/java/com/best/hello/controller/CSRF.java
+  line_start: 43
+  reason: CSRF referer 绕过场景不属于命令注入，命令执行告警为跨家族误报
+- tool: irify
+  rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+  file_path: src/main/java/com/best/hello/controller/DoS.java
+  line_start: 29
+  reason: Regex DoS 场景不属于命令注入，命令执行告警为跨家族误报
+- tool: irify
+  rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+  file_path: src/main/java/com/best/hello/controller/DoS.java
+  line_start: 46
+  reason: Regex DoS safe 场景不属于命令注入，命令执行告警为跨家族误报
+- tool: irify
+  rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+  file_path: src/main/java/com/best/hello/controller/DoS.java
+  line_start: 54
+  reason: DoS test 场景不属于命令注入，命令执行告警为跨家族误报
+- tool: irify
+  rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+  file_path: src/main/java/com/best/hello/controller/JNDI/JNDIInject.java
+  line_start: 45
+  reason: JNDI 正则拦截场景不属于命令注入，命令执行告警为跨家族误报
+- tool: irify
+  rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+  file_path: src/main/java/com/best/hello/controller/JNDI/JNDIInject.java
+  line_start: 63
+  reason: JNDI 白名单场景不属于命令注入，命令执行告警为跨家族误报
+- tool: irify
+  rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+  file_path: src/main/java/com/best/hello/controller/Login.java
+  line_start: 30
+  reason: 登录 referer 跳转主风险已由 HJS-LOGIN-REFERER-REDIRECT-VUL 覆盖，不属于命令注入
+- tool: irify
+  rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+  file_path: src/main/java/com/best/hello/controller/Redirect.java
+  line_start: 54
+  reason: 白名单 redirect safe 场景不属于命令注入，命令执行告警为跨家族误报
+- tool: irify
+  rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+  file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+  line_start: 170
+  reason: JDBC safe2 黑名单 SQL 注入场景不属于命令注入
+- tool: irify
+  rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+  file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+  line_start: 255
+  reason: JDBC safe5 正则过滤 SQL 注入场景不属于命令注入
+- tool: irify
+  rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+  file_path: src/main/java/com/best/hello/controller/SQLI/MyBatis.java
+  line_start: 86
+  reason: MyBatis orderBy safe whitelist 场景不属于命令注入
+- tool: irify
+  rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+  file_path: src/main/java/com/best/hello/controller/SSRF.java
+  line_start: 51
+  reason: SSRF 绕过场景主风险是服务端请求伪造，不属于命令注入
+- tool: irify
+  rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+  file_path: src/main/java/com/best/hello/controller/SSRF.java
+  line_start: 64
+  reason: SSRF 白名单场景主风险是服务端请求伪造，不属于命令注入
+- tool: irify
+  rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+  file_path: src/main/java/com/best/hello/controller/SSRF.java
+  line_start: 77
+  reason: SSRF 过滤场景主风险是服务端请求伪造，不属于命令注入
+- tool: irify
+  rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+  file_path: src/main/java/com/best/hello/controller/SSTI.java
+  line_start: 67
+  reason: SSTI Thymeleaf safe 场景不属于命令注入
+- tool: irify
+  rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+  file_path: src/main/java/com/best/hello/controller/SSTI.java
+  line_start: 125
+  reason: SSTI Freemarker 场景不属于命令注入
+- tool: irify
+  rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+  file_path: src/main/java/com/best/hello/controller/Traversal.java
+  line_start: 93
+  reason: 路径遍历 safe 场景不属于命令注入
+- tool: irify
+  rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+  file_path: src/main/java/com/best/hello/controller/XXE/XXE.java
+  line_start: 197
+  reason: XXE safe 检测逻辑不属于命令注入
+- tool: irify
+  rule_name: 检测Java路径穿越漏洞
+  file_path: src/main/java/com/best/hello/controller/CSRF.java
+  line_start: 43
+  reason: CSRF referer 绕过场景不属于路径穿越，路径遍历告警为跨家族误报
+- tool: irify
+  rule_name: 检测Java路径穿越漏洞
+  file_path: src/main/java/com/best/hello/controller/DoS.java
+  line_start: 29
+  reason: Regex DoS 场景不属于路径穿越
+- tool: irify
+  rule_name: 检测Java路径穿越漏洞
+  file_path: src/main/java/com/best/hello/controller/DoS.java
+  line_start: 46
+  reason: Regex DoS safe 场景不属于路径穿越
+- tool: irify
+  rule_name: 检测Java路径穿越漏洞
+  file_path: src/main/java/com/best/hello/controller/DoS.java
+  line_start: 54
+  reason: DoS test 场景不属于路径穿越
+- tool: irify
+  rule_name: 检测Java路径穿越漏洞
+  file_path: src/main/java/com/best/hello/controller/JNDI/JNDIInject.java
+  line_start: 45
+  reason: JNDI 正则拦截场景不属于路径穿越
+- tool: irify
+  rule_name: 检测Java路径穿越漏洞
+  file_path: src/main/java/com/best/hello/controller/JNDI/JNDIInject.java
+  line_start: 63
+  reason: JNDI 白名单场景不属于路径穿越
+- tool: irify
+  rule_name: 检测Java路径穿越漏洞
+  file_path: src/main/java/com/best/hello/controller/Login.java
+  line_start: 30
+  reason: 登录 referer 跳转主风险已由 HJS-LOGIN-REFERER-REDIRECT-VUL 覆盖，不属于路径穿越
+- tool: irify
+  rule_name: 检测Java路径穿越漏洞
+  file_path: src/main/java/com/best/hello/controller/RCE/GroovyVul.java
+  line_start: 28
+  reason: Groovy safe 场景主风险是代码执行，不属于路径穿越
+- tool: irify
+  rule_name: 检测Java路径穿越漏洞
+  file_path: src/main/java/com/best/hello/controller/RCE/ProcessBuilderVul.java
+  line_start: 48
+  reason: ProcessBuilder safe 场景主风险是命令执行，不属于路径穿越
+- tool: irify
+  rule_name: 检测Java路径穿越漏洞
+  file_path: src/main/java/com/best/hello/controller/RCE/RuntimeVul.java
+  line_start: 47
+  reason: Runtime safe 场景主风险是命令执行，不属于路径穿越
+- tool: irify
+  rule_name: 检测Java路径穿越漏洞
+  file_path: src/main/java/com/best/hello/controller/Redirect.java
+  line_start: 54
+  reason: 白名单 redirect safe 场景不属于路径穿越
+- tool: irify
+  rule_name: 检测Java路径穿越漏洞
+  file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+  line_start: 170
+  reason: JDBC safe2 黑名单 SQL 注入场景不属于路径穿越
+- tool: irify
+  rule_name: 检测Java路径穿越漏洞
+  file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+  line_start: 255
+  reason: JDBC safe5 正则过滤 SQL 注入场景不属于路径穿越
+- tool: irify
+  rule_name: 检测Java路径穿越漏洞
+  file_path: src/main/java/com/best/hello/controller/SQLI/MyBatis.java
+  line_start: 86
+  reason: MyBatis orderBy safe whitelist 场景不属于路径穿越
+- tool: irify
+  rule_name: 检测Java路径穿越漏洞
+  file_path: src/main/java/com/best/hello/controller/SSRF.java
+  line_start: 51
+  reason: SSRF 绕过场景主风险是服务端请求伪造，不属于路径穿越
+- tool: irify
+  rule_name: 检测Java路径穿越漏洞
+  file_path: src/main/java/com/best/hello/controller/SSRF.java
+  line_start: 64
+  reason: SSRF 白名单场景主风险是服务端请求伪造，不属于路径穿越
+- tool: irify
+  rule_name: 检测Java路径穿越漏洞
+  file_path: src/main/java/com/best/hello/controller/SSRF.java
+  line_start: 77
+  reason: SSRF 过滤场景主风险是服务端请求伪造，不属于路径穿越
+- tool: irify
+  rule_name: 检测Java路径穿越漏洞
+  file_path: src/main/java/com/best/hello/controller/SSTI.java
+  line_start: 67
+  reason: SSTI Thymeleaf safe 场景不属于路径穿越
+- tool: irify
+  rule_name: 检测Java路径穿越漏洞
+  file_path: src/main/java/com/best/hello/controller/SSTI.java
+  line_start: 125
+  reason: SSTI Freemarker 场景不属于路径穿越
+- tool: irify
+  rule_name: 检测Java路径穿越漏洞
+  file_path: src/main/java/com/best/hello/controller/XXE/XXE.java
+  line_start: 197
+  reason: XXE safe 检测逻辑不属于路径穿越
+- tool: irify
+  rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+  file_path: src/main/java/com/best/hello/controller/EvilClass/TemplatesBytes.java
+  line_start: 19
+  reason: TemplatesBytes 属于利用链辅助类，不单独作为命令注入 case
+- tool: irify
+  rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+  file_path: src/main/java/com/best/hello/controller/JNDI/EvilObject.java
+  line_start: 9
+  reason: JNDI EvilObject 属于利用链辅助类，不单独作为命令注入 case
+- tool: irify
+  rule_name: 审计 Java XSS 白名单绕过
+  file_path: src/main/java/com/best/hello/util/Security.java
+  line_start: 87
+  reason: Security.filterXss 是通用过滤辅助函数，不单独作为 benchmark case
+- tool: irify
+  rule_name: 检测 Java MyBatis/iBatis XML Mapper 不安全(${...})参数
+  file_path: src/main/java/com/best/hello/mapper/UserMapper.java
+  line_start: 15
+  reason: MyBatis Mapper 接口声明位点由 controller 主 case 覆盖，不单列辅助位置
+- tool: irify
+  rule_name: 'SCA: 检测Java Spring Boot Devtools使用'
+  file_path: pom.xml
+  line_start: 1
+  reason: Devtools 为低紧急度开发辅助依赖，不纳入当前 benchmark case
+- tool: irify
+  rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+  file_path: src/main/java/com/best/hello/controller/Login.java
+  line_start: 33
+  reason: 登录 referer 跳转主风险已由 HJS-LOGIN-REFERER-REDIRECT-VUL 覆盖，不属于命令注入
+- tool: irify
+  rule_name: 检测Java Servlet和SpringMVC中的命令注入漏洞
+  file_path: src/main/java/com/best/hello/controller/SSTI.java
+  line_start: 152
+  reason: Freemarker 模板解析分支主风险已由 JSL-SSTI-FREEMARKERVUL-FREEMARKER-VUL 覆盖，不单列命令注入
+    case
+- tool: irify
+  rule_name: 检测Java路径穿越漏洞
+  file_path: src/main/java/com/best/hello/controller/Login.java
+  line_start: 33
+  reason: 登录 referer 跳转主风险已由 HJS-LOGIN-REFERER-REDIRECT-VUL 覆盖，不属于路径穿越
+- tool: irify
+  rule_name: 检测Java路径穿越漏洞
+  file_path: src/main/java/com/best/hello/controller/SSTI.java
+  line_start: 152
+  reason: Freemarker 模板解析分支主风险已由 JSL-SSTI-FREEMARKERVUL-FREEMARKER-VUL 覆盖，不单列路径穿越
+    case
+- tool: irify
+  rule_name: 审计 Java XSS 白名单绕过
+  file_path: src/main/java/com/best/hello/util/Security.java
+  line_start: 97
+  reason: Security.filterXss2 为通用过滤辅助函数，不单独作为 benchmark case
+- tool: code_guard
+  rule_name: 安全特性：Cookie：未经过SSL加密
+  file_path: src/main/java/com/best/hello/controller/ComponentsVul/ShiroVul.java
+  line_start: 65
+  reason: Shiro 默认密钥反序列化主风险已由 JSL-SHIROVUL-VUL-VUL 覆盖，Cookie 传输属性不单列 benchmark case
+- tool: code_guard
+  rule_name: 安全特性：Cookie：未经过SSL加密
+  file_path: src/main/java/com/best/hello/controller/Login.java
+  line_start: 49
+  reason: 登录流程 Cookie 传输属性不单列 benchmark case，主风险已由 HJS-LOGIN-REFERER-REDIRECT-VUL
+    覆盖
+- tool: code_guard
+  rule_name: 安全特性：Cookie：未经过SSL加密
+  file_path: src/main/java/com/best/hello/util/CookieUtils.java
+  line_start: 36
+  reason: CookieUtils 为通用工具函数，不单列 benchmark case
+- tool: code_guard
+  rule_name: 代码注入：HTTP响应截断
+  file_path: src/main/java/com/best/hello/controller/CORS.java
+  line_start: 27
+  reason: CORS 场景主风险是宽松跨域策略，派生 CRLF 不单列 benchmark case
+- tool: code_guard
+  rule_name: 代码注入：HTTP响应截断
+  file_path: src/main/java/com/best/hello/controller/Traversal.java
+  line_start: 41
+  reason: 下载接口主风险是路径遍历/任意文件下载，派生 CRLF 不单列 benchmark case
+- tool: code_guard
+  rule_name: 跨站脚本：存储型XSS
+  file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+  line_start: 77
+  reason: JDBC 查询结果回显属于 SQLi 场景派生输出，不单列 XSS case
+- tool: code_guard
+  rule_name: 跨站脚本：存储型XSS
+  file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+  line_start: 112
+  reason: JDBC 查询结果回显属于 SQLi 场景派生输出，不单列 XSS case
+- tool: code_guard
+  rule_name: 跨站脚本：存储型XSS
+  file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+  line_start: 161
+  reason: JDBC safe1 查询结果回显不单列 XSS case
+- tool: code_guard
+  rule_name: 跨站脚本：存储型XSS
+  file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+  line_start: 193
+  reason: JDBC safe2 查询结果回显不单列 XSS case
+- tool: code_guard
+  rule_name: 跨站脚本：存储型XSS
+  file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+  line_start: 276
+  reason: JDBC safe5 查询结果回显不单列 XSS case
+- tool: code_guard
+  rule_name: 跨站脚本：存储型XSS
+  file_path: src/main/java/com/best/hello/controller/SQLI/MyBatis.java
+  line_start: 46
+  reason: MyBatis 查询结果回显属于 SQLi 场景派生输出，不单列 XSS case
+- tool: code_guard
+  rule_name: 跨站脚本：存储型XSS
+  file_path: src/main/java/com/best/hello/controller/SQLI/MyBatis.java
+  line_start: 81
+  reason: MyBatis safe 查询结果回显不单列 XSS case
+- tool: code_guard
+  rule_name: 跨站脚本：存储型XSS
+  file_path: src/main/java/com/best/hello/controller/SSRF.java
+  line_start: 41
+  reason: SSRF 请求结果回显不单列 XSS case
+- tool: code_guard
+  rule_name: 跨站脚本：存储型XSS
+  file_path: src/main/java/com/best/hello/controller/SSRF.java
+  line_start: 57
+  reason: SSRF 请求结果回显不单列 XSS case
+- tool: code_guard
+  rule_name: 跨站脚本：存储型XSS
+  file_path: src/main/java/com/best/hello/controller/SSRF.java
+  line_start: 70
+  reason: SSRF safe 请求结果回显不单列 XSS case
+- tool: code_guard
+  rule_name: 跨站脚本：存储型XSS
+  file_path: src/main/java/com/best/hello/controller/SSRF.java
+  line_start: 96
+  reason: SSRF safe 请求结果回显不单列 XSS case
+- tool: code_guard
+  rule_name: 跨站脚本：反射型XSS
+  file_path: src/main/java/com/best/hello/controller/CSRF.java
+  line_start: 32
+  reason: CSRF JSON 回显属于业务输出，不单列 XSS case
+- tool: code_guard
+  rule_name: 跨站脚本：反射型XSS
+  file_path: src/main/java/com/best/hello/controller/CSRF.java
+  line_start: 53
+  reason: CSRF referer 场景 JSON 回显不单列 XSS case
+- tool: code_guard
+  rule_name: 跨站脚本：反射型XSS
+  file_path: src/main/java/com/best/hello/controller/CSRF.java
+  line_start: 86
+  reason: CSRF token 场景 JSON 回显不单列 XSS case
+- tool: code_guard
+  rule_name: 跨站脚本：反射型XSS
+  file_path: src/main/java/com/best/hello/controller/IPForgery.java
+  line_start: 64
+  reason: IPForgery 回显属于业务输出，不单列 XSS case
+- tool: code_guard
+  rule_name: 跨站脚本：反射型XSS
+  file_path: src/main/java/com/best/hello/controller/LogicFlaw/PasswordReset.java
+  line_start: 47
+  reason: 密码找回流程消息回显不单列 XSS case
+- tool: code_guard
+  rule_name: 跨站脚本：反射型XSS
+  file_path: src/main/java/com/best/hello/controller/LogicFlaw/PasswordReset.java
+  line_start: 102
+  reason: 密码找回流程消息回显不单列 XSS case
+- tool: code_guard
+  rule_name: 跨站脚本：反射型XSS
+  file_path: src/main/java/com/best/hello/controller/Redirect.java
+  line_start: 57
+  reason: 白名单 redirect safe 场景返回字符串，不单列 XSS case
+- tool: code_guard
+  rule_name: 跨站脚本：反射型XSS
+  file_path: src/main/java/com/best/hello/controller/SSTI.java
+  line_start: 115
+  reason: SSTI fragment safe 返回响应体的场景不单列 XSS case
+- tool: code_guard
+  rule_name: 跨站脚本：反射型XSS
+  file_path: src/main/java/com/best/hello/controller/XXE/XXE.java
+  line_start: 153
+  reason: XXE DocumentBuilder 场景的文本输出不单列 XSS case
+- tool: code_guard
+  rule_name: 跨站脚本：跨站点历史操作
+  file_path: src/main/java/com/best/hello/controller/Login.java
+  line_start: 53
+  reason: 登录后 redirect 行为已由 HJS-LOGIN-REFERER-REDIRECT-VUL 覆盖，不单列浏览器历史类问题
+- tool: code_guard
+  rule_name: 跨站脚本：跨站点历史操作
+  file_path: src/main/java/com/best/hello/controller/Redirect.java
+  line_start: 40
+  reason: Redirect 场景主风险是 open redirect，不单列浏览器历史类问题
+- tool: code_guard
+  rule_name: 跨站脚本：跨站点历史操作
+  file_path: src/main/java/com/best/hello/controller/Upload.java
+  line_start: 54
+  reason: 上传完成后的 redirect 不单列浏览器历史类问题
+- tool: code_guard
+  rule_name: 跨站脚本：跨站点历史操作
+  file_path: src/main/java/com/best/hello/controller/Upload.java
+  line_start: 96
+  reason: 上传 safe redirect 不单列浏览器历史类问题
+- tool: code_guard
+  rule_name: 跨站脚本：跨站点历史操作
+  file_path: src/main/java/com/best/hello/controller/Upload.java
+  line_start: 130
+  reason: 上传 vul2 redirect 不单列浏览器历史类问题
+- tool: code_guard
+  rule_name: 跨站脚本：弱验证
+  file_path: src/main/java/com/best/hello/controller/JNDI/JNDIInject.java
+  line_start: 54
+  reason: JNDI safe1 的 HtmlUtils.htmlEscape 属于辅助输出，不单列 XSS 弱验证 case
+- tool: code_guard
+  rule_name: 跨站脚本：弱验证
+  file_path: src/main/java/com/best/hello/controller/JNDI/JNDIInject.java
+  line_start: 72
+  reason: JNDI safe2 的 HtmlUtils.htmlEscape 属于辅助输出，不单列 XSS 弱验证 case
+- tool: code_guard
+  rule_name: 跨站脚本：弱验证
+  file_path: src/main/java/com/best/hello/controller/RCE/LoadJSVul.java
+  line_start: 46
+  reason: LoadJSVul 的过滤辅助输出不纳入当前 benchmark case
+- tool: code_guard
+  rule_name: 跨站脚本：弱验证
+  file_path: src/main/java/com/best/hello/controller/XSS.java
+  line_start: 51
+  reason: XSS safe 输出属于过滤辅助场景，不单列弱验证 case
+- tool: code_guard
+  rule_name: 密码管理：明文密码
+  file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+  line_start: 61
+  reason: db_pass 来自配置文件，其根因已由 HJS-CRED-APPDEV/APPDOCKER/APP cases 覆盖，不单列使用位点
+- tool: code_guard
+  rule_name: 密码管理：明文密码
+  file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+  line_start: 96
+  reason: db_pass 使用位点不单列，根因已由配置文件凭据 case 覆盖
+- tool: code_guard
+  rule_name: 密码管理：明文密码
+  file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+  line_start: 145
+  reason: db_pass 使用位点不单列，根因已由配置文件凭据 case 覆盖
+- tool: code_guard
+  rule_name: 密码管理：明文密码
+  file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+  line_start: 178
+  reason: db_pass 使用位点不单列，根因已由配置文件凭据 case 覆盖
+- tool: code_guard
+  rule_name: 密码管理：明文密码
+  file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+  line_start: 212
+  reason: db_pass 使用位点不单列，根因已由配置文件凭据 case 覆盖
+- tool: code_guard
+  rule_name: 密码管理：明文密码
+  file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+  line_start: 264
+  reason: db_pass 使用位点不单列，根因已由配置文件凭据 case 覆盖
+- tool: code_guard
+  rule_name: 密码管理：明文密码
+  file_path: src/main/java/com/best/hello/controller/SQLI/JDBC.java
+  line_start: 287
+  reason: db_pass 使用位点不单列，根因已由配置文件凭据 case 覆盖
+- tool: code_guard
+  rule_name: 代码注入：JavaScript劫持：易受攻击的框架
+  file_path: src/main/resources/templates/csrf.html
+  line_start: 164
+  reason: 前端模板中的框架/脚本劫持告警过于宽泛，不作为当前 benchmark case
+- tool: code_guard
+  rule_name: 代码注入：JavaScript劫持：易受攻击的框架
+  file_path: src/main/resources/templates/csv_injection.html
+  line_start: 148
+  reason: 前端模板中的框架/脚本劫持告警过于宽泛，不作为当前 benchmark case
+- tool: code_guard
+  rule_name: 代码注入：JavaScript劫持：易受攻击的框架
+  file_path: src/main/resources/templates/xss_store.html
+  line_start: 175
+  reason: 前端模板中的框架/脚本劫持告警过于宽泛，不作为当前 benchmark case
+- tool: code_guard
+  rule_name: 代码注入：JavaScript劫持：易受攻击的框架
+  file_path: src/main/resources/templates/xxe.html
+  line_start: 219
+  reason: 前端模板中的框架/脚本劫持告警过于宽泛，不作为当前 benchmark case
+- tool: code_guard
+  rule_name: 安全特性：Spring Boot配置错误：启用DevTools
+  file_path: pom.xml
+  line_start: 92
+  reason: DevTools 为低紧急度开发辅助配置，不纳入当前 benchmark case
+- tool: code_guard
+  rule_name: 配置管理：不安全的反序列化组件
+  file_path: pom.xml
+  line_start: 99
+  reason: Actuator 配置项属于泛化组件配置告警，不单列 benchmark case
+- tool: fortify
+  rule_name: 'SQL Injection: MyBatis Mapper'
+  file_path: src/main/resources/mapper/UserMapper.xml
+  line_start: 14
+  reason: MyBatis Mapper XML 根位点由 JSL-MYBATIS-ORDERBY-VUL-ORDER 覆盖，不单列辅助位置
+- tool: fortify
+  rule_name: XML External Entity Injection
+  file_path: src/main/java/com/best/hello/controller/Deserialization/XMLDecoderVul.java
+  line_start: 41
+  reason: XMLDecoder 主风险已由 JSL-XMLDECODERVUL-VUL-VUL 覆盖，不单列 XXE 派生命中
+- tool: fortify
+  rule_name: XML External Entity Injection
+  file_path: src/main/java/com/best/hello/controller/XPathInjection.java
+  line_start: 41
+  reason: XPathInjection 主风险已由 JSL-XPATHINJECTION-VUL-VUL 覆盖，不单列 XXE 派生命中
+- tool: fortify
+  rule_name: XML External Entity Injection
+  file_path: src/main/java/com/best/hello/controller/XPathInjection.java
+  line_start: 80
+  reason: XPathInjection safe 场景已由 JSL-XPATHINJECTION-SAFE-SAFE 覆盖，不单列 XXE 派生命中
+- tool: fortify
+  rule_name: XML External Entity Injection
+  file_path: src/main/java/com/best/hello/controller/XXE/XXE.java
+  line_start: 66
+  reason: XXE xmlReader 场景已由 JSL-XXE-XMLREADER-XMLREADER 覆盖，不单列 XXE 派生命中
+- tool: fortify
+  rule_name: 'Spring Boot Misconfiguration: DevTools Enabled'
+  file_path: pom.xml
+  line_start: 94
+  reason: DevTools 为低紧急度开发辅助配置，不纳入当前 benchmark case
+- tool: fortify
+  rule_name: Access Specifier Manipulation
+  file_path: src/main/java/com/best/hello/controller/RCE/ProcessImplVul.java
+  line_start: 29
+  reason: setAccessible 访问位点属于 ProcessImpl 命令执行主场景，不单列 Fortify 辅助位置
+- tool: fortify
+  rule_name: 'Dynamic Code Evaluation: XMLDecoder Injection'
+  file_path: src/main/java/com/best/hello/controller/Deserialization/XMLDecoderVul.java
+  line_start: 41
+  reason: XMLDecoder 主风险已由 JSL-XMLDECODERVUL-VUL-VUL 覆盖，不单列 DCE 派生命中
+- tool: fortify
+  rule_name: Command Injection
+  file_path: src/main/java/com/best/hello/controller/EvilClass/TemplatesBytes.java
+  line_start: 19
+  reason: TemplatesBytes 属于利用链辅助类，不单独作为命令注入 case
+- tool: fortify
+  rule_name: Command Injection
+  file_path: src/main/java/com/best/hello/controller/JNDI/EvilObject.java
+  line_start: 9
+  reason: JNDI EvilObject 属于利用链辅助类，不单独作为命令注入 case
+- tool: fortify
+  rule_name: XML Entity Expansion Injection
+  file_path: src/main/java/com/best/hello/controller/XPathInjection.java
+  line_start: 41
+  reason: XPathInjection 主风险已由 JSL-XPATHINJECTION-VUL-VUL 覆盖，不单列 XML Entity Expansion
+    派生命中
+- tool: fortify
+  rule_name: XML Entity Expansion Injection
+  file_path: src/main/java/com/best/hello/controller/XPathInjection.java
+  line_start: 80
+  reason: XPathInjection safe 场景已由 JSL-XPATHINJECTION-SAFE-SAFE 覆盖，不单列 XML Entity
+    Expansion 派生命中
+- tool: fortify
+  rule_name: XML Entity Expansion Injection
+  file_path: src/main/java/com/best/hello/controller/XXE/XXE.java
+  line_start: 66
+  reason: XXE xmlReader 场景已由 JSL-XXE-XMLREADER-XMLREADER 覆盖，不单列 XML Entity Expansion
+    派生命中
+- tool: fortify
+  rule_name: 'Dynamic Code Evaluation: Unsafe Deserialization'
+  file_path: src/main/java/com/best/hello/controller/Deserialization/XMLDecoderVul.java
+  line_start: 59
+  reason: XMLDecoder safe 场景的低危派生命中不单列 benchmark case
+- tool: code_guard
+  rule_name: 跨站脚本：反射型XSS
+  file_path: src/main/java/com/best/hello/controller/IPForgery.java
+  line_start: 75
+  reason: IP 伪造 proxy 场景主风险是可信代理链处理，不将响应体回显派生 XSS 作为 benchmark case
+- tool: code_guard
+  rule_name: 跨站脚本：弱验证
+  file_path: src/main/java/com/best/hello/controller/RCE/LoadJsVul.java
+  line_start: 41
+  reason: ScriptEngine 场景主风险是远程脚本执行，异常分支的 HtmlUtils.htmlEscape 回显不单列为 XSS case
+- tool: code_guard
+  rule_name: 跨站脚本：跨站点历史操作
+  file_path: src/main/java/com/best/hello/controller/Login.java
+  line_start: 68
+  reason: 固定 redirect:/login 属于静态跳转，不作为 open redirect 或 XSS benchmark case
+- tool: code_guard
+  rule_name: 跨站脚本：跨站点历史操作
+  file_path: src/main/java/com/best/hello/controller/Upload.java
+  line_start: 35
+  reason: 固定 redirect:uploadStatus 属于控制流返回，不作为 XSS benchmark case
+- tool: code_guard
+  rule_name: 跨站脚本：跨站点历史操作
+  file_path: src/main/java/com/best/hello/controller/Upload.java
+  line_start: 64
+  reason: 固定 redirect:uploadStatus 属于控制流返回，不作为 XSS benchmark case
+- tool: code_guard
+  rule_name: 跨站脚本：跨站点历史操作
+  file_path: src/main/java/com/best/hello/controller/Upload.java
+  line_start: 105
+  reason: 固定 redirect:upload 属于控制流返回，不作为 XSS benchmark case
+- tool: code_guard
+  rule_name: 代码注入：JavaScript劫持：易受攻击的框架
+  file_path: src/main/resources/templates/csrf.html
+  line_start: 166
+  reason: 模板页中的演示 AJAX 脚本不是前端框架漏洞，不纳入 benchmark case
+- tool: code_guard
+  rule_name: 代码注入：JavaScript劫持：易受攻击的框架
+  file_path: src/main/resources/templates/csv_injection.html
+  line_start: 150
+  reason: 模板页中的数据渲染脚本不是前端框架漏洞，不纳入 benchmark case
+- tool: code_guard
+  rule_name: 代码注入：JavaScript劫持：易受攻击的框架
+  file_path: src/main/resources/templates/xss_store.html
+  line_start: 177
+  reason: 模板页中的演示脚本不是前端框架漏洞，不纳入 benchmark case
+- tool: code_guard
+  rule_name: 代码注入：JavaScript劫持：易受攻击的框架
+  file_path: src/main/resources/templates/xxe.html
+  line_start: 234
+  reason: 模板页中的调试脚本不是前端框架漏洞，不纳入 benchmark case
+- tool: code_guard
+  rule_name: 跨站脚本：跨站点历史操作
+  file_path: src/main/java/com/best/hello/controller/Upload.java
+  line_start: 111
+  reason: 固定 redirect:uploadStatus 属于控制流返回，不作为 XSS benchmark case
+- tool: code_guard
+  rule_name: 代码注入：JavaScript劫持：易受攻击的框架
+  file_path: src/main/resources/templates/csv_injection.html
+  line_start: 160
+  reason: 模板页中的 AJAX 演示脚本不是前端框架漏洞，不纳入 benchmark case
+- tool: code_guard
+  rule_name: 代码注入：JavaScript劫持：易受攻击的框架
+  file_path: src/main/resources/templates/xss_store.html
+  line_start: 188
+  reason: 模板页中的 AJAX 演示脚本不是前端框架漏洞，不纳入 benchmark case
+- tool: code_guard
+  rule_name: 代码注入：JavaScript劫持：易受攻击的框架
+  file_path: src/main/resources/templates/csv_injection.html
+  reason: 模板页中的 AJAX 演示脚本不是前端框架漏洞，不纳入 benchmark case
+- tool: code_guard
+  rule_name: 代码注入：JavaScript劫持：易受攻击的框架
+  file_path: src/main/resources/templates/xss_store.html
+  reason: 模板页中的 AJAX 演示脚本不是前端框架漏洞，不纳入 benchmark case

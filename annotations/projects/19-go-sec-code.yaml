@@ -1,0 +1,2833 @@
+project: go-sec-code
+source: manual_truth_builder_v1
+notes:
+- 以 go-sec-code 的人工维护 manual_cases 作为当前真值口径。
+- 适用于 PHP / Go 等尚未接入自动场景发现器的样本。
+- manual_cases 可逐步扩展，pending_review_additions 用于承接后续补标与清洗。
+metadata:
+  summary:
+    total_cases: 39
+    positive_cases: 24
+    warn_cases: 0
+    negative_cases: 15
+    supported_cases: 39
+  language: golang
+  source_root: /home/zpy/goproject/IRify_SAST/.ai/task-runs/benchmark-framework/projects/19-go-sec-code/tmp/source/go-sec-code-main
+  review_config_path: /home/zpy/goproject/IRify_SAST/irify-benchmark/annotations/projects/19-go-sec-code.review.yaml
+cases:
+- case_id: GSC-CMDI-VULN1-DIR
+  scenario_id: go-sec-code.cmdi.vuln1.dir
+  family: command_injection
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/cmdi.go
+  canonical_file_path: controllers/cmdi.go
+  class_route: ''
+  route: file:controllers/cmdi.go
+  method_name: gsc-cmdi-vuln1-dir
+  title: CommandInjection GET 参数注入
+  description: CommandInjection GET 参数注入
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 27
+  line_end: 35
+  source:
+    kind: request_input
+    line_start: 27
+    line_end: 35
+    params: []
+    notes: CommandInjection GET 参数注入
+  sink:
+    kind: manual_sink
+    file_path: controllers/cmdi.go
+    line_start: 30
+    line_end: 30
+    api: Command Injection
+    source_tool: manual
+    evidence: CommandInjection GET 参数注入
+  trace:
+  - stage: source
+    file_path: controllers/cmdi.go
+    line_start: 27
+    line_end: 35
+    symbol: request_input
+    note: CommandInjection GET 参数注入
+  - stage: sink
+    file_path: controllers/cmdi.go
+    line_start: 30
+    line_end: 30
+    symbol: Command Injection
+    note: CommandInjection GET 参数注入
+  safe_guards: []
+  rule_type: Command Injection
+  aliases:
+  - 检测Golang命令注入漏洞
+  - Command Injection
+  - CommandInjection GET 参数注入
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Golang命令注入漏洞
+      severity: high
+      line_start: 30
+      evidence: 检测Golang命令注入漏洞 | 检测到Golang命令注入漏洞 | 检测到Golang应用程序中的命令注入漏洞，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: hit_exact
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - controllers/cmdi.go:27
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: GSC-CMDI-VULN2-HOST
+  scenario_id: go-sec-code.cmdi.vuln2.host
+  family: command_injection
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/cmdi.go
+  canonical_file_path: controllers/cmdi.go
+  class_route: ''
+  route: file:controllers/cmdi.go
+  method_name: gsc-cmdi-vuln2-host
+  title: CommandInjection Host 头注入
+  description: CommandInjection Host 头注入
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 38
+  line_end: 46
+  source:
+    kind: request_input
+    line_start: 38
+    line_end: 46
+    params: []
+    notes: CommandInjection Host 头注入
+  sink:
+    kind: manual_sink
+    file_path: controllers/cmdi.go
+    line_start: 41
+    line_end: 41
+    api: Command Injection
+    source_tool: manual
+    evidence: CommandInjection Host 头注入
+  trace:
+  - stage: source
+    file_path: controllers/cmdi.go
+    line_start: 38
+    line_end: 46
+    symbol: request_input
+    note: CommandInjection Host 头注入
+  - stage: sink
+    file_path: controllers/cmdi.go
+    line_start: 41
+    line_end: 41
+    symbol: Command Injection
+    note: CommandInjection Host 头注入
+  safe_guards: []
+  rule_type: Command Injection
+  aliases:
+  - 检测Golang命令注入漏洞
+  - Command Injection
+  - CommandInjection Host 头注入
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Golang命令注入漏洞
+      severity: high
+      line_start: 41
+      evidence: 检测Golang命令注入漏洞 | 检测到Golang命令注入漏洞 | 检测到Golang应用程序中的命令注入漏洞，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: hit_exact
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - controllers/cmdi.go:38
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: GSC-CMDI-VULN3-GIT
+  scenario_id: go-sec-code.cmdi.vuln3.git
+  family: command_injection
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/cmdi.go
+  canonical_file_path: controllers/cmdi.go
+  class_route: ''
+  route: file:controllers/cmdi.go
+  method_name: gsc-cmdi-vuln3-git
+  title: CommandInjection git 参数注入
+  description: CommandInjection git 参数注入
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 49
+  line_end: 55
+  source:
+    kind: request_input
+    line_start: 49
+    line_end: 55
+    params: []
+    notes: CommandInjection git 参数注入
+  sink:
+    kind: manual_sink
+    file_path: controllers/cmdi.go
+    line_start: 51
+    line_end: 51
+    api: Command Injection
+    source_tool: manual
+    evidence: CommandInjection git 参数注入
+  trace:
+  - stage: source
+    file_path: controllers/cmdi.go
+    line_start: 49
+    line_end: 55
+    symbol: request_input
+    note: CommandInjection git 参数注入
+  - stage: sink
+    file_path: controllers/cmdi.go
+    line_start: 51
+    line_end: 51
+    symbol: Command Injection
+    note: CommandInjection git 参数注入
+  safe_guards: []
+  rule_type: Command Injection
+  aliases:
+  - 检测Golang命令注入漏洞
+  - Command Injection
+  - CommandInjection git 参数注入
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Golang命令注入漏洞
+      severity: high
+      line_start: 51
+      evidence: 检测Golang命令注入漏洞 | 检测到Golang命令注入漏洞 | 检测到Golang应用程序中的命令注入漏洞，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: hit_exact
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - controllers/cmdi.go:49
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: GSC-CMDI-SAFE1-FILTER
+  scenario_id: go-sec-code.cmdi.safe1.filter
+  family: command_injection
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/cmdi.go
+  canonical_file_path: controllers/cmdi.go
+  class_route: ''
+  route: file:controllers/cmdi.go
+  method_name: gsc-cmdi-safe1-filter
+  title: CommandInjection 过滤防护负例
+  description: CommandInjection 过滤防护负例
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  line_start: 58
+  line_end: 73
+  source:
+    kind: request_input
+    line_start: 58
+    line_end: 73
+    params: []
+    notes: CommandInjection 过滤防护负例
+  sink:
+    kind: manual_sink
+    file_path: controllers/cmdi.go
+    line_start: 67
+    line_end: 67
+    api: Command Injection
+    source_tool: manual
+    evidence: CommandInjection 过滤防护负例
+  trace:
+  - stage: source
+    file_path: controllers/cmdi.go
+    line_start: 58
+    line_end: 73
+    symbol: request_input
+    note: CommandInjection 过滤防护负例
+  - stage: sink
+    file_path: controllers/cmdi.go
+    line_start: 67
+    line_end: 67
+    symbol: Command Injection
+    note: CommandInjection 过滤防护负例
+  safe_guards: []
+  rule_type: Command Injection
+  aliases:
+  - 检测Golang命令注入漏洞
+  - Command Injection
+  - CommandInjection 过滤防护负例
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Golang命令注入漏洞
+      severity: high
+      line_start: 67
+      evidence: 检测Golang命令注入漏洞 | 检测到Golang命令注入漏洞 | 检测到Golang应用程序中的命令注入漏洞，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: severe_false_positive
+    code_guard: correct_negative
+    fortify: correct_negative
+  alias_locations: []
+  source_refs:
+  - controllers/cmdi.go:58
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+  - IRify 在 safe 场景出现命中，需重点复核误报。
+- case_id: GSC-CORS-VULN1-REFLECT
+  scenario_id: go-sec-code.cors.vuln1.reflect
+  family: cors
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/cors.go
+  canonical_file_path: controllers/cors.go
+  class_route: ''
+  route: file:controllers/cors.go
+  method_name: gsc-cors-vuln1-reflect
+  title: CORS 反射 Origin 且允许凭证
+  description: CORS 反射 Origin 且允许凭证
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 22
+  line_end: 37
+  source:
+    kind: request_input
+    line_start: 22
+    line_end: 37
+    params: []
+    notes: CORS 反射 Origin 且允许凭证
+  sink:
+    kind: manual_sink
+    file_path: controllers/cors.go
+    line_start: 24
+    line_end: 24
+    api: CORS
+    source_tool: manual
+    evidence: CORS 反射 Origin 且允许凭证
+  trace:
+  - stage: source
+    file_path: controllers/cors.go
+    line_start: 22
+    line_end: 37
+    symbol: request_input
+    note: CORS 反射 Origin 且允许凭证
+  - stage: sink
+    file_path: controllers/cors.go
+    line_start: 24
+    line_end: 24
+    symbol: CORS
+    note: CORS 反射 Origin 且允许凭证
+  safe_guards: []
+  rule_type: CORS
+  aliases:
+  - 检测Golang CORS配置错误漏洞(beego)
+  - CORS
+  - CORS 反射 Origin 且允许凭证
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Golang CORS配置错误漏洞(beego)
+      severity: high
+      line_start: 24
+      evidence: 检测Golang CORS配置错误漏洞(beego) | 检测到Golang CORS配置错误漏洞 | 检测到Golang Beego框架中的CORS配置错误漏洞，服务端反射了未验证的`Origin`头，可能导致敏感数据泄露和跨站攻击。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: hit_exact
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - controllers/cors.go:22
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: GSC-CORS-VULN2-WILDCARD-CREDENTIAL
+  scenario_id: go-sec-code.cors.vuln2.wildcard_credential
+  family: cors
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/cors.go
+  canonical_file_path: controllers/cors.go
+  class_route: ''
+  route: file:controllers/cors.go
+  method_name: gsc-cors-vuln2-wildcard-credential
+  title: CORS 任意来源且允许凭证
+  description: CORS 任意来源且允许凭证
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 39
+  line_end: 53
+  source:
+    kind: request_input
+    line_start: 39
+    line_end: 53
+    params: []
+    notes: CORS 任意来源且允许凭证
+  sink:
+    kind: manual_sink
+    file_path: controllers/cors.go
+    line_start: 40
+    line_end: 40
+    api: CORS
+    source_tool: manual
+    evidence: CORS 任意来源且允许凭证
+  trace:
+  - stage: source
+    file_path: controllers/cors.go
+    line_start: 39
+    line_end: 53
+    symbol: request_input
+    note: CORS 任意来源且允许凭证
+  - stage: sink
+    file_path: controllers/cors.go
+    line_start: 40
+    line_end: 40
+    symbol: CORS
+    note: CORS 任意来源且允许凭证
+  safe_guards: []
+  rule_type: CORS
+  aliases:
+  - 检测Golang CORS配置错误漏洞(beego)
+  - CORS
+  - CORS 任意来源且允许凭证
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify: []
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: covered_missed
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - controllers/cors.go:39
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: GSC-CORS-SAFE1-WHITELIST
+  scenario_id: go-sec-code.cors.safe1.whitelist
+  family: cors
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/cors.go
+  canonical_file_path: controllers/cors.go
+  class_route: ''
+  route: file:controllers/cors.go
+  method_name: gsc-cors-safe1-whitelist
+  title: CORS 白名单防护负例
+  description: CORS 白名单防护负例
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  line_start: 55
+  line_end: 74
+  source:
+    kind: request_input
+    line_start: 55
+    line_end: 74
+    params: []
+    notes: CORS 白名单防护负例
+  sink:
+    kind: manual_sink
+    file_path: controllers/cors.go
+    line_start: 60
+    line_end: 60
+    api: CORS
+    source_tool: manual
+    evidence: CORS 白名单防护负例
+  trace:
+  - stage: source
+    file_path: controllers/cors.go
+    line_start: 55
+    line_end: 74
+    symbol: request_input
+    note: CORS 白名单防护负例
+  - stage: sink
+    file_path: controllers/cors.go
+    line_start: 60
+    line_end: 60
+    symbol: CORS
+    note: CORS 白名单防护负例
+  safe_guards: []
+  rule_type: CORS
+  aliases:
+  - 检测Golang CORS配置错误漏洞(beego)
+  - CORS
+  - CORS 白名单防护负例
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Golang CORS配置错误漏洞(beego)
+      severity: high
+      line_start: 60
+      evidence: 检测Golang CORS配置错误漏洞(beego) | 检测到Golang CORS配置错误漏洞 | 检测到Golang Beego框架中的CORS配置错误漏洞，服务端反射了未验证的`Origin`头，可能导致敏感数据泄露和跨站攻击。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: severe_false_positive
+    code_guard: correct_negative
+    fortify: correct_negative
+  alias_locations: []
+  source_refs:
+  - controllers/cors.go:55
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+  - IRify 在 safe 场景出现命中，需重点复核误报。
+- case_id: GSC-CRLF-SAFE1-HEADER
+  scenario_id: go-sec-code.crlf.safe1.header
+  family: crlf
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/crlfi.go
+  canonical_file_path: controllers/crlfi.go
+  class_route: ''
+  route: file:controllers/crlfi.go
+  method_name: gsc-crlf-safe1-header
+  title: CRLF header 设置负例
+  description: CRLF header 设置负例
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  line_start: 11
+  line_end: 14
+  source:
+    kind: request_input
+    line_start: 11
+    line_end: 14
+    params: []
+    notes: CRLF header 设置负例
+  sink:
+    kind: manual_sink
+    file_path: controllers/crlfi.go
+    line_start: 13
+    line_end: 13
+    api: CRLF Injection
+    source_tool: manual
+    evidence: CRLF header 设置负例
+  trace:
+  - stage: source
+    file_path: controllers/crlfi.go
+    line_start: 11
+    line_end: 14
+    symbol: request_input
+    note: CRLF header 设置负例
+  - stage: sink
+    file_path: controllers/crlfi.go
+    line_start: 13
+    line_end: 13
+    symbol: CRLF Injection
+    note: CRLF header 设置负例
+  safe_guards: []
+  rule_type: CRLF Injection
+  aliases:
+  - 检测Golang Beego框架中的CRLF注入漏洞
+  - CRLF Injection
+  - CRLF header 设置负例
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Golang Beego框架中的CRLF注入漏洞
+      severity: high
+      line_start: 13
+      evidence: 检测Golang Beego框架中的CRLF注入漏洞 | 检测到CRLF注入 | 检测到Golang Beego框架中的CRLF注入漏洞，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: severe_false_positive
+    code_guard: correct_negative
+    fortify: correct_negative
+  alias_locations: []
+  source_refs:
+  - controllers/crlfi.go:11
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+  - IRify 在 safe 场景出现命中，需重点复核误报。
+- case_id: GSC-UPLOAD-VULN1-USERID-PATH
+  scenario_id: go-sec-code.upload.vuln1.userid_path
+  family: file_upload
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/upload.go
+  canonical_file_path: controllers/upload.go
+  class_route: ''
+  route: file:controllers/upload.go
+  method_name: gsc-upload-vuln1-userid-path
+  title: FileUpload POST 参数控制写入路径
+  description: FileUpload POST 参数控制写入路径
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 23
+  line_end: 32
+  source:
+    kind: request_input
+    line_start: 23
+    line_end: 32
+    params: []
+    notes: FileUpload POST 参数控制写入路径
+  sink:
+    kind: manual_sink
+    file_path: controllers/upload.go
+    line_start: 30
+    line_end: 30
+    api: File Upload
+    source_tool: manual
+    evidence: FileUpload POST 参数控制写入路径
+  trace:
+  - stage: source
+    file_path: controllers/upload.go
+    line_start: 23
+    line_end: 32
+    symbol: request_input
+    note: FileUpload POST 参数控制写入路径
+  - stage: sink
+    file_path: controllers/upload.go
+    line_start: 30
+    line_end: 30
+    symbol: File Upload
+    note: FileUpload POST 参数控制写入路径
+  safe_guards: []
+  rule_type: File Upload
+  aliases:
+  - Beego中Golang文件上传授权审核
+  - File Upload
+  - FileUpload POST 参数控制写入路径
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify:
+    - rule_name: Beego中Golang文件上传授权审核
+      severity: low
+      line_start: 24
+      evidence: Beego中Golang文件上传授权审核 | 检测到Golang文件路径未授权漏洞 | 检测到Beego框架中Golang文件上传功能未对用户上传的文件类型进行限制，可能导致未授权文件上传风险。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: hit_downgraded
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - controllers/upload.go:23
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: GSC-UPLOAD-SAFE1-FILTER
+  scenario_id: go-sec-code.upload.safe1.filter
+  family: file_upload
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/upload.go
+  canonical_file_path: controllers/upload.go
+  class_route: ''
+  route: file:controllers/upload.go
+  method_name: gsc-upload-safe1-filter
+  title: FileUpload userid 过滤防护负例
+  description: FileUpload userid 过滤防护负例
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  line_start: 39
+  line_end: 55
+  source:
+    kind: request_input
+    line_start: 39
+    line_end: 55
+    params: []
+    notes: FileUpload userid 过滤防护负例
+  sink:
+    kind: manual_sink
+    file_path: controllers/upload.go
+    line_start: 52
+    line_end: 52
+    api: File Upload
+    source_tool: manual
+    evidence: FileUpload userid 过滤防护负例
+  trace:
+  - stage: source
+    file_path: controllers/upload.go
+    line_start: 39
+    line_end: 55
+    symbol: request_input
+    note: FileUpload userid 过滤防护负例
+  - stage: sink
+    file_path: controllers/upload.go
+    line_start: 52
+    line_end: 52
+    symbol: File Upload
+    note: FileUpload userid 过滤防护负例
+  safe_guards: []
+  rule_type: File Upload
+  aliases:
+  - Beego中Golang文件上传授权审核
+  - File Upload
+  - FileUpload userid 过滤防护负例
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify: []
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: correct_negative
+    code_guard: correct_negative
+    fortify: correct_negative
+  alias_locations: []
+  source_refs:
+  - controllers/upload.go:39
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: GSC-JSONP-VULN1-NO-REFERER
+  scenario_id: go-sec-code.jsonp.vuln1.no_referer
+  family: jsonp
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/jsonp.go
+  canonical_file_path: controllers/jsonp.go
+  class_route: ''
+  route: file:controllers/jsonp.go
+  method_name: gsc-jsonp-vuln1-no-referer
+  title: JSONP 无防护信息泄露
+  description: JSONP 无防护信息泄露
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 22
+  line_end: 34
+  source:
+    kind: request_input
+    line_start: 22
+    line_end: 34
+    params: []
+    notes: JSONP 无防护信息泄露
+  sink:
+    kind: manual_sink
+    file_path: controllers/jsonp.go
+    line_start: 33
+    line_end: 33
+    api: JSONP Information Exposure
+    source_tool: manual
+    evidence: JSONP 无防护信息泄露
+  trace:
+  - stage: source
+    file_path: controllers/jsonp.go
+    line_start: 22
+    line_end: 34
+    symbol: request_input
+    note: JSONP 无防护信息泄露
+  - stage: sink
+    file_path: controllers/jsonp.go
+    line_start: 33
+    line_end: 33
+    symbol: JSONP Information Exposure
+    note: JSONP 无防护信息泄露
+  safe_guards: []
+  rule_type: JSONP Information Exposure
+  aliases:
+  - 检测Golang JSON信息泄露漏洞
+  - JSONP
+  - Information Exposure
+  - JSONP Information Exposure
+  - JSONP 无防护信息泄露
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Golang JSON信息泄露漏洞
+      severity: low
+      line_start: 27
+      evidence: 检测Golang JSON信息泄露漏洞 | 检测到Golang Json信息泄露 | 检测到Golang JSON信息泄露漏洞，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: hit_downgraded
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - controllers/jsonp.go:22
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: GSC-JSONP-VULN2-EMPTY-REFERER
+  scenario_id: go-sec-code.jsonp.vuln2.empty_referer
+  family: jsonp
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/jsonp.go
+  canonical_file_path: controllers/jsonp.go
+  class_route: ''
+  route: file:controllers/jsonp.go
+  method_name: gsc-jsonp-vuln2-empty-referer
+  title: JSONP 空 Referer 绕过
+  description: JSONP 空 Referer 绕过
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 36
+  line_end: 55
+  source:
+    kind: request_input
+    line_start: 36
+    line_end: 55
+    params: []
+    notes: JSONP 空 Referer 绕过
+  sink:
+    kind: manual_sink
+    file_path: controllers/jsonp.go
+    line_start: 51
+    line_end: 51
+    api: JSONP Information Exposure
+    source_tool: manual
+    evidence: JSONP 空 Referer 绕过
+  trace:
+  - stage: source
+    file_path: controllers/jsonp.go
+    line_start: 36
+    line_end: 55
+    symbol: request_input
+    note: JSONP 空 Referer 绕过
+  - stage: sink
+    file_path: controllers/jsonp.go
+    line_start: 51
+    line_end: 51
+    symbol: JSONP Information Exposure
+    note: JSONP 空 Referer 绕过
+  safe_guards: []
+  rule_type: JSONP Information Exposure
+  aliases:
+  - 检测Golang JSON信息泄露漏洞
+  - JSONP
+  - Information Exposure
+  - JSONP Information Exposure
+  - JSONP 空 Referer 绕过
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Golang JSON信息泄露漏洞
+      severity: low
+      line_start: 45
+      evidence: 检测Golang JSON信息泄露漏洞 | 检测到Golang Json信息泄露 | 检测到Golang JSON信息泄露漏洞，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: hit_downgraded
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - controllers/jsonp.go:36
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: GSC-JSONP-SAFE1-REFERER-WHITELIST
+  scenario_id: go-sec-code.jsonp.safe1.referer_whitelist
+  family: jsonp
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/jsonp.go
+  canonical_file_path: controllers/jsonp.go
+  class_route: ''
+  route: file:controllers/jsonp.go
+  method_name: gsc-jsonp-safe1-referer-whitelist
+  title: JSONP Referer 白名单防护负例
+  description: JSONP Referer 白名单防护负例
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  line_start: 57
+  line_end: 76
+  source:
+    kind: request_input
+    line_start: 57
+    line_end: 76
+    params: []
+    notes: JSONP Referer 白名单防护负例
+  sink:
+    kind: manual_sink
+    file_path: controllers/jsonp.go
+    line_start: 72
+    line_end: 72
+    api: JSONP Information Exposure
+    source_tool: manual
+    evidence: JSONP Referer 白名单防护负例
+  trace:
+  - stage: source
+    file_path: controllers/jsonp.go
+    line_start: 57
+    line_end: 76
+    symbol: request_input
+    note: JSONP Referer 白名单防护负例
+  - stage: sink
+    file_path: controllers/jsonp.go
+    line_start: 72
+    line_end: 72
+    symbol: JSONP Information Exposure
+    note: JSONP Referer 白名单防护负例
+  safe_guards: []
+  rule_type: JSONP Information Exposure
+  aliases:
+  - 检测Golang JSON信息泄露漏洞
+  - JSONP
+  - Information Exposure
+  - JSONP Information Exposure
+  - JSONP Referer 白名单防护负例
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Golang JSON信息泄露漏洞
+      severity: low
+      line_start: 66
+      evidence: 检测Golang JSON信息泄露漏洞 | 检测到Golang Json信息泄露 | 检测到Golang JSON信息泄露漏洞，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: advisory_noise
+    code_guard: correct_negative
+    fortify: correct_negative
+  alias_locations: []
+  source_refs:
+  - controllers/jsonp.go:57
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+  - IRify 在 safe 场景出现命中，需重点复核误报。
+- case_id: GSC-PATH-VULN1-READFILE
+  scenario_id: go-sec-code.path.vuln1.readfile
+  family: path_traversal
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/traversal.go
+  canonical_file_path: controllers/traversal.go
+  class_route: ''
+  route: file:controllers/traversal.go
+  method_name: gsc-path-vuln1-readfile
+  title: PathTraversal 无防护任意文件读取
+  description: PathTraversal 无防护任意文件读取
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 28
+  line_end: 35
+  source:
+    kind: request_input
+    line_start: 28
+    line_end: 35
+    params: []
+    notes: PathTraversal 无防护任意文件读取
+  sink:
+    kind: manual_sink
+    file_path: controllers/traversal.go
+    line_start: 30
+    line_end: 30
+    api: Path Traversal
+    source_tool: manual
+    evidence: PathTraversal 无防护任意文件读取
+  trace:
+  - stage: source
+    file_path: controllers/traversal.go
+    line_start: 28
+    line_end: 35
+    symbol: request_input
+    note: PathTraversal 无防护任意文件读取
+  - stage: sink
+    file_path: controllers/traversal.go
+    line_start: 30
+    line_end: 30
+    symbol: Path Traversal
+    note: PathTraversal 无防护任意文件读取
+  safe_guards: []
+  rule_type: Path Traversal
+  aliases:
+  - 检测Golang未过滤的文件或路径漏洞
+  - 检测Golang未过滤文件路径漏洞
+  - Path Traversal
+  - PathTraversal 无防护任意文件读取
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Golang未过滤文件路径漏洞
+      severity: low
+      line_start: 30
+      evidence: 检测Golang未过滤文件路径漏洞 | 检测到Golang未过滤文件路径漏洞 | 检测到Golang未过滤文件路径漏洞，并且从数据源（source）到污染汇聚点（sink）间可能存在过滤函数，需进一步审计进行确认。
+    - rule_name: 检测Golang未过滤的文件或路径漏洞
+      severity: low
+      line_start: 29
+      evidence: 检测Golang未过滤的文件或路径漏洞 | 检测Golang未过滤的文件或路径漏洞 | 检测到Golang未过滤的文件或路径漏洞，并且从数据源（source）到污染汇聚点（sink）间可能存在过滤函数，需进一步审计进行确认。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: hit_downgraded
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - controllers/traversal.go:28
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: GSC-PATH-VULN2-CLEAN-BYPASS
+  scenario_id: go-sec-code.path.vuln2.clean_bypass
+  family: path_traversal
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/traversal.go
+  canonical_file_path: controllers/traversal.go
+  class_route: ''
+  route: file:controllers/traversal.go
+  method_name: gsc-path-vuln2-clean-bypass
+  title: PathTraversal 错误使用 filepath.Clean
+  description: PathTraversal 错误使用 filepath.Clean
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 37
+  line_end: 45
+  source:
+    kind: request_input
+    line_start: 37
+    line_end: 45
+    params: []
+    notes: PathTraversal 错误使用 filepath.Clean
+  sink:
+    kind: manual_sink
+    file_path: controllers/traversal.go
+    line_start: 40
+    line_end: 40
+    api: Path Traversal
+    source_tool: manual
+    evidence: PathTraversal 错误使用 filepath.Clean
+  trace:
+  - stage: source
+    file_path: controllers/traversal.go
+    line_start: 37
+    line_end: 45
+    symbol: request_input
+    note: PathTraversal 错误使用 filepath.Clean
+  - stage: sink
+    file_path: controllers/traversal.go
+    line_start: 40
+    line_end: 40
+    symbol: Path Traversal
+    note: PathTraversal 错误使用 filepath.Clean
+  safe_guards: []
+  rule_type: Path Traversal
+  aliases:
+  - 检测Golang未过滤的文件或路径漏洞
+  - 检测Golang未过滤文件路径漏洞
+  - Path Traversal
+  - PathTraversal 错误使用 filepath.Clean
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Golang未过滤文件路径漏洞
+      severity: low
+      line_start: 40
+      evidence: 检测Golang未过滤文件路径漏洞 | 检测到Golang未过滤文件路径漏洞 | 检测到Golang未过滤文件路径漏洞，并且从数据源（source）到污染汇聚点（sink）间可能存在过滤函数，需进一步审计进行确认。
+    - rule_name: 检测Golang未过滤的文件或路径漏洞
+      severity: low
+      line_start: 38
+      evidence: 检测Golang未过滤的文件或路径漏洞 | 检测Golang未过滤的文件或路径漏洞 | 检测到Golang未过滤的文件或路径漏洞，并且从数据源（source）到污染汇聚点（sink）间可能存在过滤函数，需进一步审计进行确认。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: hit_downgraded
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - controllers/traversal.go:37
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: GSC-PATH-SAFE1-FILTER
+  scenario_id: go-sec-code.path.safe1.filter
+  family: path_traversal
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/traversal.go
+  canonical_file_path: controllers/traversal.go
+  class_route: ''
+  route: file:controllers/traversal.go
+  method_name: gsc-path-safe1-filter
+  title: PathTraversal 过滤防护负例
+  description: PathTraversal 过滤防护负例
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  line_start: 47
+  line_end: 58
+  source:
+    kind: request_input
+    line_start: 47
+    line_end: 58
+    params: []
+    notes: PathTraversal 过滤防护负例
+  sink:
+    kind: manual_sink
+    file_path: controllers/traversal.go
+    line_start: 53
+    line_end: 53
+    api: Path Traversal
+    source_tool: manual
+    evidence: PathTraversal 过滤防护负例
+  trace:
+  - stage: source
+    file_path: controllers/traversal.go
+    line_start: 47
+    line_end: 58
+    symbol: request_input
+    note: PathTraversal 过滤防护负例
+  - stage: sink
+    file_path: controllers/traversal.go
+    line_start: 53
+    line_end: 53
+    symbol: Path Traversal
+    note: PathTraversal 过滤防护负例
+  safe_guards: []
+  rule_type: Path Traversal
+  aliases:
+  - 检测Golang未过滤的文件或路径漏洞
+  - 检测Golang未过滤文件路径漏洞
+  - Path Traversal
+  - PathTraversal 过滤防护负例
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Golang未过滤文件路径漏洞
+      severity: low
+      line_start: 53
+      evidence: 检测Golang未过滤文件路径漏洞 | 检测到Golang未过滤文件路径漏洞 | 检测到Golang未过滤文件路径漏洞，并且从数据源（source）到污染汇聚点（sink）间可能存在过滤函数，需进一步审计进行确认。
+    - rule_name: 检测Golang未过滤的文件或路径漏洞
+      severity: low
+      line_start: 53
+      evidence: 检测Golang未过滤的文件或路径漏洞 | 检测Golang未过滤的文件或路径漏洞 | 检测到Golang未过滤的文件或路径漏洞，并且从数据源（source）到污染汇聚点（sink）间可能存在过滤函数，需进一步审计进行确认。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: advisory_noise
+    code_guard: correct_negative
+    fortify: correct_negative
+  alias_locations: []
+  source_refs:
+  - controllers/traversal.go:47
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+  - IRify 在 safe 场景出现命中，需重点复核误报。
+- case_id: GSC-PATH-SAFE2-PREFIX
+  scenario_id: go-sec-code.path.safe2.prefix
+  family: path_traversal
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/traversal.go
+  canonical_file_path: controllers/traversal.go
+  class_route: ''
+  route: file:controllers/traversal.go
+  method_name: gsc-path-safe2-prefix
+  title: PathTraversal Join+前缀检查负例
+  description: PathTraversal Join+前缀检查负例
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  line_start: 61
+  line_end: 73
+  source:
+    kind: request_input
+    line_start: 61
+    line_end: 73
+    params: []
+    notes: PathTraversal Join+前缀检查负例
+  sink:
+    kind: manual_sink
+    file_path: controllers/traversal.go
+    line_start: 67
+    line_end: 67
+    api: Path Traversal
+    source_tool: manual
+    evidence: PathTraversal Join+前缀检查负例
+  trace:
+  - stage: source
+    file_path: controllers/traversal.go
+    line_start: 61
+    line_end: 73
+    symbol: request_input
+    note: PathTraversal Join+前缀检查负例
+  - stage: sink
+    file_path: controllers/traversal.go
+    line_start: 67
+    line_end: 67
+    symbol: Path Traversal
+    note: PathTraversal Join+前缀检查负例
+  safe_guards: []
+  rule_type: Path Traversal
+  aliases:
+  - 检测Golang未过滤的文件或路径漏洞
+  - 检测Golang未过滤文件路径漏洞
+  - Path Traversal
+  - PathTraversal Join+前缀检查负例
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Golang未过滤的文件或路径漏洞
+      severity: low
+      line_start: 62
+      evidence: 检测Golang未过滤的文件或路径漏洞 | 检测Golang未过滤的文件或路径漏洞 | 检测到Golang未过滤的文件或路径漏洞，并且从数据源（source）到污染汇聚点（sink）间可能存在过滤函数，需进一步审计进行确认。
+    - rule_name: 检测Golang未过滤文件路径漏洞
+      severity: low
+      line_start: 67
+      evidence: 检测Golang未过滤文件路径漏洞 | 检测到Golang未过滤文件路径漏洞 | 检测到Golang未过滤文件路径漏洞，并且从数据源（source）到污染汇聚点（sink）间可能存在过滤函数，需进一步审计进行确认。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: advisory_noise
+    code_guard: correct_negative
+    fortify: correct_negative
+  alias_locations: []
+  source_refs:
+  - controllers/traversal.go:61
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+  - IRify 在 safe 场景出现命中，需重点复核误报。
+- case_id: GSC-SQLI-VULN1-NUMERIC
+  scenario_id: go-sec-code.sqli.vuln1.numeric
+  family: sql_injection
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/sqli.go
+  canonical_file_path: controllers/sqli.go
+  class_route: ''
+  route: file:controllers/sqli.go
+  method_name: gsc-sqli-vuln1-numeric
+  title: SQLInjection 数字型注入
+  description: SQLInjection 数字型注入
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 52
+  line_end: 74
+  source:
+    kind: request_input
+    line_start: 52
+    line_end: 74
+    params: []
+    notes: SQLInjection 数字型注入
+  sink:
+    kind: manual_sink
+    file_path: controllers/sqli.go
+    line_start: 65
+    line_end: 65
+    api: SQL Injection
+    source_tool: manual
+    evidence: SQLInjection 数字型注入
+  trace:
+  - stage: source
+    file_path: controllers/sqli.go
+    line_start: 52
+    line_end: 74
+    symbol: request_input
+    note: SQLInjection 数字型注入
+  - stage: sink
+    file_path: controllers/sqli.go
+    line_start: 65
+    line_end: 65
+    symbol: SQL Injection
+    note: SQLInjection 数字型注入
+  safe_guards: []
+  rule_type: SQL Injection
+  aliases:
+  - 检测Golang SQL注入漏洞database(sql)
+  - 检测Golang SQL注入漏洞gin.Context
+  - SQL Injection
+  - SQLInjection 数字型注入
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Golang SQL注入漏洞gin.Context
+      severity: high
+      line_start: 65
+      evidence: 检测Golang SQL注入漏洞gin.Context | 检测到Golang SQL注入漏洞 | 检测到Golang Gin框架中的SQL注入漏洞，并且从数据源（source）到污染汇聚点（sink）间没有发现任何过滤函数信息。
+    - rule_name: 检测Golang SQL注入漏洞database(sql)
+      severity: high
+      line_start: 65
+      evidence: 检测Golang SQL注入漏洞database(sql) | 检测Golang SQL注入漏洞 | 检测到Golang代码中存在SQL注入漏洞，用户输入未经过滤直接拼接到SQL查询中。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: hit_exact
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - controllers/sqli.go:52
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: GSC-SQLI-VULN2-STRING
+  scenario_id: go-sec-code.sqli.vuln2.string
+  family: sql_injection
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/sqli.go
+  canonical_file_path: controllers/sqli.go
+  class_route: ''
+  route: file:controllers/sqli.go
+  method_name: gsc-sqli-vuln2-string
+  title: SQLInjection 字符型注入
+  description: SQLInjection 字符型注入
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 76
+  line_end: 98
+  source:
+    kind: request_input
+    line_start: 76
+    line_end: 98
+    params: []
+    notes: SQLInjection 字符型注入
+  sink:
+    kind: manual_sink
+    file_path: controllers/sqli.go
+    line_start: 89
+    line_end: 89
+    api: SQL Injection
+    source_tool: manual
+    evidence: SQLInjection 字符型注入
+  trace:
+  - stage: source
+    file_path: controllers/sqli.go
+    line_start: 76
+    line_end: 98
+    symbol: request_input
+    note: SQLInjection 字符型注入
+  - stage: sink
+    file_path: controllers/sqli.go
+    line_start: 89
+    line_end: 89
+    symbol: SQL Injection
+    note: SQLInjection 字符型注入
+  safe_guards: []
+  rule_type: SQL Injection
+  aliases:
+  - 检测Golang SQL注入漏洞database(sql)
+  - 检测Golang SQL注入漏洞gin.Context
+  - SQL Injection
+  - SQLInjection 字符型注入
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Golang SQL注入漏洞database(sql)
+      severity: high
+      line_start: 89
+      evidence: 检测Golang SQL注入漏洞database(sql) | 检测Golang SQL注入漏洞 | 检测到Golang代码中存在SQL注入漏洞，用户输入未经过滤直接拼接到SQL查询中。
+    - rule_name: 检测Golang SQL注入漏洞gin.Context
+      severity: high
+      line_start: 89
+      evidence: 检测Golang SQL注入漏洞gin.Context | 检测到Golang SQL注入漏洞 | 检测到Golang Gin框架中的SQL注入漏洞，并且从数据源（source）到污染汇聚点（sink）间没有发现任何过滤函数信息。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: hit_exact
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - controllers/sqli.go:76
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: GSC-SQLI-VULN3-XORM-FIELD
+  scenario_id: go-sec-code.sqli.vuln3.xorm_field
+  family: sql_injection
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/sqli.go
+  canonical_file_path: controllers/sqli.go
+  class_route: ''
+  route: file:controllers/sqli.go
+  method_name: gsc-sqli-vuln3-xorm-field
+  title: SQLInjection 错误 ORM 字段拼接
+  description: SQLInjection 错误 ORM 字段拼接
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 100
+  line_end: 119
+  source:
+    kind: request_input
+    line_start: 100
+    line_end: 119
+    params: []
+    notes: SQLInjection 错误 ORM 字段拼接
+  sink:
+    kind: manual_sink
+    file_path: controllers/sqli.go
+    line_start: 109
+    line_end: 109
+    api: SQL Injection
+    source_tool: manual
+    evidence: SQLInjection 错误 ORM 字段拼接
+  trace:
+  - stage: source
+    file_path: controllers/sqli.go
+    line_start: 100
+    line_end: 119
+    symbol: request_input
+    note: SQLInjection 错误 ORM 字段拼接
+  - stage: sink
+    file_path: controllers/sqli.go
+    line_start: 109
+    line_end: 109
+    symbol: SQL Injection
+    note: SQLInjection 错误 ORM 字段拼接
+  safe_guards: []
+  rule_type: SQL Injection
+  aliases:
+  - 检测Golang SQL注入漏洞database(sql)
+  - 检测Golang SQL注入漏洞gin.Context
+  - SQL Injection
+  - SQLInjection 错误 ORM 字段拼接
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify: []
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: covered_missed
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - controllers/sqli.go:100
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: GSC-SQLI-VULN4-SQUIRREL-ORDER
+  scenario_id: go-sec-code.sqli.vuln4.squirrel_order
+  family: sql_injection
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/sqli.go
+  canonical_file_path: controllers/sqli.go
+  class_route: ''
+  route: file:controllers/sqli.go
+  method_name: gsc-sqli-vuln4-squirrel-order
+  title: SQLInjection SQL builder orderBy 拼接
+  description: SQLInjection SQL builder orderBy 拼接
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 121
+  line_end: 149
+  source:
+    kind: request_input
+    line_start: 121
+    line_end: 149
+    params: []
+    notes: SQLInjection SQL builder orderBy 拼接
+  sink:
+    kind: manual_sink
+    file_path: controllers/sqli.go
+    line_start: 133
+    line_end: 133
+    api: SQL Injection
+    source_tool: manual
+    evidence: SQLInjection SQL builder orderBy 拼接
+  trace:
+  - stage: source
+    file_path: controllers/sqli.go
+    line_start: 121
+    line_end: 149
+    symbol: request_input
+    note: SQLInjection SQL builder orderBy 拼接
+  - stage: sink
+    file_path: controllers/sqli.go
+    line_start: 133
+    line_end: 133
+    symbol: SQL Injection
+    note: SQLInjection SQL builder orderBy 拼接
+  safe_guards: []
+  rule_type: SQL Injection
+  aliases:
+  - 检测Golang SQL注入漏洞database(sql)
+  - 检测Golang SQL注入漏洞gin.Context
+  - SQL Injection
+  - SQLInjection SQL builder orderBy 拼接
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify: []
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: covered_missed
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - controllers/sqli.go:121
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: GSC-SQLI-SAFE1-PARAM-ID
+  scenario_id: go-sec-code.sqli.safe1.param_id
+  family: sql_injection
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/sqli.go
+  canonical_file_path: controllers/sqli.go
+  class_route: ''
+  route: file:controllers/sqli.go
+  method_name: gsc-sqli-safe1-param-id
+  title: SQLInjection 数字型预编译负例
+  description: SQLInjection 数字型预编译负例
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  line_start: 151
+  line_end: 176
+  source:
+    kind: request_input
+    line_start: 151
+    line_end: 176
+    params: []
+    notes: SQLInjection 数字型预编译负例
+  sink:
+    kind: manual_sink
+    file_path: controllers/sqli.go
+    line_start: 167
+    line_end: 167
+    api: SQL Injection
+    source_tool: manual
+    evidence: SQLInjection 数字型预编译负例
+  trace:
+  - stage: source
+    file_path: controllers/sqli.go
+    line_start: 151
+    line_end: 176
+    symbol: request_input
+    note: SQLInjection 数字型预编译负例
+  - stage: sink
+    file_path: controllers/sqli.go
+    line_start: 167
+    line_end: 167
+    symbol: SQL Injection
+    note: SQLInjection 数字型预编译负例
+  safe_guards: []
+  rule_type: SQL Injection
+  aliases:
+  - 检测Golang SQL注入漏洞database(sql)
+  - 检测Golang SQL注入漏洞gin.Context
+  - SQL Injection
+  - SQLInjection 数字型预编译负例
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify: []
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: correct_negative
+    code_guard: correct_negative
+    fortify: correct_negative
+  alias_locations: []
+  source_refs:
+  - controllers/sqli.go:151
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: GSC-SQLI-SAFE2-PARAM-USERNAME
+  scenario_id: go-sec-code.sqli.safe2.param_username
+  family: sql_injection
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/sqli.go
+  canonical_file_path: controllers/sqli.go
+  class_route: ''
+  route: file:controllers/sqli.go
+  method_name: gsc-sqli-safe2-param-username
+  title: SQLInjection 字符型预编译负例
+  description: SQLInjection 字符型预编译负例
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  line_start: 178
+  line_end: 200
+  source:
+    kind: request_input
+    line_start: 178
+    line_end: 200
+    params: []
+    notes: SQLInjection 字符型预编译负例
+  sink:
+    kind: manual_sink
+    file_path: controllers/sqli.go
+    line_start: 191
+    line_end: 191
+    api: SQL Injection
+    source_tool: manual
+    evidence: SQLInjection 字符型预编译负例
+  trace:
+  - stage: source
+    file_path: controllers/sqli.go
+    line_start: 178
+    line_end: 200
+    symbol: request_input
+    note: SQLInjection 字符型预编译负例
+  - stage: sink
+    file_path: controllers/sqli.go
+    line_start: 191
+    line_end: 191
+    symbol: SQL Injection
+    note: SQLInjection 字符型预编译负例
+  safe_guards: []
+  rule_type: SQL Injection
+  aliases:
+  - 检测Golang SQL注入漏洞database(sql)
+  - 检测Golang SQL注入漏洞gin.Context
+  - SQL Injection
+  - SQLInjection 字符型预编译负例
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify: []
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: correct_negative
+    code_guard: correct_negative
+    fortify: correct_negative
+  alias_locations: []
+  source_refs:
+  - controllers/sqli.go:178
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: GSC-SQLI-SAFE3-ORM
+  scenario_id: go-sec-code.sqli.safe3.orm
+  family: sql_injection
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/sqli.go
+  canonical_file_path: controllers/sqli.go
+  class_route: ''
+  route: file:controllers/sqli.go
+  method_name: gsc-sqli-safe3-orm
+  title: SQLInjection ORM 查询负例
+  description: SQLInjection ORM 查询负例
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  line_start: 202
+  line_end: 218
+  source:
+    kind: request_input
+    line_start: 202
+    line_end: 218
+    params: []
+    notes: SQLInjection ORM 查询负例
+  sink:
+    kind: manual_sink
+    file_path: controllers/sqli.go
+    line_start: 209
+    line_end: 209
+    api: SQL Injection
+    source_tool: manual
+    evidence: SQLInjection ORM 查询负例
+  trace:
+  - stage: source
+    file_path: controllers/sqli.go
+    line_start: 202
+    line_end: 218
+    symbol: request_input
+    note: SQLInjection ORM 查询负例
+  - stage: sink
+    file_path: controllers/sqli.go
+    line_start: 209
+    line_end: 209
+    symbol: SQL Injection
+    note: SQLInjection ORM 查询负例
+  safe_guards: []
+  rule_type: SQL Injection
+  aliases:
+  - 检测Golang SQL注入漏洞database(sql)
+  - 检测Golang SQL注入漏洞gin.Context
+  - SQL Injection
+  - SQLInjection ORM 查询负例
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify: []
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: correct_negative
+    code_guard: correct_negative
+    fortify: correct_negative
+  alias_locations: []
+  source_refs:
+  - controllers/sqli.go:202
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: GSC-SSRF-VULN1-NO-FILTER
+  scenario_id: go-sec-code.ssrf.vuln1.no_filter
+  family: ssrf
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/ssrf.go
+  canonical_file_path: controllers/ssrf.go
+  class_route: ''
+  route: file:controllers/ssrf.go
+  method_name: gsc-ssrf-vuln1-no-filter
+  title: SSRF 无防护
+  description: SSRF 无防护
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 27
+  line_end: 39
+  source:
+    kind: request_input
+    line_start: 27
+    line_end: 39
+    params: []
+    notes: SSRF 无防护
+  sink:
+    kind: manual_sink
+    file_path: controllers/ssrf.go
+    line_start: 29
+    line_end: 29
+    api: SSRF
+    source_tool: manual
+    evidence: SSRF 无防护
+  trace:
+  - stage: source
+    file_path: controllers/ssrf.go
+    line_start: 27
+    line_end: 39
+    symbol: request_input
+    note: SSRF 无防护
+  - stage: sink
+    file_path: controllers/ssrf.go
+    line_start: 29
+    line_end: 29
+    symbol: SSRF
+    note: SSRF 无防护
+  safe_guards: []
+  rule_type: SSRF
+  aliases:
+  - 检测Golang HTTP SSRF漏洞
+  - SSRF
+  - SSRF 无防护
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Golang HTTP SSRF漏洞
+      severity: medium
+      line_start: 29
+      evidence: 检测Golang HTTP SSRF漏洞 | 检测到Golang HTTP SSRF漏洞 | 检测到Golang HTTP请求中存在SSRF漏洞，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: hit_downgraded
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - controllers/ssrf.go:27
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: GSC-SSRF-VULN2-BLACKLIST-BYPASS
+  scenario_id: go-sec-code.ssrf.vuln2.blacklist_bypass
+  family: ssrf
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/ssrf.go
+  canonical_file_path: controllers/ssrf.go
+  class_route: ''
+  route: file:controllers/ssrf.go
+  method_name: gsc-ssrf-vuln2-blacklist-bypass
+  title: SSRF 黑名单不完整绕过
+  description: SSRF 黑名单不完整绕过
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 46
+  line_end: 65
+  source:
+    kind: request_input
+    line_start: 46
+    line_end: 65
+    params: []
+    notes: SSRF 黑名单不完整绕过
+  sink:
+    kind: manual_sink
+    file_path: controllers/ssrf.go
+    line_start: 54
+    line_end: 54
+    api: SSRF
+    source_tool: manual
+    evidence: SSRF 黑名单不完整绕过
+  trace:
+  - stage: source
+    file_path: controllers/ssrf.go
+    line_start: 46
+    line_end: 65
+    symbol: request_input
+    note: SSRF 黑名单不完整绕过
+  - stage: sink
+    file_path: controllers/ssrf.go
+    line_start: 54
+    line_end: 54
+    symbol: SSRF
+    note: SSRF 黑名单不完整绕过
+  safe_guards: []
+  rule_type: SSRF
+  aliases:
+  - 检测Golang HTTP SSRF漏洞
+  - SSRF
+  - SSRF 黑名单不完整绕过
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Golang HTTP SSRF漏洞
+      severity: medium
+      line_start: 54
+      evidence: 检测Golang HTTP SSRF漏洞 | 检测到Golang HTTP SSRF漏洞 | 检测到Golang HTTP请求中存在SSRF漏洞，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: hit_downgraded
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - controllers/ssrf.go:46
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: GSC-SSRF-VULN3-302-BYPASS
+  scenario_id: go-sec-code.ssrf.vuln3.redirect_bypass
+  family: ssrf
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/ssrf.go
+  canonical_file_path: controllers/ssrf.go
+  class_route: ''
+  route: file:controllers/ssrf.go
+  method_name: gsc-ssrf-vuln3-302-bypass
+  title: SSRF 302 绕过
+  description: SSRF 302 绕过
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 67
+  line_end: 85
+  source:
+    kind: request_input
+    line_start: 67
+    line_end: 85
+    params: []
+    notes: SSRF 302 绕过
+  sink:
+    kind: manual_sink
+    file_path: controllers/ssrf.go
+    line_start: 74
+    line_end: 74
+    api: SSRF
+    source_tool: manual
+    evidence: SSRF 302 绕过
+  trace:
+  - stage: source
+    file_path: controllers/ssrf.go
+    line_start: 67
+    line_end: 85
+    symbol: request_input
+    note: SSRF 302 绕过
+  - stage: sink
+    file_path: controllers/ssrf.go
+    line_start: 74
+    line_end: 74
+    symbol: SSRF
+    note: SSRF 302 绕过
+  safe_guards: []
+  rule_type: SSRF
+  aliases:
+  - 检测Golang HTTP SSRF漏洞
+  - SSRF
+  - SSRF 302 绕过
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Golang HTTP SSRF漏洞
+      severity: medium
+      line_start: 74
+      evidence: 检测Golang HTTP SSRF漏洞 | 检测到Golang HTTP SSRF漏洞 | 检测到Golang HTTP请求中存在SSRF漏洞，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: hit_downgraded
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - controllers/ssrf.go:67
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: GSC-SSRF-SAFE1-WHITELIST
+  scenario_id: go-sec-code.ssrf.safe1.whitelist
+  family: ssrf
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/ssrf.go
+  canonical_file_path: controllers/ssrf.go
+  class_route: ''
+  route: file:controllers/ssrf.go
+  method_name: gsc-ssrf-safe1-whitelist
+  title: SSRF 白名单防护负例
+  description: SSRF 白名单防护负例
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  line_start: 87
+  line_end: 106
+  source:
+    kind: request_input
+    line_start: 87
+    line_end: 106
+    params: []
+    notes: SSRF 白名单防护负例
+  sink:
+    kind: manual_sink
+    file_path: controllers/ssrf.go
+    line_start: 95
+    line_end: 95
+    api: SSRF
+    source_tool: manual
+    evidence: SSRF 白名单防护负例
+  trace:
+  - stage: source
+    file_path: controllers/ssrf.go
+    line_start: 87
+    line_end: 106
+    symbol: request_input
+    note: SSRF 白名单防护负例
+  - stage: sink
+    file_path: controllers/ssrf.go
+    line_start: 95
+    line_end: 95
+    symbol: SSRF
+    note: SSRF 白名单防护负例
+  safe_guards: []
+  rule_type: SSRF
+  aliases:
+  - 检测Golang HTTP SSRF漏洞
+  - SSRF
+  - SSRF 白名单防护负例
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Golang HTTP SSRF漏洞
+      severity: medium
+      line_start: 95
+      evidence: 检测Golang HTTP SSRF漏洞 | 检测到Golang HTTP SSRF漏洞 | 检测到Golang HTTP请求中存在SSRF漏洞，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: advisory_noise
+    code_guard: correct_negative
+    fortify: correct_negative
+  alias_locations: []
+  source_refs:
+  - controllers/ssrf.go:87
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+  - IRify 在 safe 场景出现命中，需重点复核误报。
+- case_id: GSC-SSTI-VULN1-SPRIG
+  scenario_id: go-sec-code.ssti.vuln1.sprig
+  family: ssti
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/ssti.go
+  canonical_file_path: controllers/ssti.go
+  class_route: ''
+  route: file:controllers/ssti.go
+  method_name: gsc-ssti-vuln1-sprig
+  title: SSTI Sprig env 函数信息泄露
+  description: SSTI Sprig env 函数信息泄露
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 21
+  line_end: 37
+  source:
+    kind: request_input
+    line_start: 21
+    line_end: 37
+    params: []
+    notes: SSTI Sprig env 函数信息泄露
+  sink:
+    kind: manual_sink
+    file_path: controllers/ssti.go
+    line_start: 24
+    line_end: 24
+    api: SSTI
+    source_tool: manual
+    evidence: SSTI Sprig env 函数信息泄露
+  trace:
+  - stage: source
+    file_path: controllers/ssti.go
+    line_start: 21
+    line_end: 37
+    symbol: request_input
+    note: SSTI Sprig env 函数信息泄露
+  - stage: sink
+    file_path: controllers/ssti.go
+    line_start: 24
+    line_end: 24
+    symbol: SSTI
+    note: SSTI Sprig env 函数信息泄露
+  safe_guards: []
+  rule_type: SSTI
+  aliases:
+  - 检测Golang中使用Sprig的SSTI漏洞
+  - SSTI
+  - SSTI Sprig env 函数信息泄露
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Golang中使用Sprig的SSTI漏洞
+      severity: low
+      line_start: 24
+      evidence: 检测Golang中使用Sprig的SSTI漏洞 | 检测到Golang中使用Sprig的SSTI漏洞 | 检测到Golang中使用Sprig的SSTI漏洞，并且从数据源（source）到污染汇聚点（sink）间可能存在过滤函数，需进一步审计进行确认。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: hit_downgraded
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - controllers/ssti.go:21
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: GSC-SSTI-SAFE1-PLAIN
+  scenario_id: go-sec-code.ssti.safe1.plain
+  family: ssti
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/ssti.go
+  canonical_file_path: controllers/ssti.go
+  class_route: ''
+  route: file:controllers/ssti.go
+  method_name: gsc-ssti-safe1-plain
+  title: SSTI 不解析模板负例
+  description: SSTI 不解析模板负例
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  line_start: 39
+  line_end: 43
+  source:
+    kind: request_input
+    line_start: 39
+    line_end: 43
+    params: []
+    notes: SSTI 不解析模板负例
+  sink:
+    kind: manual_sink
+    file_path: controllers/ssti.go
+    line_start: 41
+    line_end: 41
+    api: SSTI
+    source_tool: manual
+    evidence: SSTI 不解析模板负例
+  trace:
+  - stage: source
+    file_path: controllers/ssti.go
+    line_start: 39
+    line_end: 43
+    symbol: request_input
+    note: SSTI 不解析模板负例
+  - stage: sink
+    file_path: controllers/ssti.go
+    line_start: 41
+    line_end: 41
+    symbol: SSTI
+    note: SSTI 不解析模板负例
+  safe_guards: []
+  rule_type: SSTI
+  aliases:
+  - 检测Golang中使用Sprig的SSTI漏洞
+  - SSTI
+  - SSTI 不解析模板负例
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify: []
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: correct_negative
+    code_guard: correct_negative
+    fortify: correct_negative
+  alias_locations: []
+  source_refs:
+  - controllers/ssti.go:39
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: GSC-XSS-VULN1-REFLECT
+  scenario_id: go-sec-code.xss.vuln1.reflect
+  family: xss
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/xss.go
+  canonical_file_path: controllers/xss.go
+  class_route: ''
+  route: file:controllers/xss.go
+  method_name: gsc-xss-vuln1-reflect
+  title: XSS 反射型直接输出
+  description: XSS 反射型直接输出
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 35
+  line_end: 39
+  source:
+    kind: request_input
+    line_start: 35
+    line_end: 39
+    params: []
+    notes: XSS 反射型直接输出
+  sink:
+    kind: manual_sink
+    file_path: controllers/xss.go
+    line_start: 38
+    line_end: 38
+    api: XSS
+    source_tool: manual
+    evidence: XSS 反射型直接输出
+  trace:
+  - stage: source
+    file_path: controllers/xss.go
+    line_start: 35
+    line_end: 39
+    symbol: request_input
+    note: XSS 反射型直接输出
+  - stage: sink
+    file_path: controllers/xss.go
+    line_start: 38
+    line_end: 38
+    symbol: XSS
+    note: XSS 反射型直接输出
+  safe_guards: []
+  rule_type: XSS
+  aliases:
+  - 检测Golang在Beego框架中的反射型跨站脚本攻击漏洞
+  - 检测到Golang模板引擎中的反射型XSS漏洞
+  - XSS
+  - XSS 反射型直接输出
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Golang在Beego框架中的反射型跨站脚本攻击漏洞
+      severity: medium
+      line_start: 38
+      evidence: 检测Golang在Beego框架中的反射型跨站脚本攻击漏洞 | 检测到Golang在Beego框架中的反射型跨站脚本攻击漏洞 | 检测到Golang在Beego框架中存在反射型XSS漏洞，并且从数据源（source）到污染汇聚点（sink）间可能存在过滤函数，需进一步审计进行确认。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: hit_downgraded
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - controllers/xss.go:35
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: GSC-XSS-VULN2-STORED-TEMPLATE
+  scenario_id: go-sec-code.xss.vuln2.stored_template
+  family: xss
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/xss.go
+  canonical_file_path: controllers/xss.go
+  class_route: ''
+  route: file:controllers/xss.go
+  method_name: gsc-xss-vuln2-stored-template
+  title: XSS 存储型 template.HTML
+  description: XSS 存储型 template.HTML
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 41
+  line_end: 48
+  source:
+    kind: request_input
+    line_start: 41
+    line_end: 48
+    params: []
+    notes: XSS 存储型 template.HTML
+  sink:
+    kind: manual_sink
+    file_path: controllers/xss.go
+    line_start: 46
+    line_end: 46
+    api: XSS
+    source_tool: manual
+    evidence: XSS 存储型 template.HTML
+  trace:
+  - stage: source
+    file_path: controllers/xss.go
+    line_start: 41
+    line_end: 48
+    symbol: request_input
+    note: XSS 存储型 template.HTML
+  - stage: sink
+    file_path: controllers/xss.go
+    line_start: 46
+    line_end: 46
+    symbol: XSS
+    note: XSS 存储型 template.HTML
+  safe_guards: []
+  rule_type: XSS
+  aliases:
+  - 检测Golang在Beego框架中的反射型跨站脚本攻击漏洞
+  - 检测到Golang模板引擎中的反射型XSS漏洞
+  - XSS
+  - XSS 存储型 template.HTML
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测到Golang模板引擎中的反射型XSS漏洞
+      severity: high
+      line_start: 46
+      evidence: 检测到Golang模板引擎中的反射型XSS漏洞 | 检测到Golang模板引擎中的反射型XSS漏洞 | 检测到Go语言模板引擎中的反射型XSS漏洞，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: hit_exact
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - controllers/xss.go:41
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: GSC-XSS-VULN3-SVG
+  scenario_id: go-sec-code.xss.vuln3.svg
+  family: xss
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/xss.go
+  canonical_file_path: controllers/xss.go
+  class_route: ''
+  route: file:controllers/xss.go
+  method_name: gsc-xss-vuln3-svg
+  title: XSS SVG 文件型
+  description: XSS SVG 文件型
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 50
+  line_end: 56
+  source:
+    kind: request_input
+    line_start: 50
+    line_end: 56
+    params: []
+    notes: XSS SVG 文件型
+  sink:
+    kind: manual_sink
+    file_path: controllers/xss.go
+    line_start: 55
+    line_end: 55
+    api: XSS
+    source_tool: manual
+    evidence: XSS SVG 文件型
+  trace:
+  - stage: source
+    file_path: controllers/xss.go
+    line_start: 50
+    line_end: 56
+    symbol: request_input
+    note: XSS SVG 文件型
+  - stage: sink
+    file_path: controllers/xss.go
+    line_start: 55
+    line_end: 55
+    symbol: XSS
+    note: XSS SVG 文件型
+  safe_guards: []
+  rule_type: XSS
+  aliases:
+  - 检测Golang在Beego框架中的反射型跨站脚本攻击漏洞
+  - 检测到Golang模板引擎中的反射型XSS漏洞
+  - XSS
+  - XSS SVG 文件型
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify: []
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: covered_missed
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - controllers/xss.go:50
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: GSC-XSS-VULN4-PDF
+  scenario_id: go-sec-code.xss.vuln4.pdf
+  family: xss
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/xss.go
+  canonical_file_path: controllers/xss.go
+  class_route: ''
+  route: file:controllers/xss.go
+  method_name: gsc-xss-vuln4-pdf
+  title: XSS PDF 文件型
+  description: XSS PDF 文件型
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 58
+  line_end: 65
+  source:
+    kind: request_input
+    line_start: 58
+    line_end: 65
+    params: []
+    notes: XSS PDF 文件型
+  sink:
+    kind: manual_sink
+    file_path: controllers/xss.go
+    line_start: 64
+    line_end: 64
+    api: XSS
+    source_tool: manual
+    evidence: XSS PDF 文件型
+  trace:
+  - stage: source
+    file_path: controllers/xss.go
+    line_start: 58
+    line_end: 65
+    symbol: request_input
+    note: XSS PDF 文件型
+  - stage: sink
+    file_path: controllers/xss.go
+    line_start: 64
+    line_end: 64
+    symbol: XSS
+    note: XSS PDF 文件型
+  safe_guards: []
+  rule_type: XSS
+  aliases:
+  - 检测Golang在Beego框架中的反射型跨站脚本攻击漏洞
+  - 检测到Golang模板引擎中的反射型XSS漏洞
+  - XSS
+  - XSS PDF 文件型
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify: []
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: covered_missed
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - controllers/xss.go:58
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: GSC-XSS-SAFE1-FILTER
+  scenario_id: go-sec-code.xss.safe1.filter
+  family: xss
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/xss.go
+  canonical_file_path: controllers/xss.go
+  class_route: ''
+  route: file:controllers/xss.go
+  method_name: gsc-xss-safe1-filter
+  title: XSS 过滤防护负例
+  description: XSS 过滤防护负例
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  line_start: 74
+  line_end: 80
+  source:
+    kind: request_input
+    line_start: 74
+    line_end: 80
+    params: []
+    notes: XSS 过滤防护负例
+  sink:
+    kind: manual_sink
+    file_path: controllers/xss.go
+    line_start: 79
+    line_end: 79
+    api: XSS
+    source_tool: manual
+    evidence: XSS 过滤防护负例
+  trace:
+  - stage: source
+    file_path: controllers/xss.go
+    line_start: 74
+    line_end: 80
+    symbol: request_input
+    note: XSS 过滤防护负例
+  - stage: sink
+    file_path: controllers/xss.go
+    line_start: 79
+    line_end: 79
+    symbol: XSS
+    note: XSS 过滤防护负例
+  safe_guards: []
+  rule_type: XSS
+  aliases:
+  - 检测Golang在Beego框架中的反射型跨站脚本攻击漏洞
+  - 检测到Golang模板引擎中的反射型XSS漏洞
+  - XSS
+  - XSS 过滤防护负例
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Golang在Beego框架中的反射型跨站脚本攻击漏洞
+      severity: medium
+      line_start: 79
+      evidence: 检测Golang在Beego框架中的反射型跨站脚本攻击漏洞 | 检测到Golang在Beego框架中的反射型跨站脚本攻击漏洞 | 检测到Golang在Beego框架中存在反射型XSS漏洞，并且从数据源（source）到污染汇聚点（sink）间可能存在过滤函数，需进一步审计进行确认。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: advisory_noise
+    code_guard: correct_negative
+    fortify: correct_negative
+  alias_locations: []
+  source_refs:
+  - controllers/xss.go:74
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+  - IRify 在 safe 场景出现命中，需重点复核误报。
+- case_id: GSC-XSS-SAFE2-CSP
+  scenario_id: go-sec-code.xss.safe2.csp
+  family: xss
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/xss.go
+  canonical_file_path: controllers/xss.go
+  class_route: ''
+  route: file:controllers/xss.go
+  method_name: gsc-xss-safe2-csp
+  title: XSS CSP 防护负例
+  description: XSS CSP 防护负例
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  line_start: 82
+  line_end: 89
+  source:
+    kind: request_input
+    line_start: 82
+    line_end: 89
+    params: []
+    notes: XSS CSP 防护负例
+  sink:
+    kind: manual_sink
+    file_path: controllers/xss.go
+    line_start: 88
+    line_end: 88
+    api: XSS
+    source_tool: manual
+    evidence: XSS CSP 防护负例
+  trace:
+  - stage: source
+    file_path: controllers/xss.go
+    line_start: 82
+    line_end: 89
+    symbol: request_input
+    note: XSS CSP 防护负例
+  - stage: sink
+    file_path: controllers/xss.go
+    line_start: 88
+    line_end: 88
+    symbol: XSS
+    note: XSS CSP 防护负例
+  safe_guards: []
+  rule_type: XSS
+  aliases:
+  - 检测Golang在Beego框架中的反射型跨站脚本攻击漏洞
+  - 检测到Golang模板引擎中的反射型XSS漏洞
+  - XSS
+  - XSS CSP 防护负例
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify: []
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: correct_negative
+    code_guard: correct_negative
+    fortify: correct_negative
+  alias_locations: []
+  source_refs:
+  - controllers/xss.go:82
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: GSC-XXE-VULN1-LIBXML2
+  scenario_id: go-sec-code.xxe.vuln1.libxml2
+  family: xxe
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/xxe.go
+  canonical_file_path: controllers/xxe.go
+  class_route: ''
+  route: file:controllers/xxe.go
+  method_name: gsc-xxe-vuln1-libxml2
+  title: XXE libxml2 外部实体解析
+  description: XXE libxml2 外部实体解析
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 34
+  line_end: 46
+  source:
+    kind: request_input
+    line_start: 34
+    line_end: 46
+    params: []
+    notes: XXE libxml2 外部实体解析
+  sink:
+    kind: manual_sink
+    file_path: controllers/xxe.go
+    line_start: 36
+    line_end: 36
+    api: XXE
+    source_tool: manual
+    evidence: XXE libxml2 外部实体解析
+  trace:
+  - stage: source
+    file_path: controllers/xxe.go
+    line_start: 34
+    line_end: 46
+    symbol: request_input
+    note: XXE libxml2 外部实体解析
+  - stage: sink
+    file_path: controllers/xxe.go
+    line_start: 36
+    line_end: 36
+    symbol: XXE
+    note: XXE libxml2 外部实体解析
+  safe_guards: []
+  rule_type: XXE
+  aliases:
+  - 检测Golang Beego框架中的XML外部实体(XXE)漏洞
+  - XXE
+  - XXE libxml2 外部实体解析
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify:
+    - rule_name: 检测Golang Beego框架中的XML外部实体(XXE)漏洞
+      severity: high
+      line_start: 36
+      evidence: 检测Golang Beego框架中的XML外部实体(XXE)漏洞 | 检测Golang Beego框架中的XML外部实体(XXE)漏洞
+        | 检测到Golang Beego框架中存在未禁用外部实体解析的XXE漏洞，并且从数据源（source）到污染汇聚点（sink）间，没有发现任何过滤函数信息。
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: hit_exact
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - controllers/xxe.go:34
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: GSC-XXE-SAFE1-ENTITYMAP
+  scenario_id: go-sec-code.xxe.safe1.entitymap
+  family: xxe
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/xxe.go
+  canonical_file_path: controllers/xxe.go
+  class_route: ''
+  route: file:controllers/xxe.go
+  method_name: gsc-xxe-safe1-entitymap
+  title: XXE 自定义实体映射负例
+  description: XXE 自定义实体映射负例
+  expectation: must_not_alert
+  expected_severity_band: []
+  sanitizer_expectation: negative_example
+  line_start: 57
+  line_end: 73
+  source:
+    kind: request_input
+    line_start: 57
+    line_end: 73
+    params: []
+    notes: XXE 自定义实体映射负例
+  sink:
+    kind: manual_sink
+    file_path: controllers/xxe.go
+    line_start: 67
+    line_end: 67
+    api: XXE
+    source_tool: manual
+    evidence: XXE 自定义实体映射负例
+  trace:
+  - stage: source
+    file_path: controllers/xxe.go
+    line_start: 57
+    line_end: 73
+    symbol: request_input
+    note: XXE 自定义实体映射负例
+  - stage: sink
+    file_path: controllers/xxe.go
+    line_start: 67
+    line_end: 67
+    symbol: XXE
+    note: XXE 自定义实体映射负例
+  safe_guards: []
+  rule_type: XXE
+  aliases:
+  - 检测Golang Beego框架中的XML外部实体(XXE)漏洞
+  - XXE
+  - XXE 自定义实体映射负例
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify: []
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: correct_negative
+    code_guard: correct_negative
+    fortify: correct_negative
+  alias_locations: []
+  source_refs:
+  - controllers/xxe.go:57
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+- case_id: GSC-ZIPSLIP-VULN1-UNZIP
+  scenario_id: go-sec-code.zipslip.vuln1.unzip
+  family: zipslip
+  module: manual
+  controller_name: ManualCase
+  class_tags: 人工补充案例
+  controller_path: controllers/zipslip.go
+  canonical_file_path: controllers/zipslip.go
+  class_route: ''
+  route: file:controllers/zipslip.go
+  method_name: gsc-zipslip-vuln1-unzip
+  title: ZipSlip 解压路径穿越
+  description: ZipSlip 解压路径穿越
+  expectation: must_alert
+  expected_severity_band:
+  - high
+  - critical
+  sanitizer_expectation: hard_vulnerability
+  line_start: 22
+  line_end: 70
+  source:
+    kind: request_input
+    line_start: 22
+    line_end: 70
+    params: []
+    notes: ZipSlip 解压路径穿越
+  sink:
+    kind: manual_sink
+    file_path: controllers/zipslip.go
+    line_start: 48
+    line_end: 48
+    api: ZipSlip
+    source_tool: manual
+    evidence: ZipSlip 解压路径穿越
+  trace:
+  - stage: source
+    file_path: controllers/zipslip.go
+    line_start: 22
+    line_end: 70
+    symbol: request_input
+    note: ZipSlip 解压路径穿越
+  - stage: sink
+    file_path: controllers/zipslip.go
+    line_start: 48
+    line_end: 48
+    symbol: ZipSlip
+    note: ZipSlip 解压路径穿越
+  safe_guards: []
+  rule_type: ZipSlip
+  aliases:
+  - ZipSlip
+  - Path Traversal
+  - ZipSlip 解压路径穿越
+  irify_support: supported
+  irify_rule_candidates: []
+  scan_observed_rules:
+    irify: []
+    code_guard: []
+    fortify: []
+  verification_status:
+    irify: covered_missed
+    code_guard: covered_missed
+    fortify: covered_missed
+  alias_locations: []
+  source_refs:
+  - controllers/zipslip.go:22
+  notes:
+  - 当前未找到可直接映射的 Java 内置规则。
+pending_review_additions:
+  irify: []
+  code_guard: []
+  fortify: []
+pending_review_policy:
+  version: owasp_top10_high_signal_v1
+  description: 只保留 OWASP Top10 且具备新增案例价值的高信号 finding，过滤注释/调试/资源释放/泛型异常等低价值噪声、第三方静态资产，并折叠同规则同
+    scope 的重复告警。
+  tools:
+    irify:
+      raw_total: 13
+      raw_high_total: 1
+      kept_total: 0
+      kept_high_total: 0
+      excluded_total: 13
+      excluded_high_total: 1
+      excluded_reasons:
+        non_owasp_top10: 13
+    code_guard:
+      raw_total: 0
+      raw_high_total: 0
+      kept_total: 0
+      kept_high_total: 0
+      excluded_total: 0
+      excluded_high_total: 0
+      excluded_reasons: {}
+    fortify:
+      raw_total: 0
+      raw_high_total: 0
+      kept_total: 0
+      kept_high_total: 0
+      excluded_total: 0
+      excluded_high_total: 0
+      excluded_reasons: {}
