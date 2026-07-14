@@ -17,15 +17,40 @@
 | `web/README.md` | Frontend development (React + Vite + Monaco) |
 | `Makefile` | Build targets (`all`, `build`, `build-web`, `dev`, `serve`, `test`, `e2e`) |
 
+## Skills (invoke via the Skill tool)
+
+Bundled skills live under `.agents/skills/`. Invoke them by name when the task matches — they encode the SyntaxFlow DSL knowledge, CLI commands, and the benchmark fix loop so you don't reinvent them from scratch.
+
+| Skill | When to use |
+|-------|-------------|
+| `write-syntaxflow-rule` | **Authoring or fixing a `.sf` rule.** Use whenever you need to write a new SyntaxFlow rule, extend an existing rule's sink/source coverage, fix a rule that misses detections or over-reports, or generate a rule's metadata + test-cases skeleton. Covers the SyntaxFlow DSL (matching, taint propagation, `#{include}` trace filters, NativeCalls including the new control-flow `cfg*` family), the `yak` CLI commands (`create-sf`, `sf-format`, `sf-evaluate`, `static-check`, `ssa-query`), and a scaffold script (`scripts/scaffold_sf_rule.py`) that emits the `desc(...) → rule body → desc(...) test block` structure. |
+| `benchmark-false-positive-fix` | **Diagnosing and fixing a benchmark FN/FP end-to-end.** Use when a benchmark scan reports a false negative or false positive and you need to triage (rule vs engine vs benchmark), fix the rule (delegates to `write-syntaxflow-rule`), test it (L2 go test + L1 `TestVerifiedRule`), and verify end-to-end. Covers the scan → diagnose → triage → fix → test → push → re-verify loop. |
+
+> Rule-authoring factual knowledge (SyntaxFlow syntax, NativeCall reference, production-rule examples) is sourced from the sibling `../irify-sast-skill/skills/irify-sast/` repo — the skills read those files on demand. Do not assume SyntaxFlow details from memory; consult the skill.
+
 ## Project Positioning
 
-irify-benchmark is the **evaluation sub-framework** of the IRify_SAST ecosystem. It is a sibling to `yaklang/` (scanning engine) and `legion/` (SaaS backend).
+irify-benchmark is the **evaluation sub-framework** for code-scanning engines. It lives in the **IRify_Client workspace** (this repository) as a sibling of `yaklang_engine/` (the shared scanning engine) and `multi_product_frontend/` (the multi-product frontend). It is decoupled from `IRify_SAST/` (the SaaS backend); SaaS-side consumption of benchmark results, if any, is out of scope here.
 
-| Dimension | irify-benchmark | yaklang | legion |
-|-----------|-----------------|---------|--------|
-| Responsibility | Ground-truth annotation, evaluation, reporting | SSA/SyntaxFlow scanning engine | SaaS task orchestration |
-| Call direction | Invokes yaklang CLI | Invoked by benchmark | May consume benchmark results |
-| Storage | FS + SQLite dual-track | No persistent storage | Postgres + MinIO |
+| Dimension | irify-benchmark | yaklang_engine | multi_product_frontend |
+|-----------|-----------------|----------------|-------------------------|
+| Responsibility | Ground-truth annotation, evaluation, reporting | SSA/SyntaxFlow scanning engine | Multi-product UI (yakit / irify / memfit) |
+| Call direction | Invokes yaklang CLI | Invoked by benchmark | n/a (no direct dependency) |
+| Storage | FS + SQLite dual-track | No persistent storage | n/a |
+
+### yaklang Engine Repository Location
+
+The yaklang scanning engine source code lives in the sibling directory **`../yaklang_engine`** (relative to this project root). Key paths:
+- **Buildin SyntaxFlow rules**: `../yaklang_engine/common/syntaxflow/sfbuildin/buildin/` — organized by language and CWE category.
+- **SSA API tests**: `../yaklang_engine/common/yak/ssaapi/test/`
+- **SSA core tests**: `../yaklang_engine/common/yak/ssa/ssautil/testdata/`
+- **Builtin rule regression tests**: `../yaklang_engine/common/syntaxflow/sfbuildin/buildin/buildin-rule-test/`
+
+When investigating false positives or missing detections, always inspect the corresponding CWE directory under `sfbuildin/buildin/java/` (or `php/` / `javascript/` etc.) first.
+
+### irify-sast-skill Reference Location
+
+The canonical SyntaxFlow DSL / NativeCall reference lives in the sibling **`../irify-sast-skill`** repo (cloned at `~/goproject/irify-sast-skill`). See the skills below for how it is consumed. Do not assume SyntaxFlow details from memory; consult the skill.
 
 ## Directory Structure
 

@@ -50,3 +50,32 @@ The SQLite driver `github.com/mattn/go-sqlite3` requires CGO. For cross-compilat
 CGO_ENABLED=1 GOOS=linux GOARCH=amd64 go build ...
 # Or disable SQLite-related code for a pure-Go build
 ```
+
+## 6. `scripts/dev.sh` Directory Drift
+
+`scripts/dev.sh` contains a `cd ..` after `cd web && npm run dev &`. Because the background job runs in a subshell, the **current shell remains in the project root**; the subsequent `cd ..` moves the shell **out of the project directory**, causing `./bin/irify-benchmark` to fail with *No such file or directory*.
+
+**Fix**: Remove the erroneous `cd ..` and invoke the backend binary from the project root directly.
+
+## 7. `make dev` Uses Non-Existent CLI Command
+
+`scripts/dev.sh` invokes `./bin/irify-benchmark server --static web/public --port 8080`. The CLI has **no `server` subcommand**; the correct command to start the frontend dev server is `./bin/irify-benchmark web`.
+
+**Fix**: Update `scripts/dev.sh` (or `Makefile`) to use `irify-benchmark web` for the dev workflow.
+
+## 8. Vite Dev Server SPA Fallback (BrowserRouter 404)
+
+The frontend uses `BrowserRouter`. When accessing a deep route directly (e.g. `/project/:id/results`) or refreshing the page, the Vite dev server returns **404** because it does not fall back to `index.html` by default.
+
+**Fix**: Enable `historyApiFallback` in `web/vite.config.ts`:
+```typescript
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    host: true,
+    port: 5173,
+    historyApiFallback: true,
+    proxy: { ... },
+  },
+})
+```

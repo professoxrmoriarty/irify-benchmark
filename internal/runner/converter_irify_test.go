@@ -3,6 +3,8 @@ package runner
 import (
 	"os"
 	"testing"
+
+	"github.com/irify/irify-benchmark/pkg/schema"
 )
 
 // minimalIrifyFixture is a trimmed yak --format irify JSON that exercises all
@@ -203,29 +205,29 @@ func TestIrifyConverterConvert(t *testing.T) {
 	if f0.Flow.Sink.Line != 15 {
 		t.Errorf("finding[0].flow.sink.line = %d, want 15", f0.Flow.Sink.Line)
 	}
-	if f0.Flow.Sink.Symbol != "readAllBytes" {
-		t.Errorf("finding[0].flow.sink.symbol = %q, want readAllBytes", f0.Flow.Sink.Symbol)
+	if f0.Flow.Sink.Symbol != "Files.readAllBytes" {
+		t.Errorf("finding[0].flow.sink.symbol = %q, want Files.readAllBytes", f0.Flow.Sink.Symbol)
 	}
 	if len(f0.Flow.Sanitizers) != 1 {
 		t.Errorf("finding[0].flow.sanitizers count = %d, want 1", len(f0.Flow.Sanitizers))
 	}
+	if f0.Kind != schema.FindingKindTaint {
+		t.Errorf("finding[0].kind = %q, want taint", f0.Kind)
+	}
 
-	// --- Finding 1: XSS (no data_flow_paths, fallback to code_range) ---
+	// --- Finding 1: XSS (no data_flow_paths -> value-kind, no flow) ---
+	// A finding without a data_flow_path is a pure value/location match;
+	// the converter no longer fabricates a self-referential source==sink
+	// flow. Flow is nil and Kind is "value".
 	f1 := fs.Findings[1]
 	if f1.RuleID != "cad09b46-5b0f-4c43-9b43-2b786b9c625f" {
 		t.Errorf("finding[1].rule_id = %q", f1.RuleID)
 	}
-	if f1.Flow == nil {
-		t.Fatal("finding[1].flow should not be nil")
+	if f1.Kind != schema.FindingKindValue {
+		t.Errorf("finding[1].kind = %q, want value", f1.Kind)
 	}
-	if f1.Flow.Source == nil || f1.Flow.Sink == nil {
-		t.Fatal("finding[1].flow.source and sink should not be nil")
-	}
-	if f1.Flow.Source.Line != 14 {
-		t.Errorf("finding[1].flow.source.line = %d, want 14", f1.Flow.Source.Line)
-	}
-	if f1.Flow.Sink.Line != 14 {
-		t.Errorf("finding[1].flow.sink.line = %d, want 14", f1.Flow.Sink.Line)
+	if f1.Flow != nil {
+		t.Errorf("finding[1].flow should be nil for value-kind finding, got %+v", f1.Flow)
 	}
 }
 
@@ -237,6 +239,177 @@ func TestIrifyConverterEmptyRisks(t *testing.T) {
 	}
 	if len(fs.Findings) != 0 {
 		t.Errorf("findings count = %d, want 0", len(fs.Findings))
+	}
+}
+
+// TestIrifyConverterFormClassification verifies that the converter assigns
+// the correct finding Kind for each yak output shape:
+//   - a path with a source-API call -> "taint" with a populated flow
+//   - a path with no source-API call but a sink -> "taint" (entry-node
+//     fallback source), flow populated
+//   - a path with only one node (no sink) -> "path", flow nil
+//   - no data_flow_path at all -> "value", flow nil
+func TestIrifyConverterFormClassification(t *testing.T) {
+	const fixture = `{
+	  "engine_version": "test",
+	  "program_name": "p",
+	  "Risks": {
+	    "taint-with-getparam": {
+	      "id": 1, "hash": "h1", "severity": "high",
+	      "rule_name": "SQLi", "line": 53,
+	      "code_range": {"url": "/src/A.java", "start_line": 53, "start_column": 1, "end_line": 53, "end_column": 2, "source_code_line": 53},
+	      "data_flow_paths": [{"description": "dfp", "nodes": [
+	        {"node_id": "n1", "ir_code": "Parameter-req", "code_range": {"url": "/src/A.java", "start_line": 41, "start_column": 1, "end_line": 41, "end_column": 2, "source_code_line": 41}, "is_entry_node": true},
+	        {"node_id": "n2", "ir_code": "ParameterMember-parameter[1].getParameter(Parameter-req,\"name\")", "code_range": {"url": "/src/A.java", "start_line": 42, "start_column": 24, "end_line": 42, "end_column": 48, "source_code_line": 42}, "is_entry_node": false},
+	        {"node_id": "n3", "ir_code": "Undefined-stmt.executeQuery(...)", "code_range": {"url": "/src/A.java", "start_line": 53, "start_column": 18, "end_line": 53, "end_column": 40, "source_code_line": 53}, "is_entry_node": false}
+	      ]}]
+	    },
+	    "taint-entry-only": {
+	      "id": 2, "hash": "h2", "severity": "high",
+	      "rule_name": "PathTraversal", "line": 15,
+	      "code_range": {"url": "/src/B.java", "start_line": 15, "start_column": 1, "end_line": 15, "end_column": 2, "source_code_line": 15},
+	      "data_flow_paths": [{"description": "dfp", "nodes": [
+	        {"node_id": "n1", "ir_code": "Parameter-filename", "code_range": {"url": "/src/B.java", "start_line": 13, "start_column": 48, "end_line": 13, "end_column": 56, "source_code_line": 13}, "is_entry_node": true},
+	        {"node_id": "n2", "ir_code": "Function-FileController.download", "code_range": {"url": "/src/B.java", "start_line": 13, "start_column": 5, "end_line": 16, "end_column": 6, "source_code_line": 13}, "is_entry_node": false},
+	        {"node_id": "n3", "ir_code": "Files-readAllBytes", "code_range": {"url": "/src/B.java", "start_line": 15, "start_column": 27, "end_line": 15, "end_column": 43, "source_code_line": 15}, "is_entry_node": false}
+	      ]}]
+	    },
+	    "path-single-node": {
+	      "id": 3, "hash": "h3", "severity": "low",
+	      "rule_name": "ResLeak", "line": 48,
+	      "code_range": {"url": "/src/C.java", "start_line": 48, "start_column": 1, "end_line": 48, "end_column": 2, "source_code_line": 48},
+	      "data_flow_paths": [{"description": "dfp", "nodes": [
+	        {"node_id": "n1", "ir_code": "Undefined-con.createStatement", "code_range": {"url": "/src/C.java", "start_line": 48, "start_column": 1, "end_line": 48, "end_column": 2, "source_code_line": 48}, "is_entry_node": true}
+	      ]}]
+	    },
+	    "value-no-path": {
+	      "id": 4, "hash": "h4", "severity": "high",
+	      "rule_name": "HardcodedPassword", "line": 25,
+	      "code_range": {"url": "/src/D.java", "start_line": 25, "start_column": 1, "end_line": 25, "end_column": 30, "source_code_line": 25}
+	    }
+	  }
+	}`
+	conv := &IrifyConverter{}
+	fs, err := conv.Convert([]byte(fixture))
+	if err != nil {
+		t.Fatalf("convert failed: %v", err)
+	}
+	byHash := map[string]schema.Finding{}
+	for _, f := range fs.Findings {
+		// Findings are ordered by risk key; locate by rule name.
+		byHash[f.RuleName] = f
+	}
+
+	if f := byHash["SQLi"]; f.Kind != schema.FindingKindTaint || f.Flow == nil {
+		t.Errorf("SQLi: kind=%q flow=%v, want taint+flow", f.Kind, f.Flow)
+	} else if f.Flow.Source.Line != 42 || f.Flow.Source.Symbol != "parameter.getParameter" {
+		t.Errorf("SQLi source = %+v, want line=42 symbol=parameter.getParameter", f.Flow.Source)
+	}
+
+	if f := byHash["PathTraversal"]; f.Kind != schema.FindingKindTaint || f.Flow == nil {
+		t.Errorf("PathTraversal: kind=%q flow=%v, want taint+flow (entry-node fallback source)", f.Kind, f.Flow)
+	} else if f.Flow.Source.Line != 13 {
+		t.Errorf("PathTraversal source line = %d, want 13 (entry node)", f.Flow.Source.Line)
+	}
+
+	if f := byHash["ResLeak"]; f.Kind != schema.FindingKindPath || f.Flow != nil {
+		t.Errorf("ResLeak: kind=%q flow=%v, want path+nil flow (single node, no sink)", f.Kind, f.Flow)
+	}
+
+	if f := byHash["HardcodedPassword"]; f.Kind != schema.FindingKindValue || f.Flow != nil {
+		t.Errorf("HardcodedPassword: kind=%q flow=%v, want value+nil flow", f.Kind, f.Flow)
+	}
+}
+
+// TestIrifyConverterMultiSinkExpansion verifies that one risk whose
+// data_flow_path carries two distinct sink calls (writer.println @48 and @49,
+// mirroring securibench-micro Basic29) is expanded into two findings sharing a
+// common source (getParameter @41) but with distinct sinks. This is the fix
+// for the multi-sink dedup FN: previously the converter kept only the
+// greatest-line sink, so the case annotated at the other sink was an FN.
+func TestIrifyConverterMultiSinkExpansion(t *testing.T) {
+	const fixture = `{
+	  "engine_version": "test",
+	  "program_name": "p",
+	  "Risks": {
+	    "multi-sink": {
+	      "id": 1, "hash": "h1", "severity": "high",
+	      "rule_name": "XSS", "line": 49,
+	      "code_range": {"url": "/src/Basic29.java", "start_line": 49, "start_column": 1, "end_line": 49, "end_column": 2, "source_code_line": 49},
+	      "data_flow_paths": [{"description": "dfp", "nodes": [
+	        {"node_id": "n1", "ir_code": "Parameter-req", "code_range": {"url": "/src/Basic29.java", "start_line": 38, "start_column": 1, "end_line": 38, "end_column": 2, "source_code_line": 38}, "is_entry_node": true},
+	        {"node_id": "n2", "ir_code": "ParameterMember-parameter[1].getParameter(Parameter-req,\"name\")", "code_range": {"url": "/src/Basic29.java", "start_line": 41, "start_column": 24, "end_line": 41, "end_column": 48, "source_code_line": 41}, "is_entry_node": false},
+	        {"node_id": "n3", "ir_code": "Undefined-writer.println(...)", "code_range": {"url": "/src/Basic29.java", "start_line": 48, "start_column": 18, "end_line": 48, "end_column": 40, "source_code_line": 48}, "is_entry_node": false},
+	        {"node_id": "n4", "ir_code": "Undefined-writer.println(...)", "code_range": {"url": "/src/Basic29.java", "start_line": 49, "start_column": 18, "end_line": 49, "end_column": 40, "source_code_line": 49}, "is_entry_node": false}
+	      ]}]
+	    }
+	  }
+	}`
+	conv := &IrifyConverter{}
+	fs, err := conv.Convert([]byte(fixture))
+	if err != nil {
+		t.Fatalf("convert failed: %v", err)
+	}
+	if len(fs.Findings) != 2 {
+		t.Fatalf("findings count = %d, want 2 (one per distinct sink)", len(fs.Findings))
+	}
+	// Both findings share the same source (getParameter @41).
+	for i, f := range fs.Findings {
+		if f.Kind != schema.FindingKindTaint {
+			t.Errorf("finding[%d].kind = %q, want taint", i, f.Kind)
+		}
+		if f.Flow == nil || f.Flow.Source == nil {
+			t.Fatalf("finding[%d] missing flow/source", i)
+		}
+		if f.Flow.Source.Line != 41 {
+			t.Errorf("finding[%d].source.line = %d, want 41 (getParameter call)", i, f.Flow.Source.Line)
+		}
+		if f.Flow.Source.Symbol != "parameter.getParameter" {
+			t.Errorf("finding[%d].source.symbol = %q, want parameter.getParameter", i, f.Flow.Source.Symbol)
+		}
+	}
+	// Sinks must be the two distinct lines, in ascending order.
+	if fs.Findings[0].Flow.Sink.Line != 48 {
+		t.Errorf("finding[0].sink.line = %d, want 48", fs.Findings[0].Flow.Sink.Line)
+	}
+	if fs.Findings[1].Flow.Sink.Line != 49 {
+		t.Errorf("finding[1].sink.line = %d, want 49", fs.Findings[1].Flow.Sink.Line)
+	}
+}
+
+// TestIrifyConverterMultiSinkDeduplication verifies that repeated sink nodes
+// for the same (line, head) do not produce duplicate findings. yak's path
+// graph repeats the same sink call node many times; expansion must dedupe by
+// (start_line, head) so one sink call yields exactly one finding.
+func TestIrifyConverterMultiSinkDeduplication(t *testing.T) {
+	const fixture = `{
+	  "engine_version": "test",
+	  "program_name": "p",
+	  "Risks": {
+	    "dup-sink": {
+	      "id": 1, "hash": "h1", "severity": "high",
+	      "rule_name": "XSS", "line": 48,
+	      "code_range": {"url": "/src/A.java", "start_line": 48, "start_column": 1, "end_line": 48, "end_column": 2, "source_code_line": 48},
+	      "data_flow_paths": [{"description": "dfp", "nodes": [
+	        {"node_id": "n1", "ir_code": "Parameter-req", "code_range": {"url": "/src/A.java", "start_line": 38, "start_column": 1, "end_line": 38, "end_column": 2, "source_code_line": 38}, "is_entry_node": true},
+	        {"node_id": "n2", "ir_code": "ParameterMember-parameter[1].getParameter(Parameter-req,\"name\")", "code_range": {"url": "/src/A.java", "start_line": 41, "start_column": 24, "end_line": 41, "end_column": 48, "source_code_line": 41}, "is_entry_node": false},
+	        {"node_id": "n3", "ir_code": "Undefined-writer.println(...)", "code_range": {"url": "/src/A.java", "start_line": 48, "start_column": 18, "end_line": 48, "end_column": 40, "source_code_line": 48}, "is_entry_node": false},
+	        {"node_id": "n4", "ir_code": "Undefined-writer.println(...)", "code_range": {"url": "/src/A.java", "start_line": 48, "start_column": 18, "end_line": 48, "end_column": 40, "source_code_line": 48}, "is_entry_node": false},
+	        {"node_id": "n5", "ir_code": "Undefined-writer.println(...)", "code_range": {"url": "/src/A.java", "start_line": 48, "start_column": 18, "end_line": 48, "end_column": 40, "source_code_line": 48}, "is_entry_node": false}
+	      ]}]
+	    }
+	  }
+	}`
+	conv := &IrifyConverter{}
+	fs, err := conv.Convert([]byte(fixture))
+	if err != nil {
+		t.Fatalf("convert failed: %v", err)
+	}
+	if len(fs.Findings) != 1 {
+		t.Fatalf("findings count = %d, want 1 (three identical sink nodes dedupe to one)", len(fs.Findings))
+	}
+	if fs.Findings[0].Flow.Sink.Line != 48 {
+		t.Errorf("sink.line = %d, want 48", fs.Findings[0].Flow.Sink.Line)
 	}
 }
 
@@ -265,8 +438,13 @@ func TestIrifyConverterRealScanOutput(t *testing.T) {
 			if f.RuleName == "" {
 				t.Errorf("finding[%d] has empty rule_name in %s", i, p)
 			}
-			if f.Flow == nil {
-				t.Errorf("finding[%d] has nil flow in %s", i, p)
+			// Non-taint findings (path/value kind) legitimately carry no
+			// flow; only taint findings must have one. Empty Kind is treated
+			// as taint for backward compatibility.
+			if f.Kind == "" || f.Kind == schema.FindingKindTaint {
+				if f.Flow == nil {
+					t.Errorf("finding[%d] (kind=%q) has nil flow in %s", i, f.Kind, p)
+				}
 			}
 		}
 		t.Logf("%s: converted %d findings", p, len(fs.Findings))

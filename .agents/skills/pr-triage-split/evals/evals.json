@@ -1,0 +1,23 @@
+{
+  "skill_name": "pr-triage-split",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "我的 optimize/irify/batch_ai_audit 分支有 8 个 commit，里面混了 AI 功能、SSH 私钥修复、Tag 颜色修复。帮我做 PR 分流，把该独立的 fix 拆出去。",
+      "expected_output": "A triage table classifying all 8 commits into F/B/D buckets, with fix branches created for B-classified commits and a cleaned feature branch containing only F+D commits. The SSH fix (git user + trailing newline) and Tag color fix should be cherry-picked to separate fix branches; the AI judgement observability commits should stay on the feature branch.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "帮我看看当前分支能不能直接提 PR，还是需要先分流。分支名是 optimize/irify/batch_ai_audit。",
+      "expected_output": "The skill should inventory commits, classify them, and determine whether the branch is PR-ready as-is or needs splitting. For the 8-commit branch, it should recommend splitting because there are clearly B-bucket commits (SSH fix, Tag color fix) mixed with F-bucket commits (AI observability).",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "我有个 feature 分支改了 3 个文件做新功能，但中途修了个不相关的 bug 在另一个模块。这个也要分流吗？还是直接一起提？",
+      "expected_output": "The skill should classify the unrelated bug fix as bucket B and recommend splitting it out, even for a small branch. The answer should explain that even one unrelated fix pollutes the PR and makes rollback risky. It should produce a triage table and recommend creating a fix branch for the unrelated bug.",
+      "files": []
+    }
+  ]
+}

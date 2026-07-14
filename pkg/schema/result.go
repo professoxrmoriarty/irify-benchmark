@@ -39,6 +39,7 @@ type CaseResult struct {
 type MatchedFinding struct {
 	RuleID   string `json:"rule_id,omitempty"`
 	RuleName string `json:"rule_name,omitempty"`
+	CWE      string `json:"cwe,omitempty"`
 	Severity string `json:"severity,omitempty"`
 }
 

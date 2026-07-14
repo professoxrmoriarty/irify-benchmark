@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/irify/irify-benchmark/internal/flowmatch"
 	"github.com/irify/irify-benchmark/pkg/eval"
 	"github.com/irify/irify-benchmark/pkg/schema"
 )
@@ -46,14 +47,41 @@ func (m *FlowMatcher) Match(annotation *schema.Annotation, findings *schema.Find
 	matches := make([]caseMatch, 0, len(annotation.Cases))
 	for i, c := range annotation.Cases {
 		best := caseMatch{caseIdx: i, findingIdx: -1}
+		caseCWE := caseExpectedCWE(c)
 		for j, f := range findings.Findings {
+			// Scope filter: when the case declares an expected CWE, only
+			// in-scope findings (CWE matches) are eligible to be its best
+			// candidate. Cross-CWE / code-quality findings are excluded so
+			// they cannot win the best-candidate slot on a line/symbol score
+			// alone. The excluded findings still flow through to diagnosis as
+			// unmatched noise; they just no longer pollute the case evidence.
+			// A case with no declared CWE keeps the legacy behaviour of
+			// considering every finding.
+			if caseCWE != "" && !cweMatches(caseCWE, f.CWE) {
+				continue
+			}
 			score := Score(c, f)
+			// Distortion-B fix: precise source/sink coverage wins over fuzzy
+			// proximity. When a finding's flow precisely covers the case's
+			// annotated source and sink (line within tolerance + method-name
+			// segment match + file overlap), boost its score to 1.0 so it
+			// outranks any merely-proximate in-scope finding. This anchors
+			// matching to real source->sink coverage instead of letting a
+			// wrong-sink finding win on file+source proximity. Non-taint
+			// findings (path/value) never precise-match a taint case.
+			if flowmatch.ExactFlowMatch(c, f) {
+				score.Total = 1.0
+				score.SourceMatch = true
+				score.SinkMatch = true
+				score.TraceComplete = true
+			}
 			if score.Total > best.score.Total {
 				best.score = score
 				best.findingIdx = j
 				best.matchedFinding = &schema.MatchedFinding{
 					RuleID:   f.RuleID,
 					RuleName: f.RuleName,
+					CWE:      f.CWE,
 					Severity: f.Severity,
 				}
 			}

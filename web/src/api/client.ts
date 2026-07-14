@@ -1,4 +1,17 @@
 import { API_BASE } from '../config'
+import type {
+  AIResponseValidation,
+  AgentHandoffManifest,
+  Annotation,
+  CaseWithProject,
+  DiagnosisReport,
+  FileEntry,
+  FindingSet,
+  FindingVersionList,
+  PendingQueue,
+  Project,
+  Result,
+} from '../types'
 
 async function fetchJSON<T>(path: string): Promise<T> {
   const res = await fetch(`${API_BASE}${path}`)
@@ -7,15 +20,15 @@ async function fetchJSON<T>(path: string): Promise<T> {
 }
 
 export async function listProjects() {
-  return fetchJSON<any[]>('/api/projects')
+  return fetchJSON<Project[]>('/api/projects')
 }
 
 export async function getProject(id: string) {
-  return fetchJSON<any>(`/api/projects/${id}`)
+  return fetchJSON<Project>(`/api/projects/${id}`)
 }
 
 export async function getProjectFiles(id: string) {
-  return fetchJSON<any>(`/api/projects/${id}/files`)
+  return fetchJSON<FileEntry>(`/api/projects/${id}/files`)
 }
 
 export async function getFileContent(projectId: string, path: string) {
@@ -33,7 +46,12 @@ export async function getProjectCases(id: string, keyword?: string, cwe?: string
   if (language) params.set('language', language)
   if (tag) params.set('tag', tag)
   const qs = params.toString()
-  return fetchJSON<any>(`/api/projects/${id}/cases${qs ? '?' + qs : ''}`)
+  return fetchJSON<Annotation | { cases: CaseWithProject[] }>(`/api/projects/${id}/cases${qs ? '?' + qs : ''}`)
+}
+
+export async function getProjectCase(projectId: string, caseId: string): Promise<CaseWithProject | null> {
+  const data = await fetchJSON<{ cases: CaseWithProject[] }>(`/api/projects/${projectId}/cases`)
+  return data.cases.find((c) => c.case_id === caseId) ?? null
 }
 
 export async function listCases(projectId?: string, keyword?: string, cwe?: string, language?: string, tag?: string) {
@@ -44,23 +62,63 @@ export async function listCases(projectId?: string, keyword?: string, cwe?: stri
   if (language) params.set('language', language)
   if (tag) params.set('tag', tag)
   const qs = params.toString()
-  return fetchJSON<{ cases: any[] }>(`/api/cases${qs ? '?' + qs : ''}`)
+  return fetchJSON<{ cases: CaseWithProject[] }>(`/api/cases${qs ? '?' + qs : ''}`)
 }
 
 export async function getProjectResults(id: string) {
-  return fetchJSON<any>(`/api/projects/${id}/results`)
+  return fetchJSON<Result[]>(`/api/projects/${id}/results`)
 }
 
-export async function getProjectFindings(id: string, engine?: string, version?: string) {
+export function getProjectFindings(id: string): Promise<FindingSet | FindingVersionList>
+export function getProjectFindings(id: string, engine: string, version: string): Promise<FindingSet>
+export async function getProjectFindings(id: string, engine?: string, version?: string): Promise<FindingSet | FindingVersionList> {
   const params = new URLSearchParams()
   if (engine) params.set('engine', engine)
   if (version) params.set('version', version)
   const qs = params.toString()
-  return fetchJSON<any>(`/api/projects/${id}/findings${qs ? '?' + qs : ''}`)
+  return fetchJSON<FindingSet | FindingVersionList>(`/api/projects/${id}/findings${qs ? '?' + qs : ''}`)
+}
+
+export async function getProjectDiagnosis(id: string, engine?: string, version?: string) {
+  const params = new URLSearchParams()
+  if (engine) params.set('engine', engine)
+  if (version) params.set('version', version)
+  const qs = params.toString()
+  return fetchJSON<DiagnosisReport>(`/api/projects/${id}/diagnosis${qs ? '?' + qs : ''}`)
+}
+
+export async function getProjectDiagnosisPrompt(id: string, maxPriorities = 12, maxRuleReviews = 8): Promise<string> {
+  const params = new URLSearchParams()
+  params.set('engine', 'yaklang')
+  params.set('format', 'prompt')
+  params.set('max_priorities', String(maxPriorities))
+  params.set('max_rule_reviews', String(maxRuleReviews))
+  const res = await fetch(`${API_BASE}/api/projects/${id}/diagnosis?${params.toString()}`)
+  if (!res.ok) throw new Error(`HTTP ${res.status}`)
+  return res.text()
+}
+
+export async function getProjectAgentManifest(id: string, maxPriorities = 12, maxRuleReviews = 8): Promise<AgentHandoffManifest> {
+  const params = new URLSearchParams()
+  params.set('engine', 'yaklang')
+  params.set('format', 'manifest')
+  params.set('max_priorities', String(maxPriorities))
+  params.set('max_rule_reviews', String(maxRuleReviews))
+  return fetchJSON<AgentHandoffManifest>(`/api/projects/${id}/diagnosis?${params.toString()}`)
+}
+
+export async function validateAIResponse(content: string): Promise<AIResponseValidation> {
+  const res = await fetch(`${API_BASE}/api/diagnosis/validate-response`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+    body: content,
+  })
+  if (!res.ok) throw new Error(`HTTP ${res.status}`)
+  return res.json()
 }
 
 export async function getPending() {
-  return fetchJSON<{items: any[]}>('/api/pending')
+  return fetchJSON<PendingQueue>('/api/pending')
 }
 
 export async function approveItem(itemId: string, reviewer: string = 'user', notes: string = '') {

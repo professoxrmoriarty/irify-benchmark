@@ -1,0 +1,27 @@
+project_id: java-cmdi-001
+version: 1.0.0
+cases:
+    - case_id: java-cmdi-001-vul
+      name: 'CMDi #1'
+      description: Direct command injection through request parameter
+      vuln_desc: User input flows to Runtime.getRuntime().exec without sanitization
+      language: java
+      source_code: Hello.java
+      expectation:
+        type: must_alert
+        flow:
+            source:
+                symbol: request.getParameter
+                line: 11
+                file: Hello.java
+            sink:
+                symbol: Runtime.getRuntime().exec
+                line: 13
+                file: Hello.java
+      metadata:
+        cwe: CWE-78
+        framework: servlet
+        tags:
+            - command-injection
+            - java
+            - cmdi

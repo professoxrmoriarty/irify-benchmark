@@ -4,9 +4,16 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"strings"
+	"time"
 
 	"gopkg.in/yaml.v3"
 	"github.com/irify/irify-benchmark/pkg/schema"
+)
+
+const (
+	defaultCacheTTL = 5 * time.Minute
+	fileContentTTL  = 30 * time.Second
 )
 
 // HybridStore combines filesystem storage for projects/cases with SQLite for runtime data.
@@ -14,6 +21,7 @@ type HybridStore struct {
 	fs      *FSStore
 	sqlite  *SQLiteStore
 	baseDir string
+	cache   *Cache
 }
 
 // NewHybridStore creates a new HybridStore rooted at baseDir with a SQLite database at dbPath.
@@ -33,6 +41,7 @@ func NewHybridStore(baseDir, dbPath string) (*HybridStore, error) {
 		fs:      fs,
 		sqlite:  sqlite,
 		baseDir: baseDir,
+		cache:   NewCache(defaultCacheTTL),
 	}, nil
 }
 
@@ -49,8 +58,26 @@ func (h *HybridStore) projectDir(projectID string) string {
 	return filepath.Join(h.casesDir(), projectID)
 }
 
+func (h *HybridStore) cacheKey(kind, projectID string) string {
+	return kind + ":" + projectID
+}
+
+// InvalidateProjectCache clears all cached data for a project.
+func (h *HybridStore) InvalidateProjectCache(projectID string) {
+	prefix := ":" + projectID + ":"
+	h.cache.Delete(h.cacheKey("project", projectID))
+	h.cache.Delete(h.cacheKey("cases", projectID))
+	h.cache.Delete(h.cacheKey("files", projectID))
+	h.cache.DeletePrefix("file" + prefix)
+}
+
 // ReadProject reads a project's metadata from the filesystem.
 func (h *HybridStore) ReadProject(projectID string) (*schema.Project, error) {
+	key := h.cacheKey("project", projectID)
+	if v, ok := getTyped[*schema.Project](h.cache, key); ok {
+		return v, nil
+	}
+
 	path := filepath.Join(h.projectDir(projectID), "project.yaml")
 	data, err := os.ReadFile(path)
 	if err != nil {
@@ -60,6 +87,7 @@ func (h *HybridStore) ReadProject(projectID string) (*schema.Project, error) {
 	if err := yaml.Unmarshal(data, &p); err != nil {
 		return nil, fmt.Errorf("unmarshal project: %w", err)
 	}
+	h.cache.Set(key, &p, 0)
 	return &p, nil
 }
 
@@ -77,11 +105,17 @@ func (h *HybridStore) WriteProject(p *schema.Project) error {
 	if err := os.WriteFile(path, data, 0644); err != nil {
 		return fmt.Errorf("write project yaml: %w", err)
 	}
+	h.InvalidateProjectCache(p.ProjectID)
 	return nil
 }
 
 // ReadCases reads the ground-truth case set for a project from the filesystem.
 func (h *HybridStore) ReadCases(projectID string) (*schema.CaseSet, error) {
+	key := h.cacheKey("cases", projectID)
+	if v, ok := getTyped[*schema.CaseSet](h.cache, key); ok {
+		return v, nil
+	}
+
 	path := filepath.Join(h.projectDir(projectID), "cases.yaml")
 	data, err := os.ReadFile(path)
 	if err != nil {
@@ -91,6 +125,7 @@ func (h *HybridStore) ReadCases(projectID string) (*schema.CaseSet, error) {
 	if err := yaml.Unmarshal(data, &c); err != nil {
 		return nil, fmt.Errorf("unmarshal cases: %w", err)
 	}
+	h.cache.Set(key, &c, 0)
 	return &c, nil
 }
 
@@ -113,6 +148,7 @@ func (h *HybridStore) WriteCases(c *schema.CaseSet) error {
 		// Non-fatal: FS is the source of truth.
 		_ = err
 	}
+	h.InvalidateProjectCache(c.ProjectID)
 	return nil
 }
 
@@ -139,6 +175,91 @@ func (h *HybridStore) ListProjects() ([]schema.Project, error) {
 		projects = append(projects, *p)
 	}
 	return projects, nil
+}
+
+// FileNode represents a node in a project's source file tree.
+type FileNode struct {
+	Name     string     `json:"name"`
+	Type     string     `json:"type"` // "directory" or "file"
+	Path     string     `json:"path,omitempty"`
+	Children []FileNode `json:"children,omitempty"`
+}
+
+// ReadFileTree returns the source file tree for a project, cached in memory.
+func (h *HybridStore) ReadFileTree(projectID string) (*FileNode, error) {
+	key := h.cacheKey("files", projectID)
+	if v, ok := getTyped[*FileNode](h.cache, key); ok {
+		return v, nil
+	}
+
+	srcDir := filepath.Join(h.projectDir(projectID), "src")
+	root, err := h.buildFileTree(srcDir, "")
+	if err != nil {
+		return nil, err
+	}
+	h.cache.Set(key, root, 0)
+	return root, nil
+}
+
+func (h *HybridStore) buildFileTree(dir, relPath string) (*FileNode, error) {
+	entries, err := os.ReadDir(dir)
+	if err != nil {
+		return nil, err
+	}
+
+	node := &FileNode{
+		Name: filepath.Base(relPath),
+		Type: "directory",
+	}
+	if relPath == "" {
+		node.Name = "src"
+	}
+
+	for _, entry := range entries {
+		childRelPath := filepath.Join(relPath, entry.Name())
+		if entry.IsDir() {
+			child, err := h.buildFileTree(filepath.Join(dir, entry.Name()), childRelPath)
+			if err != nil {
+				return nil, err
+			}
+			node.Children = append(node.Children, *child)
+		} else {
+			node.Children = append(node.Children, FileNode{
+				Name: entry.Name(),
+				Type: "file",
+				Path: childRelPath,
+			})
+		}
+	}
+	return node, nil
+}
+
+// ReadFileContent returns the contents of a source file, cached in memory.
+func (h *HybridStore) ReadFileContent(projectID, filePath string) ([]byte, error) {
+	key := h.cacheKey("file", projectID) + ":" + filePath
+	if v, ok := getTyped[[]byte](h.cache, key); ok {
+		return v, nil
+	}
+
+	fullPath := filepath.Join(h.projectDir(projectID), "src", filePath)
+	absPath, err := filepath.Abs(fullPath)
+	if err != nil {
+		return nil, fmt.Errorf("invalid path: %w", err)
+	}
+	absBase, err := filepath.Abs(filepath.Join(h.projectDir(projectID), "src"))
+	if err != nil {
+		return nil, fmt.Errorf("invalid base: %w", err)
+	}
+	if !strings.HasPrefix(absPath, absBase+string(filepath.Separator)) && absPath != absBase {
+		return nil, fmt.Errorf("invalid path")
+	}
+
+	data, err := os.ReadFile(absPath)
+	if err != nil {
+		return nil, err
+	}
+	h.cache.Set(key, data, fileContentTTL)
+	return data, nil
 }
 
 // SaveFindings delegates to the SQLite store.

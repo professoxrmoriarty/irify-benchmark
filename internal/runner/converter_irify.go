@@ -5,14 +5,19 @@ import (
 	"fmt"
 	"path/filepath"
 	"regexp"
+	"sort"
+	"strconv"
 	"strings"
 	"time"
 
+	"github.com/irify/irify-benchmark/internal/flowmatch"
 	"github.com/irify/irify-benchmark/pkg/schema"
 )
 
 // IrifyConverter adapts yak code-scan --format irify output to the canonical FindingSet.
-type IrifyConverter struct{}
+type IrifyConverter struct {
+	programPrefix string // e.g. "src(2026-06-05 12:19:18)/" to strip from paths
+}
 
 // Detect returns true when the JSON contains the characteristic "Risks" and "Rules"
 // top-level fields produced by yak --format irify.
@@ -40,6 +45,12 @@ func (c *IrifyConverter) Convert(data []byte) (*schema.FindingSet, error) {
 		ProgramName:   report.ProgramName,
 	}
 
+	// Yak --memory mode embeds the program name as a directory prefix in paths.
+	// Strip it so paths match the project source root (e.g. "src/...").
+	if report.ProgramName != "" {
+		c.programPrefix = report.ProgramName + "/"
+	}
+
 	if report.ReportTime != "" {
 		if t, err := time.Parse(time.RFC3339Nano, report.ReportTime); err == nil {
 			fs.ScanTime = t
@@ -63,59 +74,228 @@ func (c *IrifyConverter) Convert(data []byte) (*schema.FindingSet, error) {
 		ruleIDByName[r.RuleName] = rid
 	}
 
-	// Convert each Risk into a canonical Finding.
-	for _, risk := range report.Risks {
-		finding := c.adaptRisk(risk, ruleIDByName)
-		fs.Findings = append(fs.Findings, finding)
+	// Convert each Risk into a canonical Finding. Yak emits risks as a JSON
+	// object (map), whose iteration order is non-deterministic in Go; sort by
+	// a stable key so the produced findings array — and therefore downstream
+	// finding indexes — are reproducible across runs and test-safe.
+	riskKeys := make([]string, 0, len(report.Risks))
+	for k := range report.Risks {
+		riskKeys = append(riskKeys, k)
+	}
+	sort.Strings(riskKeys)
+	for _, k := range riskKeys {
+		risk := report.Risks[k]
+		findings := c.adaptRisk(risk, ruleIDByName)
+		fs.Findings = append(fs.Findings, findings...)
 	}
 
 	return fs, nil
 }
 
-func (c *IrifyConverter) adaptRisk(risk irifyRisk, ruleIDByName map[string]string) schema.Finding {
-	f := schema.Finding{
+func (c *IrifyConverter) adaptRisk(risk irifyRisk, ruleIDByName map[string]string) []schema.Finding {
+	base := schema.Finding{
 		RuleID:   ruleIDByName[risk.RuleName],
 		RuleName: risk.RuleName,
+		CWE:      primaryCWE(risk.CWE),
 		Severity: risk.Severity,
 	}
 
-	// Synthesize Flow from data_flow_paths when available.
+	// Form-aware flow reconstruction. yak SyntaxFlow findings come in three
+	// shapes, determined by how the .sf rule reports its alert:
+	//   - taint: a real source->sink data_flow_path with a recognisable
+	//     source API call. We reconstruct Flow.Source/Sink precisely.
+	//   - path : a data_flow_path exists but carries no source-API call
+	//     (e.g. resource-leak rules that alert on a value). We do NOT
+	//     fabricate a source==sink self-referential flow; Flow stays nil
+	//     and only the risk's code_range locates the finding.
+	//   - value: no data_flow_path at all (e.g. hardcoded-secret rules that
+	//     alert on a constant). Flow is nil; only code_range locates it.
+	//
+	// Multi-sink expansion: a single SyntaxFlow alert deduplicates by taint
+	// variable, so one risk can carry a data_flow_path that passes the
+	// tainted value to N distinct sink calls (e.g. writer.println @48 and
+	// writer.println @49 in the same function). The path nodes already
+	// contain every sink call's correct code_range; we expand one risk into
+	// one finding per distinct sink so each benchmark case (annotated
+	// per-sink) can be matched independently. Previously the converter picked
+	// only the greatest-line sink, leaving the other N-1 sinks as FN.
 	if len(risk.DataFlowPaths) > 0 {
 		path := risk.DataFlowPaths[0]
-		f.Flow = c.synthesizeFlowFromPath(path, risk.CodeRange)
+		return c.synthesizeFlowsFromPath(path, risk.CodeRange, base)
 	}
 
-	// Fallback: use the single code_range as both source and sink.
-	if f.Flow == nil && risk.CodeRange != nil {
-		f.Flow = &schema.Flow{
-			Source: c.codeRangeToLocation(risk.CodeRange, ""),
-			Sink:   c.codeRangeToLocation(risk.CodeRange, ""),
+	// No data_flow_path: classify the finding form. A "value" finding
+	// (hardcoded-secret rules that alert on a constant) carries no flow.
+	if base.Flow == nil {
+		base.Kind = schema.FindingKindValue
+	}
+	return []schema.Finding{base}
+}
+
+// knownSourcePatterns are substrings commonly found in IR code for source nodes.
+// They are used to exclude false sink candidates.
+var knownSourcePatterns = []string{
+	"getParameter", "getHeader", "getCookies", "getQueryString",
+	"getInputStream", "getReader", "getAttribute",
+}
+
+// knownSinkPatterns are substrings that strongly indicate a real sink.
+// When multiple candidates share the same line number, these are used to
+// break ties in favour of the actual sink.
+var knownSinkPatterns = []string{
+	"sendRedirect", "println", "print", "write",
+	"FileWriter", "FileReader", "FileInputStream", "FileOutputStream",
+	"executeQuery", "executeUpdate", "prepareStatement", "createStatement",
+	"exec", "ProcessBuilder",
+}
+
+// extractMainFunction pulls the primary function name from an IR code string.
+// IR codes look like "Prefix-functionName(args)" or "Prefix-functionName".
+// We strip arguments and take the last dot-separated segment so that nested
+// calls (e.g. sendRedirect(..., getParameter(...))) do not trigger source
+// heuristics on the outer function.
+func extractMainFunction(irCode string) string {
+	if idx := strings.Index(irCode, "("); idx >= 0 {
+		irCode = irCode[:idx]
+	}
+	parts := strings.Split(irCode, ".")
+	if len(parts) > 0 {
+		return strings.TrimSpace(parts[len(parts)-1])
+	}
+	return strings.TrimSpace(irCode)
+}
+
+func isSourceNode(node *irifyDataFlowNode) bool {
+	mainFn := strings.ToLower(extractMainFunction(node.IRCode))
+	for _, p := range knownSourcePatterns {
+		if mainFn == strings.ToLower(p) {
+			return true
+		}
+	}
+	return false
+}
+
+func isLikelySink(irCode string) bool {
+	head := strings.ToLower(extractMainFunction(irCode))
+	for _, p := range knownSinkPatterns {
+		if head == strings.ToLower(p) {
+			return true
+		}
+	}
+	return false
+}
+
+// findSinkNode selects the most likely sink from a data-flow path.
+// The yak --with-dataflow-path output does not guarantee that the last node is
+// the sink; nodes appear in graph-traversal order. We therefore use a
+// heuristic: among non-entry nodes that look like function calls (contain "(")
+// and are not known source patterns, pick the one with the greatest line
+// number. When several candidates share the same line, prefer the one whose
+// IR code contains a known sink pattern.
+func findSinkNode(nodes []irifyDataFlowNode) *irifyDataFlowNode {
+	var candidates []*irifyDataFlowNode
+	for i := range nodes {
+		node := &nodes[i]
+		if node.IsEntryNode {
+			continue
+		}
+		if isSourceNode(node) {
+			continue
+		}
+		ir := node.IRCode
+		// Require a function-call-like shape: contains "(".
+		if !strings.Contains(ir, "(") {
+			continue
+		}
+		candidates = append(candidates, node)
+	}
+	if len(candidates) == 0 {
+		return nil
+	}
+	best := candidates[0]
+	for _, cand := range candidates[1:] {
+		if cand.CodeRange.StartLine > best.CodeRange.StartLine {
+			best = cand
+			continue
+		}
+		if cand.CodeRange.StartLine == best.CodeRange.StartLine {
+			// Tie-break: prefer known sinks.
+			if isLikelySink(cand.IRCode) && !isLikelySink(best.IRCode) {
+				best = cand
+			}
+		}
+	}
+	return best
+}
+
+// synthesizeFlowFromPath reconstructs a source->sink flow from a yak
+// data_flow_path and reports the finding kind.
+//
+// Returns (flow, kind):
+//   - (flow, "taint") when the path yields a usable source and sink. The
+//     source node is selected in priority order:
+//       1. A node whose IR is a call (contains "(") and whose method name is
+//          a known source pattern (e.g. getParameter). This anchors the
+//          source to the real source-API call rather than the SSA entry
+//          parameter, which yak may place on the parameter declaration line.
+//       2. Otherwise the SSA entry node (IsEntryNode). For request-bound
+//          parameters (e.g. Spring @RequestParam) the entry node IS the
+//          taint origin and there is no getParameter-style call, so the
+//          entry node is the correct source.
+//     The sink is chosen by the existing findSinkNode heuristic.
+//   - (nil, "path") when the path has neither a source candidate nor a sink
+//     candidate, i.e. it carries no source->sink semantics. Fabricating a
+//     flow would mislead the matcher. (Resource-leak rules that alert on a
+//     single value still produce a taint-classified flow here when a sink
+//     call node exists; their CWE scope filtering keeps them off unrelated
+//     cases.)
+func (c *IrifyConverter) synthesizeFlowFromPath(path irifyDataFlowPath, fallbackCodeRange *irifyCodeRange) (*schema.Flow, string) {
+	nodes := path.Nodes
+	if len(nodes) == 0 {
+		return nil, schema.FindingKindPath
+	}
+
+	// Source priority 1: a known source-API call node (getParameter etc.).
+	var sourceNode *irifyDataFlowNode
+	for i := range nodes {
+		node := &nodes[i]
+		if isSourceAPICall(node) {
+			if sourceNode == nil || node.CodeRange.StartLine < sourceNode.CodeRange.StartLine {
+				sourceNode = node
+			}
 		}
 	}
 
-	return f
-}
+	// Source priority 2: the SSA entry node (correct origin for
+	// @RequestParam-style bound parameters where there is no getParameter call).
+	if sourceNode == nil {
+		for i := range nodes {
+			if nodes[i].IsEntryNode {
+				sourceNode = &nodes[i]
+				break
+			}
+		}
+	}
+	// Source priority 3: the first node.
+	if sourceNode == nil {
+		sourceNode = &nodes[0]
+	}
 
-func (c *IrifyConverter) synthesizeFlowFromPath(path irifyDataFlowPath, fallbackCodeRange *irifyCodeRange) *schema.Flow {
-	nodes := path.Nodes
-	if len(nodes) == 0 {
-		return nil
+	// Sink: use heuristic to find the real sink; fallback to last node.
+	sinkNode := findSinkNode(nodes)
+	if sinkNode == nil {
+		sinkNode = &nodes[len(nodes)-1]
+	}
+
+	// If the only node is the entry/source itself (no sink candidate and the
+	// last node is the source), the path carries no source->sink semantics:
+	// classify as a non-taint "path" and emit no flow.
+	if sourceNode == sinkNode && len(nodes) == 1 {
+		return nil, schema.FindingKindPath
 	}
 
 	flow := &schema.Flow{}
-
-	// Source: prefer the entry node; otherwise the first node.
-	sourceNode := &nodes[0]
-	for i := range nodes {
-		if nodes[i].IsEntryNode {
-			sourceNode = &nodes[i]
-			break
-		}
-	}
 	flow.Source = c.nodeToLocation(sourceNode)
-
-	// Sink: the last node in the path.
-	sinkNode := &nodes[len(nodes)-1]
 	flow.Sink = c.nodeToLocation(sinkNode)
 
 	// Sanitizers: any nodes between source and sink (excluding both ends).
@@ -130,7 +310,182 @@ func (c *IrifyConverter) synthesizeFlowFromPath(path irifyDataFlowPath, fallback
 		}
 	}
 
-	return flow
+	return flow, schema.FindingKindTaint
+}
+
+// synthesizeFlowsFromPath expands one data_flow_path into one finding per
+// distinct sink call, sharing a common source. This reconstructs the
+// per-sink flows that SyntaxFlow's alert-by-variable deduplication collapses
+// into a single risk: when a tainted value reaches N sink calls in the same
+// function (e.g. writer.println @48 and @49), the path already carries every
+// sink node with its correct code_range, so we emit N findings instead of the
+// single greatest-line sink the old findSinkNode heuristic kept.
+//
+// Expansion rules:
+//   - Sink candidates are nodes that are not entry nodes, not known source
+//     patterns, look like calls (contain "("), and match a known sink
+//     pattern. Candidates are deduplicated by (start_line, sink_head) since
+//     yak's path repeats the same node many times along the taint graph.
+//   - 0 sink candidates: falls back to synthesizeFlowFromPath (preserves the
+//     prior path/value classification and last-node fallback).
+//   - 1 sink candidate: falls back to synthesizeFlowFromPath (identical to
+//     pre-expansion behaviour, no regression risk).
+//   - N sink candidates: emits N findings, each with the shared source and a
+//     distinct sink, ordered by sink line for reproducibility. Sanitizers are
+//     the intermediate path nodes between source and the furthest sink so all
+//     expanded findings share the same sanitiser context.
+//
+// The base finding carries the rule/CWE/severity common to every expanded
+// finding; each returned finding is a copy with its own Flow.
+func (c *IrifyConverter) synthesizeFlowsFromPath(path irifyDataFlowPath, fallbackCodeRange *irifyCodeRange, base schema.Finding) []schema.Finding {
+	nodes := path.Nodes
+	if len(nodes) == 0 {
+		base.Kind = schema.FindingKindPath
+		return []schema.Finding{base}
+	}
+
+	// Collect distinct sink candidates, keyed by (line, head) to dedupe the
+	// repeated nodes yak emits along the taint graph.
+	type sinkKey struct {
+		line int
+		head string
+	}
+	seen := map[sinkKey]bool{}
+	var sinks []*irifyDataFlowNode
+	for i := range nodes {
+		node := &nodes[i]
+		if node.IsEntryNode || isSourceNode(node) {
+			continue
+		}
+		if !strings.Contains(node.IRCode, "(") {
+			continue
+		}
+		if !isLikelySink(node.IRCode) {
+			// Only expand real sinks. The pre-expansion path used any call
+			// candidate; expansion is narrower to avoid fabricating findings
+			// for non-sink intermediate calls.
+			continue
+		}
+		key := sinkKey{line: node.CodeRange.StartLine, head: extractMainFunction(node.IRCode)}
+		if seen[key] {
+			continue
+		}
+		seen[key] = true
+		sinks = append(sinks, node)
+	}
+
+	// 0 or 1 sink candidates: preserve prior behaviour exactly.
+	if len(sinks) <= 1 {
+		flow, kind := c.synthesizeFlowFromPath(path, fallbackCodeRange)
+		base.Flow = flow
+		base.Kind = kind
+		return []schema.Finding{base}
+	}
+
+	// N sinks: expand. Pick the shared source with the same 3-level priority
+	// as synthesizeFlowFromPath.
+	sourceNode := c.selectSourceNode(nodes)
+	if sourceNode == nil {
+		// Should not happen (len(nodes)>0), but guard against a panic.
+		flow, kind := c.synthesizeFlowFromPath(path, fallbackCodeRange)
+		base.Flow = flow
+		base.Kind = kind
+		return []schema.Finding{base}
+	}
+
+	// Order sinks by line for reproducible finding output.
+	sort.Slice(sinks, func(i, j int) bool {
+		return sinks[i].CodeRange.StartLine < sinks[j].CodeRange.StartLine
+	})
+
+	// Sanitizers: intermediate nodes between source and the furthest sink,
+	// excluding the source and every sink. All expanded findings share this
+	// set since they differ only in sink.
+	var sanitizers []schema.Sanitizer
+	maxSinkLine := sinks[len(sinks)-1].CodeRange.StartLine
+	for i := range nodes {
+		node := &nodes[i]
+		if node == sourceNode {
+			continue
+		}
+		if node.CodeRange.StartLine <= sourceNode.CodeRange.StartLine {
+			continue
+		}
+		if node.CodeRange.StartLine >= maxSinkLine {
+			continue
+		}
+		if isLikelySink(node.IRCode) {
+			continue
+		}
+		loc := c.nodeToLocation(node)
+		if loc == nil {
+			continue
+		}
+		sanitizers = append(sanitizers, schema.Sanitizer{Location: *loc, Effective: false})
+	}
+
+	findings := make([]schema.Finding, 0, len(sinks))
+	for _, sink := range sinks {
+		f := base
+		f.Flow = &schema.Flow{
+			Source:     c.nodeToLocation(sourceNode),
+			Sink:       c.nodeToLocation(sink),
+			Sanitizers:  sanitizers,
+		}
+		f.Kind = schema.FindingKindTaint
+		findings = append(findings, f)
+	}
+	return findings
+}
+
+// selectSourceNode picks the source node for a path using the same 3-level
+// priority as synthesizeFlowFromPath:
+//  1. the lowest-line known source-API call (getParameter etc.), anchoring
+//     the source to the real source-API call rather than the SSA entry
+//     parameter declaration line;
+//  2. the SSA entry node (correct origin for @RequestParam-style bound
+//     parameters where there is no getParameter call);
+//  3. the first node.
+func (c *IrifyConverter) selectSourceNode(nodes []irifyDataFlowNode) *irifyDataFlowNode {
+	var sourceNode *irifyDataFlowNode
+	for i := range nodes {
+		node := &nodes[i]
+		if isSourceAPICall(node) {
+			if sourceNode == nil || node.CodeRange.StartLine < sourceNode.CodeRange.StartLine {
+				sourceNode = node
+			}
+		}
+	}
+	if sourceNode == nil {
+		for i := range nodes {
+			if nodes[i].IsEntryNode {
+				sourceNode = &nodes[i]
+				break
+			}
+		}
+	}
+	if sourceNode == nil {
+		sourceNode = &nodes[0]
+	}
+	return sourceNode
+}
+
+// isSourceAPICall reports whether a data-flow node represents a recognisable
+// source-API call (e.g. req.getParameter(...)). It requires both that the IR
+// is a call (contains "(") and that its method name matches a known source
+// pattern, so bare SSA parameter anchors like "Parameter-req" are excluded
+// even when IsEntryNode is true.
+func isSourceAPICall(node *irifyDataFlowNode) bool {
+	if !strings.Contains(node.IRCode, "(") {
+		return false
+	}
+	mainFn := strings.ToLower(extractMainFunction(node.IRCode))
+	for _, p := range knownSourcePatterns {
+		if mainFn == strings.ToLower(p) {
+			return true
+		}
+	}
+	return false
 }
 
 func (c *IrifyConverter) nodeToLocation(node *irifyDataFlowNode) *schema.Location {
@@ -154,23 +509,27 @@ func (c *IrifyConverter) codeRangeToLocation(cr *irifyCodeRange, symbol string) 
 }
 
 func (c *IrifyConverter) extractSymbol(node *irifyDataFlowNode) string {
-	// Best-effort symbol extraction from IR code or source code.
-	if node.IRCode != "" {
-		// IR code often looks like "Parameter-filename" or "Function-read".
-		parts := strings.SplitN(node.IRCode, "-", 2)
-		if len(parts) == 2 {
-			return strings.TrimSpace(parts[1])
-		}
-		return strings.TrimSpace(node.IRCode)
+	// Normalise yak SSA IR toString into a source-code-style receiver.method
+	// symbol via the shared flowmatch normaliser, so the matcher can compare
+	// it against case annotations by method name. Falls back to "" when the
+	// node has no IR code.
+	if node.IRCode == "" {
+		return ""
 	}
-	return ""
+	return flowmatch.NormalizeIRSymbol(node.IRCode)
 }
 
 func (c *IrifyConverter) cleanPath(p string) string {
 	// Yak irify outputs paths starting with "/src/..." when scanning a directory.
-	// Strip the leading slash to make it relative to the project source root.
+	// In --memory mode it may prefix paths with the program name, e.g.
+	// "/src(2026-06-05 12:19:18)/securibench/micro/basic/Basic40.java".
+	// Replace the program-name prefix with "src" so paths become relative to
+	// the project source root ("src/securibench/micro/basic/Basic40.java").
 	p = filepath.Clean(p)
 	p = strings.TrimPrefix(p, "/")
+	if c.programPrefix != "" {
+		p = strings.Replace(p, c.programPrefix, "src/", 1)
+	}
 	return p
 }
 
@@ -216,6 +575,7 @@ type irifyRisk struct {
 	TitleVerbose    string                `json:"title_verbose"`
 	Severity        string                `json:"severity"`
 	RuleName        string                `json:"rule_name"`
+	CWE             []string              `json:"cwe"`
 	CodeSourceURL   string                `json:"code_source_url"`
 	Line            int                   `json:"line"`
 	CodeRange       *irifyCodeRange       `json:"-"`
@@ -223,6 +583,32 @@ type irifyRisk struct {
 	FunctionName    string                `json:"function_name"`
 	ProgramName     string                `json:"program_name"`
 	DataFlowPaths   []irifyDataFlowPath   `json:"data_flow_paths"`
+}
+
+// primaryCWE normalises the raw CWE array emitted by yak into a single
+// canonical identifier. yak reports CWEs as an array (e.g. ["CWE-209"]); the
+// first entry is the primary weakness. Missing or malformed entries collapse
+// to an empty string so the matcher treats the finding as unscoped noise.
+func primaryCWE(cwes []string) string {
+	for _, raw := range cwes {
+		s := strings.TrimSpace(raw)
+		if s == "" {
+			continue
+		}
+		// Some engines emit a bare number or lowercase prefix; normalise to
+		// the canonical "CWE-<id>" form so it compares equal to case metadata.
+		if n := strings.TrimPrefix(s, "CWE-"); n != s {
+			return "CWE-" + n
+		}
+		if n := strings.TrimPrefix(s, "cwe-"); n != s {
+			return "CWE-" + n
+		}
+		if _, err := strconv.Atoi(s); err == nil {
+			return "CWE-" + s
+		}
+		return s
+	}
+	return ""
 }
 
 // UnmarshalJSON handles the fact that yak sometimes serialises code_range as

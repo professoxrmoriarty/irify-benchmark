@@ -77,28 +77,49 @@ func (e *YaklangEngine) Version(ctx context.Context) (string, error) {
 	if err != nil {
 		return "unknown", nil // Graceful fallback
 	}
-	version := strings.TrimSpace(string(out))
-	if version == "" {
-		return "unknown", nil
+	lines := strings.Split(string(out), "\n")
+	for _, line := range lines {
+		line = strings.TrimSpace(line)
+		if strings.HasPrefix(line, "yak version") {
+			return line, nil
+		}
 	}
-	return version, nil
+	// Fallback to last non-empty line that doesn't start with [
+	var lastValid string
+	for _, line := range lines {
+		line = strings.TrimSpace(line)
+		if line != "" && !strings.HasPrefix(line, "[") {
+			lastValid = line
+		}
+	}
+	if lastValid != "" {
+		return lastValid, nil
+	}
+	return "unknown", nil
 }
 
 // Scan executes `yak code-scan` against the requested source path, reads the
 // generated JSON output, and converts it to a canonical FindingSet.
 func (e *YaklangEngine) Scan(ctx context.Context, req engine.ScanRequest) (*schema.FindingSet, error) {
-	// Ensure output directory exists.
-	if req.OutputPath != "" {
-		if err := os.MkdirAll(filepath.Dir(req.OutputPath), 0755); err != nil {
+	outputPath := req.OutputPath
+	if outputPath == "" {
+		tempFile, err := os.CreateTemp("", "yak-scan-*.json")
+		if err != nil {
+			return nil, fmt.Errorf("create temp file: %w", err)
+		}
+		outputPath = tempFile.Name()
+		tempFile.Close()
+		defer os.Remove(outputPath)
+	} else {
+		// Ensure output directory exists.
+		if err := os.MkdirAll(filepath.Dir(outputPath), 0755); err != nil {
 			return nil, fmt.Errorf("create output directory: %w", err)
 		}
 	}
 
 	args := []string{"code-scan", "--target", req.SourcePath}
-	if req.OutputPath != "" {
-		args = append(args, "--output", req.OutputPath)
-	}
-	args = append(args, "--format", "irify", "--with-dataflow-path")
+	args = append(args, "--output", outputPath)
+	args = append(args, "--format", "irify", "--with-dataflow-path", "--memory")
 	if req.Language != "" {
 		args = append(args, "--language", req.Language)
 	}
@@ -115,13 +136,6 @@ func (e *YaklangEngine) Scan(ctx context.Context, req engine.ScanRequest) (*sche
 
 	if err := cmd.Run(); err != nil {
 		return nil, fmt.Errorf("yak scan failed: %w", err)
-	}
-
-	// Determine where to read output from.
-	outputPath := req.OutputPath
-	if outputPath == "" {
-		// yak may have written to a default location; attempt to locate it.
-		return nil, fmt.Errorf("output path is required to read scan results")
 	}
 
 	data, err := os.ReadFile(outputPath)

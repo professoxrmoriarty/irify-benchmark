@@ -1,125 +1,162 @@
 import { useEffect, useMemo, useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
-import { getProject, getProjectCases, getFileContent } from '../api/client'
-import { CodeViewer } from '../components/CodeViewer'
+import { useParams } from 'react-router-dom'
+import { PageShell } from '@/design-system/PageShell'
+import { LoadingState } from '@/design-system/LoadingState'
+import { ErrorState } from '@/design-system/ErrorState'
+import { HighlightedCode, type CodeHighlight } from '@/components/HighlightedCode'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Badge } from '@/components/ui/badge'
+import { getFileContent, getProjectCase, listCases } from '@/api/client'
+import type { CaseWithProject, Expectation, Flow } from '@/types'
 
 export function CaseDetail() {
-  const { projectId, caseId } = useParams<{ projectId: string; caseId: string }>()
-  const [project, setProject] = useState<any>(null)
-  const [caseData, setCaseData] = useState<any>(null)
-  const [fileContent, setFileContent] = useState<string>('')
+  const { id } = useParams()
+  const [caseItem, setCaseItem] = useState<CaseWithProject | null>(null)
+  const [sourceCode, setSourceCode] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    if (!projectId || !caseId) return
+    if (!id) return
+    let cancelled = false
     setLoading(true)
-    Promise.all([
-      getProject(projectId),
-      getProjectCases(projectId),
-    ])
-      .then(([proj, data]) => {
-        setProject(proj)
-        const c = data.cases?.find((x: any) => x.case_id === caseId)
-        setCaseData(c || null)
-      })
-      .catch((err) => setError(err instanceof Error ? err.message : String(err)))
-      .finally(() => setLoading(false))
-  }, [projectId, caseId])
+    setError(null)
 
-  useEffect(() => {
-    if (!projectId || !caseData?.source_code) return
-    getFileContent(projectId, caseData.source_code)
-      .then(setFileContent)
-      .catch((err) => setFileContent(`// Error loading file: ${err instanceof Error ? err.message : String(err)}`))
-  }, [projectId, caseData])
+    async function load() {
+      try {
+        const list = await listCases()
+        const summary = list.cases.find((c) => c.case_id === id)
+        if (!summary || !summary.project?.project_id) {
+          if (!cancelled) setError('未找到该用例')
+          return
+        }
 
-  const highlights = useMemo(() => {
-    if (!caseData?.expectation?.flow) return undefined
-    const flow = caseData.expectation.flow
-    return {
-      sourceLines: flow.source ? [flow.source.line] : [],
-      sinkLines: flow.sink ? [flow.sink.line] : [],
-      sanitizerLines: flow.sanitizers?.map((s: any) => s.line) || [],
+        const projectId = summary.project.project_id
+        const full = await getProjectCase(projectId, id as string)
+        if (!full) {
+          if (!cancelled) setError('未找到该用例')
+          return
+        }
+        const merged: CaseWithProject = { ...full, project: summary.project }
+        if (!cancelled) setCaseItem(merged)
+
+        const sourcePath = full.expectation?.flow?.source?.file ?? full.expectation?.flow?.sink?.file
+        if (full.source_code) {
+          if (!cancelled) setSourceCode(full.source_code)
+        } else if (sourcePath) {
+          try {
+            const text = await getFileContent(projectId, sourcePath)
+            if (!cancelled) setSourceCode(text)
+          } catch {
+            if (!cancelled) setSourceCode('')
+          }
+        } else {
+          if (!cancelled) setSourceCode('')
+        }
+      } catch (err) {
+        if (!cancelled) setError(err instanceof Error ? err.message : String(err))
+      } finally {
+        if (!cancelled) setLoading(false)
+      }
     }
-  }, [caseData])
 
-  if (loading) return <p>Loading...</p>
-  if (error) return <p className="badge badge-fn">Error: {error}</p>
-  if (!caseData) return <p>Case not found</p>
+    load()
+    return () => {
+      cancelled = true
+    }
+  }, [id])
 
-  const flow = caseData.expectation?.flow
+  const highlights = useMemo<CodeHighlight[]>(() => {
+    if (!caseItem?.expectation?.flow) return []
+    const flow: Flow = caseItem.expectation.flow
+    const list: CodeHighlight[] = []
+    if (flow.source?.line) {
+      list.push({ line: flow.source.line, type: 'source', label: 'source' })
+    }
+    if (flow.sink?.line) {
+      list.push({ line: flow.sink.line, type: 'sink', label: 'sink' })
+    }
+    for (const s of flow.sanitizers ?? []) {
+      if (s.line) {
+        list.push({ line: s.line, type: 'sanitizer', label: 'sanitizer' })
+      }
+    }
+    return list
+  }, [caseItem])
+
+  const expectationBadges = useMemo(() => {
+    if (!caseItem?.expectation) return null
+    const exp: Expectation = caseItem.expectation
+    const flow = exp.flow
+    return (
+      <div className="flex flex-wrap gap-2">
+        {exp.type && <Badge variant="secondary">type: {exp.type}</Badge>}
+        {flow?.source && (
+          <Badge variant="outline" className="border-amber-300 text-amber-700">
+            source: {flow.source.symbol} (L{flow.source.line})
+          </Badge>
+        )}
+        {flow?.sink && (
+          <Badge variant="outline" className="border-rose-300 text-rose-700">
+            sink: {flow.sink.symbol} (L{flow.sink.line})
+          </Badge>
+        )}
+        {flow?.sanitizers?.map((s, idx) => (
+          <Badge key={idx} variant="outline" className="border-blue-300 text-blue-700">
+            sanitizer: {s.symbol} (L{s.line})
+          </Badge>
+        ))}
+      </div>
+    )
+  }, [caseItem])
 
   return (
-    <div className="case-detail">
-      <h2>{caseData.name || caseData.case_id}</h2>
-      {caseData.name && <p style={{ color: '#666', marginTop: '-0.5rem' }}>{caseData.case_id}</p>}
-      {caseData.description && (
-        <div className="card" style={{ background: '#f8f9fa' }}>
-          <p style={{ margin: 0 }}>{caseData.description}</p>
-        </div>
+    <PageShell title={caseItem ? caseItem.name : `用例 ${id}`}>
+      {loading && <LoadingState />}
+      {error && <ErrorState message={error} />}
+      {!loading && !error && caseItem && (
+        <Tabs defaultValue="code">
+          <TabsList>
+            <TabsTrigger value="code">代码</TabsTrigger>
+            <TabsTrigger value="expected">期望结果</TabsTrigger>
+            <TabsTrigger value="meta">元信息</TabsTrigger>
+          </TabsList>
+          <TabsContent value="code" className="space-y-3 pt-4">
+            {expectationBadges}
+            <HighlightedCode
+              code={sourceCode ?? ''}
+              language={caseItem.language}
+              highlights={highlights}
+            />
+          </TabsContent>
+          <TabsContent value="expected" className="space-y-3 pt-4 text-sm text-text-secondary">
+            {expectationBadges}
+            {caseItem.expectation ? (
+              <pre className="overflow-auto rounded-lg border border-border bg-surface p-4 text-xs">
+                {JSON.stringify(caseItem.expectation, null, 2)}
+              </pre>
+            ) : (
+              <p>暂无期望结果</p>
+            )}
+          </TabsContent>
+          <TabsContent value="meta" className="pt-4 text-sm text-text-secondary">
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <div className="text-xs text-text-muted">语言</div>
+                <div>{caseItem.language}</div>
+              </div>
+              <div>
+                <div className="text-xs text-text-muted">项目</div>
+                <div>{caseItem.project?.name}</div>
+              </div>
+              <div>
+                <div className="text-xs text-text-muted">CWE</div>
+                <div>{caseItem.metadata?.cwe || '无'}</div>
+              </div>
+            </div>
+          </TabsContent>
+        </Tabs>
       )}
-      <div className="card">
-        <p><strong>Project:</strong> {project?.name || projectId} <span style={{ color: '#888', fontSize: '0.85rem' }}>({project?.language}{project?.framework ? ` / ${project.framework}` : ''})</span></p>
-        <p><strong>Language:</strong> {caseData.language}</p>
-        <p><strong>Expectation:</strong> {caseData.expectation?.type}</p>
-        <p><strong>CWE:</strong> {caseData.metadata?.cwe || '-'}</p>
-        <p><strong>Tags:</strong> {caseData.metadata?.tags?.join(', ') || '-'}</p>
-        <p><strong>Source File:</strong> {caseData.source_code}</p>
-        {caseData.notes && <p><strong>Notes:</strong> {caseData.notes}</p>}
-      </div>
-
-      <div className="card">
-        <h3>Expected Flow</h3>
-        <div className="flow-layout">
-          <div className="flow-box source">
-            <h4>Source</h4>
-            {flow?.source ? (
-              <div>
-                <div>{flow.source.symbol}</div>
-                <div style={{ fontSize: '0.85rem', color: '#666' }}>
-                  {flow.source.file}:{flow.source.line}:{flow.source.column}
-                </div>
-              </div>
-            ) : <em>None</em>}
-          </div>
-          <div className="flow-arrow">→</div>
-          <div className="flow-box sanitizer">
-            <h4>Sanitizers</h4>
-            {flow?.sanitizers && flow.sanitizers.length > 0 ? (
-              <ul style={{ margin: 0, paddingLeft: '1.2rem' }}>
-                {flow.sanitizers.map((s: any, i: number) => (
-                  <li key={i}>
-                    {s.symbol} ({s.effective ? 'effective' : 'ineffective'})
-                  </li>
-                ))}
-              </ul>
-            ) : <em>None</em>}
-          </div>
-          <div className="flow-arrow">→</div>
-          <div className="flow-box sink">
-            <h4>Sink</h4>
-            {flow?.sink ? (
-              <div>
-                <div>{flow.sink.symbol}</div>
-                <div style={{ fontSize: '0.85rem', color: '#666' }}>
-                  {flow.sink.file}:{flow.sink.line}:{flow.sink.column}
-                </div>
-              </div>
-            ) : <em>None</em>}
-          </div>
-        </div>
-      </div>
-
-      <div className="card" style={{ height: '60vh', padding: 0, overflow: 'hidden' }}>
-        <CodeViewer
-          content={fileContent}
-          language={project?.language || 'plaintext'}
-          highlights={highlights}
-        />
-      </div>
-
-      <Link to={`/project/${projectId}`}>← Back to Project</Link>
-    </div>
+    </PageShell>
   )
 }

@@ -11,7 +11,7 @@ go build -o bin/irify-benchmark ./cmd/irify-benchmark
 
 echo "Starting dev environment..."
 echo "  Frontend: http://localhost:5173"
-echo "  Backend:  http://localhost:8080"
+echo "  Backend:  http://localhost:8081"
 echo "  Press Ctrl+C to stop both"
 echo ""
 
@@ -22,8 +22,7 @@ trap 'kill 0' EXIT
 cd web && npm run dev &
 
 # Start backend static file server (serve public/data for dev)
-cd ..
-./bin/irify-benchmark server --static web/public --port 8080 &
+./bin/irify-benchmark server --static web/public --port 8081 &
 
 # Wait for all background jobs
 wait

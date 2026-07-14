@@ -36,14 +36,22 @@ func Score(c schema.Case, f schema.Finding) MatchScore {
 	expFlow := c.Expectation.Flow
 	fndFlow := f.Flow
 
-	// File path match
-	if filePathsOverlap(c.SourceCode, fndFlow) {
+	// File path match: use SourceCode when available, otherwise fall back to
+	// the expected source or sink file path.
+	referenceFile := c.SourceCode
+	if referenceFile == "" && expFlow.Source != nil && expFlow.Source.File != "" {
+		referenceFile = expFlow.Source.File
+	}
+	if referenceFile == "" && expFlow.Sink != nil && expFlow.Sink.File != "" {
+		referenceFile = expFlow.Sink.File
+	}
+	if filePathsOverlap(referenceFile, fndFlow) {
 		score.Total += weightFilePath
 	}
 
 	// Source symbol match
 	if expFlow.Source != nil && fndFlow.Source != nil {
-		if strings.EqualFold(expFlow.Source.Symbol, fndFlow.Source.Symbol) {
+		if symbolsMatch(expFlow.Source.Symbol, fndFlow.Source.Symbol) {
 			score.SourceMatch = true
 			score.Total += weightSourceSymbol
 		}
@@ -51,7 +59,7 @@ func Score(c schema.Case, f schema.Finding) MatchScore {
 
 	// Sink symbol match
 	if expFlow.Sink != nil && fndFlow.Sink != nil {
-		if strings.EqualFold(expFlow.Sink.Symbol, fndFlow.Sink.Symbol) {
+		if symbolsMatch(expFlow.Sink.Symbol, fndFlow.Sink.Symbol) {
 			score.SinkMatch = true
 			score.Total += weightSinkSymbol
 		}
@@ -158,6 +166,46 @@ func sanitizersMatch(expected []schema.Sanitizer, found []schema.Sanitizer) bool
 				return true
 			}
 		}
+	}
+	return false
+}
+
+// symbolsMatch checks whether the expected and found symbols match.
+// It supports fuzzy matching for qualified method names, parameter types, etc.
+func symbolsMatch(expected, found string) bool {
+	expected = strings.TrimSpace(strings.ToLower(expected))
+	found = strings.TrimSpace(strings.ToLower(found))
+	if expected == found {
+		return true
+	}
+	if expected == "" || found == "" {
+		return false
+	}
+	// Strip call arguments: e.g. "println(foo)" -> "println"
+	if idx := strings.Index(expected, "("); idx >= 0 {
+		expected = expected[:idx]
+	}
+	if idx := strings.Index(found, "("); idx >= 0 {
+		found = found[:idx]
+	}
+	expected = strings.TrimSpace(expected)
+	found = strings.TrimSpace(found)
+	if expected == found {
+		return true
+	}
+	// Extract last segment after the last '.': e.g. "req.getParameter" -> "getParameter"
+	lastPart := func(s string) string {
+		parts := strings.Split(s, ".")
+		return strings.TrimSpace(parts[len(parts)-1])
+	}
+	expLast := lastPart(expected)
+	fndLast := lastPart(found)
+	if expLast != "" && fndLast != "" && expLast == fndLast {
+		return true
+	}
+	// Fallback to substring matching: if one contains the other
+	if strings.Contains(expected, found) || strings.Contains(found, expected) {
+		return true
 	}
 	return false
 }

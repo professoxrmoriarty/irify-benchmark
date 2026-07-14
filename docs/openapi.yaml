@@ -213,6 +213,96 @@ paths:
         '500':
           $ref: '#/components/responses/InternalError'
 
+  /api/projects/{id}/diagnosis:
+    get:
+      summary: Get benchmark diagnosis report
+      description: |
+        Returns a shared diagnosis report explaining TP/FP/FN causes, trace
+        evidence, candidate SyntaxFlow rule files, and advisory rule review
+        suggestions. Use `format=bundle` for a smaller AI-friendly diagnostic
+        bundle with priorities, rule snippets, and validation commands. Use
+        `format=manifest` for a machine-readable AI handoff plan with workflow
+        steps, guardrails, artifacts, and validation gates. The endpoint does
+        not modify any rule files.
+      operationId: getProjectDiagnosis
+      tags: [Results]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: engine
+          in: query
+          schema:
+            type: string
+        - name: version
+          in: query
+          schema:
+            type: string
+        - name: format
+          in: query
+          description: Return the full diagnosis report (`json`), compact AI bundle (`bundle`), AI prompt (`prompt`), AI handoff manifest (`manifest`), or markdown summary (`markdown`).
+          schema:
+            type: string
+            enum: [json, bundle, prompt, manifest, markdown]
+        - name: max_priorities
+          in: query
+          description: Maximum priority items when `format=bundle`.
+          schema:
+            type: integer
+            minimum: 0
+        - name: max_rule_reviews
+          in: query
+          description: Maximum rule review suggestions when `format=bundle`.
+          schema:
+            type: integer
+            minimum: 0
+      responses:
+        '200':
+          description: Diagnosis report, AI bundle, prompt, or markdown summary
+          content:
+            application/json:
+              schema:
+                type: object
+            text/plain:
+              schema:
+                type: string
+            text/markdown:
+              schema:
+                type: string
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /api/diagnosis/validate-response:
+    post:
+      summary: Validate AI diagnosis response contract
+      description: |
+        Validates a raw AI response produced from the diagnosis prompt. The
+        request body may be direct JSON or Markdown containing a fenced JSON
+        block. The endpoint returns contract errors as JSON with `valid=false`
+        and does not apply any rule changes.
+      operationId: validateAIResponse
+      tags: [Results]
+      requestBody:
+        required: true
+        content:
+          text/plain:
+            schema:
+              type: string
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: AI response validation result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AIResponseValidation'
+        '405':
+          description: Method not allowed
+
   /api/projects/{id}/raw-scan:
     get:
       summary: Download raw engine scan report
@@ -678,6 +768,92 @@ components:
           type: string
         review_notes:
           type: string
+
+    AIResponseValidation:
+      type: object
+      properties:
+        valid:
+          type: boolean
+        errors:
+          type: array
+          items:
+            type: string
+        counts:
+          type: object
+          properties:
+            root_causes:
+              type: integer
+            rule_suggestions:
+              type: integer
+            benchmark_fixes:
+              type: integer
+            validation_steps:
+              type: integer
+            uncertainties:
+              type: integer
+        response:
+          $ref: '#/components/schemas/AIResponseContract'
+
+    AIResponseContract:
+      type: object
+      properties:
+        root_causes:
+          type: array
+          items:
+            type: object
+            properties:
+              category:
+                type: string
+              summary:
+                type: string
+              evidence_refs:
+                type: array
+                items:
+                  type: string
+              confidence:
+                type: string
+        rule_suggestions:
+          type: array
+          items:
+            type: object
+            properties:
+              rule_id:
+                type: string
+              rule_file:
+                type: string
+              reason:
+                type: string
+              review_only_diff:
+                type: string
+              validation_commands:
+                type: array
+                items:
+                  type: string
+        benchmark_fixes:
+          type: array
+          items:
+            type: object
+            properties:
+              target:
+                type: string
+              reason:
+                type: string
+              case_ids:
+                type: array
+                items:
+                  type: string
+              validation_commands:
+                type: array
+                items:
+                  type: string
+        validation_plan:
+          type: array
+          items:
+            type: string
+        uncertainties:
+          type: array
+          items:
+            type: string
 
   responses:
     NotFound:

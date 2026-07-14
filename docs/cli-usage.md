@@ -139,6 +139,59 @@ Output the raw engine scan report (unmodified JSON):
 irify-benchmark raw-scan <project-id> [--engine=<engine>] [--version=<version>]
 ```
 
+## Diagnosis
+
+Generate AI-friendly diagnosis for benchmark scan results:
+
+```bash
+irify-benchmark diagnose <project-id> --engine yaklang --format prompt --max-priorities 12 --max-rule-reviews 8
+irify-benchmark diagnose <project-id> --engine yaklang --format manifest --max-priorities 12 --max-rule-reviews 8
+irify-benchmark diagnose <project-id> --engine yaklang --version latest --format bundle
+irify-benchmark diagnose <project-id> --engine yaklang --format bundle --max-priorities 6 --max-rule-reviews 3
+irify-benchmark diagnose <project-id> --engine yaklang --version latest --format json
+irify-benchmark diagnose <project-id> --engine yaklang --format markdown
+irify-benchmark diagnose validate-response --file ai-response.md
+```
+
+Use `--format bundle` when an AI agent needs bounded context for diagnosis and
+rule review. The bundle contains priority items, deduplicated SyntaxFlow review
+suggestions, rule snippets, and validation commands. Tune
+`--max-priorities` and `--max-rule-reviews` to keep the context small for quick
+triage or larger for deeper rule review. Use `--format json` for the complete
+report consumed by the Web workbench. The command does not modify `.sf` rules.
+
+Use `--format prompt` when you want a ready-to-paste AI task. It wraps the
+bundle with guardrails and a JSON response contract for `root_causes`,
+`rule_suggestions`, `benchmark_fixes`, `validation_plan`, and `uncertainties`.
+The prompt explicitly requires review-only SyntaxFlow suggestions instead of
+editing rule files directly.
+
+Use `--format manifest` when an AI agent or automation runner needs a
+machine-readable handoff plan. It lists workflow steps, commands, API endpoints,
+expected artifacts, guardrails, rule review queue entries, and validation gates.
+The manifest explicitly forbids automatic edits to `yaklang/common/syntaxflow/sfbuildin`.
+
+Use `diagnose validate-response` to check whether an AI response satisfies the
+prompt response contract. The command accepts raw JSON or Markdown containing a
+fenced `json` block. It prints validation JSON and returns a non-zero exit code
+when required fields are missing.
+
+## Web Frontend
+
+```bash
+# Start the development web server (Vite + React)
+irify-benchmark web
+
+# With custom port and API endpoint
+irify-benchmark web --port 3000 --api http://localhost:8081
+```
+
+> **Flags**:
+> - `--port, -p`: Vite dev server port (default: 5173)
+> - `--api, -a`: Backend API base URL (default: http://localhost:8081)
+>
+> The command auto-detects the `web/` directory relative to the binary and runs `npm install` if `node_modules` is missing.
+
 ## Server
 
 ```bash

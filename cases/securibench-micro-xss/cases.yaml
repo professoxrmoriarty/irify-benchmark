@@ -47,11 +47,17 @@ cases:
             - securibench
     - case_id: aliasing-aliasing3-001
       name: 'Aliasing3 #1'
-      description: simple aliasing of an array element
-      vuln_desc: XSS vulnerability in Aliasing3
+      description: simple aliasing of an array element (NOT a vuln under Java value semantics)
+      vuln_desc: >-
+        Ground-truth annotation corrected: securibench-micro marks this as
+        vuln_count=1, but Java value semantics make it safe. `str = a[5]`
+        snapshots the array element (null) BEFORE the tainted write
+        `a[5] = name`; the subsequent `name = str` drops the tainted value.
+        `writer.println(str)` prints null. No taint reaches the sink. SSA
+        correctly folds str to nil here; alerting would be a false positive.
       language: java
       expectation:
-        type: must_alert
+        type: must_not_alert
         flow:
             source:
                 symbol: req.getParameter
@@ -67,6 +73,7 @@ cases:
             - xss
             - java
             - securibench
+            - safe-sample
     - case_id: aliasing-aliasing4-001
       name: 'Aliasing4 #1'
       description: simple aliasing with casts

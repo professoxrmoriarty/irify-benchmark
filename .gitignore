@@ -14,6 +14,9 @@ web/dist/
 data/
 !web/public/data/
 
+# Browser automation capture artifacts (.playwright-mcp/ at repo root of the SAST checkout)
+.playwright-mcp/
+
 # IDE
 .idea/
 .vscode/
@@ -23,7 +26,7 @@ data/
 .DS_Store
 Thumbs.db
 
-# Build artifacts at repo root
+# Build artifacts at the repo root
 /irify-benchmark
 
 # Generated reports

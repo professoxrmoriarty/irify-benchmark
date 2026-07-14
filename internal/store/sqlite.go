@@ -317,6 +317,13 @@ func (s *SQLiteStore) SaveResult(projectID string, result *schema.Result) error 
 		}
 		matchScore = cr.MatchScore
 
+		// Persist the matched finding's array index so the findings list
+		// command can show which finding matched which case. A negative or
+		// zero FindingIndex means no match (leave NULL).
+		if cr.FindingIndex >= 0 {
+			matchedFindingID = cr.FindingIndex
+		}
+
 		_, err = caseStmt.Exec(
 			projectID, result.Engine, result.EngineVersion, cr.CaseID, cr.Status,
 			matchScore, sourceMatch, sinkMatch, sanitizerMatch,
@@ -377,7 +384,7 @@ func (s *SQLiteStore) GetResult(projectID, engine, version string) (*schema.Resu
 
 	rows, err := s.db.Query(`
 		SELECT case_id, status, match_score, source_match, sink_match,
-		       sanitizer_match, trace_complete, line_distance
+		       sanitizer_match, trace_complete, line_distance, matched_finding_id
 		FROM case_results
 		WHERE project_id = ? AND engine = ? AND engine_version = ?
 	`, projectID, engine, version)
@@ -391,12 +398,17 @@ func (s *SQLiteStore) GetResult(projectID, engine, version string) (*schema.Resu
 		var cr schema.CaseResult
 		var sourceMatch, sinkMatch, sanitizerMatch, traceComplete int
 		var lineDistance int
+		var matchedFindingID sql.NullInt64
 		err := rows.Scan(
 			&cr.CaseID, &cr.Status, &cr.MatchScore,
 			&sourceMatch, &sinkMatch, &sanitizerMatch, &traceComplete, &lineDistance,
+			&matchedFindingID,
 		)
 		if err != nil {
 			return nil, fmt.Errorf("scan case result: %w", err)
+		}
+		if matchedFindingID.Valid {
+			cr.FindingIndex = int(matchedFindingID.Int64)
 		}
 		cr.MatchDetails = &schema.MatchDetails{
 			SourceMatch:    sourceMatch == 1,

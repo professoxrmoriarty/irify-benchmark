@@ -1,37 +1,35 @@
-import { Routes, Route, NavLink } from 'react-router-dom'
-import { Dashboard } from './pages/Dashboard'
-import { ProjectExplorer } from './pages/ProjectExplorer'
-import { ResultHistory } from './pages/ResultHistory'
-import { FindingsPage } from './pages/FindingsPage'
+import { Routes, Route } from 'react-router-dom'
+import { AppShell } from '@/design-system/AppShell'
+import { Dashboard } from '@/pages/Dashboard'
+import { ProjectExplorer } from '@/pages/ProjectExplorer'
+import { ResultHistory } from '@/pages/ResultHistory'
+import DiagnosisOverview from '@/pages/DiagnosisOverview'
+import CaseList from '@/pages/CaseList'
+import { CaseDetail } from '@/pages/CaseDetail'
+import { FindingsPage } from '@/pages/FindingsPage'
+import ReviewQueue from '@/pages/ReviewQueue'
+import { RuleFeedbackBoard } from '@/pages/RuleFeedbackBoard'
+import RuleReview from '@/pages/RuleReview'
+import { AIIntake } from '@/pages/AIIntake'
+import { AgentLoop } from '@/pages/AgentLoop'
 
-import ReviewQueue from './pages/ReviewQueue'
-import CaseList from './pages/CaseList'
-
-function App() {
+export default function App() {
   return (
-    <div>
-      <nav className="navbar">
-        <div className="nav-brand">IRify Benchmark</div>
-        <ul className="nav-links">
-          <li><NavLink to="/" end>Projects</NavLink></li>
-          <li><NavLink to="/cases">Cases</NavLink></li>
-          <li><NavLink to="/review">Review</NavLink></li>
-          <li><NavLink to="/results">Results</NavLink></li>
-        </ul>
-      </nav>
-      <main>
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/project/:id" element={<ProjectExplorer />} />
-          <Route path="/cases" element={<CaseList />} />
-          <Route path="/review" element={<ReviewQueue />} />
-          <Route path="/results" element={<ResultHistory />} />
-          <Route path="/project/:id/results" element={<ResultHistory />} />
-          <Route path="/project/:id/results/scan" element={<FindingsPage />} />
-        </Routes>
-      </main>
-    </div>
+    <Routes>
+      <Route path="/" element={<AppShell />}>
+        <Route index element={<Dashboard />} />
+        <Route path="projects" element={<ProjectExplorer />} />
+        <Route path="history" element={<ResultHistory />} />
+        <Route path="diagnosis" element={<DiagnosisOverview />} />
+        <Route path="cases" element={<CaseList />} />
+        <Route path="cases/:id" element={<CaseDetail />} />
+        <Route path="findings" element={<FindingsPage />} />
+        <Route path="review" element={<ReviewQueue />} />
+        <Route path="rule-feedback" element={<RuleFeedbackBoard />} />
+        <Route path="rule-review" element={<RuleReview />} />
+        <Route path="ai" element={<AIIntake />} />
+        <Route path="agent" element={<AgentLoop />} />
+      </Route>
+    </Routes>
   )
 }
-
-export default App

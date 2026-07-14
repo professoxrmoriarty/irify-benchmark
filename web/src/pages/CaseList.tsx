@@ -1,153 +1,73 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { listCases, listProjects } from '../api/client'
-import type { CaseWithProject, Project } from '../types'
+import { PageShell } from '@/design-system/PageShell'
+import { LoadingState } from '@/design-system/LoadingState'
+import { ErrorState } from '@/design-system/ErrorState'
+import { FilterBar } from '@/components/FilterBar'
+import { StatusBadge } from '@/design-system/StatusBadge'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { listCases } from '@/api/client'
+import type { CaseWithProject } from '@/types'
+import { Plus } from 'lucide-react'
 
-function CaseList() {
+export default function CaseList() {
+  const navigate = useNavigate()
   const [cases, setCases] = useState<CaseWithProject[]>([])
-  const [projects, setProjects] = useState<Project[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [filter, setFilter] = useState('')
 
-  // Filter states
-  const [projectId, setProjectId] = useState('')
-  const [keyword, setKeyword] = useState('')
-  const [cwe, setCwe] = useState('')
-  const [language, setLanguage] = useState('')
-  const [tag, setTag] = useState('')
-
-  const navigate = useNavigate()
-
-  // Load projects for filter dropdown
   useEffect(() => {
-    listProjects()
-      .then((data) => setProjects(data || []))
-      .catch(() => setProjects([]))
+    listCases()
+      .then((data) => setCases(data.cases))
+      .catch((err) => setError(errorMessage(err)))
+      .finally(() => setLoading(false))
   }, [])
 
-  // Load cases with filters
-  useEffect(() => {
-    setLoading(true)
-    listCases(projectId || undefined, keyword || undefined, cwe || undefined, language || undefined, tag || undefined)
-      .then((data) => {
-        setCases(data.cases || [])
-        setError(null)
-      })
-      .catch((err) => {
-        setError(err instanceof Error ? err.message : String(err))
-        setCases([])
-      })
-      .finally(() => setLoading(false))
-  }, [projectId, keyword, cwe, language, tag])
-
-  // Derive unique filter options from loaded data
-  const cweOptions = useMemo(() => {
-    const set = new Set<string>()
-    cases.forEach((c) => {
-      if (c.metadata?.cwe) set.add(c.metadata.cwe)
-    })
-    return Array.from(set).sort()
-  }, [cases])
-
-  const langOptions = useMemo(() => {
-    const set = new Set<string>()
-    cases.forEach((c) => {
-      if (c.language) set.add(c.language)
-    })
-    return Array.from(set).sort()
-  }, [cases])
-
-  const tagOptions = useMemo(() => {
-    const set = new Set<string>()
-    cases.forEach((c) => {
-      c.metadata?.tags?.forEach((t) => set.add(t))
-    })
-    return Array.from(set).sort()
-  }, [cases])
-
-  const handleRowClick = (projectId: string, caseId: string) => {
-    navigate(`/project/${encodeURIComponent(projectId)}?case=${encodeURIComponent(caseId)}`)
-  }
-
-  if (loading && cases.length === 0) return <p>Loading...</p>
-  if (error) return <p className="badge badge-fn">Error: {error}</p>
+  const filtered = cases.filter((c) => c.name?.toLowerCase().includes(filter.toLowerCase()))
 
   return (
-    <div>
-      <h1>Cases</h1>
-
-      <div className="filters">
-        <select value={projectId} onChange={(e) => setProjectId(e.target.value)}>
-          <option value="">All Projects</option>
-          {projects.map((p) => (
-            <option key={p.project_id} value={p.project_id}>{p.name}</option>
-          ))}
-        </select>
-
-        <input
-          type="text"
-          placeholder="Search ID / Name / Description..."
-          value={keyword}
-          onChange={(e) => setKeyword(e.target.value)}
-        />
-
-        <select value={cwe} onChange={(e) => setCwe(e.target.value)}>
-          <option value="">All CWEs</option>
-          {cweOptions.map((c) => (
-            <option key={c} value={c}>{c}</option>
-          ))}
-        </select>
-
-        <select value={language} onChange={(e) => setLanguage(e.target.value)}>
-          <option value="">All Languages</option>
-          {langOptions.map((l) => (
-            <option key={l} value={l}>{l}</option>
-          ))}
-        </select>
-
-        <select value={tag} onChange={(e) => setTag(e.target.value)}>
-          <option value="">All Tags</option>
-          {tagOptions.map((t) => (
-            <option key={t} value={t}>{t}</option>
-          ))}
-        </select>
+    <PageShell
+      title="用例"
+      actions={
+        <Button>
+          <Plus className="mr-1 h-4 w-4" aria-hidden="true" /> 新增
+        </Button>
+      }
+    >
+      <div className="space-y-4">
+        <FilterBar value={filter} onChange={setFilter} placeholder="搜索用例" />
+        {loading && <LoadingState />}
+        {error && <ErrorState message={error} />}
+        {!loading && !error && (
+          <div className="space-y-3">
+            {filtered.map((c) => (
+              <Card
+                key={c.case_id}
+                className="cursor-pointer transition-shadow hover:shadow-md"
+                onClick={() => navigate(`/cases/${c.case_id}`)}
+              >
+                <CardHeader>
+                  <div className="flex items-center justify-between">
+                    <CardTitle className="text-base font-medium">{c.name}</CardTitle>
+                    <StatusBadge status={c.expectation ? 'success' : 'warning'} />
+                  </div>
+                </CardHeader>
+                <CardContent className="flex gap-2 text-xs text-text-muted">
+                  <span>{c.language}</span>
+                  <span>·</span>
+                  <span>{c.project?.name}</span>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        )}
       </div>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Case ID</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Project</th>
-            <th>Language</th>
-            <th>CWE</th>
-            <th>Tags</th>
-          </tr>
-        </thead>
-        <tbody>
-          {cases.map((c) => (
-            <tr
-              key={`${c.project?.project_id || ''}-${c.case_id}`}
-              className="clickable-row"
-              onClick={() => handleRowClick(c.project?.project_id || '', c.case_id)}
-            >
-              <td>{c.case_id}</td>
-              <td>{c.name || '-'}</td>
-              <td>{c.description || '-'}</td>
-              <td>{c.project?.name || c.project?.project_id || '-'}</td>
-              <td>{c.language || '-'}</td>
-              <td>{c.metadata?.cwe || '-'}</td>
-              <td>{c.metadata?.tags?.join(', ') || '-'}</td>
-            </tr>
-          ))}
-          {cases.length === 0 && (
-            <tr><td colSpan={7}>No cases found</td></tr>
-          )}
-        </tbody>
-      </table>
-    </div>
+    </PageShell>
   )
 }
 
-export default CaseList
+function errorMessage(err: unknown) {
+  return err instanceof Error ? err.message : String(err)
+}

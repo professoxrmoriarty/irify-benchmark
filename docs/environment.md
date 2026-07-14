@@ -47,6 +47,8 @@ npm run build      # Production build → dist/
 npm run preview    # Preview production build
 ```
 
+> **SPA Fallback**: The app uses `BrowserRouter`. If you get 404 on direct access to deep routes (e.g. `/project/:id/results`), ensure `historyApiFallback: true` is set in `vite.config.ts` under `server`.
+
 ### Frontend API Configuration
 
 `web/src/config.ts`:

@@ -29,7 +29,7 @@ func SavePendingQueue(st store.Store, q *schema.PendingQueue) error {
 func AddItem(q *schema.PendingQueue, item schema.PendingItem) error {
 	for _, existing := range q.Items {
 		if existing.ItemID == item.ItemID {
-			return fmt.Errorf("item with ID %q already exists in queue", item.ItemID)
+			return nil
 		}
 	}
 	q.Items = append(q.Items, item)
