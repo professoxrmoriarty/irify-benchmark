@@ -36,7 +36,7 @@ def parse_summary(lines: list[str]) -> dict[str, Any]:
     name_match = re.search(r"源代码名称：([^\n]+)", text)
     if name_match:
         summary["project_name"] = name_match.group(1).strip()
-    for label, key in [("高危", "high"), ("中危", "medium"), ("低危", "low")]:
+    for label, key in [("High", "high"), ("Medium", "medium"), ("Low", "low")]:
         match = re.search(rf"{label}\n([0-9,]+)", text)
         if match:
             summary["counts"][key] = int(match.group(1).replace(",", ""))

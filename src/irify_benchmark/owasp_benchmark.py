@@ -118,7 +118,7 @@ CATEGORY_RULE_PATTERNS = {
     "xss": (
         "xss",
         "cross-site scripting",
-        "跨站脚本",
+        "XSS",
         "response body xss",
         "template xss",
         "servlet xss",

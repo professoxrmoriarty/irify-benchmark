@@ -10,19 +10,19 @@ import yaml
 
 
 SEVERITY_ALIASES = {
-    "严重": "critical",
+    "Critical": "critical",
     "Critical": "critical",
     "critical": "critical",
-    "高危": "high",
+    "High": "high",
     "High": "high",
     "high": "high",
-    "中危": "medium",
+    "Medium": "medium",
     "Medium": "medium",
     "medium": "medium",
-    "低危": "low",
+    "Low": "low",
     "Low": "low",
     "low": "low",
-    "信息": "info",
+    "Info": "info",
     "Info": "info",
     "info": "info",
 }

@@ -66,7 +66,7 @@ PENDING_REVIEW_NOISE_RULE_PATTERNS = (
     r"insecure randomness",
     r"拒绝服务[:：]?\s*stringbuilder",
     r"denial of service",
-    r"跨站请求伪造",
+    r"CSRF",
     r"cross-site request forgery",
 )
 PENDING_REVIEW_THIRD_PARTY_PATH_PATTERNS = (
@@ -102,7 +102,7 @@ PENDING_REVIEW_OWASP_CATEGORY_PATTERNS: dict[str, tuple[str, ...]] = {
         r"命令注入",
         r"command injection",
         r"\bxss\b",
-        r"跨站脚本",
+        r"XSS",
         r"xpath",
         r"spel",
         r"ssti",
@@ -153,7 +153,7 @@ PENDING_REVIEW_OWASP_CATEGORY_PATTERNS: dict[str, tuple[str, ...]] = {
     ),
     "A10 Server-Side Request Forgery": (
         r"ssrf",
-        r"服务端请求伪造",
+        r"SSRF",
     ),
 }
 PENDING_REVIEW_PRIORITY_RANK = {"high": 2, "medium": 1}

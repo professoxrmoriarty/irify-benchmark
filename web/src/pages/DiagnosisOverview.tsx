@@ -24,7 +24,7 @@ const statusMap: Record<string, 'success' | 'warning' | 'danger' | 'neutral'> = 
 
 const labelMap: Record<string, string> = {
   false_negative: '漏报',
-  false_positive: '误报',
+  false_positive: 'False Positive',
   rule_defect: '规则缺陷',
   data_issue: '数据问题',
 }

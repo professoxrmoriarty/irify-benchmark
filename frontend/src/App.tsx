@@ -1105,8 +1105,8 @@ function statusTone(status: string) {
 
 function severityTone(severity: string) {
   const lowered = severity.toLowerCase();
-  if (['critical', 'high', '严重', '高危'].includes(lowered)) return 'danger';
-  if (['medium', '中危'].includes(lowered)) return 'warn';
+  if (['critical', 'high', 'Critical', 'High'].includes(lowered)) return 'danger';
+  if (['medium', 'Medium'].includes(lowered)) return 'warn';
   return 'neutral';
 }
 

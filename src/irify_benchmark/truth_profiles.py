@@ -7,7 +7,7 @@ FAMILY_PROFILES: dict[str, dict[str, Any]] = {
     "sql_injection": {
         "rule_type": "SQL Injection",
         "aliases": [
-            "SQL注入",
+            "SQL Injection",
             "SQL Injection",
             "检测 Java SQL 语句拼接漏洞",
             "检测Java SQL注入漏洞",
@@ -144,7 +144,7 @@ FAMILY_PROFILES: dict[str, dict[str, Any]] = {
         "rule_type": "SSRF",
         "aliases": [
             "SSRF",
-            "服务端请求伪造",
+            "SSRF",
             "检测Java SSRF漏洞",
         ],
         "rule_selectors": ["cwe-918-ssrf", "ssrf"],
@@ -189,7 +189,7 @@ FAMILY_PROFILES: dict[str, dict[str, Any]] = {
         "aliases": [
             "Cross-Site Request Forgery",
             "CSRF",
-            "跨站请求伪造",
+            "CSRF",
         ],
         "rule_selectors": ["cwe-352-csrf", "csrf"],
         "sink_patterns": ["csrf", "transfer", "change", "session"],

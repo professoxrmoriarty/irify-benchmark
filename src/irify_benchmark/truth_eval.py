@@ -9,7 +9,7 @@ from .utils import read_yaml, write_json
 
 TOOL_KEYS = ["fortify", "code_guard", "irify"]
 ALERT_STATUSES = {"hit_exact", "hit_downgraded", "warning_matched", "warning_overstated", "advisory_noise", "severe_false_positive", "hit_unknown"}
-HIGH_SEVERITY = {"critical", "high", "严重", "高危"}
+HIGH_SEVERITY = {"critical", "high", "Critical", "High"}
 
 
 def evaluate_truth(path: Path) -> dict[str, Any]:
